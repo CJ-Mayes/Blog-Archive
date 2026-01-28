@@ -130,12 +130,74 @@
             text-decoration-color: #212529;
         }
         footer {
-            text-align: center;
-            padding: 40px 20px;
+            position: relative;
+            min-height: 240px;
+            overflow: hidden;
             margin-top: 60px;
             border-top: 1px solid #e9ecef;
-            color: #6c757d;
-            font-size: 14px;
+        }
+        .footer-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 240px;
+            padding: 3rem 1.25rem;
+            width: 100%;
+        }
+        .footer-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-inner {
+            width: 100%;
+            padding: 2.5rem;
+            text-align: center;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .footer-logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .footer-logo {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            display: block;
+        }
+        .footer-heading {
+            margin-top: 0.75rem;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: center;
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+        .footer-description {
+            margin: 0.5rem auto 0;
+            font-size: 1rem;
+            text-align: center;
+            color: #6b7280;
+            max-width: 28rem;
+            margin-bottom: 1rem;
+        }
+        .copyright-text {
+            color: #222222;
+            text-align: center;
+            font-size: 0.9rem;
+            margin: 1.5rem 0 0 0;
+            font-weight: 400;
         }
         .post-list {
             list-style: none;
@@ -179,6 +241,27 @@
             header h1 {
                 font-size: 24px;
             }
+            .footer {
+                min-height: 180px;
+            }
+            .footer-content {
+                min-height: 180px;
+                padding: 2rem 1rem;
+            }
+            .footer-inner {
+                padding: 1.5rem;
+                min-height: auto;
+            }
+            .footer-heading {
+                text-align: center !important;
+            }
+            .footer-description {
+                text-align: center !important;
+            }
+            .copyright-text {
+                font-size: 0.8rem;
+                padding: 0 1rem;
+            }
         }
     </style>
 </head>
@@ -215,8 +298,19 @@
         </main>
     </div>
     
-    <footer>
-        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-container">
+                <div class="footer-inner">
+                    <div class="footer-logo-container">
+                        <!-- Logo can be added here if available -->
+                    </div>
+                    <h3 class="footer-heading">CJ Mayes</h3>
+                    <p class="footer-description">The harder I work, the luckier I get</p>
+                    <p class="copyright-text">CJ Mayes © 2026</p>
+                </div>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
