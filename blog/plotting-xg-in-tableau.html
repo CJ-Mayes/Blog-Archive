@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plotting xG in Tableau - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Plotting xG in Tableau</h1>Hi all,
+
+Today we are going to be revisiting some of the content I wrote last year based on expected goals in football, or soccer depending where you are in the world.
+
+In this <strong><a href="../2021/05/07/just-starting-out-with-understat/">blog</a></strong>, I specifically look at a python package that helped me retrieve all the shots taken in a league for a specific year. To build a catalog of data for the whole season really was a dream.
+
+What I've noticed over the years are alot of analysts will tend to make all their shot charts and summary dashboards for football using python or R. Something I have no problem with. However I want to give users the ability to chart as many of the charts also in Tableau.
+
+One of these charts is showcasing the cumulative xG (Expected Goals) over the duration of a match. In short, a line graph! (lol)
+
+But it may not be as simple as you first suspect.
+
+This tutorial will talk through collecting the stats needed for a game and then how best to emulate the visuals seen on the Understat website.
+
+Where to begin?
+
+Well I had the pain of watching my team lose 3-1 to Arsenal. We can take a look at how that game played out <a href="https://understat.com/match/18362">here.</a>
+
+<img class="alignnone wp-image-5411 size-large" src="../uploads/2023/02/Capture-1024x411.png" alt="" width="580" height="233" />
+
+We can see over the course of the game West Ham had an early chance that they capitalised on. Since that goal, they really didn't have many chances to score more.
+
+Arsenal had a few chances in the first half, but started having more dominant goal scoring opportunities in the second half.
+
+So how can we get this data?
+
+Well, the code is attached at the top of the page. Usually I would use the python package, but i've amended what was originally Mckay Johns code to pull out the xG components we need using BeautifulSoup.
+
+<img class="alignnone wp-image-5414 size-full" src="../uploads/2023/02/carbon-2.png" alt="" width="2048" height="4432" />
+
+Once again, I can't take any credit for Mckays code but would recommend it for those wanting to access some of the key components from the site. You'll notice I added a few extra columns to the original code from <a href="https://github.com/mckayjohns/youtube-videos/tree/main/code"><strong>here.</strong></a>
+
+A few things I'd say is
+<ul>
+ 	<li>Make sure you install all the packages you need. A common error is not installing the lxml parser.</li>
+ 	<li>If you add more attributes, make sure you clarify if its home or away and what list you want to append the value to.</li>
+ 	<li>You can amend the match event to whatever match you are after, why not even try to loop through a teams for the whole season?</li>
+ 	<li>Each game has its own unique match_id, the one we are looking at is https://understat.com/match/18362</li>
+</ul>
+A copy of the Arsenal - West Ham game can be found in the repository.
+
+On to the visual.
+
+So, you will see that the xG is cumulative across the match. Currently our dataset contains the xG of each event of the game, it will also have the minute of that event.
+
+<img class="alignnone wp-image-5417 size-large" src="../uploads/2023/02/Capture1-1024x552.png" alt="" width="580" height="313" />
+
+With a normal line graph it will connect all the points. We can add in a second axis with our marks and drag result onto shape to highlight the goals. When we calculate along the axis we have to make sure we don't have the team box ticked.
+
+But is this a reflection of what we see on Understat?
+
+<img class="alignnone wp-image-5411 size-large" src="../uploads/2023/02/Capture-1024x411.png" alt="" width="580" height="233" />
+
+Not in it's entirety no. This is because we are joining the points up of the marks we do have. On understat, the increase in xG is based on specific minute events.
+
+This means we will need to create a minute per minute analysis. One method we could do is join in a new dataset of every single minute of the game.
+
+That, or we can create bins!
+
+Right click on minute and create a bin. Make the bin size 1 (i.e a bin for every minute of the game)
+
+We can now drag our discrete minute bin onto columns instead of our minutes field.
+
+This way, we only see spikes in the sum(xG) where the event happened.
+
+<img class="alignnone wp-image-5420 size-large" src="../uploads/2023/02/ARS-WHU-Bins-Chart-1024x593.png" alt="" width="580" height="336" />
+
+Much better!
+
+One final thing I've noticed is that when you go to create bins, it will do it based on your data. So in this case, it creates the bins from a minimum of 12, as that was when the first minute was.
+
+Obviously, though the game started earlier than this, so to be a true representation of the data we want the 1 minute mark in the data, (and perhaps a 90 minute, or longer if added time)
+
+One way to get around this is to add in two extra rows into the dataset.
+
+<img class="alignnone wp-image-5423 size-full" src="../uploads/2023/02/data.png" alt="" width="821" height="582" />
+
+Now when you go to create your bins, the minimum and maximum value will change.
+
+<img class="alignnone wp-image-5424 size-full" src="../uploads/2023/02/NewBins.png" alt="" width="411" height="237" />
+
+This allows you to be able to plot the full game.
+
+BUT, there is a way to avoid having to do this if <strong>we use a continuous minute bin!</strong>
+
+After asking around a little, Val helped me with a solution that doesn't need the additional rows of data. Below is the better option.
+
+You can keep the minute bin as continuous but change the path to the second option on the path list.
+
+<img class="alignnone wp-image-5430 size-full" src="../uploads/2023/02/CaptureNew.png" alt="" width="238" height="475" />
+
+What you will notice in the difference of having the minutes bin continuous is that it allows for more than one event to happen in the same minute. It also allows us the flexibility in being able to set our axis to zero without the need for amending the data.
+
+<img class="alignnone wp-image-5433 size-full" src="../uploads/2023/02/CaptureBins.png" alt="" width="986" height="792" />
+
+I've left both sheets in to compare!
+
+Feel free to download the workbook off Tableau Public from the top of the page if you get stuck.
+
+Thanks for reading.
+
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

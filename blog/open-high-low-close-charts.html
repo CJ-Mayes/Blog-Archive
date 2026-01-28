@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open-High-Low-Close Charts - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Open-High-Low-Close Charts</h1>Hi all,
+
+One for the "Finance Bros" this week. Only joking, but we will look to create different variations on the open high low close charts that are very popular, especially when looking at stock market variations.
+
+<img src="../uploads/2024/05/OHLC-Charts.png" class="alignnone size-full wp-image-7909" alt="" width="1000" height="800">
+
+These charts are all fairly simple to make - so will leave technical run-throughs for the more complex chart types.
+
+This piece will be mainly a written chat around the different chart types and the design, as with all my workbooks - they workbooks are downloadable* so they should be easy enough to reverse! <em>(*with the exception of paid work examples)&nbsp;</em>Just click the tableau button under the header to be directed to the free visual.
+
+Before we start please excuse the truncated axis throughout, it's simply so you can see the clear chart style throughout.
+
+First up, if you want to create any type of stock or market type graph, google finance is your best friend. For these examples I quickly just took the example
+
+<img src="../uploads/2024/05/OHLCCapture.png" class="alignnone size-full wp-image-7907" alt="" width="741" height="293">
+
+The documentation for this you can find <strong><a href="https://support.google.com/docs/answer/3093281?hl=en-GB">here. </a></strong>
+
+You will want to amend the calculation where it says price with the open, close, high and low text.
+
+There are four variations we will look to chat about today, as seen above.
+
+Top Left is the <strong>candlestick chart.</strong>
+
+Top right is a chart that looks at <strong>open and close with a running average line.</strong>
+
+Bottom left is a <strong>anchor chart.</strong>
+
+Bottom right I couldn't find an official name for so I am just going to call it the <strong>standard OHLC chart.</strong>
+
+Lets start with the most popular of these the candlestick chart.
+
+<img src="../uploads/2024/05/candlestick.png" class="alignnone size-full wp-image-7911" alt="" width="1506" height="1271">
+
+So I will start by saying this is my favourite variation in Tableau to build. The reason being is, we don't need any "shapes". The chart above will show the high and low for the stock through the use of the grey line. Just think min and max during a day.
+
+The red or green gantt overlay is looking at whether it is falling or rising between its opening and close price. (A stock will change consistently in price over the course of a day remember)
+
+For me this is the clearest way of showing fluctuations or swings throughout a day as well as seeing the net positive or negative change each day.
+
+Only a few calculations are needed due to the use of the gantt marks. Two spread calculations one for the difference between the high and low, and another calculation for the spread between open and close. Then it is a simple dual axis with some amendments to size/
+
+Which brings me onto example 2.
+
+Adding in a reference line.
+
+<img src="../uploads/2024/05/Rolling.png" class="alignnone size-full wp-image-7915" alt="" width="1438" height="1263">
+
+If you download the workbook you will see I put in a rolling average of 7 days (usually I suspect you would do this over a longer period but I only am showing a few days of data as it is)
+
+I quite like this additional touch to show general trend which you don't get with the previous chart, but to make it as simple as possible it meant that I had to remove one of my dual axis from the previous chart so can't also overlay the low &amp; high of the day. Trying to keep this as simple as possible so map layers weren't an option.
+
+Theoretically you could add this context back in with a reference band but I'm not sure if its overkill or not. I'll let you be the decider.
+
+<img src="../uploads/2024/05/RefCapture.png" class="alignnone size-full wp-image-7917" alt="" width="1454" height="1264">
+
+Moving on in order of favourite ways of designing these charts we have the Anchor chart. I don't see too many of these on Tableau, probably because of the popularity of the candlestick chart.
+
+<img src="../uploads/2024/05/Anchor.png" class="alignnone size-full wp-image-7919" alt="" width="1443" height="1261">
+
+Each symbol or ‘anchor’ represents a trading session.
+
+The vertical line through the middle represents the highest price from the top (or starting) position, while the bottom (or end) represents the lowest price.
+
+The short, horizontal line marker indicates the open price, while the arrowhead marks the close price.
+
+I think the good thing going for it is the love for arrows. Arrows give clear direction and signage, and you theoretically wouldn't need the color to know what is going on (even though it does help!)
+
+The only real negative with this chart is probably the way I built it for simplicity sake. I think it would be better to have more flexibility in being able to edit the arrow heads (currently they are shapes and I just don't think they come out well, both in size shape and definition), same with the line for the opening price. I think if we were to redesign this in a more technical way we could get some better results using actual lines.
+
+Now the last example I came across from the Data Viz Catalog. You can read about the chart <strong><a href="https://datavizcatalogue.com/methods/OHLC_chart.html">here.</a></strong>
+
+<img src="../uploads/2024/05/DVC.png" class="alignnone size-full wp-image-7922" alt="" width="776" height="388">
+
+On each single time period, an OHLC Chart plots a symbol that represents two ranges: the highest and lowest prices traded, and also the opening and closing price on that single time period (for example in a day). On the range symbol, the high and low price ranges are represented by the length of the main vertical line. The open and close prices are represented by the vertical positioning of tick-marks that appear on the left (representing the open price) and on right (representing the close price) sides of the high-low vertical line. Here is it in Tableau.
+
+<img src="../uploads/2024/05/OHLC.png" class="alignnone size-full wp-image-7924" alt="" width="1447" height="1262">
+
+To be able to create this chart, again you need two shape files slightly offset from the middle to be able to appear to the right and the left of the chart based on opening and close. See if I change the mark back to a circle you'll notice that the marks aren't <em>actually&nbsp;</em>offset, it is the custom shape file.
+
+<img src="../uploads/2024/05/circle.png" class="alignnone size-full wp-image-7926" alt="" width="1442" height="1275">
+
+Again whilst I like the simplicity to this chart - the idea of having to use a shape file ruin it for me a little.
+
+So there are 4 ways that you can create custom finance charts geared towards stock prices.
+
+Let me know what variation you think works best, and whether there any other alternative chart types important to take into consideration.
+
+Speak soon,
+
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

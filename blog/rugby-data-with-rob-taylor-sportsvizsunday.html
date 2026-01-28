@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rugby Data With Rob Taylor #SportsVizSunday - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Rugby Data With Rob Taylor #SportsVizSunday</h1>Hi all,
+
+We have another guest blog this week. Rob Taylor joins to chat all things sports, with a focus on some rugby data. Hope you enjoy the convo!
+
+<img class="alignnone size-full wp-image-7992" src="../uploads/2024/05/RT.png" alt="" width="1530" height="905" />
+
+<strong>CJ: Rob, thanks for joining. I am so pleased to have a #SportsVizSunday regular join the blog today. For those who don’t know, do you want to share a little bit about your journey at LNER &amp; JLL, and where your interest in data started?</strong>
+
+<span style="font-weight: 400;">RT: Thanks CJ, it’s a real pleasure to be invited on to the blog so thanks for having me! I’ve always been interested in numbers, I’m a very methodical person and love problem solving, numbers just make sense to me. But I also have a real creative passion too. In a former life I used to paint pop art style paintings of high profile rugby players that would be sold off at charity auctions.</span>
+
+<span style="font-weight: 400;">I started my analytics career over 16 years ago in excel, automating data processes with macros and VBA. Being able to speed processes up and get to answers quickly was fantastic and I loved doing it. During my time with London North Eastern Railway, LNER, I was instrumental in how they transformed and used their data. We got Tableau and Alteryx and that’s when I knew what I wanted to do and my career path really took off. Building out all sorts of ETL processes to manipulate data so that we could use it in Tableau ticked the methodical part of my brain, then creating really interactive and insightful dashboards the business could use ticked the creative side.</span>
+
+<span style="font-weight: 400;">About a year ago a colleague, <strong>Danny Bradley</strong>, introduced me to the datafam and I realised there was this whole bigger world outside of LNER. I was amazed what other people were building and what they could do with the tool. I wanted to be part of that. My recent move to JLL gave me the opportunity to work for a big business and stretch my skills, whilst also getting to work alongside so many of the datafam community I’d come across in the last year. There are so many opportunities for learning and skill growth I can’t wait to see where it takes me.</span>
+
+<strong>CJ: You are a big rugby fan. I particularly remember your <a href="https://public.tableau.com/app/profile/rob.taylor6175/viz/UpnUnders-TheHarlequinsStory/UpnUnders-TheHarlequinsStory"><span style="text-decoration: underline;">Ironviz entry</span></a> on the love for Harlequins, as well as a shortform visual on the comeback quins. I particularly love the Comeback quins visual way of showcasing the shortfall of 28 points to then going all square before the final whistle. Can you tell us a little more why you felt this was the best representation of the match data?</strong>
+
+<img class="alignnone size-full wp-image-7980" src="../uploads/2024/05/Up-n-Unders-The-Harlequins-Story.png" alt="" width="1499" height="4899" />
+
+<span style="font-weight: 400;">RT: Yeah rugby has been part of my life since I was 6 or 7. I have played it since then and watch as much as my wife lets me!</span>
+
+<span style="font-weight: 400;">Like most sport, in rugby not all games are thrillers, however with this one in particular the way the game panned out it was such a gripping game. After 29 minutes and being 28 points down most people would think it was a done deal. For me that was when the story really started. That was why I thought this chart worked so well. Using the horizontal divider for each team was a conscious decision, which I thought really highlighted how big the points gap got. The beauty of doing it this way and also colour coding the areas also gave me the opportunity to show just how much of the match Bristol were ahead for. There was only a short period of time in the initial 80 minutes where Bristol weren’t winning, 3 minutes!! Then again in the 20 minutes of extra time Bristol led for 16 before Harlequins clinched the win. I can only imagine what the atmosphere change must have been like in that stadium between the two sets of fans and that was what I was trying to represent.</span>
+
+<strong>CJ: For other rugby fans, what are your go-to data sources? How much data prep would you have to put into a piece such as your scores and stats tracker that received <a href="https://public.tableau.com/app/profile/rob.taylor6175/viz/RugbyWorldCup2023/RWC2023"><span style="text-decoration: underline;">VOTD</span></a>? Was this something you automated as the tournament was on?</strong>
+
+<img class="alignnone size-full wp-image-7981" src="../uploads/2024/05/RWC-2023.png" alt="" width="1199" height="2499" />
+
+<span style="font-weight: 400;">RT: For me it can be anything from a properly collated data source that I find like <strong>rugby.statbunker.com</strong> to just websites that I come across that are based on tournaments or competitions. This was particularly the case with the World Cup one. I came across a website that had all the information that I needed and was almost updated in real time.</span>
+
+<span style="font-weight: 400;">This for me is where the data prep comes in and my love of problem solving. My go to tool is Alteryx. From the first time I used it I was blown away with its capabilities and ease of use. Much like Tableau there is a great community out there where much cleverer people than me have done some amazing things. I used it to build out a workflow that would scrape all the different parts of the website I needed and collate it all together in a friendly Tableau building format. The initial build took a bit of time but  it was on purpose so that it was future proof. The beauty of this was that as soon as each game ended I could run my workflow and update my dataset and refresh my dashboard. I think it only needed a few small tweaks as the tournament went on because of the initial time investment.</span>
+
+<span style="font-weight: 400;">I watched a lot of the games and the data geek in me couldn’t help running the workflow straight after to see what the stats showed and how it compared to how I saw the game.</span>
+
+<span style="font-weight: 400;">Here are a few snippets of the workflow I used. The first part involves me getting the URL’s for all the individual games. This was initially scraped from the landing page on the website and combined in to a list so I was future proofed for when new games happened.</span>
+
+<img class="alignnone size-full wp-image-7983" src="../uploads/2024/05/Alteryx1.png" alt="" width="556" height="570" />
+
+<span style="font-weight: 400;">Once I had those I could put them through the download tool and start parsing out just the data I wanted to visualise. I did that mainly using the Parse tool and text to columns, then a few different calculations to focus on the number I wanted to get. In this case how many carries each player had in each game.</span>
+
+<img class="alignnone size-full wp-image-7984" src="../uploads/2024/05/carries.png" alt="" width="621" height="393" />
+
+<span style="font-weight: 400;">This was repeated for all the different metrics and then unioned back together with a Player details list I also scraped to combine all the data in one file.</span>
+
+<img class="alignnone size-full wp-image-7985" src="../uploads/2024/05/player_list.png" alt="" width="616" height="586" />
+
+<span style="font-weight: 400;">Finally I did something similar with the actual Match data to combine it all together in one easy to use file so I could plot the game info on the dashboard.</span>
+
+<img class="alignnone size-full wp-image-7987" src="../uploads/2024/05/finalwf.png" alt="" width="626" height="239" />CJ: Rob has kindly shared the workflow with us, and is downloadable at the top of the page from the git repository.
+
+<strong>CJ: Is there anyone in the community that particularly inspires your work? Where do you look to for sports analytics inspiration?</strong>
+
+<span style="font-weight: 400;">RT: You mentioned #SportsVizSunday at the start, which I found early on and loved it. There are so many great people contributing there with their own different styles about lots of different sports. <a href="https://public.tableau.com/app/profile/bo.mccready8742/viz/Clarkvs_ReeseintheNCAAWomensBasketballTournament4_1_24/ClarkReese"><strong>Bo McCready’s</strong></a> Vizzes always looks like a piece of art which I love, <a href="https://public.tableau.com/app/profile/mo.wootten/viz/2023WomensWorldCupBall/2023WomensWorldCup"><strong>Mo Wootten’s World Cup family tree</strong></a> really made me want to reverse engineer it and work out how he did it and I also love <strong><a href="https://public.tableau.com/app/profile/ben.norland/viz/WinningLosingInTheNFL/SeasonRecords">Ben Norland’</a>s</strong> style of Vizzes. I’ve definitely recreated quite a few of the things he has done. His techniques are so unique.</span>
+
+<span style="font-weight: 400;"> <img class="alignnone size-full wp-image-7989" src="../uploads/2024/05/2023-Womens-World-Cup.png" alt="" width="1499" height="1499" /></span>
+
+<span style="font-weight: 400;">Outside of sport I love movies too so<a href="https://public.tableau.com/app/profile/zach.bowders/viz/JohnWickTrilogy_16497885906130/JWT"><strong> Zach Bowders</strong></a> Vizzes are right up my street. I’ve also spent a lot of time looking at #IronViz champion <a href="https://public.tableau.com/app/profile/westlake.cjw/viz/QuinsSquaresViz/Quins"><strong>Chris Westlakes</strong></a> stuff and also <a href="https://public.tableau.com/app/profile/ant.pulley/viz/PlymouthArgyleandEverton-202223/PlymouthandEverton-ATaleofTwoSeasons"><strong>Ant Pulley</strong></a>, I still don’t know how he makes some of his dashboards do what they do!</span>
+
+<span style="font-weight: 400;">There are so many great people out there though I find it hard to narrow it down. I actually made a Christmas advent calendar last year too. That was a little nod to a lot of the people who had inspired me to get better.</span>
+
+<strong>CJ: You have two wonderful <span style="text-decoration: underline;"><a href="https://public.tableau.com/app/profile/rob.taylor6175/viz/FPL_16869888926150/MyFPLJourney">FPL visuals</a></span>, one on <span style="text-decoration: underline;"><a href="https://public.tableau.com/app/profile/rob.taylor6175/viz/FPLDraftIncluders/FPLDraftIncluders">draft selections</a> </span>another based on your own data. For someone looking to do their own analysis what are the best steps to being able to create analysis to the detail level you’ve gone through?</strong>
+
+<img class="alignnone size-full wp-image-7991" src="../uploads/2024/05/My-FPL-Journey.png" alt="" width="1399" height="2999" />
+
+<span style="font-weight: 400;">RT: Yeah FPL is a great competition. I only really got into it to try and beat my really keen football friends. The beauty of that was that I wasn’t swayed by any underlying loyalties and was happy picking players they sometimes wouldn’t purely on what the data was telling me.</span>
+
+<span style="font-weight: 400;">It’s a great resource for data. They have huge amounts of data and a load of API’s to go with it too. This makes it super easy to pull your own data. On top of that there are Alteryx workflows already built on the community for you to use with just a few simple changes.</span>
+
+<span style="font-weight: 400;">Once you have all that data the hardest bit is trying to decide what stats you want to use. I also did a viz on how our current draft league was going, but it was a bit biased to be honest and I built it to make myself look better than I was actually doing at the time, mostly to wind up my mates.</span>
+
+<strong>CJ: Your <a href="https://public.tableau.com/app/profile/rob.taylor6175/viz/NetballWorldcup2023/NetballWorldCup2023"><span style="text-decoration: underline;">Netball visual</span></a> with the Sankey is beautiful in design. Thank you for entering that #SportsVizSunday challenge. Can you talk us through the design choices? Particularly the choice of flag and use of gray color? What is it that you wanted the user to understand through it?</strong>
+
+<img class="alignnone size-full wp-image-7993" src="../uploads/2024/05/Netball-World-Cup-2023.png" alt="" width="1499" height="999" />
+
+<span style="font-weight: 400;">RT: Thanks, yeah I was particularly pleased with how that one turned out and the challenge was a fun way to use a dataset I probably wouldn’t have picked.</span>
+
+<span style="font-weight: 400;">Part of the design was me wanting to use two things I hadn’t done before; multi select parameters and a Sankey. <strong>Tristan Guillevin’s</strong> amazing tool helped me get the basic template without having to do all the painful maths. From there I then added a load of functionality with the aim of allowing the users to select any countries they were interested in. The grey scale/colour selected for each country would then really make their progress through the tournament pop out to the viewer. The choice of flags as the selection tool felt almost natural but also made it easy to get them all above the Sankey in a nice uniformed format, keeping my inner OCD happy.</span>
+
+<strong>CJ round-up: </strong>
+
+So pleased to have Rob join this week. I feel Rob's portfolio has such breadth in design, sports and also tools to help with the data transformation. I hope that passion has come across in todays conversation and once again thank you to Rob for sharing the finer details around creating an automated solution for the rugby world cup data.
+
+LOGGING OFF,
+
+CJ
+
+&nbsp;
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NHL Player Stats With Jared Flores Pt1 (Python) - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>NHL Player Stats With Jared Flores Pt1 (Python)</h1>Hi all,
+
+It's a delight to be able to welcome Jared Flores onto the blog today. Jared is in fact the first person to make multiple guest appearances on the site! Pretty good going huh. Of course, when I'm not convincing Jared to write content to host on this channel you can find him on his own <strong><a href="https://www.youtube.com/@PutSomePrepinYourStep">Youtube</a></strong>, <strong><a href="https://public.tableau.com/app/profile/jared8766">Tableau Public</a></strong>, <strong><a href="https://www.putsomeprepinyourstep.com/">website</a></strong> and <strong><a href="https://twitter.com/vizwhat?lang=en">Twitter.</a></strong>
+
+Jared will look to cover off using Tableau Prep, ChatGPT, and Python to create an interactive and in-depth Tableau Dashboard around your favorite NHL stars. The blog will be split into two sections. The first using ChatGPT to help with coding. The second will look at data cleansing and Tableau. All code and files as usual can be found through the Github link!
+
+Over to Jared for todays content.
+<p class="p1">ChatGPT has been all the buzz lately. From writing quirky jokes to negotiating lower prices with customer service chats, there have been so many use cases uncovered since it’s public release. A few months ago, I wanted to see if I could use it to assist me in writing some Python to pull data from the NHL’s public API so I could create a dashboard with the data. The process has evolved over time but the results were amazing. I’m going to show you from beginning to end what it took to create the NHL Player Stats Dashboard.</p>
+<p class="p3"><strong>ChatGPT and Python</strong></p>
+<p class="p1">The First thing I did was find the link to the NHL API: <span class="s1"><a href="https://statsapi.web.nhl.com/api/v1/configurations">https://statsapi.web.nhl.com/api/v1/configurations</a></span></p>
+<p class="p1">This link lists the main endpoints which contain various pieces of information. I started with a simple prompt:</p>
+<img src="../uploads/2023/05/Screenshot-2023-05-16-at-13.05.50.png" class="alignnone size-full wp-image-6268" alt="" width="1162" height="932">
+<p class="p1">While this wrote a general python script to request the data, ChatGPT didn’t have all the information it needed to actually pull any relevant information. I explored some of the links listed in the configurations endpoint and ended up using the following:</p>
+<p class="p1"><span class="s1"><a href="https://statsapi.web.nhl.com/api/v1/teams">https://statsapi.web.nhl.com/api/v1/teams</a></span> - This endpoint contains data about all teams</p>
+<p class="p2"><span class="s1"><a href="https://statsapi.web.nhl.com/api/v1/schedule">https://statsapi.web.nhl.com/api/v1/schedule</a></span> - This endpoint contains the schedule for a specified date range</p>
+<p class="p1"><span class="s1"><a href="https://statsapi.web.nhl.com/api/v1/people/%257bID%257d">https://statsapi.web.nhl.com/api/v1/people/{ID}</a></span> – This endpoint returns data for a specific player. You must enter their ID for valid results</p>
+<p class="p1"><span class="s1"><a href="https://statsapi.web.nhl.com/api/v1/game/%257bID%257d/feed/live">https://statsapi.web.nhl.com/api/v1/game/{ID}/feed/live</a></span> - This endpoint returns the play-by-play data for a specified game, provided you have the game id</p>
+<p class="p1">Drew Hynes has created a publicly accessible documentation site around the most common uses for the API which can be found here: <span class="s1"><a href="https://gitlab.com/dword4/nhlapi">https://gitlab.com/dword4/nhlapi</a></span></p>
+<p class="p1">Once I got my bearings with the API, I had a few main pieces of data I wanted to grab:</p>
+
+<ul class="ul1">
+ 	<li class="li1">Play-by-play data for every game in the current regular season</li>
+ 	<li class="li1">A list of all current rosters for all teams</li>
+ 	<li class="li1">Player specified metrics for all games (Time on Ice, Shots Taken, Goals, Faceoffs etc.)</li>
+ 	<li class="li1">Final Score</li>
+</ul>
+<p class="p1">I ended up creating a python script for each of these data sets with the assistance of ChatGPT. What I found was GPT helped me get started, but never really provided a 100% working code without a lot of re-prompting. It definitely helped speed up the entire process, but it still required some familiarity with Python and also an understanding of the JSON format of the data. Let’s dig in to what the main bit of code does.</p>
+<p class="p1">Accessing the NHL API</p>
+<p class="p3">Firstly, we get the team IDs. The base URL for the NHL API is <b>https://statsapi.web.nhl.com/api/v1</b>. We then append <b>/teams</b> to this URL to get the endpoint for teams. Using the <b>requests.get()</b> function, we make a GET request to this endpoint, parse the JSON response into a Python dictionary, and extract the team IDs.</p>
+<p class="p1">Fetching Specific Game Data</p>
+<p class="p3">Next, we use these team IDs to fetch the games each team has played since a specific date. We construct the URL for the endpoint using the base URL, the date range, and the team ID.</p>
+<img src="../uploads/2023/05/Screenshot-2023-05-16-at-13.07.47.png" class="alignnone size-full wp-image-6270" alt="" width="1164" height="126">
+<p class="p1">For each team, we extract the <b>gamePk</b> values, which are unique identifiers for each game.</p>
+<img src="../uploads/2023/05/Screenshot-2023-05-16-at-13.08.22.png" class="alignnone size-full wp-image-6271" alt="" width="788" height="1112">
+
+<img src="../uploads/2023/05/Screenshot-2023-05-16-at-13.08.47.png" class="alignnone size-full wp-image-6273" alt="" width="1006" height="302">
+<p class="p1">Extracting Detailed Game Data</p>
+<p class="p3">Using the <b>gamePk</b> values, we then fetch the detailed data for each game. This includes information about the game type, season, teams, venue, and plays. We extract the data we're interested in and store it in a temporary Pandas DataFrame.</p>
+<img src="../uploads/2023/05/Screenshot-2023-05-16-at-13.09.19.png" class="alignnone size-full wp-image-6274" alt="" width="1130" height="754">
+<p class="p1">Extracting Player Data</p>
+<p class="p3">An additional layer of complexity is the player data nested within each play. We define a function <b>extract_players</b> to handle this. The function checks if the <b>players</b> column is a list, and if so, creates a DataFrame to store the player data. It then iterates over the players in the list, extracts the player's data, and appends it to the DataFrame.</p>
+<img src="../uploads/2023/05/Screenshot-2023-05-16-at-13.10.06.png" class="alignnone size-full wp-image-6275" alt="" width="1164" height="716">
+<p class="p1">Merging and Cleaning Data</p>
+<p class="p3">Next, we merge our play-by-play data with player data and clean it up, dropping rows without a <b>result.eventCode</b>. We then append this cleaned data to our main DataFrame, which stores data from all games.</p>
+<img src="../uploads/2023/05/Screenshot-2023-05-16-at-13.10.42.png" class="alignnone size-full wp-image-6277" alt="" width="1106" height="246">
+<p class="p1">Exporting Data to CSV</p>
+<p class="p3">Finally, we export the data to a CSV file, ready for further analysis or visualization in a tool like Tableau.</p>
+<img src="../uploads/2023/05/Screenshot-2023-05-16-at-13.11.37.png" class="alignnone size-full wp-image-6278" alt="" width="1150" height="112">
+<p class="p1">I ended up with a dataset like seen in the GitHub Repo.</p>
+<p class="p1">With the help of ChatGPT and Python, we have a complete script that fetches, processes, and exports NHL game data for any given time period.</p>
+<p class="p1">There was a slight problem though. The way the NHL captures events, there are multiple rows associated with each unique event. For example, when a player scores a goal, there is a row for each of the following:</p>
+
+<ul class="ul1">
+ 	<li class="li1">The goal scorer</li>
+ 	<li class="li1">The primary assister</li>
+ 	<li class="li1">The secondary assister</li>
+ 	<li class="li1">The goalie scored against</li>
+</ul><img src="../uploads/2023/05/Screenshot-2023-05-16-at-13.12.47.png" class="alignnone size-full wp-image-6280" alt="" width="900" height="820">
+<p class="p1">Each goal in the map needed to have a clear description as to who scored, assisted, and who was in net. I also have charts that break down goal types, opposing teams, opposing goalies etc. so to capture all of this, I needed each row to contain all of these data points instead of having a row for each. You’d think it was a simple pivot that needed to happen, but some of these events are conditional. That’s where Tableau Prep Came in!</p>
+Join us in the next few days for Part 2, where I look to go through Tableau Prep &amp; Desktop to creating my NHL visuals.
+
+CJ Round-Up:
+
+Jared raises some really interesting points above around API end points, but rightly describes how ChatGPT can be leveraged as developers to be able to 'fill the gaps' on writing code to help us. I am so excited for Part 2 in coming days where we get our hands on some prep &amp; desktop to recreate elements within Jared's visual that you can find here.
+
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

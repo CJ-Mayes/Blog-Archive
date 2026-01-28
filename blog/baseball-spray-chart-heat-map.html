@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baseball Spray Chart Heat Map - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Baseball Spray Chart Heat Map</h1>Hi all,
+
+It wasn't long ago that I wrote <a href="../2023/08/21/baseball-spray-charts-in-tableau-statcast/"><strong>my first tutorial on baseball.</strong></a> Baseball is still fairly new to me and the analytics behind it, but I've enjoyed the experimentation this far with charting some of it.
+
+Today we will revisit a previous blog and add one extra step in, and that is a heatmap to our spray chart.
+
+<img class="alignnone size-full wp-image-7059" src="../uploads/2023/08/Spray-Chart-BlogHM.png" alt="" width="1000" height="800" />
+
+For this tutorial we will use the same data as seen in our previous blog, and I recommend you <a href="../2023/08/21/baseball-spray-charts-in-tableau-statcast/"><strong>follow that blog</strong> </a>before giving this one a go. The data can be found in the Github repo at the top of the page.
+
+Heat maps aren't anything new, and baseball savant already showcase examples of spray heatmaps on their website. Our heatmap won't come out the exact same for a variety of reasons that we will cover off in the code.
+
+<img class="alignnone size-full wp-image-7061" src="../uploads/2023/08/BBsavCapture.png" alt="" width="855" height="771" />
+
+To create our dataset we will need some code to create the contours. (Code credits: I've amended the below based on a snippet of code from Alexander Varlamov)
+
+<img class="alignnone size-full wp-image-7064" src="../uploads/2023/09/carbon-18.png" alt="" width="1692" height="2088" />
+
+What the code does:
+<ol>
+ 	<li>It reads data from a CSV file called "data.csv" (our data file from the previous blog, row level data of each hit) using pandas and assigns it to the variable data.</li>
+ 	<li>It creates variables x and y to store the X and Y coordinates respectively, extracted from the data DataFrame.</li>
+ 	<li>It performs some calculations on x and y to transform their values. <a href="../2023/08/21/baseball-spray-charts-in-tableau-statcast/"><strong>(These are transformational to follow suit of the previous blog where I made this in tableau)</strong></a></li>
+ 	<li>It creates a bivariate kernel density plot using seaborn's <code>kdeplot</code> function, passing <code>x</code> and <code>y</code> as inputs. It also specifies some additional parameters like legend, number of contour levels, threshold, and colormap.</li>
+ 	<li>It sets the limits for the x and y axis of the plot and turns on the axis.</li>
+ 	<li>It displays the plot using plt.show() This isn't really needed, but always nice to see what your plot looks like before we go to export it.</li>
+ 	<li>It initializes an empty list called lines.</li>
+ 	<li>It iterates over the collections of the plot created in step 6, extract the edge color of each collection, and loop over the paths within each collection.</li>
+ 	<li>For each vertex in each path, it assigns a contour ID, a vertex ID, and stores the colour, contour ID, vertex ID, X-coordinate, and Y-coordinate in a tuple. This tuple is then appended to the lines list, and the information is printed to the console.</li>
+ 	<li>Finally, it saves the content of the lines list to a CSV file called "data_contour.csv" with a header row containing column names: color, contour_id, vertice_id, x, y. The values are saved in comma-separated format. (We will look to join this aggregate densified data into our original data.</li>
+</ol>
+You will end up with two data files.
+
+data.csv (our original data)
+
+data_contour.csv (our heatmap data)
+
+Open the data and create a connection 1=2 with the new contour data.
+
+<img class="alignnone size-full wp-image-7068" src="../uploads/2023/09/contour.png" alt="" width="756" height="222" />
+
+Create a new calculation
+
+MP. Contour
+
+Makepoint([Y], [X])
+
+If you've already followed me previous blog you can bring in this new layer onto your original chart.
+
+Here is where things get tricky. You must have used in your code the same x and y mappings as in your background image, and transformed the data in the same way. Otherwise your x and y points will not align well.
+
+Drag contour id and vertice id onto detail.
+
+<img class="alignnone size-full wp-image-7070" src="../uploads/2023/09/contour2.png" alt="" width="1019" height="880" />
+
+&nbsp;
+
+Let me know how you get on with this one - I can be found on the usual channels.
+
+Make it a line or polygon (depending on preference) and put vertice id onto path.
+
+<img class="alignnone size-full wp-image-7072" src="../uploads/2023/09/vertice.png" alt="" width="982" height="850" />
+
+Add colour onto the color mark.
+
+<img class="alignnone size-full wp-image-7073" src="../uploads/2023/09/HMCapture.png" alt="" width="993" height="848" />
+
+In your code, you will have specified a type of cmap, which is a good guide of color to use within your visual. You'll see I use a polygon, but reduce the opacity just to see some of the pitch.
+
+If you use polygon make sure to sort your colour field descending on the contour so that your 'Peaks' are at the top.
+
+&amp; That's it. A really simple additional step to our previous mappings.
+
+Things to be cautious of:
+<ul>
+ 	<li>The x and y transformations in the code.</li>
+ 	<li>Play around with the n_levels and thresh details as well as cmap to visualise different variations of the heatmap in the code.</li>
+ 	<li>the xlim and ylim are based on my background imagery, build the original shot map first.</li>
+</ul>
+Going further,
+<ul>
+ 	<li>Try applying the code to a different sport</li>
+ 	<li>Try create a small multiples of the best players this season.</li>
+</ul>
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

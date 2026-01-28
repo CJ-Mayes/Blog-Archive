@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Databricks Genie - Getting Started - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Databricks Genie - Getting Started</h1>Hi all,
+
+We recently migrated at work to databricks and moved away from transformation tools like Alteryx. Part of that learning journey is knowing what parts of databricks we can best utilise. The team have done fantastic work understanding everything from the unity catalog, through to data ingestion and runs, compute and notebook best practice, but of course databricks genie is the 'glam' bit.
+
+Today will be a short walk through an existing dataset on databricks genie.
+
+<img class="alignnone size-full wp-image-9760" src="../uploads/2025/09/Screenshot-2025-09-16-104650.png" alt="" width="1720" height="886" />
+
+First of all looking at connecting some example data.
+
+&amp; we can ask it a generic first question. You have the option to add multiple data sources in here.
+
+<img class="alignnone size-full wp-image-9762" src="../uploads/2025/09/Screenshot-2025-09-16-104742.png" alt="" width="970" height="235" />We can then ask it something that's probably not that hard a question, but i don't give it any context as to whether the trip_distance is a mile or km metrics. Lets see what it comes out with when asked the average cost of a trip per mile.
+
+<img class="alignnone size-full wp-image-9764" src="../uploads/2025/09/Screenshot-2025-09-16-105233.png" alt="" width="1690" height="846" />
+
+The good things is we can ask it to display the code. Taking the average fare amount, and average distance, then dividing them for all values above zero or not null.
+
+<img class="alignnone size-full wp-image-9766" src="../uploads/2025/09/Screenshot-2025-09-16-105518.png" alt="" width="961" height="609" />
+
+Here is that in kilometres.
+
+I could then tell Genie that my original data is in kilometres not miles, and if I re-ask it, it would give me that initial 6.02 value we had previously.
+
+<img class="alignnone size-full wp-image-9767" src="../uploads/2025/09/Screenshot-2025-09-16-105845.png" alt="" width="1866" height="895" />
+
+Only a small change but important context for the calculation.
+
+Next I want to give some general instructions a go. Let's see if this helps.
+
+<img class="alignnone size-full wp-image-9768" src="../uploads/2025/09/Screenshot-2025-09-16-110612.png" alt="" width="687" height="844" />
+
+&amp; we can see that in action when we ask genie to show me the percentage of trips that are classified as long trips.
+
+<img class="alignnone size-full wp-image-9769" src="../uploads/2025/09/Screenshot-2025-09-16-111422.png" alt="" width="1695" height="705" />
+
+We could also ask it a question around our data quality. (Yes i'm aware someone can be picked up and dropped off at the same location)
+
+<img class="alignnone size-full wp-image-9770" src="../uploads/2025/09/Screenshot-2025-09-16-111637.png" alt="" width="1704" height="675" />
+
+Giving feedback
+
+Each response prompts the user to answer <strong>Is this correct?</strong>. Users can respond in one of the following ways:
+<ul>
+ 	<li><strong>Yes:</strong> Confirms the response appears accurate.</li>
+ 	<li><strong>Fix it:</strong> Flags the response as incorrect. Users can select from common issues or enter their own explanation. They can then:
+<ul>
+ 	<li>Click <strong>Submit and try again</strong> to regenerate the response using the provided feedback.</li>
+ 	<li>Click <strong>Submit</strong> to send the feedback without regenerating the response.</li>
+</ul>
+</li>
+ 	<li><strong>Request review:</strong> Flags the response for manual review. Users can add an optional comment to give you additional context.</li>
+</ul>
+As an editor, you can view feedback and flagged responses in the Genie interface.
+
+Overall, I like where genie is headed. I was a little nervous to start with how it would write the code calculations, but the more information you give it, the more complexities you break down and the response feedback you feed it - the better the outcomes.
+
+At the moment this probably helps a bunch with our teams quality assurance, quick analysis - less so stakeholder facing and intuitive for non data folk.
+
+Probably goes to show the importance of semantic layers in an AI-BI built products and the detailed context needed for good quality reporting.
+
+You can read more about the set up <a href="https://docs.databricks.com/aws/en/genie/set-up"><strong>here.</strong></a>
+
+<a href="https://www.youtube.com/watch?v=Tc3WqbV7fKA"><strong>This video</strong></a> from Databricks is pretty useful from 17 mins in.
+
+<strong>LOGGING OFF,</strong>
+
+CJ
+
+&nbsp;
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

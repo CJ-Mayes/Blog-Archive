@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goal Sequences - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Goal Sequences</h1>Hi all,
+
+Kind of incredible we are already into March. These months really are rolling past. I've got a few days off this week, I'm excited to catch up with family and get a few workouts in before doing the Paris half mara this weekend.
+
+<img class="alignnone size-full wp-image-5780" src="../uploads/2023/03/Sequencing.png" alt="" width="1000" height="800" />
+
+Todays blog is a bit of a thought blog around goal sequencing using soccer data. I'll share some code, some data transformations in Tableau as well some overall thoughts in general when it comes to creating a visual of sequenced events.
+
+Here is an example from <strong><a href="https://twitter.com/optajose/status/1495153660644532225">Opta's Twitter page.</a></strong>
+
+<img class="alignnone size-full wp-image-5760" src="../uploads/2023/02/FL_aRuNWUAcf5Hl.png" alt="" width="739" height="651" />
+
+So what are goal sequences?
+
+Sequences are passages of play. They can be anything from defensive actions, duals, passes or shots. Sequences end when there is a stoppage in play.
+
+When a team has possession they will join these sequences up together. We can then take these events and try join them up, plotting them on the pitch.
+
+<strong><a href="https://theanalyst.com/eu/author/jonathan-whitmore/">Jonny Whitmore</a></strong> wrote a great article on sequenced events at the Analyst last year. You can read it <strong><a href="https://theanalyst.com/eu/2021/03/possessions-and-sequences-in-football/">here.</a></strong>
+
+Jonny goes into further detail around how a series of uninterrupted passes leading to a shot would be counted as a sequence. The shot ends this sequence but suppose the keeper saves it and pushes it out for a corner. Although the sequence ends, the possession continues until the opposition gains control of the ball. The original sequence and the sequence initiated from the corner would both be included under the same possession for the team taking the shot.
+
+Now I was pretty excited to go away and start looking at this in action, and realised instantly it was a little tough than first imagined.
+
+<img class="alignnone size-full wp-image-5778" src="../uploads/2023/03/carbon-11.png" alt="" width="1692" height="934" />
+
+Above is a code snippet I used to access some simplified StatsBomb data, using the Womens 2019 World Cup Final as the example.
+
+So I gave it a go, you can check the visualisation and the code from the top of the page under the title header using the icons.
+
+<img class="alignnone size-full wp-image-5780" src="../uploads/2023/03/Sequencing.png" alt="" width="1000" height="800" />
+
+<strong>What did trying to plot this data teach me?</strong>
+
+Football can be a scrappy game. Unless you have proper context behind the sequence of events, it's actually quite hard to understand sometimes from data on it's own. In my example below you can see how Rose Lavelle scored the second goal of the final for the U.S. on a solo run through the Dutch defence that ended with a left-footed strike from 17 yards.
+
+<img class="alignnone size-full wp-image-5781" src="../uploads/2023/03/Goal2.png" alt="" width="1526" height="824" />
+
+I've attached the summary video of the game showing the different actions on the dashboard, this actually helped me understand the data more having seen the game.
+
+<img class="alignnone size-full wp-image-5783" src="../uploads/2023/03/Capture.png" alt="" width="1187" height="780" />
+
+It's really hard to show a sequence of play when possession changes rapidly, during duels. For example, I had looked previously at some games that scored from a corner that had multiple duels in it. Really tough to visualise!
+
+The second thing is, some events need to be excluded from the sequence. You'll see in my data there will be additional rows of position of players.
+
+<img class="alignnone size-full wp-image-5784" src="../uploads/2023/03/Capture1.png" alt="" width="1606" height="155" />
+
+Whilst we can string the sequence of events together, some carries and passes don't necessarily 'come alive' when visualising. I think this could be for a combination of reasons, like the number of moving parts. 22 players are on the pitch but if we only map those that are on the ball at a moment in time, we effectively lose a lot of context. On the flip side, how do we show continuous pressure/challenges from players over a duration of multiple sequences? See how it becomes a little complex.
+
+Finally and I guess this is a general rule of thumb with data visualisation, does it showcase and truly reflect the story in the best means possible?
+
+<strong>So when do goal sequences work well?</strong>
+
+Well this example of Mo Salah taking 11 seconds from box to box was a nice example.
+
+<img class="alignnone size-full wp-image-5762" src="../uploads/2023/02/Fo7V8kTWcAACTrS.jpeg" alt="" width="4096" height="2304" />
+
+What this visual and the one below from the analysts blog have in common is the way of showing passes vs carries using dashed and block lines. (dashed lines are a little hard to do in Tableau, less so in Python/R etc i'm sure.)
+
+<img class="alignnone size-full wp-image-5763" src="../uploads/2023/02/martin-odegaard-goal-sequence-map-2048x1152-1.png" alt="" width="2048" height="1152" />
+
+Simple in design, beautifully presented and is able to provide context to the different carries, passes and part of the pitch used in building up to the goal.
+
+But sequences can also be used at the aggregated level too. Whilst these goal sequences provide pretty pitch charts, we can also start to analyse the impact of players through sequences.
+
+A few examples could be analysing turnover, build up of attack, number of successful passes in a row, direction of attack. You will see in a lot of games on telly some more simple metrics around possession, metres run and potentially duels too. Think of this as just that next step on.
+
+So, what tips do I have for those wanting to build the visual in Tableau?
+<ul>
+ 	<li>For lines you will want to union your dataset to create a start and an end node! If you read any of my other soccer blogs you will have seen anything with lines gets unioned, whereas player position or shot data can stay as it is, as you only need one mark to represent that player/action.</li>
+ 	<li>In Tableau if you map the pitch onto the background you can benefit from creating multiple 'layers'.</li>
+ 	<li>Check your data to make sure that you don't need to reflect the data depending if your co-ordinates are plotted on a full or a half pitch.</li>
+ 	<li>Cross reference your data with summary video snippets</li>
+ 	<li>Label passes and carries with different indicators as these are different actions. Dashed vs block works well, if not try a different colour or thickness of line. I attempted to use a comet style for the pass to indicate direction.</li>
+ 	<li>Decide how much detail you want to put into your chart. Mine were very basic, but you could add action numbers, player details and use colour more effectively.</li>
+ 	<li>Narrow your dataset down to start and end at appropriate events. For example a throw in or free kick would be a great starting point. A goal seems like a plausible end point. Perhaps you also may want to showcase possession up the the point of a goal scoring free kick. You'll see in my case, there was a penalty. Wouldn't it be nice to know what events happened for that to occur?</li>
+ 	<li>Generally good to rank your events in your data.</li>
+</ul>
+Anyway, thanks for listening to my rambling. Excited to see where you take it.
+
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Metrics - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Player Metrics</h1><p>Hi All,</p>
+
+<p>A fun sports one this week. We will be looking to recreate the player metrics chart that you see a lot of the sports viz community make, especially for football (soccer). Typically these are made using python, but we will create the output in Tableau.</p>
+
+<figure class="wp-image"><img class="wp-image-1612" src="../uploads/2021/07/chart-1.png" alt="" /></figure>
+
+<p>I can't and won't take any credit for this as it builds on the foundation of two fantastic data community members. The first is <strong>Anmol Durgapal</strong>, who can be found on Twitter <strong><a href="https://twitter.com/slothfulwave612" target="_blank" rel="noreferrer noopener">here</a></strong>. I'm hugely grateful for Anmol's help with the code I needed to create the blank chart in python. The original tutorial from Anmol can be found under <strong><a href="https://mplsoccer.readthedocs.io/en/latest/gallery/pizza_plots/plot_pizza_basic.html#sphx-glr-gallery-pizza-plots-plot-pizza-basic-py" target="_blank" rel="noreferrer noopener">Basic Pizza Plot (Percentiles)</a></strong>.</p>
+
+<p>Side note, Mplsoccer have a whole range of python <strong><a href="https://mplsoccer.readthedocs.io/en/latest/gallery/index.html" target="_blank" rel="noreferrer noopener">example tutorials</a></strong> that you can work your way through if this is of interest!</p>
+
+<p>The second, where the majority of the calculations come from is <strong><a href="https://public.tableau.com/profile/rutherford#!/" target="_blank" rel="noreferrer noopener">Ruth A</a></strong>, who provides a chart template for a <strong><a href="https://public.tableau.com/app/profile/rutherford/viz/CoxcombChartTemplate/CoxcombChart" target="_blank" rel="noreferrer noopener">coxcomb chart</a></strong>. I'll explain a few amendments to the calculations made later on.</p>
+
+<p><strong>THE PYTHON CODE (OPTIONAL)</strong></p>
+
+<figure class="wp-image"><img class="wp-image-1587" src="../uploads/2021/07/screenshot-2021-07-01-at-11.17.28.png" alt="" /></figure>
+
+<p>The code used for the tutorial can be found <b>on Github</b> I used PyCharm Community to run the code but feel free to use any preference of your own. We will be using the python code simply to <strong>create the background for our visualisation</strong>. If you would like to gloss over the python aspect.</p>
+
+<p>A couple of housekeeping notes for the code:</p>
+
+<p>You may need to install <strong>matplotlib</strong> and the <strong>mplsoccer</strong> package.</p>
+
+<p>If you want your chart to have no labels you can use <strong>params = [""]*12</strong></p>
+
+<figure class="wp-image"><img class="wp-image-1606" src="../uploads/2021/07/figure_0-1.png" alt="" width="439" height="439" /></figure>
+
+<p>If you want to amend the number of segments you can amend the params and values calculation, that currently has *<strong>12</strong>.</p>
+
+<figure class="wp-image"><img class="wp-image-1608" src="../uploads/2021/07/figure_11.png" alt="" width="449" height="449" /></figure>
+
+<p>You can also amend the colour Hex Codes, based on what colour you want your viz background, circle background and circle lines.</p>
+
+<figure class="wp-image"><img class="wp-image-1609" src="../uploads/2021/07/figure_111.png" alt="" width="455" height="455" /></figure>
+
+<p>I recommend keeping the figure size the same, as it will help with our build.</p>
+
+<p>Once you've finalised these steps - run the code.</p>
+
+<p>A graph should pop up. We will want to save this down in its current state (Ctrl + S), <strong>(Do not resize!)</strong>, to use later as a background.</p>
+
+<p><strong>THE DATA</strong></p>
+
+<p>A copy of the template can be found <b>on github </b>or on my <strong>Tableau Public page following the links at the top of the page</strong>. We create a custom join between 1 and 1. Within the data you will want to amend the <strong>'Data'</strong> Sheet. Make the measure out of 100, and the metric names anything of your choosing. If you'd like to use football players stats, values can be found on <strong><a href="https://fbref.com/en/" target="_blank" rel="noreferrer noopener">fbref website</a></strong> (supplied by <strong>StatsBomb</strong>). For example here is England legend, <strong><a href="https://fbref.com/en/players/b400bde0/Raheem-Sterling" target="_blank" rel="noreferrer noopener">Raheem Sterling's stats</a></strong>.</p>
+
+<p>Leave <strong>To_Pad</strong> as it is, in short this helps us create each of the polygons using a bin, giving the curvature to the edges of our visualisation.</p>
+
+<figure class="wp-image"><img class="wp-image-1577" src="../uploads/2021/07/screenshot-2021-07-01-at-10.46.09.png" alt="" width="581" height="296" /></figure>
+
+<p><strong>THE CALCULATIONS</strong></p>
+
+<p>I'm going to skip over most the calculations as <strong>we will be simply replacing the dataset</strong>. If you want to learn more about the building phase itself, check out this well detailed tableau tutorial by <strong><a href="https://www.youtube.com/watch?v=qwTEZlaTedM&amp;t=966s" target="_blank" rel="noreferrer noopener">AIEngineering.</a></strong> Alternatively if you want to build the visualisation from scratch, it follows the same methodology as <strong><a href="https://www.youtube.com/watch?v=iFQMefl1vII" target="_blank" rel="noreferrer noopener">Ruth Amarteifio</a></strong> in this youtube video.</p>
+
+<p>Some calculations I have amended from Ruth's template and reasons why:</p>
+
+<p><strong>Category Angle -</strong> I've amended the number to -4.5 in the calculation. Reason being the value here will depend on the number of segment slices. <strong>You will need to adjust this value if you create a background with less/more segments. As it will rotate the categories forwards/backwards to fit. </strong></p>
+
+<p>(For example this will be -4 if you have 10 slices)</p>
+
+<p>...Imagine the equivalent is : The scenario of trying to align your plastic wedges to the playing piece in the game trivial pursuit.</p>
+
+<figure class="wp-image"><img class="wp-image-1580" src="../uploads/2021/07/screenshot-2021-07-01-at-11.01.46.png" alt="" width="373" height="209" /></figure>
+
+<p><strong>Radius </strong> - I've completely amended this calculation to fit based on the sizing of the python chart export. What this calculation now does is takes the value from the dataset out of 1 and rescales it by 5.4 (The radius of the circle). I make a small adjustment of 0.27 to account for the middle section of the circle that isn't usually covered if creating the same graph in Python.</p>
+
+<figure class="wp-image"><img class="wp-image-1582" src="../uploads/2021/07/screenshot-2021-07-01-at-11.04.59.png" alt="" width="388" height="200" /></figure>
+
+<p><strong>X &amp; Y</strong> - These both follow the same logic as in Ruth's tutorial. I've only made two minor amendments. The first is reversing the Y axis to allow my categories to go in the order I need, by putting a minus sign in front of the calculation. The second is by making small adjustments to where the visualisation sits in respect to a centre point.</p>
+
+<p><strong>THE BUILD</strong> (STEPS TO FOLLOW)</p>
+
+<p>If you didn't want to try the tutorial, I have saved down a few backgrounds you can try out in the <strong>repository</strong>. Here is an example of me changing the current template to <strong>Raheem Sterling's</strong> metrics. Do note, If you'd like to understand more on what the metrics mean, please visit the website. They are solely used here for illustrative purposes.</p>
+
+<ol>
+<li>Download and open the <strong>template from the top of the page.</strong></li>
+<li>Open Pycharm, Make amendments and Run the python code with the chosen field names and colours.</li>
+</ol>
+
+<figure class="wp-image"><img class="wp-image-1592" src="../uploads/2021/07/screenshot-2021-07-01-at-11.51.56.png" alt="" /></figure>
+
+<figure class="wp-image"><img class="wp-image-1591" src="../uploads/2021/07/rs-1.png" alt="" width="508" height="508" /></figure>
+
+<ol>
+<li>Save the output picture down to a local area.</li>
+<li>Replace the <strong>dataset from github</strong> with your new dataset. I've taken the stats from <strong><a href="https://fbref.com/en/players/b400bde0/Raheem-Sterling" target="_blank" rel="noreferrer noopener">here.</a></strong></li>
+</ol>
+
+<figure class="wp-image"><img class="wp-image-1593" src="../uploads/2021/07/screenshot-2021-07-01-at-11.52.33.png" alt="" /></figure>
+
+<ol>
+<li>Refresh the data if not automatic.</li>
+<li>Open the <strong>chart</strong> sheet and click on the sheet.</li>
+<li>Go to Maps - Background Images - datasetname.</li>
+<li>Edit the chart to have the following components for X and Y. In Options, Leave lock aspect and always show viz both turned on.</li>
+</ol>
+
+<figure class="wp-image"><img class="wp-image-1595" src="../uploads/2021/07/screenshot-2021-07-01-at-11.56.15.png" alt="" width="735" height="595" /></figure>
+
+<p>6. Finally, Right click on the colours tab and go to sort. Make sure they are in the same order in the list clockwise as they are in your visualisation.</p>
+
+<figure class="wp-image"><img class="wp-image-1597" src="../uploads/2021/07/screenshot-2021-07-01-at-12.00.18.png" alt="" /></figure>
+
+<p>And there we have it. The final visualisation with the chart background snapped on.</p>
+
+<p><strong>HINTS, TRICKS AND HOUSEKEEPING</strong></p>
+
+<p>Make sure your max value is 100. If you have raw values create a new column in the original data and then use the value column as a percent of 100, and bring in the raw value as a tooltip.</p>
+
+<p>If you want to use a different number of segments, you will want amend the above calculations of<strong> Category Angle</strong>.</p>
+
+<p>The only other last thing to make sure is you save your background image down correctly. When the Python script runs, and the graph pops up. Hit (Ctrl + S) to save the file in its current figure dimensions. This will mean when we import it as a background into Tableau, everything is sized accordingly.</p>
+
+<p><strong>GOING FURTHER</strong></p>
+
+<p>Try playing around with different segment numbers.</p>
+
+<p>Try replacing the circle in the middle with a shape of a players face.</p>
+
+<p>Try adding in extra columns of detail into dataset for hover functionality.</p>
+
+<p>As always, Let me know how you get on with this one. I can be reached on <strong>Twitter</strong>. A simple one in terms of data prep, but maybe a little tougher in terms of getting the background to snap on correctly.</p>
+
+<p>LOGGING OFF,</p>
+
+<p>CJ</p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scraping Ball-By-Ball Cricket Data With Yash Sakhuja - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Scraping Ball-By-Ball Cricket Data With Yash Sakhuja</h1>Hi all,
+
+I am so pleased that Yash joins the site this week to talk through how to scrape cricket data. I met Yash just prior to his masters and to see how he has expanded his toolkit / techstack has been very admirable. I'm extra pleased that Yash gets to share his passion for cricket through the tutorial below, but first a few questions!
+
+<img class="alignnone size-full wp-image-8571" src="../uploads/2024/11/Yash.png" alt="" width="1581" height="775" />
+
+<strong>CJ: Yash, thanks for joining, for those that are unaware, could you tell us a little about your journey to date?</strong>
+
+<img class="alignnone size-full wp-image-8573" src="../uploads/2024/11/Timeline-Slope.png" alt="" width="999" height="799" />
+
+<span style="font-weight: 400;">Yash: Thank you so much for having me. Firstly, I’d like to mention that It’s a pleasure to be featured on your blog, CJ. I truly admire your work and the impact you’ve made in the #datafam community. </span>
+
+<span style="font-weight: 400;">Talking about my journey, I was set on a path to becoming a "Man in Finance" with my choice of undergraduate degree, but data and Tableau found me just before the COVID lockdowns of 2020. During that time, Tableau and the #datafam community kept me sane as I participated in Makeover Mondays and Sports Viz Sundays, learning from every visualization I created.</span>
+
+<span style="font-weight: 400;">Consistency paid off, and my work started gaining attention. A turning point came when <strong>Rajeev Pandey</strong>, a key figure in the community, helped me land my first data role at Brandscapes Worldwide. This role offered a steep learning curve and exposure to diverse clients, from retail to healthcare.</span>
+
+<span style="font-weight: 400;">After completing my MSc in Business Analytics: Operational Research and Risk Analytics at The University of Manchester, I joined Performalytics, an Oxford-based consultancy firm. Now, I work with sustainable retail and sports clients, and in my free time, I love experimenting with Tableau, Python, ML and AI to keep learning and innovating.</span>
+
+<strong>CJ: You became active in the community in 2020, and I’ve had the pleasure of seeing some of your sports analytics grow on your profile. What is it about the blend of sports and data you love?</strong>
+
+<img class="alignnone size-full wp-image-8574" src="../uploads/2024/11/Layers-Bowling-Spell.png" alt="" width="1299" height="899" />
+
+<span style="font-weight: 400;">Yash: The core idea is that when you work on something you love, it feels more like fun than work. Growing up in India, I spent a lot of time playing and watching sports, especially cricket, since football timings weren't always ideal. This is where my passion for both sports and data truly intersected. </span>
+
+<span style="font-weight: 400;">I've always been more of a tactician than a player, so sports analytics felt a natural fit. What I find most empowering is that, with data and technology at our fingertips, we can stay one step ahead in the game, analyzing tactical decisions through the lens of data. There’s something uniquely satisfying about predicting something just before it happens or before experts/commentators mention it on air.</span>
+
+<strong>CJ: Your cricket content has been a massive hit. You really bend tableau to use it in innovative ways, such as in the bowling spell and cricket pitch visuals. For someone that is new to cricket data, what are some data sources that you would recommend?</strong>
+
+<img class="alignnone size-full wp-image-8602" src="../uploads/2024/11/Pitch-Map-Dashboard.png" alt="" width="999" height="999" />
+
+<span style="font-weight: 400;">Yash:  That's a great question. As a newcomer, I personally struggled to find structured data for cricket. Historically, structured cricket data hasn’t been as readily available as data for sports like football or baseball. However, things are improving with platforms like <a href="https://cricsheet.org/"><strong>Cricsheet,</strong></a> making ball-by-ball cricket data much more accessible now.</span>
+
+<span style="font-weight: 400;">At an aggregated level, for player careers, team, and match records, I find Statsguru by <a href="https://stats.espncricinfo.com/ci/engine/stats/index.html"><strong>ESPN Cricinfo</strong></a> to be useful, though it may require some data preparation. These are the two primary data sources I rely on, alongside scraping ball-by-ball cricket data for matches. I’ve provided a step-by-step guide on how to do this in this blog. Additionally, for true enthusiasts, there’s always a way of collecting data while watching the matches—though it requires a great deal of effort and dedication.</span>
+
+<strong>CJ: I love that you have continued to blog about how to replicate some of your work in Tableau, such as the worm chart. Is there anyone else in the cricket analytics community, or wider sports community that you often learn from or go to for inspiration?</strong>
+
+<span style="font-weight: 400;">Yash: When it comes to my inspiration in sports analytics, I truly believe you’ve played a key role in shaping it. Your work with football and tennis data has been incredibly inspiring, and your page is, without a doubt, the best resource for sports data enthusiasts. Participating in Sports Viz Sunday has also been crucial for connecting with the wider community, and I’m grateful for the learning from the works of <strong><a href="https://public.tableau.com/app/profile/simon.beaumont/vizzes">Simon Beaumont</a>, <a href="https://public.tableau.com/app/profile/sports.chord/vizzes">James Smith</a>, <a href="https://public.tableau.com/app/profile/mo.wootten/vizzes">Mo Wootten</a>, <a href="https://public.tableau.com/app/profile/westlake.cjw/vizzes">Chris Westlake</a>, <a href="https://public.tableau.com/app/profile/naresh.suglani/vizzes">Naresh Suglani</a></strong> and many more.</span>
+
+<span style="font-weight: 400;">As for my involvement in the cricket analytics community, I was fortunate to work with Lancashire County Cricket during my masters at Manchester, where I developed FieldAssist, a data collection and reporting tool for fielding data in cricket. This experience exposed me to a variety of coaches and performance analysts from different teams, allowing me to learn from their use of Tableau. Now, my blogs are aimed at helping them create both simple and complex cricket visualizations in Tableau. It’s incredibly rewarding to receive messages from them saying that my blog helped them do build something easily in Tableau.</span>
+
+<strong>CJ: Recently, you blogged about how to create a Manhattan chart in Tableau. I love the step by step guide. You mention you scraped ball-by-ball data from the<a href="https://www.espncricinfo.com/series/vitality-blast-2023-1347399/lancashire-vs-surrey-2nd-quarter-final-1347695/match-overs-comparison"> ESPN Cricinfo</a>. Could you give us a walkthrough of what that looks like?</strong>
+
+<img class="alignnone size-full wp-image-8600" src="../uploads/2024/11/Innings-Manhattan-Graph-1.png" alt="" width="1199" height="799" />
+
+<span style="font-weight: 400;">Yash: Absolutely! I'd be happy to walk you through a step-by-step guide on how I scrape ball-by-ball cricket data from ESPN Cricinfo. I'll also share a framework and python code one can use to apply this process to any match to retrieve the data.</span>
+
+<span style="font-weight: 400;">Let’s begin by understanding what web scraping is. It’s a method used to extract data from websites. While manually copying and pasting data is an option, it’s often tedious and time-consuming. Web scraping automates this process, making data extraction more efficient and streamlined.</span>
+
+<span style="font-weight: 400;">Almost all websites are built using HTML tags and attributes. So, before diving into web scraping, it's important to understand the basics of these tags and attributes, which are crucial for extracting data from websites. This hour-long video on</span><strong><a href="https://youtu.be/CmMyG9zGdLc?feature=shared"> Web Scraping by Priyanka Dobhal</a></strong><span style="font-weight: 400;"> is an excellent resource for learning how HTML tags and attributes work and is a great starting point for beginners. I recommend that readers watch this video to gain a deeper understanding of how my scraping method works under the hood.</span>
+
+<span style="font-weight: 400;">To extract ball-by-ball scores and commentary data from ESPN Cricinfo, I follow a four-step process, which I have outlined in this blog. Before you begin executing these four steps, it would be helpful to clone this</span><strong><a href="https://github.com/yashsakhuja/ESPNCricInfo-Scraper.git"> GitHub Repository</a></strong><span style="font-weight: 400;"> and try to replicate the code on your end.</span>
+
+The four step scraping process:
+<ol>
+ 	<li>Locate and save the webpage.</li>
+ 	<li>Inspect the web structure and create element list</li>
+ 	<li>scraping the data (scraper.py)</li>
+ 	<li>cleaning the data (scraped_data_cleaning.ipynb)</li>
+</ol>
+Let's walk through each part.
+<ol>
+ 	<li><strong>Locate and save the webpage</strong></li>
+</ol>
+<span style="font-weight: 400;">First, navigate to the specific match or series page on</span><strong><a href="https://www.espncricinfo.com/series/vitality-blast-2023-1347399/lancashire-vs-surrey-2nd-quarter-final-1347695/ball-by-ball-commentary"> ESPN Cricinfo</a></strong><span style="font-weight: 400;"><strong>,</strong> where the ball-by-ball commentary is available. Make sure you select the Commentary tab for the match, as shown in the image below. Then, choose the innings you want to extract data for by selecting the batting team from the dropdown list.</span>
+
+<span style="font-weight: 400;">P.S. This process needs to be done one innings at a time, as both innings commentary is stored under the same link but displayed under different dropdown selections.</span>
+
+<img class="alignnone size-full wp-image-8578" src="../uploads/2024/11/ESPB.png" alt="" width="512" height="328" />
+
+<span style="font-weight: 400;">Next, scroll down to the section of the page showing the details of the first ball of the innings to ensure the entire webpage has loaded. Then, save the webpage by pressing Ctrl+S (or Cmd+S on a Mac). Rename the file for easy identification of the corresponding innings and save it in the HTML Links folder within the appropriate match folder. Afterward, change the dropdown selection for the batting team and repeat the process to save the HTML file for the other innings. With the HTML files now organized, we can move on to the next step, where we will inspect the files and begin extracting the necessary information.</span>
+
+<strong>2. Inspect the Web Structure and Create the Element List</strong>
+
+<span style="font-weight: 400;">When examining how the commentary and scores are displayed, there are four key elements we need to extract: the Over, the Result, the Commentary, and the Fall of Wicket (FoW) (for wicket deliveries), as shown in the image below.</span>
+
+<span style="font-weight: 400;">It's also important to note that the boxes have different colors for various events—red for Wickets, green for Boundaries, purple for Sixes, and translucent for other results. These color differences influence how they are represented in the HTML code.</span>
+
+<img class="alignnone size-full wp-image-8579" src="../uploads/2024/11/web_structure.png" alt="" width="512" height="244" />
+
+<span style="font-weight: 400;">The next steps involve revisiting the webpage, right-clicking on the elements you want to extract and selecting the "Inspect" option. This will open the Developer Tools panel on the right side of the window, allowing you to examine how these elements are structured in the HTML layout.</span>
+
+<img class="alignnone size-full wp-image-8580" src="../uploads/2024/11/trees.png" alt="" width="512" height="186" />
+
+<span style="font-weight: 400;">Refer to the video I mentioned earlier for a more detailed explanation of this process. For our purposes, the elements we need are structured within </span><span style="font-weight: 400;">&lt;div&gt;</span><span style="font-weight: 400;"> or </span><span style="font-weight: 400;">&lt;span&gt;</span><span style="font-weight: 400;"> classes, as highlighted in the table and snippets below.</span>
+<table style="height: 240px;" width="388">
+<tbody>
+<tr>
+<td><span style="font-weight: 400;">Element</span></td>
+<td><span style="font-weight: 400;">Tags/Attributes</span></td>
+</tr>
+<tr>
+<td><span style="font-weight: 400;">Over and Ball</span></td>
+<td><span style="font-weight: 400;">&lt;span&gt; Class</span></td>
+</tr>
+<tr>
+<td><span style="font-weight: 400;">Result</span></td>
+<td><span style="font-weight: 400;">Outermost &lt;div&gt; class</span></td>
+</tr>
+<tr>
+<td><span style="font-weight: 400;">Commentary</span></td>
+<td><span style="font-weight: 400;">Outermost &lt;div&gt; class</span></td>
+</tr>
+<tr>
+<td><span style="font-weight: 400;">FoW</span></td>
+<td><span style="font-weight: 400;">Outermost &lt;div&gt; class</span></td>
+</tr>
+</tbody>
+</table>
+<span style="font-weight: 400;">&lt;span&gt; class for Over and Ball</span>
+
+<img class="alignnone size-full wp-image-8582" src="../uploads/2024/11/span1.png" alt="" width="450" height="84" />
+
+<span style="font-weight: 400;">Outermost &lt;div&gt; class for Results</span>
+
+<img class="alignnone size-full wp-image-8584" src="../uploads/2024/11/span2.png" alt="" width="476" height="158" />
+
+<span style="font-weight: 400;">Outermost &lt;div&gt; class for Commentary</span>
+
+<img class="alignnone size-full wp-image-8588" src="../uploads/2024/11/tree3.png" alt="" width="454" height="100" />
+
+<span style="font-weight: 400;">Outermost &lt;div&gt; class for FoW</span>
+
+<img class="alignnone size-full wp-image-8589" src="../uploads/2024/11/tree4.png" alt="" width="450" height="100" />
+
+<span style="font-weight: 400;">Finally, we organize the extracted elements into a CSV file, including the batting team to indicate which HTML file the data came from, and linking each field to its corresponding </span><span style="font-weight: 400;">&lt;div&gt;</span><span style="font-weight: 400;"> or </span><span style="font-weight: 400;">&lt;span&gt;</span><span style="font-weight: 400;"> class. Wicket balls, 4s, 6s, and other deliveries are listed as separate fields because they are enclosed within outer </span><span style="font-weight: 400;">&lt;div&gt;</span><span style="font-weight: 400;"> boxes of different colors, which means their HTML coding slightly varies. After compiling the CSV, save it in the Element List folder with an appropriate file name for easy identification.</span>
+
+<b><i>Note</i></b><i><span style="font-weight: 400;">: Always double-check and inspect the elements before moving to the next steps, as tags and attributes can vary depending on the website's design and structure, which may differ slightly for certain elements. For example, check how in the snippet below the FoW </span></i><span style="font-weight: 400;">&lt;div&gt;</span><i><span style="font-weight: 400;"> class has subtle differences between the two innings.</span></i>
+
+<img class="alignnone size-full wp-image-8590" src="../uploads/2024/11/element.png" alt="" width="844" height="228" />
+
+<strong>3. Scraping with scraper.py</strong>
+
+<span style="font-weight: 400;">Once you've generated the HTML files and the element list, it's time to run the 100-line </span><span style="font-weight: 400;">scraper.py</span><span style="font-weight: 400;"> code. This script combines both inputs and uses the element list to extract the necessary data from the HTML files.</span>
+
+<span style="font-weight: 400;">Before running the code, make sure to update the necessary details (highlighted in green) in the first few lines of the </span><span style="font-weight: 400;">scraper.py</span><span style="font-weight: 400;"> code based on the specific match you are extracting data for and with urls of where your element list and html files are saved.</span>
+
+<img class="alignnone size-full wp-image-8592" src="../uploads/2024/11/snippet1.png" alt="" width="528" height="316" />
+
+<span style="font-weight: 400;">Here’s a code snippet for extracting elements using HTML tags and attributes. To view the complete code, click </span><a href="https://github.com/yashsakhuja/ESPNCricInfo-Scraper/blob/main/scraper.py"><span style="font-weight: 400;"><strong>here</strong></span></a><span style="font-weight: 400;">. The extracted data is stored in lists and then exported as CSV and JSON format within the "scraped Data" folder, under the corresponding match-specific sub-folder.</span>
+
+<img class="alignnone size-full wp-image-8593" src="../uploads/2024/11/snippet2.png" alt="" width="622" height="574" />
+
+<span style="font-weight: 400;">After running the </span><strong>scraper.py</strong><span style="font-weight: 400;">, the output CSV will be generated in the following format, with one file for each innings. Please, note that you would need to run this code twice, once for each innings, after changing relevant information.</span>
+
+<img class="alignnone size-full wp-image-8594" src="../uploads/2024/11/ball.png" alt="" width="516" height="266" />
+
+<span style="font-weight: 400;">Here’s a brief overview of how the code in </span><strong>scraper.py</strong><span style="font-weight: 400;"> is structured and the sequence of operations it performs to scrape the necessary data:</span>
+
+<img class="alignnone size-full wp-image-8595" src="../uploads/2024/11/sequence.png" alt="" width="864" height="224" />
+<ol start="4">
+ 	<li><strong>Data Cleaning with scraped_data_cleaning.ipynb</strong></li>
+</ol>
+<span style="font-weight: 400;">In the two Tableau blogs that I wrote for building a</span><strong><a href="https://public.tableau.com/app/profile/yash.sakhuja/viz/BlogWormChartinCricketwithTableau/WormChart"> Worm Chart</a></strong><span style="font-weight: 400;"> and a</span><a href="https://public.tableau.com/app/profile/yash.sakhuja/viz/ManhattanChartinCricketwithTableau/InningsManhattanGraph"> <span style="font-weight: 400;"><strong>Manhattan Chart</strong></span></a><span style="font-weight: 400;">, I pulled the data into Tableau in the format as shown below:</span>
+
+<img class="alignnone size-full wp-image-8597" src="../uploads/2024/11/tab.png" alt="" width="1003" height="649" />
+
+<span style="font-weight: 400;">To structure our scraped output, I’ve also created a</span><strong><a href="https://github.com/yashsakhuja/CricInfo-Scrapper/blob/main/scrapped_data_cleaning.ipynb"> Jupyter Notebook</a></strong><span style="font-weight: 400;"> file in the repository. By pointing to the two extracted CSVs and modifying a few match-related details (as highlighted in green in the code shown below), you can clean the data and process it using basic pandas operations in Python, making it ready for visualization and analysis in Tableau.</span>
+
+<img class="alignnone size-full wp-image-8598" src="../uploads/2024/11/LAN-SUR.png" alt="" width="598" height="308" />
+
+<span style="font-weight: 400;">In the GitHub repository for this scraping project, I've included the HTML files and an Element List for an additional match (RCB vs SRH - 2024-03-30), along with the corresponding outputs. Additionally, I’ve provided HTML files for a more recent T10 fixture (Deccan Gladiators vs Team Abu Dhabi T10 - 2024-11-23) for those interested in trying it out.</span>
+
+<span style="font-weight: 400;">Thanks for your time, CJ. I hope the readers find this helpful and I’m also excited to see the community expand on this, such as exploring how this approach works for different formats of the game. If anyone has any questions or ideas for improvements, feel free to reach out to me on my <a href="https://x.com/sakhuja_yash"><strong>socials</strong></a> &amp; <a href="https://sakhujayashofficia.wixsite.com/yashsakhuja/post/tableau-creating-a-manhattan-chart-in-cricket"><strong>my blog</strong></a> here. Cheers, Yash.</span>
+
+<strong>LOGGING OFF,</strong>
+
+CJ
+
+&nbsp;
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

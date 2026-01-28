@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NHL Player Stats With Jared Flores Pt2 (Prep &amp;amp; Desktop) - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>NHL Player Stats With Jared Flores Pt2 (Prep &amp; Desktop)</h1>Hi all,
+
+Welcome back to part II of creating an E2E process for NHL Player Stats. If you missed it, earlier this week Jared joined the site to talk about how he leveraged code prompts in ChatGPT to help him access the NHL API.
+
+It's a delight to be able to follow that blog up, with Jared showcasing the final prep &amp; build of his NHL visualisation. Jared, over to you.
+<p class="p1"><strong>Formatting the Data with Tableau Prep</strong></p>
+<p class="p3">Because of the formatting required, I took the output from the Python script and ran it through Prep to get my desired results. (You can see the files on Github)</p>
+Due to some performance issues and a ton of LOD calculations, I had to split up the flow into three parts.
+
+The first flow takes the play-by-play data and combines it with some tables that indicate each players current team. Players get traded throughout the year so I wanted to ensure I could show their stats based on their current team.
+
+The first flow takes the play-by-play data and combines it with some tables that indicate each players current team. Players get traded throughout the year so I wanted to ensure I could show their stats based on their current team.
+
+<img src="../uploads/2023/05/Picture1.png" class="alignnone size-full wp-image-6293" alt="" width="936" height="499">
+
+After combining the data and handling for a duplicate name (There are two players in the league named Sebastian Aho that I have to account for to properly join some external pieces of data), I create a Unique Event Id.
+
+<img src="../uploads/2023/05/Picture2.png" class="alignnone size-full wp-image-6295" alt="" width="704" height="268">
+
+This allows me to ensure my LOD calculations are fixed to the proper event. Next, I start manually pivoting the data. You can see I made 25 changes just to get Goals and Assists pivoted
+
+<img src="../uploads/2023/05/Picture3.png" class="alignnone size-full wp-image-6296" alt="" width="361" height="1100">
+
+For the logic, I find the data point based on the player_type
+<img src="../uploads/2023/05/Picture4.png" class="alignnone size-full wp-image-6297" alt="" width="659" height="188">
+
+Now that I have the player who scored the goal, I can fix this value to every row that contains the same event id.
+
+<img src="../uploads/2023/05/Picture5.png" class="alignnone size-full wp-image-6298" alt="" width="694" height="216">
+
+I repeat this for assists, faceoff winner and loser, penalty drawn by and taken by etc.
+
+Eventually, I am able to bring in some external data from moneypuck.com, a site that tracks several metrics around the effectiveness of shots taken.
+
+<img src="../uploads/2023/05/Picture6.png" class="alignnone size-full wp-image-6300" alt="" width="859" height="412">
+
+With this data, I can ensure the tooltip shows the expected goal value of every goal!
+
+While this Prep flow provides the main data set used for the majority of the dashboard, I also have some rankings listed near the top of the dashboard:
+
+<img src="../uploads/2023/05/Picture7.png" class="alignnone size-full wp-image-6301" alt="" width="994" height="450">
+
+These metrics are coming from Natural Stat Trick and All Three Zones. Both projects track various player metrics to get a better understanding of how effective each player actually is outside raw goals and assists. There’s a ton happening in the Prep flow that combines the various data sources so I won’t go in detail, but look at this monster!
+
+<img src="../uploads/2023/05/Picture8.png" class="alignnone size-full wp-image-6302" alt="" width="1017" height="385">
+
+With all of this data, we’re able to finally visualize each player’s season and also how effective they are on ice. While I love data preparation, building Prep flows, and solving the data puzzle, building this visualization was one of my favorites.
+
+<strong>TABLEAU</strong>
+
+There were a few inspirations for the visualizations in the dashboard. The first was the NHL’s website
+
+<img src="../uploads/2023/05/Picture9.png" class="alignnone size-full wp-image-6304" alt="" width="936" height="782">
+
+I wanted to take this view and enhance the information provided. I was also inspired by Meghan Chayka from Stathletes (@MeghanChayka) to incorporate the Faceoff chart:
+
+<img src="../uploads/2023/05/Picture10.png" class="alignnone size-full wp-image-6305" alt="" width="976" height="329">
+
+Since I was using a rather large table and incorporating Image Roles into the viz, I wanted to ensure I wasn’t including too many rows at once so I included the classic table pagination from <strong>Luke Stanke:</strong>
+
+<img src="../uploads/2023/05/Picture11.png" class="alignnone size-full wp-image-6306" alt="" width="987" height="313">
+
+While there is a lot of information packed into the dashboard, each section essentially functions the same, so let’s dig into the summary and goals sections.
+
+<img src="../uploads/2023/05/Picture12.png" class="alignnone size-full wp-image-6308" alt="" width="964" height="453">
+
+When you select a player from the top right corner, their image from the NHL website pops up along with some basic information about them (Name, Position, Height/Weight, Current Team, Birth Date and Place, and Cap Hit).
+
+You are able to see their base stats for the 2022-2023 season, similar to what we saw from the NHL website, but the percentile rankings also give a better picture into how the player actually performs compared to the league.
+
+<img src="../uploads/2023/05/Picture13.png" class="alignnone size-full wp-image-6309" alt="" width="995" height="412">
+
+You’re given a few options on how to view the on-ice events. You can choose between half or full rink and density plot or circle plot. Here’s an example of the full rink and circle plot being selected:
+
+<img src="../uploads/2023/05/Picture14.png" class="alignnone size-full wp-image-6310" alt="" width="974" height="412">
+
+Since we manually pivoted all of the values in the Prep flow, we’re able to see for the selected player who is assisting them the most, what type of goals they’re scoring, and who they’re scoring against. We can even filter the events by any of the charts:
+
+<img src="../uploads/2023/05/Picture15.png" class="alignnone size-full wp-image-6311" alt="" width="936" height="397">
+
+The remaining sections of the dashboard all operate in the same way so you can dig into a player’s assists, penalties, and hits.
+
+The faceoff chart is my absolute favorite. Even though it’s just donut charts, I love the way it looks against the ice map.
+
+<img src="../uploads/2023/05/Picture16.png" class="alignnone size-full wp-image-6313" alt="" width="936" height="400">
+
+At the top of the dashboard, you can also take a look at their last five games:
+
+<img src="../uploads/2023/05/Picture17.png" class="alignnone size-full wp-image-6314" alt="" width="950" height="359">
+
+And there you have it! ChatGPT, Python, Tableau Prep, and Tableau Desktop all working together to create something with so much information packed in. I can’t wait to continue improving the dashboard!
+
+CJ Round-up:
+
+I really want to thank Jared for taking the time to piece this together, it's been on the wish list to have Jared discuss his NHL data prep for a while. Blogs like these just go to show the breadth of skills and tools now being used in data, and what we see online as finished visuals, we sometimes forget the leg work put in to shape the data in the way we need. Can't wait to see what's next for Jared, and love that he is carrying the torch not just for Tableau Prep but also making real headway in NHL analytics.
+
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

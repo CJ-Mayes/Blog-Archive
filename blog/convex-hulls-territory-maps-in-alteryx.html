@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convex Hulls / Territory Maps in Alteryx - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Convex Hulls / Territory Maps in Alteryx</h1>Hi all,
+
+A couple on the bounce now in terms of football/soccer content in Alteryx. Truth be told it's been a fun little series creating a few of the same charts now in Python, Tableau and now Alteryx. Hopefully this unlocks doors for people in the industry in terms of the different tools they can utilise.
+
+I've previously written about convex hulls, <a href="../2022/05/05/convex-hulls-in-tableau/"><strong>here.</strong></a>
+
+In fact it was literally a year ago now. The walk through explains what the convex hull is, what it is useful for and how to retrieve the Statsbomb data using python and then visualising it in Tableau.
+
+Well to make life simple we will take our original dataset and add it into Alteryx. Then recreate the same chart as seen in the tutorial.
+
+As always, all material can be found in the Github repository at the top of the page.
+
+<img class="alignnone size-full wp-image-6018" src="../uploads/2023/04/Capture.png" alt="" width="905" height="356" />
+
+What does our workflow do?
+
+Well the initial input at the top of the flow is our data for Crystal Alyssia Dunn Soubrier from the final of the Womens World Cup for 2020/21. The data is from Statsbomb so we don't need to do anything in terms of transforming our data points. You can access my original code <a href="https://github.com/CJ-Mayes/Website-Tutorials/blob/main/2022%20Blogs/2022-05-05%20Convex%20Hulls%20in%20Tableau/main.py"><strong>here.</strong></a>
+
+We do however scale the points in equal size to make it easier to plot on a chart. The next thing we do is use the create points tool to plot these as x and y co-ordinates. The top part of the flow will be the co-ordinates of each of Crystal's passes.
+
+<img class="alignnone size-full wp-image-6020" src="../uploads/2023/04/2-1.png" alt="" width="487" height="331" />
+
+The next part of the flow uses the convex hull function based on these x and y points. In terms of grouping we group on player, this would become more useful if our dataset contained more than one player.
+
+In terms of the bottom half of the workflow, it is creating our baseline pitch, again also using the plot points tool.
+
+<img class="alignnone size-full wp-image-6022" src="../uploads/2023/04/3-1.png" alt="" width="1848" height="822" />
+
+The final thing to do is to use the report map feature to be able to showcase this visually.
+
+#1 is our football pitch which we configure.
+
+#2 is our convex hull.
+
+#3 is the original points, I also joined this into the final output so we can see all the passes even if it isn't part of the convex hull!
+
+<img class="alignnone size-full wp-image-6024" src="../uploads/2023/04/4-1.png" alt="" width="1757" height="823" />
+
+Normally I've found the design quite challenging in Alteryx, but I just LOVE that you can add a hatch into the design as well as play around with base colours and opacity in this chart.
+
+<img class="alignnone size-full wp-image-6025" src="../uploads/2023/04/5-1.png" alt="" width="851" height="803" />
+
+Short blog this week, hope those who use Alteryx have enjoyed the mini series. Don't forget if you want to check out my Tableau version of this chart you can find the tutorial <a href="../2022/05/05/convex-hulls-in-tableau/"><strong>here.</strong></a>
+
+Wishing those off to Tableau Conference in Vegas this week the best of times. I'm going to get my head down personally and steer clear of the social channels for a week or so because of FOMO but I hope it's everything and more for those attending! Take care and chat soon.
+
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

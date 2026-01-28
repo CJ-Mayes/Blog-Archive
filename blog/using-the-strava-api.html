@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using The Strava API - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Using The Strava API</h1>Hi all,
+
+<img class="alignnone size-full wp-image-5742" src="../uploads/2023/02/Capture-1.png" alt="" width="2239" height="787" />
+
+API's are scary huh? I feel like us data people just use fancy words sometimes for the sake of it. That, and we write documentation that makes zero sense, no shade intended.
+
+Well, welcome to my dummies guide on how to access your Strava data using python and postman. What I will go through today is how to successfully set up your Strava API connection and retrieve ALL of your Strava stats from your account.
+
+A few <em>really useful</em> resources before we start:
+<ul>
+ 	<li><strong><a href="https://developers.strava.com/docs/getting-started/#account">The Strava Documentation</a></strong></li>
+</ul>
+<strong>Pre-Requisites.</strong>
+<ul>
+ 	<li>A Strava Account!</li>
+ 	<li>Ability to run (not necessarily understand) python code, as well as access to postman (We will cover access)</li>
+</ul>
+Okay let's crack on.
+
+You can login to Strava, <strong><a href="https://www.strava.com/login">here.</a></strong>
+
+Navigate to your Settings <strong><a href="https://www.strava.com/settings/api">API Page.</a></strong>
+
+<img class="alignnone size-large wp-image-5440" src="../uploads/2023/01/S1-1024x489.png" alt="" width="580" height="277" />
+
+This will store all your starting information.
+
+You may need to create the initial API account application.
+<ol>
+ 	<li>After you are logged in, go to <a href="https://www.strava.com/settings/api">https://www.strava.com/settings/api</a> and create an app.</li>
+ 	<li>You should see the “My API Application” page now. Here is what everything means:
+<ul>
+ 	<li>Category: The category you chose for your application (doesn't matter)</li>
+ 	<li>Club: not necessary</li>
+ 	<li>Client ID: Your application ID (ID for your API)</li>
+ 	<li>Client Secret: Your client secret (confidential!)</li>
+ 	<li>Authorization token: Your authorization token which will change every six hours (confidential)</li>
+ 	<li>Your Refresh token: The token you will use to get a new authorization token (confidential)</li>
+ 	<li>Rate limits: Your current rate limit (lets not spam it)</li>
+ 	<li>Authorization Callback Domain: set to 'localhost'</li>
+</ul>
+</li>
+</ol>
+Once we've done that,
+
+We can then refer back to the Strava documentation where it is asking to make a curl request. What does that mean??? Well its a command line tool that helps make http requests, but we will use Postman to do this, so lets set up our postman account.
+
+You can <strong><a href="https://identity.getpostman.com/login">sign up here, for free.</a></strong>
+
+Once you've made an account, click get started with something new.
+
+<img class="alignnone size-large wp-image-5442" src="../uploads/2023/01/S2-1024x529.png" alt="" width="580" height="300" />
+
+Postman makes requests alot easier to build. What it'll help us do is run our commands based on the access token we feed it.
+
+So the documentation tells us we need to then make a GET request based on this link.
+
+https://www.strava.com/api/v3/athlete
+
+For it to work we need to add in our Bearer token.
+
+Go to the <strong>header</strong> and add 'authorization' in the key.
+
+Add into the value 'Bearer YOURACCESSTOKEN'
+
+<img class="alignnone size-large wp-image-5443" src="../uploads/2023/01/S3-1024x945.png" alt="" width="580" height="535" />
+
+Amazing, if it pops up with your account details you've done it correctly.
+
+We now know who we are....
+
+If we go back to the <strong><a href="https://developers.strava.com/docs/getting-started/#account">documentation</a></strong> now we now notice in part D we have to authorise our account. This is because our account is set to 'read' and not 'read_all' mode. This will allow us to retrieve all our data.
+
+First we need to get our authorisation code from the authorisation page.
+<ol>
+ 	<li>Go to <strong><a href="https://www.strava.com/settings/api">https://www.strava.com/settings/api</a></strong> and copy your Client ID</li>
+ 	<li>Paste your Client ID into this</li>
+</ol>
+https://www.strava.com/oauth/authorize?client_id=your_client_id&amp;redirect_uri=http://localhost&amp;response_type=code&amp;scope=activity:read_all
+
+** Note, it is really important to have this say read_all, this will allow us to be able to find all our data.
+
+<img class="alignnone size-large wp-image-5445" src="../uploads/2023/01/S4-1024x423.png" alt="" width="580" height="240" />
+
+Click Authorise and save down the new url, it stores the code that we will need later.
+
+http://localhost/exchange_token?state=&amp;code=<strong>STORE_THIS_CODE</strong>&amp;scope.....
+
+<img class="alignnone size-large wp-image-5446" src="../uploads/2023/01/S5-1024x501.png" alt="" width="580" height="284" />
+
+Don't worry if the page errors out. This gives us a new code for our access token and refresh token for a read_all. This will give access to the Strava App.
+
+Go back into to Postman.
+
+We want to generate a new token with the scope that we have now requested.
+
+https://www.strava.com/oauth/token?client_id=CLIENT_ID&amp;client_secret=CLIENT_SECRET&amp;code=CODE_SAVED_FROM_PREVIOUS&amp;grant_type=authorization_code
+
+<img class="alignnone size-large wp-image-5448" src="../uploads/2023/01/S6-1024x451.png" alt="" width="580" height="255" />
+
+Copy and past the url above into postman. Make sure the setting is on POST. I personally would start a new tab for this.
+
+Replace your client_id, client_secret from your API Application Page. Add the new code that we just retrieved into the value of code_saved_from_previous.
+
+<img class="alignnone size-large wp-image-5450" src="../uploads/2023/01/S7-1024x949.png" alt="" width="580" height="538" />
+
+Sorry lots of red pen, but if it works when you hit the send button this should generate your <strong>refresh token and access tokens!</strong>
+
+** Do note your new refresh token and access token <strong>will be different</strong> to previous**
+
+We can copy these for our code. Finally we are ready to run some code.
+
+Time to open up Pycharm.
+
+Copy and paste the main.py script from the repo at the top of the page. The code is written in a way that it'll loop through all your activities until there are no more to find. Some of the code has been pulled together from various other articles.
+
+The payload will include the client_id, client_secret from your main Strava page.
+
+The refresh token is the token we just generated in Postman. This means we can continue to request data.
+
+<img class="alignnone size-large wp-image-5454" style="font-family: NonBreakingSpaceOverride, 'Hoefler Text', 'Noto Serif', Garamond, 'Times New Roman', serif; letter-spacing: normal;" src="../uploads/2023/01/carbon-3-1024x723.png" alt="" width="580" height="410" />
+
+Once it authorises, it will print out the access token that you will have just seen in our latest postman POST request.
+
+<img class="alignnone size-full wp-image-5458" src="../uploads/2023/01/Capture-1.png" alt="" width="619" height="191" />
+
+So what does the remainder of the code do?
+
+Well according to the Strava documentation, there is pagination that we need to account for. I.e if we didnt set our parameters we would only get a small view of the true number of activities we've done. By being able to flick through the pages we can now store all the activities.
+
+<img class="alignnone size-large wp-image-5455" src="../uploads/2023/01/carbon-4-950x1024.png" alt="" width="580" height="625" />
+
+I'll put some more sanitised example data from my results on the GitHub repo so that you can take a look at what the fields may look like.
+
+Let me know how you get on with setting up and connecting your own API. It can be a little fiddly, especially with the need to set your tokens for read_all access.
+
+A few common errors if you get stuck during the process:
+<ul>
+ 	<li>If you're using postman for the first time, do not get params and headers mixed up.</li>
+ 	<li>GET &amp; POST are two very different things. Double check you're trying to do the correct thing.</li>
+ 	<li>When you paste in your codes / tokens make sure not to leave a leading or trailing space!</li>
+ 	<li>Make sure that each part of the postman requests are working before you try running the code, otherwise it will fail if you try jump straight into the code.</li>
+ 	<li>For the code, make sure you have all the packages pip installed that are required.</li>
+</ul>
+In future weeks we will look to see how we can visualise some of these elements.
+
+For now, here is a quick calendar I put together in Tableau, nothing too fancy for now.
+
+<img class="alignnone size-full wp-image-5742" src="../uploads/2023/02/Capture-1.png" alt="" width="2239" height="787" />
+
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

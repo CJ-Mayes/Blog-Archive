@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tackling Radar Charts - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Tackling Radar Charts</h1><p></p>
+<p>Hi All,</p>
+<p>
+
+</p>
+<p>Another quick sports run-through this week.</p>
+<p>
+
+</p>
+<p><em>Fun fact</em> before we start, Jack Grealish broke the record for being fouled more times than any other soccer (football) player last season, with a total of 167 fouls won.</p>
+<p>
+
+</p>
+<p><strong>RADAR CHARTS</strong></p>
+<p>
+
+</p>
+<p>Radar charts are nothing new in the community but I am hoping to create more of a tableau 'bridge' for those that usually create their charts in Python. A radar chart is useful when trying to compare the relative weight or importance of different dimensions within one or more entities. </p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-1884" src="../uploads/2021/08/finished-2.png" alt="" /></figure>
+
+</p>
+<p>This blog post will be split into three sections outlined below. We will be looking to recreate the above visualisation in its entirety.</p>
+<p>
+
+</p>
+<ol>
+<li>
+<p>Python (Optional)</p>
+</li>
+<li>
+<p>Tableau Build</p>
+</li>
+<li>
+<p>Figma Design</p>
+</li>
+</ol>
+<p>
+
+</p>
+<p>A few shout-outs before we begin.</p>
+<p>
+
+</p>
+<p>Firstly, <strong><a href="https://twitter.com/mckayjohns" target="_blank" rel="noreferrer noopener">Mckay Johns</a></strong>, I was looking through his original <strong><a href="https://www.youtube.com/watch?v=cXtC2EOQj6Q" target="_blank" rel="noreferrer noopener">radar chart</a></strong> python tutorial which paved the way in piecing together my own code. He is killing it in the sports world making python more accessible for all.</p>
+<p>
+
+</p>
+<p>Secondly, <strong><a href="https://twitter.com/thoang1000" target="_blank" rel="noreferrer noopener">Toan Hoang</a></strong>. You will see a lot of the calculations are similar, if not the same to Toan's tutorial of <strong><a href="https://tableau.toanhoang.com/drawing-radar-charts-in-tableau/" target="_blank" rel="noreferrer noopener">radar charts</a></strong>. It is so easy to follow and would recommend giving it a go, as well as, if not prior to this blog!</p>
+<p>
+
+</p>
+<p>Lastly, <strong><a href="https://twitter.com/aabattani" target="_blank" rel="noreferrer noopener">Autumn Battani</a></strong> for giving me some commentary on the design aspect. You will see in section three how this played out in terms of circular text writing. Autumn has a clear talent for design so I am always looking on ways to improve on this front, from her.</p>
+<p>
+
+</p>
+<p>I really owe it to these three individuals for the blog, I am just gluing the ideas together with the odd amendment rather than building anything from complete scratch so <strong>all credit goes to them.</strong></p>
+<p>
+
+</p>
+<p class="has-medium-font-size"><span style="text-decoration: underline;"><strong>PART 1 - PYTHON</strong> (OPTIONAL)</span></p>
+<p>
+
+</p>
+<p>You can find the <strong>code on Github.</strong> I used PyCharm Community to run the code but feel free to use any preference of your own. We will be using the python code simply to <strong>create the background for our visualisation</strong>. If you would like to gloss over the python aspect, I have saved down a copy of the blank template on the <strong>GIT repo.</strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-1810" src="../uploads/2021/08/screenshot-2021-08-01-at-16.35.04.png" alt="" /></figure>
+
+</p>
+<p>What happens when we run the code?</p>
+<p>
+
+</p>
+<p>It will pop up asking for an input in the terminal. You will need to enter a number representing the number of metrics. In the case of the Jack Grealish dashboard this number was 7 (segments) accounting for Acceleration, Stamina, Strength, Balance, Sprint Speed, Agility and Jumping.</p>
+<p>
+
+</p>
+<p>I've put some other examples of different segments saved on the GIT Repo so you can pick one suitable for your needs.</p>
+<p>
+
+</p>
+<p>Here are some examples:</p>
+<p>
+
+</p>
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-1825" src="../uploads/2021/08/figure2.png" alt="" data-id="1825" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-1826" src="../uploads/2021/08/figure5.png" alt="" data-id="1826" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-1827" src="../uploads/2021/08/figure9.png" alt="" data-id="1827" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+<p>
+
+</p>
+<p>Don't forget if this is your first time trying this tutorial you may need to pip install numpy and matplotlib in the terminal.</p>
+<p>
+
+</p>
+<p>One thing I'm particularly happy with is the final line of code which saves the background as transparent. This will be super helpful for when we bring this image in as a map background on Tableau!</p>
+<p>
+
+</p>
+<p><em>plt.savefig('Demo.png', transparent=True)</em></p>
+<p>
+
+</p>
+<p>A final thing to note before we move on to the build is that I have made the numbers fall between 0-100 as that is what the FIFAINDEX metrics are out of. This is something to be cautious of, especially moving into the tableau section as you will have to find work arounds if you have separate metrics of all different ranges.</p>
+<p>
+
+</p>
+<p class="has-medium-font-size"><span style="text-decoration: underline;">PART 2 </span><strong><span style="text-decoration: underline;">- TABLEAU</span></strong></p>
+<p>
+
+</p>
+<p>You can access a copy of the original data on git. You will see it only has two columns, the dimension and an associated value between 0 and 100. The data I am using, was taken from the FIFA Index website, <strong><a href="https://www.fifaindex.com/player/206517/jack-grealish/fifa21/" target="_blank" rel="noreferrer noopener">here.</a></strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-1839" src="../uploads/2021/08/screenshot-2021-08-01-at-20.18.32.png" alt="" width="182" height="304" /></figure>
+
+</p>
+<p>Feel free to <strong>download the workbook using the link at the top of the page</strong> as a starting point for the visualisation.</p>
+<p>
+
+</p>
+<p><strong>The Calculations</strong></p>
+<p>
+
+</p>
+<p>There are 6 calculations within the workbook.</p>
+<p>
+
+</p>
+<p>The first is <strong>index,</strong> which returns the index of the current row in the partition without any sorting. The next is <strong>count of</strong> <strong>dimension</strong>, which totals the number of different segment/categories. The next is <strong>Normal Value</strong>, where we make the value a decimal between 0 and 1 by dividing by 100. The <strong>degrees</strong> calculation is where each of the points are rotated. The degrees will be the gap between each of the dimensions.</p>
+<p>
+
+</p>
+<p>Finally the <strong>X</strong> and <strong>Y</strong> values use sin and cosine to make the points circular. The calculation will include degrees for the set spacing, index for ranking purposes and then the value to be able to give the distance away from the centre, I.e the player value/metric.</p>
+<p>
+
+</p>
+<p>Hopefully that all makes sense. Once again, thank you to <strong>Toan Hoang</strong> for the inspiration and starting basis of the calculations.</p>
+<p>
+
+</p>
+<p>You may have noticed I haven't written all the calcs out as it will be easier to go in and replace the dataset than build from scratch.</p>
+<p>
+
+</p>
+<p><strong>The Build</strong></p>
+<p>
+
+</p>
+<p>You can go ahead and replace references with your new data, ideally keeping dimension and value named correctly. <strong>Value must remain between 0 and 100.</strong> This is super important.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-1829" src="../uploads/2021/08/screenshot-2021-08-01-at-20.06.36.png" alt="" /></figure>
+
+</p>
+<p>Here is an example above, of me replacing the dataset with 10 new dimension and values.</p>
+<p>
+
+</p>
+<p>So now we will want to add a background.</p>
+<p>
+
+</p>
+<p>Go to Maps – Background Images – datasetname.</p>
+<p>
+
+</p>
+<p>Edit the chart to have the following components for X and Y. In Options, Leave lock aspect and always show viz both turned on.</p>
+<p>
+
+</p>
+<p>Find the file with the correct segments from my GIT repo, or the python code you have ran, (with input 10).</p>
+<p>
+
+</p>
+<p>Set the configuration as below.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-1832" src="../uploads/2021/08/screenshot-2021-08-01-at-20.09.57.png" alt="" /></figure>
+
+</p>
+<p>Click OK and Apply.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-1834" src="../uploads/2021/08/screenshot-2021-08-01-at-20.10.09.png" alt="" /></figure>
+
+</p>
+<p>We have just updated our radar chart with the new background we made in Python.</p>
+<p>
+
+</p>
+<p><strong>Note:</strong></p>
+<p>
+
+</p>
+<p>The axis is fixed on both the x and y between -1 and 1.</p>
+<p>
+
+</p>
+<p>-If you'd like to understand more about the technical build please see <strong><a href="https://tableau.toanhoang.com/drawing-radar-charts-in-tableau/" target="_blank" rel="noreferrer noopener">Toan's fantastic template</a></strong>.</p>
+<p>
+
+</p>
+<p>-If you build it from scratch you will want to double check your nested calculations from his template.</p>
+<p>
+
+</p>
+<p>-Play around with the opacity and colours.</p>
+<p>
+
+</p>
+<p>-And there we have it. The final visualisation with the chart background snapped on.</p>
+<p>
+
+</p>
+<p>-(Side note: If you are struggling to get your alignment of values to the background image using the configuration I gave, otherwise, try making all the points 100 and align them to the edges, then switch the values to your real values.)</p>
+<p>
+
+</p>
+<p class="has-medium-font-size"><span style="text-decoration: underline;">PART 3 - <strong>FIGMA DESIGN</strong></span></p>
+<p>
+
+</p>
+<p>Finally, I was asked on a recent <strong><a href="https://www.youtube.com/watch?v=iPVLw63EoZA&amp;t=2s" target="_blank" rel="noreferrer noopener">VizConnect</a></strong> how to make curved writing. </p>
+<p>
+
+</p>
+<p>I have recently come across this plugin on Figma called <strong><a href="https://www.figma.com/community/plugin/762070688792833472" target="_blank" rel="noreferrer noopener">Arc</a></strong>. Check out the plug-in, <strong><a href="https://www.figma.com/community/plugin/762070688792833472" target="_blank" rel="noreferrer noopener">here.</a></strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-1837" src="../uploads/2021/08/screenshot-2021-08-01-at-20.16.09.png" alt="" /></figure>
+
+</p>
+<p>Step 1.</p>
+<p>
+
+</p>
+<p>Build your dashboard as desired to size without the background.</p>
+<p>
+
+</p>
+<p>Here is my 900x600 dashboard without the curved writing.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-1842" src="../uploads/2021/08/dashboardwithouttext.png" alt="" /></figure>
+
+</p>
+<p>So now we will want to add the text at the end of each segment.</p>
+<p>
+
+</p>
+<p>-Go to dashboard and export the dashboard as an image.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-1847" src="../uploads/2021/08/screenshot-2021-08-01-at-20.35.35.png" alt="" /></figure>
+
+</p>
+<p>-Load up Figma and download the plug-in.</p>
+<p>
+
+</p>
+<p>-Open a new blank project.</p>
+<p>
+
+</p>
+<p>-Go to File, Place Image and locate your dashboard image that we want to add text to.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-1844" src="../uploads/2021/08/screenshot-2021-08-01-at-20.27.01.png" alt="" width="765" height="834" /></figure>
+
+</p>
+<p>-Next you will want to use the <strong>text tool</strong> and create labels for. The text tool is the 6th button on the header above signalled with a "T".</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-1845" src="../uploads/2021/08/screenshot-2021-08-01-at-20.29.15.png" alt="" /></figure>
+
+</p>
+<p><strong>Method 1.</strong></p>
+<p>
+
+</p>
+<p>Create the text as one long string with all the dimensions.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-1849" src="../uploads/2021/08/screenshot-2021-08-01-at-20.31.34.png" alt="" /></figure>
+
+</p>
+<p>-Go to Figma, Plugins, arc while you have your text highlighted.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-1851" src="../uploads/2021/08/screenshot-2021-08-01-at-20.31.45.png" alt="" /></figure>
+
+<figure class="wp-image"><img class="wp-image-1852" src="../uploads/2021/08/screenshot-2021-08-01-at-20.32.14.png" alt="" /></figure>
+
+<figure class="wp-image"><img class="wp-image-1854" src="../uploads/2021/08/screenshot-2021-08-01-at-20.32.35.png" alt="" /></figure>
+
+</p>
+<p>Above is the results. A side note would be that I added in extra manual spaces in the text string to space out the words evenly. Then it was a case of making sure the gap between the first and last word was even.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-1857" src="../uploads/2021/08/screenshot-2021-08-01-at-20.32.55.png" alt="" /></figure>
+
+</p>
+<p>-You'll notice the text needs to be rotated. I amend my file to -140 degrees to get Acceleration to the top.</p>
+<p>
+
+</p>
+<p>-Overlay the file over the original text.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-1866" src="../uploads/2021/08/screenshot-2021-08-01-at-20.33.21.png" alt="" width="610" height="423" /></figure>
+
+</p>
+<p>Once you are happy with the sizing and it is overlaid over your original visualisation, you will want to turn down the opacity of the original visualisation. You may need to resize (proportionally) the text to fit round the chart. This is done by clicking on the original image and going to <strong>layer pass-through</strong> and <strong>turning it to 0</strong>.</p>
+<p>
+
+</p>
+<p>-Next you want to group the original (now transparent) viz with your new text. This will mean that your text can now be saved with the correct proportions. This is because we don't want to export the visualisation as an image back in, we just want to keep the text! You can group your text and background image through using ctrl/cmd + G, or right click <strong>Group selection</strong>.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-1863" src="../uploads/2021/08/screenshot-2021-08-01-at-20.43.13.png" alt="" width="371" height="509" /></figure>
+
+</p>
+<p>-Finally export the new image and bring it into your Tableau Dashboard as an image!</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-1864" src="../uploads/2021/08/screenshot-2021-08-01-at-20.34.13-1.png" alt="" /></figure>
+
+</p>
+<p>If all goes well, you will end up with something like this:</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-1871" src="../uploads/2021/08/finished-1.png" alt="" /></figure>
+
+</p>
+<p>A little bit tricky. This was probably only my third time using Figma so apologies if it's not best practice. I hope I can improve and share simultaneously moving forward. Let me know how you get on.</p>
+<p>
+
+</p>
+<p><strong>Method 2</strong></p>
+<p>
+
+</p>
+<p>During discussions with Autumn, I wanted to know if the text should face upwards at the bottom. It's a bit of an open debate as to whether the text should continually wrap around clockwise, or flip and be read from left to right. I'll let you make up what you prefer. The above tutorial outlines a <strong>continual wrap</strong>.</p>
+<p>
+
+</p>
+<p>If you prefer the second option (the bottom half of the writing facing inwards) then you will need to follow the same procedure as above but make each word <strong>individually</strong> with its own <strong>text wrap/arc</strong> and <strong>rotation</strong>. I won't be covering it off in detail here, but for comparisons here is the difference below. You will see I made Agility, Sprint Speed, Balance and Strength read left to right.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-1877" src="../uploads/2021/08/screenshot-2021-08-01-at-20.57.33.png" alt="" /></figure>
+
+</p>
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-1874" src="../uploads/2021/08/group-2.png" alt="" data-id="1874" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-1875" src="../uploads/2021/08/group-3.png" alt="" data-id="1875" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+<p>
+
+</p>
+<p>The final thing to <strong>check in Tableau</strong> once you have your headers in place is that your dimensions are sorted in the correct order!</p>
+<p>
+
+</p>
+<p>This is a super important step to take if you have done labelling.</p>
+<p>
+
+</p>
+<p>Right click on dimension, go to <strong>sort</strong> and make sure they are sorted clockwise in the same order as your text labels.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-1900" src="../uploads/2021/08/screenshot-2021-08-01-at-21.50.02.png" alt="" /></figure>
+
+</p>
+<p><strong>GOING FURTHER</strong></p>
+<p>
+
+</p>
+<p>Try playing around with different segment numbers.</p>
+<p>
+
+</p>
+<p>Try adding in a different players metrics over the top.</p>
+<p>
+
+</p>
+<p>Try making a whole team's metrics in grid form.</p>
+<p>
+
+</p>
+<p>As always, Let me know how you get on with this one. I can be reached on <strong>Twitter</strong>, <strong>@_CJMayes</strong>. A simple one in terms of Tableau build, but maybe a few nuances in terms of the background alignment and challenges with Figma curved writing.</p>
+<p>
+
+</p>
+<p><strong>LOGGING OFF,</strong></p>
+<p>
+
+</p>
+<p><strong>CJ</strong></p>
+<p></p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

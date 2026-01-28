@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysing CSV files with Langchain (ChatGPT) - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Analysing CSV files with Langchain (ChatGPT)</h1>Hi all,
+
+Can we get OpenAI to answer our questions based on a csv input?
+
+We are back with another coding snippet this week. This week focussing on Langchain and how we can autogenerate answers using the capabilities of OpenAI.
+
+<img class="alignnone size-full wp-image-6129" src="../uploads/2023/04/Screenshot-2023-04-30-at-22.22.42.png" alt="" width="2516" height="1482" />
+
+The above printscreen isn't the prettiest end output, but is what we will be striving towards today and I am very excited to showcase it.
+
+This tutorial will look to show how we can use the OpenAI package and langchain, to look at a csv file and ask it questions about the file and the agent will send back a response.
+
+Today we will look at LLMs.
+
+Large language models (LLMs) are emerging as a transformative technology, enabling developers to build applications that they previously could not. However, using these LLMs in isolation is often insufficient for creating a truly powerful app - the real power comes when you can combine them with other sources of computation or knowledge. Read more about it <strong><a href="https://github.com/hwchase17/langchain">here</a></strong>
+
+Firstly, let's look at how we can get set up.
+
+We will need
+<ul>
+ 	<li>A Python IDE (I choose to use PyCharm)</li>
+ 	<li>An OpenAI account and an API key generated.</li>
+ 	<li>A dataset to analyse (I Choose tennis)</li>
+</ul>
+As a brief refresher, here is where you can access your API token. It is stored under User, where you can create a secret key.
+
+<img class="alignnone size-full wp-image-6110" src="../uploads/2023/04/Screenshot-2023-04-30-at-20.58.49.png" alt="" width="2528" height="1306" />
+
+You can see your amount of usage of your free credits under the usage section.
+
+<img class="alignnone size-full wp-image-6109" src="../uploads/2023/04/Screenshot-2023-04-30-at-20.59.11.png" alt="" width="2524" height="1330" />
+
+By now, you will know my IDE tool of choice tends to be PyCharm.
+
+Copy and paste the code snippet into your own main.py file.
+
+Make sure to add in your api key into the code.
+
+Download the ATP Rankings dataset from the repo. I chose this dataset from a previous tutorial I wrote - I felt like it was a nice easy dataset to interpret showing the rankings of the top 500 mens players.... back in November-ish time.
+
+So for this to work you will need to be on python 3.9 - I was previously on 3.8 and it was not compatible and was throwing up errors.
+
+Also you will need to pip install your packages. For this we need OpenAI, langchain, os and pandas.
+
+<img class="alignnone size-full wp-image-6137" src="../uploads/2023/04/Screenshot-2023-04-30-at-22.39.56.png" alt="" width="2472" height="460" />
+
+You'll know this is done as there will be no underlined red in the code anymore.
+
+<img class="alignnone size-full wp-image-6138" src="../uploads/2023/04/Screenshot-2023-04-30-at-22.40.58.png" alt="" width="2494" height="1522" />
+
+Sometimes in the terminal it doesn't fully load my packages so I like to go into the interpreter to manually add them there.
+
+Once that's all done we are ready to run the code. But before we get into the responses, lets look at why we are doing this.
+
+What are agents?
+
+Agents involve an LLM making decisions about which Actions to take, taking that Action, seeing an Observation, and repeating that until done. LangChain provides a standard interface for agents, a selection of agents to choose from, and examples of end-to-end agents.
+
+If you'd like to learn more about Langchain you can read about it <strong><a href="https://github.com/hwchase17/langchain">here.</a></strong>
+
+In our example we want to execute three simple questions against our csv.
+
+Firstly, how many rows are there?
+
+Secondly, how many individuals have the first name Pedro? What are there full names?
+
+Thirdly, How many more points did the Top 10 players currently have compared to the bottom 10 players?
+
+Lets look at this in action.
+
+<img class="alignnone size-full wp-image-6141" src="../uploads/2023/04/Screenshot-2023-04-30-at-22.43.55.png" alt="" width="1074" height="338" />
+
+When we run our command, it translates our question into a thought. It will then take that thought and create an action, almost as if you ask an analyst how would you answer it in code. It then computes that action and gives us an observation. Of course it is no surprise our Top 500 ranking of mens tennis has 500 records in.
+
+It then has a final thought that it knows the answer, and states it to us as an answer.
+
+Nice and simple!
+
+Lets go on to do something a little more challenging and find individuals called Pedro.
+
+Now if I was to ask the agent, how many people in the dataset are called Pedro it will give us zero.
+
+<img class="alignnone size-full wp-image-6143" src="../uploads/2023/04/Screenshot-2023-04-30-at-22.46.48.png" alt="" width="1446" height="422" />
+
+So we have to be a little bit more precise.
+
+<img class="alignnone size-full wp-image-6144" src="../uploads/2023/04/Screenshot-2023-04-30-at-22.47.46.png" alt="" width="1496" height="272" />
+
+Lets ask it how many individuals have the FIRST name Pedro.
+
+<img class="alignnone size-full wp-image-6146" src="../uploads/2023/04/Screenshot-2023-04-30-at-22.48.39.png" alt="" width="2326" height="500" />
+
+Well of course now it understands. It tells us the code it would use to compute the answer, it prints all those in the dataset called Pedro and gives us a written response too.
+
+Pretty impressive.
+
+So our final question. A mathematical computation question. Now I ask it to compare the Top 10 ranked individuals against the Bottom 10 and work out the number of points difference.
+
+<img class="alignnone size-full wp-image-6148" src="../uploads/2023/04/Screenshot-2023-04-30-at-22.50.13.png" alt="" width="1350" height="444" />
+
+And there we are. The correct value finding the difference between them.
+
+Today we have gone over some basic examples of calculations against a csv file, but this is really only just touching the surface of what is possible.
+
+Going further:
+<ul>
+ 	<li>Try look at other types of files you can analyse including pdf's.</li>
+ 	<li>Load your own CSV file in and ask that questions.</li>
+ 	<li>Try debug errors in what type of questions it can't respond to.</li>
+ 	<li>Try creating a log of questions answers and responses.</li>
+</ul>
+That's it for this week, catch you soon.
+
+<strong>LOGGING OFF</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

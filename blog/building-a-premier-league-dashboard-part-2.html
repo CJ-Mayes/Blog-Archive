@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau: Building a Premier League Dashboard (Part 2 - Joris Van Den Berg) - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Tableau: Building a Premier League Dashboard (Part 2 - Joris Van Den Berg)</h1><p></p>
+<p>Hi all,</p>
+<p>
+
+</p>
+<p>This blog is the second of a two part series of guest blogs. If you missed it, please check out part 1 written by Alberto on how to <strong><a href="../2022/08/16/alteryx-building-a-premier-league-dashboard-part-1-alberto-oraa/" target="_blank" rel="noreferrer noopener">collect data from an API</a> </strong>and format that data fit for Tableau, using Alteryx.</p>
+<p>
+
+</p>
+<p>Naturally, this blog picks up from that stage of data prep, and starts to showcase specific metrics you can look at to build a live Premier League Dashboard tracker. I am delighted to welcome <strong><a href="https://public.tableau.com/app/profile/joris.van.den.berg" target="_blank" rel="noreferrer noopener">Joris Van Den Berg</a> </strong>onto the blog to show you through his halftime heroes dashboard. Please find a little more about Joris below;</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4457" src="../uploads/2022/08/image-34.png" alt="" /></figure>
+
+</p>
+<p>The trick for 'live' data in Tableau Public is to use Google Sheets. Live' because Tableau Public only gets new data from Google Sheets on a daily basis. So it is not possible to put real live data in Tableau Public. But this way you at least have new data in Tableau Public every day. You can read more about how to link Tableau and Google Sheets in this <strong><a href="https://theinformationlab.nl/en/2022/03/03/live-data-in-tableau-public-met-google-sheets/" target="_blank" rel="noreferrer noopener">blog</a>.</strong></p>
+<p>
+
+</p>
+<p>(*The Google Sheets reader will likely <a href="https://help.tableau.com/current/pro/desktop/en-us/examples_googlesheets.htm" target="_blank" rel="noreferrer noopener"><strong>no longer be supported</strong></a> by Tableau as of April 2023.)</p>
+<p>
+
+</p>
+<p>Now that we have the data, it is time to create a dashboard. I will show you some handy tricks that I have used myself. Use these tricks to create your own Premier League dashboard, or recreate our dashboard for practice. Our Premier League dashboard is also available for download from Tableau Public, so feel free to use it. </p>
+<p>
+
+</p>
+<p><strong>Game of the Week</strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4245" src="../uploads/2022/07/image-5.png" alt="" /></figure>
+
+</p>
+<p>Let's start with the match of the week. For how do I determine this if the data is updated automatically? Simple. I created a calculated field that looks at the results every week. For me, the match of the week is the match that scores the most goals. I have therefore worked this out in a calculated field.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4246" src="../uploads/2022/07/image-6.png" alt="" /></figure>
+
+</p>
+<p>We compare the maximum number of home and away goals scored in a match round with all individual matches. All matches with the most goals in that round are then marked TRUE. Matches with less goals are marked FALSE. We can then list the games with the most goals in each round by filtering on Game of the week = TRUE.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4248" src="../uploads/2022/07/image-7.png" alt="" /></figure>
+
+</p>
+<p>As you can see, sometimes there are two matches with the same number of goals. In addition, we want to have only the most recent match. This is solved by sorting the matches by date and using INDEX( ). By filtering on INDEX( ) 1, Tableau only shows the first row in the data. And voila, you have a calculation that shows the game with the most goals after each round of play.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4250" src="../uploads/2022/07/image-8.png" alt="" /></figure>
+
+</p>
+<p><strong>Form</strong></p>
+<p>
+
+</p>
+<p>In a similar way, I have also determined the shape of teams. This includes a calculated field that calculates how many games teams have won or lost. This results in the teams with the most games won or lost.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4252" src="../uploads/2022/07/image-10.png" alt="" /></figure>
+
+</p>
+<p>In the data, we have the field "Form". It contains the names of the last matches, whether they were won (W), drawn (D) or lost (L). Using the calculated field we check how many W's there are and subtract these from the total number of characters in the Form field. This leaves us with the number of matches won as a number.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4254" src="../uploads/2022/07/image-11.png" alt="" /></figure>
+
+</p>
+<p>Then we use this number again to make a list of the most winning teams. Using the same INDEX( ) trick we described earlier, we keep only the top team. Thus we have the team in shape. I use exactly the same way to determine the teams out of shape.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4255" src="../uploads/2022/07/image-12.png" alt="" /></figure>
+
+</p>
+<p><strong>URL Images</strong></p>
+<p>
+
+</p>
+<p>This last trick is the trickiest one. We want the players with the most goals and assists to be dynamically updated. However, to do this, we need to update the players' pictures as well, and this is a challenge. We could solve this with custom shapes, but then we would have to save a picture for each player and link it to the name. That is very time-consuming. So we did it with URL actions and parameters.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4257" src="../uploads/2022/07/image-13.png" alt="" /></figure>
+
+</p>
+<p>Don't spend too much time on this. It has given me a lot of headaches and Tableau has also announced <strong><a href="https://www.tableau.com/about/blog/2022/5/power-your-analytics-advantage-tableau-product-innovations" target="_blank" rel="noreferrer noopener">Image Role</a></strong> at the Tableau Conference. Thanks to this new feature you can now have images render dynamically by having a field with the URL of the image in your data. And we have just that for the players.</p>
+<p>
+
+</p>
+<p>In the end, the trick was to create a calculated field that calculates which player has scored the most goals or assists. The result of this calculation is the URL of the player in question. Then we create a parameter, which every time the dashboard opens, fills in the URL of the highest scoring player. Finally, we use this parameter in a URL action. This way, a web page with the highest scoring player opens every time. Let's look at this step by step.</p>
+<p>
+
+</p>
+<p><strong>1. Calculate player with most goals</strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4259" src="../uploads/2022/07/image-14.png" alt="" /></figure>
+
+</p>
+<p>In this calculation we look at the field goals rank. If the goals rank is 1, i.e. the most scoring player, the calculation will return 'Photo'. This is the field containing the URL of the player. Next, there is a fixed calculation in this field. This fills every line in the data with the URL of the highest scoring player. As a result, Tableau always performs the URL action with the URL of the highest scoring player.</p>
+<p>
+
+</p>
+<p><strong>2. Create parameter for most scoring player</strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4260" src="../uploads/2022/07/image-15.png" alt="" /></figure>
+
+</p>
+<p>In step 2, we create a parameter. We fill this parameter with the calculated field from step 1. At 'Value when workbook opens:' we also set this calculated field. The dashboard opens and the parameter is updated with the highest scoring player.</p>
+<p>
+
+</p>
+<p><strong>3. Add web page with image</strong></p>
+<p>
+
+</p>
+<p>Finally, we will add a webpage to our dashboard. Drag a web page into your dashboard. In the popup that appears, enter a URL. Enter the parameter from step 2. This way, the URL of the highest scoring player will be filled in as a webpage. </p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4262" src="../uploads/2022/07/image-16.png" alt="" /></figure>
+
+</p>
+<p>Repeat these steps for the top 2 and 3 most scoring players to build up your top 3 picture. Perform the same steps to show the players with the most assists on your dashboard.</p>
+<p>
+
+</p>
+<p><strong>Mobile Layout</strong></p>
+<p>
+
+</p>
+<p>Since we find that many users view the dashboards via Twitter and LinkedIn on their cell phones, we also created a mobile layout. I also have a handy tip for that, so that it looks neat. Tableau's default phone layout is often not very nice. That's why I create my own background image specifically for the cell phone. I add this image to my desktop version. Then I make the image floating and 1×1 pixel. Hide the image behind another floating object, and voila: now you have a special image for the background of your mobile layout. Finally, you place all the components of your dashboard into the new image.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4295" src="../uploads/2022/07/image-26.png" alt="" /></figure>
+
+</p>
+<p>Those were some tricks to create a live premier league dashboard! Hopefully you'll be inspired and get started yourself. You can of course create dashboards for other leagues too. We are looking forward to seeing your beautiful creations. Tag Halftime Heroes on <strong><a href="https://twitter.com/HalftimeHeroes_" target="_blank" rel="noreferrer noopener">Twitter</a>, <a href="https://www.instagram.com/halftimeheroes_nl/" target="_blank" rel="noreferrer noopener">Instagram</a> or <a href="https://www.linkedin.com/company/80317461/" target="_blank" rel="noreferrer noopener">LinkedIn</a>.</strong></p>
+<p>
+
+</p>
+<p><strong>CJ Round-up:</strong></p>
+<p>
+
+</p>
+<p>Thank you Joris for that insight into some calculations for finding, top teams, players and games as well as a few formatting tips and tricks to bring the visual to life with badges and players.</p>
+<p>
+
+</p>
+<p>What an honour to have Alberto and Joris join to do an end to end process of collating, transforming and visualising premier league data. Shout out to them both, the information lab and halftime heroes.</p>
+<p>
+
+</p>
+<p>What excited me most about Alberto &amp; Joris collaboration was that it provides a full e2e automated solution!</p>
+<p>
+
+</p>
+<p><strong>LOGGING OFF,</strong></p>
+<p>
+
+</p>
+<p><strong>CJ</strong></p>
+<p>
+
+</p>
+<p>&nbsp;</p>
+<p>
+
+</p>
+<p>&nbsp;</p>
+<p>
+
+</p>
+<p>&nbsp;</p>
+<p>
+
+</p>
+<p>&nbsp;</p>
+<p>
+
+</p>
+<p>&nbsp;</p>
+<p></p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

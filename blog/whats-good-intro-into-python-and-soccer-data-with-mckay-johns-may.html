@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>An Intro into Python and Soccer Data with Mckay Johns - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>An Intro into Python and Soccer Data with Mckay Johns</h1><p>Welcome to the May edition of <em><strong>"What's Good?"</strong></em>.</p>
+
+<p>Each month will have a tailored theme.</p>
+
+<p>I am so pleased to invite <strong>Mckay Johns</strong> to the blog for the May edition of <strong>“What’s Good?”</strong> This month’s topic is slightly different to the usual Tableau content. It will be on python and sports! I’ll add in a few Tableau gems in a follow up blog, next week.</p>
+
+<figure class="wp-image"><img class="wp-image-1154" src="../uploads/2021/04/screenshot-2021-04-24-at-12.34.55.png" alt="" /></figure>
+
+<p><strong>CJ: Mckay, Thanks so much for being a part of this month’s edition. For those who are unaware of your background. Tell us how you got into data, and utilising python? Is your background in data?</strong></p>
+
+<p><strong>M:</strong> My background in data really starts from when I was younger and really started to enjoy math. I’ve always enjoyed math growing up even in elementary school and high school and I usually found myself doing better at math than I did in any subject. Growing up and loving sports, I used to look forward to getting the newspaper delivered each morning so I could sit and read the stats of the different baseball and basketball teams and who was scoring the most, league leaders, different stats about different teams, etc. and that would translate over to things such as fantasy football, watching and learning about new statistics, and so forth.<br /><br />When i got into college I actually didn’t know what I wanted to do, I thought I wanted to be a sports psychologist and then I took one psychology class and found out it wasn’t for me, so I moved over to the information systems department and learned about all the cool things people were doing with data and math and wanted to eventually be able to apply that sports as well.</p>
+
+<p>The main problem I found was that I had never coded in my life so I signed up to take an intro to computer science class which taught C++ and I hated it haha. I like the concepts though and the things you could do with it so after some research I found python and took a couple of online courses to learn it. </p>
+
+<p>Right now I am working to finish my Master’s degree in Data Analytics which is how I started to get into things such as machine learning and more advanced python materials.</p>
+
+<p><strong>CJ: What sparked the interest in doing python tutorials? What has been your favourite to produce?</strong></p>
+
+<p><strong>M:</strong> I started doing the tutorials after I tried to start learning analysis for soccer myself. I saw a ton of people that were creating some cool things on Twitter, on blogs, and other platforms and wanted to learn how to do it. Since there really was no sort of information, I wanted to see if I could bridge that gap and help others get started. Most of my tutorials come as a I learn something then I try to teach it in a video. </p>
+
+<p>My favorite one so far was probably the <strong><a href="https://www.youtube.com/watch?v=rXHChgdXc0M" target="_blank" rel="noreferrer noopener">tutorial</a></strong> I did about <strong><a href="https://www.youtube.com/watch?v=JqONmLsRs8Y" target="_blank" rel="noreferrer noopener">KMeans clustering</a></strong> which is a way to group identical records together to try and find hidden trends or information. I really like the method and I’ve seen a lot of people create some amazing things by watching the video so it’s one I’m proud of.</p>
+
+<figure class="wp-image"><img class="wp-image-1190" src="../uploads/2021/04/screenshot-2021-04-25-at-10.31.15.png" alt="" /></figure>
+
+<p><strong>CJ: I see you have created a thread of places to start learning python. What tips would you give to someone who is on the python learning path?</strong></p>
+
+<p>(You can find the thread, <strong><a href="https://twitter.com/mckayjohns/status/1362088108020301824" target="_blank" rel="noreferrer noopener">here</a></strong>.)</p>
+
+<figure class="wp-image"><img class="wp-image-1163" src="../uploads/2021/04/screenshot-2021-04-24-at-12.53.41.png" alt="" width="383" height="119" /></figure>
+
+<p><strong>M:</strong> I think the biggest thing about learning python (or really just anything in general) is being patient and consistent. When I first started learning to code, I started with C++ which I did not like, and then I kind of stopped learning because it was a little too frustrating as well as I thought i should be an expert in 2 weeks. I regret not trying to stay consistent because the compounding effects of consistency would have payed off in the long term and I could possibly be even further along my path than I am now.</p>
+
+<p>One thing I always try to tell people who are learning python is to start with the basics, be consistent in practicing or doing tutorials every day, and then start building projects you are interested in that are going to help you learn even more. Learning a new skill is pretty hard but consistency and patience is how i’ve seen many people go from not knowing anything to being able to create some awesome things.</p>
+
+<p><strong>CJ: So, why football? (soccer)</strong></p>
+
+<p><strong>M:</strong> I actually only played soccer until I was about 8 or 9 but living in the United States, all of my friends played baseball and football so I didn’t play soccer growing up. I got into soccer because I started making some friends that played FIFA like 02 or 03 so I would play that for hours with them. I couldn’t watch many games because it wasn’t as accessible but I would watch highlights and on Sportscenter there would be plenty of things so I kept up with it. </p>
+
+<p>I also ended up living in Argentina for 2 years after I graduated high school, so being in a country that lives and breathes football is a completely different experience. I really felt a connection to a lot of the people I met as they shared their stories about their football fanatics and I fell even more in love with the sport.</p>
+
+<p>I like other sports too but football is the one that I find the most enjoyable to play and watch.</p>
+
+<p><strong>CJ: In a recent video you discuss 5 reasons why someone should learn tableau, covering off its demand, ease of use and its applications. What part of learning Tableau have you enjoyed the most?</strong></p>
+
+<figure class="wp-image"><img class="wp-image-1167" src="../uploads/2021/04/screenshot-2021-04-25-at-09.26.46.png" alt="" /></figure>
+
+<p><strong>M:</strong> Tableau I think solves a really big issue with people not knowing how to code and needing to still make charts and graphs. I’ve loved how easy it is to integrate any data sources. This can be a little confusing with programming but Tableau is 10x easier with that. As well as the drag and drop functionality. The fact that I can just drag some measures and dimensions into spots that end up creating graphs that are aesthetically pleasing is amazing. It bridges those gaps and makes it a lot easier and accessible to many.</p>
+
+<p><strong>CJ:  What in the data / sports  community have you seen recently that has really impressed you?</strong></p>
+
+<p><strong>M: <a href="https://twitter.com/pwawrzynow" target="_blank" rel="noreferrer noopener">Piotr</a></strong> has developed an <strong><a href="http://analyticsfc.co.uk/blog/2021/03/22/profiling-coaches-with-data/" target="_blank" rel="noreferrer noopener">insane model to be able to evaluate coaches</a></strong> based on a lot of different variables. It is probably one of the most high end things that I have witnessed and been able to see developed recently. </p>
+
+<p>You can check it out, <strong><a href="https://twitter.com/pwawrzynow/status/1373963217806966785?s=20" target="_blank" rel="noreferrer noopener">here</a></strong>. In addition to his blog page, <strong><a href="https://wawrzynow.wordpress.com/" target="_blank" rel="noreferrer noopener">here</a></strong>.</p>
+
+<figure class="wp-image"><img class="wp-image-1171" src="../uploads/2021/04/gianpiero.jpeg" alt="" /></figure>
+
+<p>There’s so many things I could list here haha but I think that one tops them all so I will leave it at that. There were a lot of cool things done in the NFL Big Data Bowl which had people using tracking data and advanced metrics to evaluate defensive performances on passing plays which was really cool. I didn’t see all of the different submissions but the ones I did see were incredible.</p>
+
+<p><strong>CJ:</strong> Awesome thanks Mckay. I've slowly realised there is a whole new world of sports analysis out their especially when it comes to data analytics/science, particularly in relation to soccer data.</p>
+
+<p>I'd like to take the opportunity here to mention , (with no surprise to some) that <strong>#SportsVizSunday</strong> has been one of my favourite initiatives to take part in. Each week, I've seen both such a high standard and array of chart types, designs and stories come from the <strong><a href="https://www.sportsvizsunday.com/blog" target="_blank" rel="noreferrer noopener">weekly blogs</a></strong>.</p>
+
+<p>Some of my favourites from the the last month (<strong>April 2021</strong>) have been:</p>
+
+<p><strong><a href="https://twitter.com/professorkao" target="_blank" rel="noreferrer noopener">Dennis Kao</a></strong> - <strong><a href="https://public.tableau.com/profile/dennis.kao#!/vizhome/WheelchairMarathonWinnersMarch2021/Dashboard1" target="_blank" rel="noreferrer noopener">Wheelchair Marathon Winners</a></strong></p>
+
+<p>Dennis shows the various wheelchair marathon winners from 5 famous marathons across the world. He brilliantly shows the course details whilst including the athletes and respective years they won. How impressive to find Heinz Frei has won a total of 26 races, mainly in Berlin. I love the layout and colour choices in Dennis' viz. This was a submission across SportsVizSunday, ProjectHealthViz and DiversityInData.</p>
+
+<p><strong><a href="https://twitter.com/FredrickNajjar" target="_blank" rel="noreferrer noopener">Fred Najjar</a></strong> - <strong><a href="https://public.tableau.com/profile/fred6420#!/vizhome/GamesofTheParalympics/GamesofTheParalympics" target="_blank" rel="noreferrer noopener">Games of the Paralympics </a></strong></p>
+
+<p>Radials are the way to my heart. Fred beautifully presented viz highlights the various sports included in the summer paralympics by year. I love the finer details of this viz including the sport participant vectors. I have become a real fan of where individuals make a 'showpiece' chart and then add smaller supplementary visual aids and text around the side for context. Fred does a great job of it here using a lighter grey text and greyscale bar.</p>
+
+<p><strong><a href="https://twitter.com/RileyData" target="_blank" rel="noreferrer noopener">Riley Martin</a></strong> - <a href="https://public.tableau.com/profile/riley.martin5287#!/vizhome/SeattleMarinersSweet116/Dashboard1" target="_blank" rel="noreferrer noopener"><strong>Seattle Mariners Sweet 116</strong></a></p>
+
+<p>Riley does an awesome job of looking at the historic 116 win season for the Seattle Mariners. I particularly like Rileys design in terms of typeface used as well as background shape colours. It makes for a very good read across the page. Riley's last three vizzes have been super inspiring.</p>
+
+<p><strong><a href="https://twitter.com/mrroweuk" target="_blank" rel="noreferrer noopener">Simon Rowe</a></strong> - <strong><a href="https://datavizjourney.com/2021/04/10/lacrosse-d1-championships/" target="_blank" rel="noreferrer noopener">Lacrosse D1 Champions</a></strong></p>
+
+<p>Simon is a real leading contributor to SportsVizSunday, always coming with high standard dashboards. His Lacrosse dashboard particularly blew me away from utilising the layering functionality so well. Small things such as the icons, colouring and typeface can really make big differences and it shows with how well this came together. Both technically and aesthetically fantastic.</p>
+
+<div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide">
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-1174" src="../uploads/2021/04/denniskao.jpeg" alt="" data-id="1174" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-1175" src="../uploads/2021/04/frednajjar.jpeg" alt="" data-id="1175" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-1176" src="../uploads/2021/04/rileymartin.jpeg" alt="" data-id="1176" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-1177" src="../uploads/2021/04/simonrowe.jpeg" alt="" data-id="1177" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+</div>
+
+<p>You can get involved yourself, <strong><a href="https://www.sportsvizsunday.com/monthlychallenge" target="_blank" rel="noreferrer noopener">here</a></strong>.</p>
+
+<p><strong>CJ: Now, Finally, and I am so excited for this. </strong><strong>Can you give us a written python run through of your shot chart tutorial?</strong></p>
+
+<p><strong>M:</strong> So this is a tutorial I created and one of the first ones I made to make <strong><a href="https://www.youtube.com/watch?v=2RhTuRWNqUc" target="_blank" rel="noreferrer noopener">shot charts</a></strong> for soccer shots. It shows the locations of each shot that was taken in a match and you can use this to evaluate different things such as goals, misses, different clusters of locations, etc. It’s one of the most basic charts that are used in soccer analysis. If you would like to follow the exact code you can download it on my <strong><a href="https://github.com/mckayjohns/Shotmaps" target="_blank" rel="noreferrer noopener">Github, here</a></strong>.</p>
+
+<figure class="wp-image"><img class="wp-image-1193" src="../uploads/2021/04/screenshot-2021-04-25-at-10.35.36.png" alt="" /></figure>
+
+<p>The first part we are going to need to do is to import the necessary python packages.</p>
+
+<p>We will be using, <strong>pandas</strong>, which allows us to upload and manipulate data, <strong>matplotlib.pyplot</strong> so we can plot the points, just the overall matplotlib package, as well as two external packages you will need to install onto your computer called <strong>highlight text</strong> (<a href="https://pypi.org/project/highlight-text/" target="_blank" rel="noreferrer noopener"><strong>https://pypi.org/project/highlight-text/</strong></a>) and <strong>mplsoccer </strong>(<strong><a href="https://mplsoccer.readthedocs.io/en/latest/" target="_blank" rel="noreferrer noopener">https://mplsoccer.readthedocs.io/en/latest/</a></strong>) which we use to plot the pitch.</p>
+
+<p>Therefore this may require you to write the following within your terminal.</p>
+
+<pre class="wp-block-preformatted">pip install mplsoccer
+pip install highlight-text
+</pre>
+
+<figure class="wp-image"><img class="wp-image-1194" src="../uploads/2021/04/pipinstall.jpg" alt="" /></figure>
+
+<p class="has-text-align-center"><img src="https://lh4.googleusercontent.com/Wn4IToEuPO-X1XI2oAjEXJkVoWVI91yLU-MyH0uJeth3wEoe5-B0WJr2-L_bzULfVwGgueHRXt0R2pWl-FsqnBdNSRb6Db6Z_ABx-AoYttz--vjX_AlxbGjkLeq33afHC3yLyDbr" width="441" height="142" /></p>
+
+<p>The next thing I like to do is set up general use colors such as a text color so we are not having to type a hex code every time. We do this in the next bit of code:</p>
+
+<p class="has-text-align-center"><img src="https://lh4.googleusercontent.com/rt_SFWQsKeUj46gYgIthQIXXmQsdhmd67pb2IPppmTCvjr6-bOQ9qgq7iMJqLUPw8GD0H2CS2g7fuPyCg69fFO-A7kcpQJT5TkhfL6QweLj_eJkj0GFWTVyf99m5Sebkb006XqO1" width="379" height="85" /></p>
+
+<p>The next part is going to be loading our data which is in a csv. We use pandas to do this with the following code to create a dataframe which is basically just the python version of an excel spreadsheet and we can check the top couple of rows as well by just typing the name of our dataframe.</p>
+
+<p class="has-text-align-center"><img style="width: undefinedpx;" src="https://lh5.googleusercontent.com/hg4YzvKEQ8H9kUvF9eQvA9Ja-__EVFTtPyBP29GbJJO9LdhS6OXrh02SeVI7_g7VNSp0xrtkIvddaSJcN84YVDN2xzaQclgPqXISaG7DrfHyt-l6cFyKOtoNUyQyIalBULYuX8Oo" /></p>
+
+<p>Make sure your <strong>csv</strong> and <strong>python file</strong> are in the same location. This way you don’t have to pass in the specific file path for your csv. If they aren’t in the same folder, then make sure you are passing in the <strong>correct file path</strong> for your csv.</p>
+
+<p>The next step is going to be creating the pitch and plotting the shots. This is what the code looks like:</p>
+
+<p class="has-text-align-center"><img src="https://lh3.googleusercontent.com/O7HjST-cr9HCfO_bA3gWD02qqrMOi6aHHmrfhB4GDUSYnDT6VQMd8a3KFH1r-B_96CO43oUfscT1WErIRGMxUzEHoVP12Hp_4nGLr7fxlLQYnSV5cDkwraYsuBqe2mWrsa8aUKT1" width="624" height="425" /></p>
+
+<p>But I will break down each section to make sure we are understanding what is going on. </p>
+
+<p>The first section is creating the pitch.</p>
+
+<p class="has-text-align-center"><img src="https://lh4.googleusercontent.com/LyWtlNuZIUOjqygtEYCH_7czIwBM1KNoegrqNUHBE924mRW_p01aIFEMGtS-5AinQjK8omA3ysmVghfAohVTCAKnZssxvL83klw1pnEDKpkvvfrPmVUBoRI-j4dXpXkMZd83phRl" width="624" height="239" /></p>
+
+<figure class="wp-image"><img class="wp-image-1196" src="../uploads/2021/04/screenshot-2021-04-25-at-11.14.31.png" alt="" width="722" height="498" /></figure>
+
+<p>We use a combination of matplotlib and mplsoccer here to create it. The first three lines are actually creating the “canvas” we’ll use and we set the colors we want with the hex code. </p>
+
+<p>The next chunk is we create a variable with mplsoccer called pitch which basically takes a bunch of different arguments to create the pitch we want. This is the one I use, but there is more customization options if you read the documentation. The next line is actually just drawing the pitch on that canvas we created. And the line after that we need because the statsbomb pitch we are using has an inverted y axis compared to the data we are using so we need to make sure they are going the same way (you may or may not need this line when using different data).</p>
+
+<p>The next section is just plotting the shots. We are just going to plot all of the shots the same color, but you could use something called a for loop if you wanted to plot each shot type or outcome a different color.</p>
+
+<p>It’s a simple code. We just use matplotlibs scatter function and pass in the x column and the y column from our dataframe, and then we set the size to 100, the color to a red, and then alpha is making it a little more transparent.</p>
+
+<p class="has-text-align-center"><img src="https://lh4.googleusercontent.com/t9MOlvpOQniT5_9ewuToKr0Y_x1vcZ5cpeA09NY0KQo5c-XUh6hmZhgt8Lrcgl1wrO011HKIDqk9nFnCL_7rSAXRphRhRDfq4FCs3ECTFa3Fq1QsVKCVxF_okAAFWLkg3dNJZRWK" width="624" height="51" /></p>
+
+<p>The next section is just annotation of the plot. This is super easy with the highlight_text package as well as other ways. I chose to use this so if I wanted to add colors in the future I could.</p>
+
+<p>Each one of the texts is using an x and y to plot the location of the annotation and the s argument is where we put the string we will be passing.</p>
+
+<p class="has-text-align-center"><img src="https://lh3.googleusercontent.com/WpJS7ldxMPRikhFDMpjtg5KPDF1KXsBQz8OIwXDe1ty5CGZYuysf32wv5tFCGvHLX8r3GUPV8z-LpfXIJq5twjw99OdNFPRUoRWk6fYImhsMD3yTitSLnFi5q2_H7Ijnhj5uNKvA" width="624" height="261" /></p>
+
+<p>There is a lot of customization with the highlight_text package so I would recommend looking into that if you have any questions on what else you can do. </p>
+
+<p>When youre all said and done you can save it and your final image should look like this!</p>
+
+<p class="has-text-align-center"><img src="https://lh3.googleusercontent.com/ADpwlauLDy3cfuyCu4sancDZdtn2IfaUSQgVG7l4tfMmX2OAgziSTx7-Wm7-k_bOtH6nTRFeIGbOxTVHiTdtHegYcZh9nKU15V11BQCrUyRrKdEHNMcR4hBMEl53pwWBH4ff_rvT" width="624" height="513" /></p>
+
+<p>Thats the end of the tutorial! If you have any questions about the code, we just started a <strong><a href="https://discord.gg/xHyuxPZ5EV" target="_blank" rel="noreferrer noopener">discord chat</a></strong> you can feel free to join where you can get help with any questions or things about football/soccer or just sports analytics in general.</p>
+
+<p><strong>CJ Round Up: </strong></p>
+
+<p>Thanks for reading this months <strong>"What's Good?"</strong> and do let myself or Mckay know how you got on with the tutorial. I am hoping to post my own soccer blog next week, without a doubt, to a much lesser python quality standard so do watch out for that. It will more heavily look at scraping data from Understat and loading it into Tableau for mapping.</p>
+
+<p>Further thanks to Mckay for the run-through. Keep up the fantastic youtube tutorials, they are a great source of learning. I'd like to finish this month by congratulating Mckay also on a new role he took up recently, and wish him the best with the remainder of his masters course.</p>
+
+<p><strong>LOGGING OFF.</strong></p>
+
+<p><strong>CJ</strong></p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

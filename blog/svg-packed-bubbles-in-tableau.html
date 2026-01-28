@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Packed Bubbles In Tableau - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>SVG Packed Bubbles In Tableau</h1>Hi all,
+
+A fun data art style blog this week.
+
+This idea was heavily inspired from The Flerlage Twins btw. You can check out their blog <a href="https://www.flerlagetwins.com/2020/04/packed-pie-art.html"><strong>here.</strong></a>
+
+It was written 5 years ago now and still works perfectly fine, but i wanted to give my own shapes a go, and to see if I could get some code of my own going.
+
+The way this blog will differ from the Twins is that we will look purely at Vector style SVG's. By that I mean filling a blank shape with packed circles.
+
+<img class="alignnone size-full wp-image-8877" src="../uploads/2025/02/Packed-Bubble-Chart.png" alt="" width="1400" height="700" />
+
+It won't touch on some of the more artistic flair that the twins had with recreating actual pieces of art and assigning each of the different hex codes.
+
+For this to work, you will need.
+<ul>
+ 	<li>An SVG file.</li>
+ 	<li>The code out of the repository (and the abilility to run python code)</li>
+ 	<li>Tableau (Optional)</li>
+</ul>
+Let's take this simple heart shape.<a href="../wp-content/uploads/2025/02/heart-solid.svg">
+</a><img class="alignnone  wp-image-8879" src="../uploads/2025/02/heart-solid.svg" alt="" width="252" height="252" />What we want to end up with is a bunch of randomly packed bubbles in this heart vector.<a href="../wp-content/uploads/2025/02/paw.svg"><img class="alignnone  wp-image-8880" src="../uploads/2025/02/paw.svg" alt="" width="251" height="251" /></a>
+
+But then also I thought what if the vector is made up of multiple components, like this paw shape. So ended up revisiting the code to make sure that it takes the different "shapes" into account.
+
+<img class="alignnone size-full wp-image-8897" src="../uploads/2025/02/carbon-1.png" alt="" width="2048" height="5698" />
+<div class="MuiBox-root css-y5dq5f">
+
+The code in the repo creates a new SVG image with packed circles inside a boundary defined by an input SVG file. Here's a breakdown of its main components and functionality:
+<ol>
+ 	<li>Imports: The code uses various libraries including random, math, os, svgpathtools, and xml.etree.ElementTree.</li>
+ 	<li>parse_svg function:
+<ul>
+ 	<li>Reads an SVG file and extracts path information.</li>
+ 	<li>Converts paths to a series of points (boundaries).</li>
+ 	<li>Scales the boundaries to fit within a 500x500 area.</li>
+</ul>
+</li>
+ 	<li>is_inside_boundary function:
+<ul>
+ 	<li>Determines if a point (x, y) is inside a given boundary using the ray-casting algorithm.</li>
+</ul>
+</li>
+ 	<li>pack_circles function:
+<ul>
+ 	<li>Attempts to place circles of random sizes within a boundary.</li>
+ 	<li>Ensures circles don't overlap and are fully within the boundary. (Note: You'll see that the circle centre is in the boundary not neccessarily the outer edge!)</li>
+</ul>
+</li>
+ 	<li>create_packed_circle_svg function:
+<ul>
+ 	<li>Main function that orchestrates the entire process.</li>
+ 	<li>Parses the input SVG, packs circles in each boundary, and creates a new SVG with the packed circles.</li>
+</ul>
+</li>
+ 	<li>SVG creation:
+<ul>
+ 	<li>Uses xml.etree.ElementTree to construct the output SVG.</li>
+ 	<li>Adds the original boundary paths and the new circles to the SVG.</li>
+ 	<li>Assigns random colors to the circles.</li>
+</ul>
+</li>
+ 	<li>File handling:
+<ul>
+ 	<li>Reads from an input SVG file and writes the result to an output SVG file.</li>
+</ul>
+</li>
+ 	<li>Error handling:
+<ul>
+ 	<li>Includes try-except blocks to handle potential errors like file not found or invalid SVG content.</li>
+</ul>
+</li>
+ 	<li>Main execution:
+<ul>
+ 	<li>Sets input and output file paths.</li>
+ 	<li>Calls create_packed_circle_svg function to generate the new SVG.</li>
+</ul>
+</li>
+</ol>
+This code essentially takes an SVG shape, fills it with randomly sized and positioned circles that don't overlap, and outputs a new SVG file with these packed circles inside the original shape.
+
+<a href="../wp-content/uploads/2025/02/heart-solid-output-2033.svg"><img class="alignnone size-full wp-image-8883" src="../uploads/2025/02/heart-solid-output-2033.svg" alt="" /></a>
+
+Above is an example output of the SVG..... (Excuse the randomised colour!) This heart contains 2033 circles!
+
+we can tweak the size of the circles, through the min and max radius range. This heart only contains 269!
+
+<a href="../wp-content/uploads/2025/02/heart-solid-output-269.svg"><img class="alignnone  wp-image-8884" src="../uploads/2025/02/heart-solid-output-269.svg" alt="" width="596" height="530" /></a>
+
+</div>
+<p class="MuiBox-root css-0">The code is just a matter of updating the input and output file.</p>
+It will print out a statement telling you the SVG has saved, and the number of circles created as part of it.
+
+It will then export the file required to re-build it in Tableau.
+
+<strong>TABLEAU</strong>
+
+The easy bit!
+
+<img class="alignnone size-full wp-image-8887" src="../uploads/2025/02/CaptureHeart.png" alt="" width="1910" height="947" />
+
+With your new exported file, connect to it in Tableau.
+
+Put X onto Columns and Y onto Row.
+
+You may need to flip the axis depending on your shape type.
+<div><img class="alignnone size-full wp-image-8889" src="../uploads/2025/02/ShapeCapture.png" alt="" width="1428" height="930" /></div>
+Notice how the axis goes between 0 and 500, well we set that also within the code. To tidy it up in the sheet it's probably worth fixing your axis. On the Tableau report example attached at the top of the page you'll see i fix both axis between -50 and 500.
+
+<img class="alignnone size-full wp-image-8890" src="../uploads/2025/02/RadiusCapture.png" alt="" width="1045" height="913" />
+
+Adding Radius to size hasn't quite filled the gaps as we probably would like, so I opted for doing Radius^2.
+
+<img class="alignnone size-full wp-image-8892" src="../uploads/2025/02/Radius2Capture.png" alt="" width="976" height="907" />
+
+&amp; There we have it. A packed SVG shape in Tableau.
+
+Going further:
+<ul>
+ 	<li>(hard) Why not try and amend the code so that you can configure how many circles you ideally want and it add and removes circles to reach that number.</li>
+ 	<li>(intermediate) Try your own SVG file</li>
+ 	<li>(easy) Amend the code to print more or less circles using the min and max radius.</li>
+</ul>
+<strong>LOGGING OFF,</strong>
+
+CJ
+
+&nbsp;
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

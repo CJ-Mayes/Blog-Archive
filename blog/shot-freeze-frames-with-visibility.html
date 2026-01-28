@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shot Freeze Frames Pt 2 (With Visibility) - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Shot Freeze Frames Pt 2 (With Visibility)</h1>Hi all,
+
+A few weeks back I wrote a basic StatsBomb python script and spoke on how we can join some of the data ready, fit for use in Tableau to create freeze frame shot maps.
+
+I want to take that blog one step further and start to look at pitch visibility. This blog will feel like starting half way through a book - so please forgive me and read the previous StatsBomb Shot Freeze Frame post before moving onto this one.
+
+<img src="../uploads/2023/09/Freeze-Frame-1.png" class="alignnone size-full wp-image-7125" alt="" width="1399" height="799">
+
+Let's pick up from where we ended last time. We have our alteryx flow that has created our grid for our shot maps with freeze frames, we have identified our player teams and we have the shots that are on target.
+
+So how do we add in pitch visibility?
+
+<img src="../uploads/2023/09/Visibility-Freeze-Frames.png" class="alignnone size-full wp-image-7126" alt="" width="1399" height="799">
+
+Well you may notice in the previous datasets we have visibility in the match frame data. These are a list of co-ordinates that make up the marks for what part of the pitch can be seen when the freeze frame was taken. (Hence why all our players remain within the polygon)
+
+<img src="../uploads/2023/09/VisCapture.png" class="alignnone size-full wp-image-7128" alt="" width="1204" height="378">
+
+You can see there are quite a few duplicates as each player for each ID will essentially replicate the same visibility fields.
+
+Lets revisit our Alteryx flow. (Of course, this is free to download from my GitHub repo under the title)
+
+<img src="../uploads/2023/09/AlteryxCapture.png" class="alignnone size-full wp-image-7130" alt="" width="1707" height="656">
+
+The amended workflow with "Pitch Visibility" now has a new dataset that we feed into it. To get that new dataset, I amended our previous python script to handle the X &amp; Y co ordinates from the freeze frames dataset.
+
+Here is what that script looks like:
+
+<img src="../uploads/2023/09/carbon-20.png" class="alignnone size-full wp-image-7132" alt="" width="1692" height="2944">
+
+You will see we have added a couple for loops into the python code from last time, this is to split out the visible area to have new co-ordinates. For each co-ordinate we will have a new row.
+
+This code leaves us with one issue that we will tackle through Alteryx. That issue is knowing which order the points are joined together (our path) to create the equivalent of a convex hull. We cant assume the order of the dataset would join the polygon up the correct way.
+
+<img src="../uploads/2023/09/PitchVisibility.png" class="alignnone size-full wp-image-7134" alt="" width="846" height="163">
+
+The new steps in the workflow find the unique records from the visibility data. We then look to make a centroid mapping of the x and y point, reason being is we use Poly build to find the convex hull. Once we've found the sequence in which they are put together, given each ID, we then extract that information using Poly split and information tools.
+
+<img src="../uploads/2023/09/EGCapture.png" class="alignnone size-full wp-image-7136" alt="" width="835" height="244">
+
+Above is an example of what that looks like - after that, it is a simple case of joining this data back into our original data on the common field of ID.
+
+You can find all the referring CSV's files in the repo to test for yourself. I am increasingly becoming a fan of the Poly Build and Split tool!
+
+Hopefully the python script and Alteryx flow really help you with taking your data prep to the next level.
+
+<img src="../uploads/2023/09/VizCapture.png" class="alignnone size-full wp-image-7139" alt="" width="1930" height="1074">
+
+Once we have the data prepped for tableau, It's just a case of creating the new layer and making sure we get our correct field onto path.
+
+Let me know if you have any questions.
+
+Going further,
+<ul>
+ 	<li>Try write all the transformations in the data in Python</li>
+ 	<li>Add in labels from the freeze frame data for each players name</li>
+</ul><strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

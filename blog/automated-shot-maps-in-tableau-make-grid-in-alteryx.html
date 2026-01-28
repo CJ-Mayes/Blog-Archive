@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated Shot Maps In Tableau (Make Grid in Alteryx) - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Automated Shot Maps In Tableau (Make Grid in Alteryx)</h1>Hi all,
+
+Hope everyone is doing well. Last week I got to attend<a href="https://www.salesforce.com/plus/experience/world_tour/series/world_tour_london:_ai_day"><strong> Salesforce London World Tour on AI.</strong></a> So I'm still on a bit of a high from that having got to hang with Tableau friends, the wider community and hear from Mo Gawdat in the closing note from the day. In a rapidly changing environment, I find myself constantly in a position of listening and learning which I love!
+
+Anyway for today we leave AI at the door and go back to our tried and tested Tableau &amp; Alteryx.
+
+<img class="alignnone size-full wp-image-6356" src="../uploads/2023/06/Shot-Heat-Map.png" alt="" width="1550" height="900" />
+
+A week or so ago I wrote about how we can make our shot maps a little bit prettier in Tableau. Most of it was replicating design ideas seen in the Analyst website.... although I'm sure they do theirs through code? Who knows. Anyway, it got me really thinking. On <strong>MPLsoccer</strong> they have so many great examples of different pitch charts we can create and some are harder than others when trying to replicate it in Tableau.
+
+One of those charts is grid heat maps.
+
+<img class="alignnone size-full wp-image-6681" src="../uploads/2023/07/mpls.png" alt="" width="1199" height="871" />
+
+Now, I was really fortunate to be able to host back in Q1 of this year a guest blog from Fuad who produced such stunning heatmaps for shots in his Iron Viz entry for the 2023 feeder. It was a lovely workflow he shared, but the workflow did assume that the grid would have to be worked out based on the co-ordinates. I.e if you got a width of 10 then if you want 10 grids its a width of 1, 5 grids width of 2 etc.
+
+It got me thinking could we get it so we can just input an arbitrary number and that will help solve our grid issue?
+
+Well - I've come up with an alteryx solution that I hope people will enjoy. We will then visualise it in Tableau. So Todays blog is all about the Make Grid function in Alteryx.
+
+Lets start with the data prep.
+
+<img class="alignnone size-full wp-image-6358" src="../uploads/2023/06/Capture.png" alt="" width="1851" height="894" />
+
+Bit of a chunky flow but we will explain each part.
+
+First things first is our dataset. We use understat data for the EPL 22/23 season. You can find a copy on my Github link at the top of the page, alongside the other resources to save locally.
+
+PREP PLAYER POINTS
+
+<img class="alignnone size-full wp-image-6360" src="../uploads/2023/06/Capture2.png" alt="" width="678" height="230" />
+<ul>
+ 	<li>The first three tools are really cleaning and transforming, nothing too crazy going on. I do end up scaling my X &amp; Y points up drastically as I find bigger numbers easier to understand than small decimals, this is of course just preference and they get scaled back down at the end.</li>
+ 	<li>The To Amend is a filter I added in, you'll see in my dashboard I end up restricting my points to just <strong>Jack Grealish's</strong> shots. Do update this or remove it if you want alternative players.</li>
+ 	<li>The create points is a well named tool that.... makes points. We set our longitude and latitude values to our x and y co-ordinates.</li>
+ 	<li>By using the summarise tool and combine action we are able to build this into one spatial object.</li>
+</ul>
+The output of that data looks like this
+
+<img class="alignnone size-full wp-image-6362" src="../uploads/2023/06/Capture3.png" alt="" width="555" height="572" />
+
+At this point you might think it's a little confusing with no context. It's always good to remember we have the understat website as a reference point.
+
+<img class="alignnone size-full wp-image-6394" src="../uploads/2023/07/Capture1111.png" alt="" width="1002" height="689" />
+
+HALF PITCH
+
+The next thing we want to do is to start building a base of points for the pitch. (Of course, we can render these as a background image in Tableau, but why not for this tutorial we give it a go creating a pitch using lines!
+
+<img class="alignnone size-full wp-image-6364" src="../uploads/2023/06/Capture4.png" alt="" width="372" height="162" />
+<ul>
+ 	<li>First we scale our pitch values to that seen within the top half of the flow for convenience.</li>
+ 	<li>We use the create points to identify the pitch sections including the 6 yard box, penalty box and half of the pitch.</li>
+ 	<li>Next we add the Poly Build tool which helps us essentially assign a path order to our plotted points to build the frame of our pitch.</li>
+</ul>
+<img class="alignnone size-full wp-image-6366" src="../uploads/2023/06/Capture5.png" alt="" width="518" height="693" />
+<ul>
+ 	<li>I do recognise this is a little basic. Since drawing this i've gone back and added in some extra lines for the goal that we can bring into Tableau. The other thing to note is it is missing the semi-circle on the left, perhaps I add that in too at some point.</li>
+ 	<li>You'll also see the weird stripe to the left.... reason I've added that in is because my grid wasn't aligning properly so needed to make the pitch wider to allow the next steps to fit. We can hide it when it comes to the final visual.</li>
+</ul>
+Next up is where the real magic happens. Make Grid!
+
+BUILD THE GRID
+
+<img class="alignnone size-full wp-image-6369" src="../uploads/2023/06/Capture6.png" alt="" width="689" height="250" />
+<ul>
+ 	<li>Onto my magical Make Grid. We can set this value at different values to split our chart up. In my Tableau Output you will see that I have tried three different variations.</li>
+ 	<li>1 at 1.47 which gives a 3*4 grid.</li>
+ 	<li>1 at 0.735 which gives a 6*8 grid</li>
+ 	<li>1 at 0.3675 which gives a 12*16 grid.</li>
+</ul>
+<img class="alignnone size-full wp-image-6372" src="../uploads/2023/06/Capture7.png" alt="" width="528" height="723" />
+
+Really all this is doing is creating those grids that we will overlay on top of our pitch.
+
+But now we really want to find what the co-ordinates are for each square!
+<ul>
+ 	<li>We then use the PolySplit field to split each of the grids into points.</li>
+</ul>
+<img class="alignnone size-full wp-image-6373" src="../uploads/2023/06/capture8.png" alt="" width="538" height="251" />
+
+Each grid is 5 points joined up in a specific order to create the square.
+
+<img class="alignnone size-full wp-image-6375" src="../uploads/2023/06/capture9.png" alt="" width="748" height="114" />
+<ul>
+ 	<li>By using the Spatial info tool, we can find the centroid as X and Y co-ordinates, identifying where they lie for each point. This way we will be able to create a dataset underlay for our polygons.</li>
+</ul>
+That's all well and good so to this point in the tutorial we have:
+<ul>
+ 	<li>Decided which players shots we are looking at</li>
+ 	<li>Built a framework for the pitch to plot the shots</li>
+ 	<li>Been able to create a grid to start to overlay onto the pitch.</li>
+</ul>
+We have one final big step to do, and that's to understand of each of the shots what grid do they land in?
+
+That brings me onto the final part of the flow.
+
+MATCHING SHOTS TO THE TILE
+
+<img class="alignnone size-full wp-image-6377" src="../uploads/2023/06/Capture10.png" alt="" width="583" height="165" />
+<ul>
+ 	<li>We use the spatial match tool here, with the target as our centroid field (the X and Y of the players shots) and the Universe connector is then the grid field. I.e which grid does the shot take place.</li>
+ 	<li>The Join tool is then used to bring in the polygon co-ordinates for each shot (yes 5 rows for each shot) This might start to explode your dataset so use with caution. You might want to rework this step otherwise.</li>
+ 	<li>The last part to this is a matter of clean up.</li>
+</ul>
+Before I produce the final output I end up gluing in a full outer join the pitch details just so i can have this in my dataset, realistically this shouldn't be in our dataset but it was easier to have it all in one file.
+
+Then we finally export our data to a CSV.
+
+<img class="alignnone size-full wp-image-6380" src="../uploads/2023/06/Capture11.png" alt="" width="248" height="164" />
+
+TABLEAU TIME
+
+You will find my visual attached at the top of this blog using the usual links. I don't think for the sake of this blog I will need to explain how map layers works - do just read any other tableau blog of mine if you need a little help, but lets take a little look at the different layers in action.
+
+<img class="alignnone size-full wp-image-6383" src="../uploads/2023/06/capture12.png" alt="" width="906" height="899" />
+
+The first layer is using the grid information. We make separate grids of action, making sure the split sequence is on path to join our squares. This mark type is a Polygon. We are then able to count the number of actions in each box! More ActionID's relate to more shots taken.
+
+The next layer we start to think about bordering the polygons. Of course we could use the custom border but these are at preset levels. By adding in the same layer but making it a line, we can adjust the thickness of what this looks like.
+
+<img class="alignnone size-full wp-image-6385" src="../uploads/2023/06/capture13.png" alt="" width="898" height="916" />
+
+Next we can add in the pitch frame. This data we had joined at the very end.
+
+<img class="alignnone size-full wp-image-6386" src="../uploads/2023/06/capture14.png" alt="" width="895" height="886" />
+
+With all things lines and polygons, of course again we need to make sure we have the right things on detail and more importantly path.
+
+<img class="alignnone size-full wp-image-6388" src="../uploads/2023/06/capture15.png" alt="" width="899" height="895" />
+
+Final touches therefore is creating a new layer of just the shot co-ordinates to overlay on top.
+
+You can start to play around with grid size, colour and pitch layout to be able to transform your visuals.
+
+Going Further:
+<ul>
+ 	<li>Try plot shot maps for a whole team.</li>
+ 	<li>Try hide squares that weren't shot from.</li>
+ 	<li>Try adding in interactivity or tooltips into the visual.</li>
+</ul>
+<img class="alignnone size-full wp-image-6390" src="../uploads/2023/06/Shot-Heat-Map-1.png" alt="" width="1550" height="900" />
+
+Everything built in Tableau with no background maps feels quite slick in my opinion. Let me know your thoughts.
+
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

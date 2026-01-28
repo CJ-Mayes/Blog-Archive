@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designing Better Maps With Dennis Kao - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Designing Better Maps With Dennis Kao</h1>Hi all,
+
+Back to back guest blogs this month. Thank you to the 12 individuals that have got involved with sharing their expertise this year - I love that I have both the opportunity and privilege to host them, and no doubt as a community we appreciate the efforts that you go to create them.
+
+This week, we change our attention to all things maps, and that means I had to turn to Dennis Kao.
+
+<span style="font-weight: 400;">CJ: Dennis, what a delight to have you join the site to be able to talk through cartography, map making and all things Tableau. Many of you will know Dennis from the community for his impact as a Tableau Public Ambassador, multiple vizzie award winner as well as co-leading the HeathTUG and EduVizzers. More recently I’ve been really impressed with Dennis’ commitment to the array of different maps he has been creating in Tableau.</span>
+
+<strong>C: Before we dive in, where does the passion for maps come from? Of your 150+ Public vizzes it looks like they’ve grown in frequency especially the past year? Was this from doing challenges like the 30DaysMapChallenge?</strong>
+
+<span style="font-weight: 400;">D:</span><span style="font-weight: 400;"> Not entirely sure… Maps have always had a significant place in my life. I just think maps are so cool…</span>
+
+<span style="font-weight: 400;">As a kid, I remember spending hours combing through my dad’s National Geographic collection. I also grew up and started driving during a time when you had to read a paper map to get anywhere. Every year, I looked forward to getting the new Thomas Bros guide – which was a widely-used atlas in Los Angeles at the time. With a paper map, figuring out how to get somewhere always felt like a challenge… a puzzle.</span>
+
+<span style="font-weight: 400;">In my work, I’ve seen firsthand the power of maps and how they’re designed (and what information they include or leave out) have a significant impact on people and communities. As a social worker, we’re trained to think about the health and well-being of a person in the context of their environment. For example, depending on where a person lives, there may be more or less available healthcare services within a reasonable walking or driving distance. In this case, I think maps could serve as a useful tool to examine and visualize the geographic gaps in the health system. </span>
+
+<span style="font-weight: 400;">It’s only been in the past few years, since discovering Tableau, when I’ve focused more on the artistic side of mapmaking. And I’m absolutely loving the ride! This journey has really brought out a creative side that I never thought I had. This past year, I’ve been really trying to explore mapmaking design in Tableau Public… and yes, creating 20-30 maps during the #30DayMapChallenge each November.</span>
+
+<strong>CJ: You can view<a href="https://public.tableau.com/app/profile/dennis.kao/viz/30DayMapChallenge2022SumUp/Dashboard1"> Dennis round-up here. </a>Here are a few of my favourites,</strong>
+
+Day 3: The United Squares
+
+<img class="alignnone size-full wp-image-6883" src="../uploads/2023/07/3Capture.png" alt="" width="1370" height="742" />
+
+Day 7: Redlining in Los Angeles
+
+<img class="alignnone size-full wp-image-6882" src="../uploads/2023/07/7Capture.png" alt="" width="1368" height="740" /> Day 13: Jeju Island<img class="alignnone size-full wp-image-6884" src="../uploads/2023/07/13Capture.png" alt="" width="1364" height="740" />
+
+<strong>C: What advantages come with learning multiple tools, like QGIS and other tools that can become compatible with Tableau?</strong>
+
+<span style="font-weight: 400;">D: </span><span style="font-weight: 400;">Prior to discovering Tableau, I spent over 10 years mapping and conducting spatial analysis. I was initially trained using ArcGIS, but now mostly use QGIS (because it’s free and available for the Mac). And while Tableau continues to up its spatial &amp; mapping game, I do think there are still advantages in having GIS in your toolkit.</span>
+
+<span style="font-weight: 400;">First and foremost, GIS software, such as QGIS or ArcGIS, are designed specifically to deal with the unique properties of spatial data. So, from adding layers to exploring the data to editing and creating new features, I believe the process is just easier and faster. They’re both designed as point-and-click applications and thus, have a lower learning curve. But you also have the option to use coding, e.g. Python, if preferred. </span>
+
+<span style="font-weight: 400;">GIS software provides a bunch of different tools that allow you to clean or edit the data and create new spatial features. Now, I almost exclusively use Tableau Public to visualize my final maps, but typically use QGIS to clean and prepare the data. At the beginning of this year, I started #RandomQGIStoTableauStuff to explore and share some of these features, e.g. grids or water lines. </span>
+
+<span style="font-weight: 400;">The key advantage – in my mind – for creating these features in GIS is that they’re hard-coded to the actual geography. So, when you bring them into Tableau, they function just like any other other spatial data file (e.g. shapefiles). For example, a grid is essentially a series of polygons that you can layer them, filter, zoom in and out, select, symbolize with color, label, and visualize in the same way you might do so with a map of the United States or Canada. In one of my visualizations, I paid homage to <a href="https://public.tableau.com/app/profile/dennis.kao/viz/TheThomasGuide-IronQuest2021_8/Home"><strong>“The Thomas Guide”</strong></a> and used a grid created in QGIS to allow the reader to click and zoom in specific areas of Los Angeles County.</span>
+
+<img class="alignnone size-full wp-image-6887" src="../uploads/2023/07/selCapture.png" alt="" width="1207" height="501" />
+
+<strong>C: For those looking for map viz inspo, what are some of your favourites be it from Tableau or further afield?</strong>
+
+<span style="font-weight: 400;">I’m continually inspired by the #DataFam, but a few that immediately come to mind are: <a href="https://twitter.com/ShijiaWendy"><strong>Wendy Shijia</strong></a> (@ShijiaWendy), <a href="https://twitter.com/SuglaniNaresh"><strong>Naresh Suglani</strong></a> (@SuglaniNaresh), and <a href="https://twitter.com/AdedamolaLadipo"><strong>Damola Ladipo</strong></a> (@AdedamolaLadipo). . I also love the earlier stuff by <a href="https://twitter.com/flerlagekr"><strong>Ken Flerlage</strong></a> (@flerlagekr) and <a href="https://twitter.com/adamemccann"><strong>Adam McCann</strong></a> (@adamemccann). </span>
+
+<span style="font-weight: 400;">I would also encourage you to check out the 39 maps that folks did for the #IronQuest challenge back in March 2020, which focused on maps, <a href="https://sarahlovesdata.co.uk/2020/04/13/iron-quest-maps-recap"><strong>here.</strong></a></span>
+
+<span style="font-weight: 400;">When I was first making the transition from GIS to Tableau, I found <a href="https://twitter.com/marcreid"><strong>Marc Reid</strong></a> (@marcreid) particularly helpful. Finally, my approach has also been informed by the work of <a href="https://www.tableau.com/about/blog/contributors/sarah-battersby"><strong>Sarah Battersby</strong></a>, who wrote extensively about <a href="https://www.flerlagetwins.com/2021/05/qgis1.html"><strong>QGIS and Tableau.</strong></a></span>
+
+<span style="font-weight: 400;">And be sure to follow the #30DayMapChallenge that occurs in November…and be prepared to be absolutely blown away by some beautiful mapmaking.</span><span style="font-weight: 400;">
+</span>
+
+<strong>CJ: Now you know I’m a huge fan of your typefully and the post you put up around 10 things you can do in QGIS to enhance your maps in Tableau. Could you give us a beginner’s guide to how you created your water lines visual?</strong>
+
+D: <span style="font-weight: 400;">Back in January of this year, I started a series called #RandomQGIStoTableau, which I describe - over a thread of 4-5 short tweets - how to create spatial features in QGIS that can be used to enhance your maps in Tableau Public. One of my earliest posts focused on creating<a href="https://twitter.com/professorkao/status/1620238658325590016"><strong> “water lines”, </strong></a></span><span style="font-weight: 400;">And thanks to CJ, I have more space in which I can actually write complete sentences, so I’m going to describe the process in a bit more detail. </span>
+
+<img class="alignnone size-full wp-image-6891" src="../uploads/2023/07/water.jpg" alt="" width="1924" height="1278" />
+
+<span style="font-weight: 400;">Have I mentioned that I love maps? The inspiration for this came from looking at old maps, such as <a href="https://gallica.bnf.fr/ark:/12148/btv1b84391854/f1.item.zoom"><strong>this one</strong></a>.</span><span style="font-weight: 400;"> I later came across <a href="https://observablehq.com/collection/@oliviafvane/watermarks"><strong>Olivia Vane’s writings on water lines.</strong></a></span>
+
+<span style="font-weight: 400;">So, the general approach is use QGIS to create a shapefile that has the desired geographic feature. Then we simply have to bring in and add it as a map layer in Tableau. In the case of water lines, we can use the BUFFER tool to create a series of polygons that surround the target geography at different distances. Tableau also has a buffer function, BUFFER(), but as far as I know, you can only create buffers around points right now (hint, hint…). </span>
+
+<span style="font-weight: 400;">The first step is to add your target geography. For this example, I will be starting with a shapefile of Japan (Source: Humanitarian Data Exchange). </span>
+
+<img class="alignnone size-full wp-image-6894" src="../uploads/2023/07/japan.png" alt="" width="930" height="639" />
+
+<span style="font-weight: 400;">To create our first buffer, select the BUFFER tool either through the menus (Vector → Geoprocessing Tools) or the Processing Toolbox (under Vector Geometry).</span>
+
+<img class="alignnone size-full wp-image-6895" src="../uploads/2023/07/vectCapture.png" alt="" width="841" height="507" />
+
+<img class="alignnone size-full wp-image-6896" src="../uploads/2023/07/ptCapture.png" alt="" width="568" height="868" />
+
+<span style="font-weight: 400;">In the Buffer dialog window, select your target geography in the “Input Layer” field and input your desired distance in the “Distance” field. You may need to play around with the values. In this case, I wanted to mimic the ripple effect, so I increased the distance slightly with each buffer. Repeat this step until you get the desired number of buffers. For example, I decided to go with six buffers at the following distances: 0.1, 0.2, 0.4, 0.7, 1.0, and 1.3 degrees. </span>
+
+<img class="alignnone size-full wp-image-6898" src="../uploads/2023/07/buffCapture.png" alt="" width="820" height="511" />
+
+<span style="font-weight: 400;">The result is 6 polygon feature layers that surround the geography of Japan at varying distances. A few important things to note here. First, buffers are essentially polygons so you can play with the fill and line (border) colors to get the desired effect. </span>
+
+<span style="font-weight: 400;">Second, if you have a water body as your starting geography, you will want to use negative values for your distances to obtain internal buffers. For example, in my earlier post, I started with the Great Lakes. </span>
+
+<img class="alignnone size-full wp-image-6899" src="../uploads/2023/07/cwlCapture.png" alt="" width="930" height="620" />
+
+<span style="font-weight: 400;">At this point, you have two options. On one hand, you can save each of these layers as a shapefile to be used in Tableau by right-clicking on each layer and selecting “Make Permanent”. While it’s a bit more trouble to bring in the various files into Tableau, keeping them as separate files will allow you to manipulate each buffer (formatting, color, opacity, etc.) as separate map layers.</span>
+
+<img class="alignnone size-full wp-image-6901" src="../uploads/2023/07/buff2Capture.png" alt="" width="666" height="841" />
+
+<span style="font-weight: 400;">On the other hand, you may want to first use the Merge Vector Layers tool to merge the layers into a single layer that you can then save to be used in Tableau. And if we look at the attribute table, you will notice a “Layer” field that has the name of each layer. This will streamline the process of bringing in the data, but you may still want to separate each buffer as separate map layers for formatting purposes. You would then have to create a series of calculations, such as the following: </span>
+
+<span style="font-weight: 400;">IF [Layer] = "Buffer 0.1" THEN [Geometry] END</span>
+
+<img class="alignnone size-full wp-image-6902" src="../uploads/2023/07/4Capture.png" alt="" width="875" height="916" />
+
+<img class="alignnone size-full wp-image-6903" src="../uploads/2023/07/japmCapture.png" alt="" width="976" height="648" />
+
+<span style="font-weight: 400;">Now you’re ready to bring-in the data and visualize the water lines in Tableau Public. If you need more information about working with map layers, Marc Reid has a great article <a href="https://datavis.blog/2020/12/02/tableau-map-layers/"><strong>here</strong></a></span>
+
+<img class="alignnone size-full wp-image-6905" src="../uploads/2023/07/TabCapture.png" alt="" width="931" height="629" />
+
+Above is the different buffer layers I've used within my visualisation! <span style="font-weight: 400;">I hope you found this helpful! Thanks CJ for the opportunity to share some thoughts. </span>
+
+<strong>CJ Round-Up: </strong>
+
+I always love to see how individuals start to mix different tools to produce something quite spectacular. Dennis does just this with his use of QGIS &amp; Tableau. Be sure to connect with Dennis on Twitter, <a href="https://twitter.com/professorkao"><strong>here.</strong></a>
+
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

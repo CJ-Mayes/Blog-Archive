@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API&amp;#x27;s in Alteryx: Building a Premier League Dashboard (Part 1 - Alberto Oraa) - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>API&#x27;s in Alteryx: Building a Premier League Dashboard (Part 1 - Alberto Oraa)</h1><p></p>
+<p>Hi all,</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4450" src="../uploads/2022/08/image-31.png" alt="" /></figure>
+
+</p>
+<p>This blog is the first of a two part series of guest blogs, with a particular focus in this blog on how to get football stats from API-Football using Alteryx!</p>
+<p>
+
+</p>
+<p>I am delighted to welcome <strong><a href="https://twitter.com/_camilb" target="_blank" rel="noreferrer noopener">Alberto Oraa</a> </strong>onto the blog to demonstrate how you can access premier league data. Please find a little bit more about Alberto and his love for data and sports below:</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4424" src="../uploads/2022/08/image-19.png" alt="" width="392" height="358" /></figure>
+
+</p>
+<p>*API-Football might require you to introduce your CC details while signing up. However, while using a free subscription in the specified requests of 100/day no charge is to be made. It is specified in the terms and conditions that can be found <strong><a href="https://rapidapi.com/api-sports/api/api-football/pricing">here</a>.</strong></p>
+<p>
+
+</p>
+<p><strong>Step 1: Create an API-Football Account</strong></p>
+<p>
+
+</p>
+<p>First of all, we need to set up our own API-Football account. To do so, we need to access the API-Football pricing section and choose SUBSCRIBE to the Free plan.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4426" src="../uploads/2022/08/image-20.png" alt="" width="497" height="521" /></figure>
+
+</p>
+<p>&nbsp;</p>
+<p>
+
+</p>
+<p>It is also possible to sign up and create our account from the API Sports website as you can see in the following image. Either way works and will give us the right access after your account has been created, your X-RapidAPI-Key or your API-Key (this will depend on which subscribing method you choose) will be created and that will be used to call the API to get our data.</p>
+<p>
+
+</p>
+<ul>
+<li><a href="https://rapidapi.com/api-sports/api/api-football/" target="_blank" rel="noreferrer noopener">Acces to key in the  RapidAPI-Key environment</a></li>
+<li><a href="https://dashboard.api-football.com/" target="_blank" rel="noreferrer noopener">Access to key in the API Sports environment</a></li>
+</ul>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4427" src="../uploads/2022/08/image-21.png" alt="" /></figure>
+
+</p>
+<p><strong>Step 2: Check API-Football Documentation</strong></p>
+<p>
+
+</p>
+<p>After we have just created our account and log into the API services to get our key, it is time to check which kind of calls we can make and how to make those. That information will be stored in the documentation web-page of the API-Football service which can be accessed<strong> <a href="https://www.api-football.com/documentation-v3" target="_blank" rel="noreferrer noopener">here</a>.</strong></p>
+<p>
+
+</p>
+<p>It will contains information about which information is required and where to get it as well as the architecture and sample scripts for different types of code.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4429" src="../uploads/2022/08/image-22.png" alt="" /></figure>
+
+</p>
+<p>Furthermore, there will every piece of possible endpoint of data that can be collected from an API call. Some of them may require the use of some parameters.</p>
+<p>
+
+</p>
+<p>Here are some examples:</p>
+<p>
+
+</p>
+<p>Timezone: <em>https://v3.football.api-sports.io/timezone</em></p>
+<p>
+
+</p>
+<p>Countries: <em>https://v3.football.api-sports.io/countries</em></p>
+<p>
+
+</p>
+<p>Leagues: <em>https://v3.football.api-sports.io/leagues?id=39</em></p>
+<p>
+
+</p>
+<p>Teams: <em>https://v3.football.api-sports.io/teams?league=39&amp;season=2019 </em></p>
+<p>
+
+</p>
+<p>Venues: <em>https://v3.football.api-sports.io/venues?id=556</em></p>
+<p>
+
+</p>
+<p>Standings: <em>https://v3.football.api-sports.io/standings?league=39&amp;season=2019</em></p>
+<p>
+
+</p>
+<p>Fixtures: <em>https://v3.football.api-sports.io/rounds?league=39&amp;season=2019</em></p>
+<p>
+
+</p>
+<p>Injuries: <em>https://v3.football.api-sports.io/injuries?team=85&amp;season=2020</em></p>
+<p>
+
+</p>
+<p>Coach's: <em>https://v3.football.api-sports.io/coachs?team=33</em></p>
+<p>
+
+</p>
+<p>Players: <em>https://v3.football.api-sports.io/players/seasons?player=276</em></p>
+<p>
+
+</p>
+<p>In order to get the information required for the parameters of any specific API query, it will be really important to check the IDs documentation of the API-Football service. It is possible to get to the IDs from the API Sports dashboard where it will be possible to get the League’s &amp; Team’s IDs. For example, <strong>39</strong> is league id for the <strong>Premier League</strong> while <strong>33</strong> would be the id for <strong>Manchester United</strong>. However, after being logged in it could be access from this two URLs:</p>
+<p>
+
+</p>
+<ul>
+<li><strong><a href="https://dashboard.api-football.com/soccer/ids" target="_blank" rel="noreferrer noopener">Leagues</a></strong></li>
+<li><strong><a href="https://dashboard.api-football.com/soccer/ids/teams" target="_blank" rel="noreferrer noopener">Teams</a></strong></li>
+</ul>
+<p>
+
+</p>
+<p><strong>Building An Alteryx Workflow to Get Football Data</strong></p>
+<p>
+
+</p>
+<p>Once our API account has been set up and we have collected our Key, it is time to move to Alteryx to build a workflow that allow us to make queries to the API.</p>
+<p>
+
+</p>
+<p>If you'd like to download the exported data, or download the Alteryx workflow you can do so in the links at the top of the page.</p>
+<p>Both the:</p>
+<p>
+
+</p>
+<p><strong>Premier League Workflow</strong></p>
+<p>
+
+</p>
+<p><strong>Premier League Example Output</strong></p>
+<p>will be stored in the GitHub repo.</p>
+<p>
+
+</p>
+<p><strong>Step 1: Assigning Credentials</strong></p>
+<p>
+
+</p>
+<p>Our first input into Alteryx must contain the URL of the query and our Key. It would be a Text input tool the one we can use in order to set one row and two columns (one that contains a URL query such as “<em>https://v3.football.api-sports.io/standings?league=39&amp;season2021</em>” and another one for the key).</p>
+<p>
+
+</p>
+<p><strong>Step 2: Downloading the data</strong></p>
+<p>
+
+</p>
+<p>After these credentials have been brought into Alteryx, then it is required to make the API call. There is one specific tool to make it which is the Download Tool and it will require us to specify which is the URL of the query. It will also require us to select which field contains the key as that will be selected in the Headers tab of the Download Tool configuration.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4436" src="../uploads/2022/08/image-23.png" alt="" /></figure>
+
+</p>
+<p>Steps 1 &amp; 2 would then look like this:</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4437" src="../uploads/2022/08/image-24.png" alt="" /></figure>
+
+</p>
+<p><strong>Step 3: Performing data cleansing on the data</strong></p>
+<p>
+
+</p>
+<p>This, if successful with a code such as  <strong>HTTP/1.1 200 OK</strong>, will download data in a JSON format and that will require the use of the JSON Parse tool set to parse a JSON Field called DownloadData.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4439" src="../uploads/2022/08/image-25.png" alt="" /></figure>
+
+</p>
+<p>Once it has been parsed, data is structured in rows containing data which would need to cross tab into columns in order to get data ready to be analyzed later in any other tool. Before we do so, it is important to understand that there is a need to perform data cleansing that will involve a Sample Tool, a Tile Tool, a Filter Tool and a RegEx Tool:</p>
+<p>
+
+</p>
+<ul>
+<li><strong>Sample Tool:</strong> First 13 rows (<strong>always!</strong>) contain data related to the league or competition as well as the season even though that is information that we are already aware of as we needed to include in the URL used to make the query. That is why there is a need to use a Sample Tool to skip the first 13 rows.</li>
+</ul>
+<p>
+
+</p>
+<ul>
+<li><strong>Tile Tool:</strong> As our query contains data related to the standings for a specific league and season, then it will contain as many records as information it returns for every team of that specific league and season. For example, if we are downloading the data of the Premier League 2021/2022, we must consider that we will have 20 teams so we should use a Tile Method of Equal Records for a total of 20 tiles (which it really means teams for this use case). However, we must consider the number of teams in Tile Tool based on which competition we are querying its data.</li>
+</ul>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4440" src="../uploads/2022/08/image-26.png" alt="" width="520" height="511" /></figure>
+
+</p>
+<ul>
+<li><strong>Filter Tool (optional):</strong> If there are any records coming out of the Tile Tool that we believe are not interesting to our main purpose, a Filter Tool can be used to filter out based on the Tile_SequenceNum because that way it is possible to remove it from every team in that specific league and season.</li>
+</ul>
+<p>
+
+</p>
+<ul>
+<li><strong>RegEx Tool:</strong> Using RegEx here can be useful in order to rename those values that will serve as column names (or headers) for our final dataset. Once our download data is parsed using a JSON Parse Tool, the name for each will value will be under a colunm called JSON Name. That will contain some characters such as <em>response.0.league.standings.0.0.team.id</em> but we are interested only in the two final words of that name. That way we can use a RegEx to parse just that part of the name:</li>
+</ul>
+<p>
+
+</p>
+<p></p>
+<p><span style="box-sizing: border-box; font-size: 12pt;">(\l{8}).{1}(\d{1}).{1}(\l{6}).{1}(\l{9}).{1}(\d{1}).{1}(\d+).(.+)</span></p>
+<p></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4441" src="../uploads/2022/08/image-27.png" alt="" width="545" height="520" /></figure>
+
+</p>
+<p>Finally, we could then move to use a Cross Tab Tool to pivot the table so based on the identification of each team (Tile_Num coming from the Tile Tool).</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4443" src="../uploads/2022/08/image-28.png" alt="" /></figure>
+
+</p>
+<p>After all these steps, data cleansing would be completed.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4444" src="../uploads/2022/08/image-29.png" alt="" /></figure>
+
+</p>
+<p><strong>Step 4: Sorting and renaming columns to build our final table</strong></p>
+<p>
+
+</p>
+<p>It is now almost over!</p>
+<p>
+
+</p>
+<p>In order to just have data that we can finally output to any kind of format (XLSX, CSV, HYPER, Google Sheets etc.), a Select Tool can be used to sort and rename the data so we can end up with a table that it looks like this. It is highly important to take into consideration the Google Sheets output as this one will allow users to update automatically their data later on Tableau Public by following Joris’ blog! However, it is really important to understand that this Tool is not automatically installed once Alteryx Designer has been installed but you will need to install it from the Alteryx Community once download from <a href="https://community.alteryx.com/t5/Public-Community-Gallery/Google-Sheets-Tools/ta-p/877888">here</a> and install the YXI right after. You can follow this instructions from the <a href="https://help.alteryx.com/20221/designer/google-sheets-output-tool">Alteryx Help page</a> to make sure you can authenticate and write something from Alteryx in a Google Sheets.</p>
+<p>
+
+</p>
+<p>After a query just like this one, we would be able to get information related to the competition, a team name, id &amp; logo, results due to its ranking (UCL,UEL, Relegation), status compared to previous week, games played (home &amp; away), games won (home &amp; away), games lost (home &amp; away), games drawn (home &amp; away), goals scored (home &amp; away), goals against (home &amp; away) and the latest date for a game.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4447" src="../uploads/2022/08/image-30.png" alt="" /></figure>
+
+</p>
+<p>Once it is ready, we can just bring in an Output Data Tool to get our data and start our analysis by following Joris’ steps in Tableau.</p>
+<p>
+
+</p>
+<p>PS. It may require a few more steps through the data cleansing for different types of queries but the data obtained always comes with the same structure.</p>
+<p>
+
+</p>
+<p><strong>CJ Round-up:</strong></p>
+<p>
+
+</p>
+<p>Thank you <strong>Alberto</strong> for that insight as to how to prepare data from the Football API ready for analysis in Tableau. I love that the workflow on the most part is plug and play. Later this week we will hear from Joris, in part two as to how to calculate top teams, players and games as well as a few formatting tips and tricks to bring the visual to life with badges and players.</p>
+<p>
+
+</p>
+<p>Once again, be sure to download your own copy of the workflow and or example dataset if you're wanting to take part in the Tableau section. You can find the files within the repo.</p>
+<p>
+
+</p>
+<p><strong>LOGGING OFF,</strong></p>
+<p>
+
+</p>
+<p><strong>CJ</strong></p>
+<p>
+
+</p>
+<p>&nbsp;</p>
+<p>
+
+</p>
+<p>&nbsp;</p>
+<p>
+
+</p>
+<p>&nbsp;</p>
+<p>
+
+</p>
+<p>&nbsp;</p>
+<p>
+
+</p>
+<p>&nbsp;</p>
+<p></p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blending Figma &amp;amp;amp; Tableau With Lindsay Betzendahl - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Blending Figma &amp;amp; Tableau With Lindsay Betzendahl</h1><p></p>
+<p>Welcome to the October edition of <em><strong>"What's Good?"</strong></em>.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-2222" src="../uploads/2021/09/my-house-my-art-2-edited.png" alt="" width="668" height="668" /></figure>
+
+</p>
+<p><strong>L:</strong> First of all, thank you! I’m so glad it resonated with you and that you enjoyed it! It was a fun personal project. So while the idea of visualizing the art around my house was my own, the design was drawn from two sources: images on Shutterstock and a PowerPoint template. Let me explain.</p>
+<p>
+
+</p>
+<p>If you’ve ever read the book <em>Steal Like an Artist</em>, then you will know that nothing is truly original. In fact, I used the phrase “fake it till you make it” quite often early in my career - usually to encourage myself and others to be confident even during the process of learning. There are so many good quotes in the book, but one from Yohji Yamamoto relates to this particular viz and how I got inspired. He says, <strong>“Start copying what you love. Copy copy copy copy. At the end of the copy you will find your self.”</strong> I think this is pretty true of what I do. I usually try to draw initial inspiration from outside of the data viz community. When I use ideas (often colors and layouts) from other mediums or other communities, it helps me still feel like I’m not entirely copying - I’m learning and identifying a style and working to hone in on that style more naturally with each viz I create.</p>
+<p>
+
+</p>
+<p>I usually search around sites such as Dribbble, Pinterest, Shutterstock, or straight up Google, to get my creative juices flowing. In this particular case, I was browsing Dribbble and found a PowerPoint template on <a href="https://www.etsy.com/listing/674857734/burra-clean-simple-powerpoint?ref=shop_home_active_27">Etsy</a> and then some images of abstract art on Shutterstock (see images below). For this viz, I loved the minimalist design of the template - the use of just one accent color and then gray and white really stood out to me because I wanted the viz to feel like a piece of art, or even like an art gallery would where the walls are white and the rooms are stark in order to allow the art to take center stage.</p>
+<p>
+
+<figure class="wp-image"><img src="https://lh5.googleusercontent.com/TIWNr9MB0zKdUziS4ehnGCNC0AV1Q2ASXIfuC6yktvfemF0TTze4K7IZV-dhmk2qZceYw0g5FrH4j6S-q-AdtOe2LI77_WEfnr5RTCeBHAdL3Qum6aZt3APzpi2gRitJKFy6wR7D=s0" alt="" /></figure>
+
+<figure class="wp-image"><img src="https://lh6.googleusercontent.com/LRhwL8oLHAW94Td92E2TPX9bHz6SLUiojym7RCjzKNK8_USWSoBEq5z0O-Rk67mLDnnHHfe8lT2cyRpuVbZGI4Ko-GE-v-VJry0y_i-8HzpHlb1TpLmUy4otlSec3O3l9sUWx5Jl=s0" alt="" /></figure>
+
+</p>
+<p>As far as the shapes go, I knew I wanted to use map layers (I got the idea from your amazing <a href="https://public.tableau.com/app/profile/cj.mayes/viz/ChildhoodHero-IronViz2021/IronViz2021" target="_blank" rel="noreferrer noopener"><strong>Federer</strong></a> viz and your <a href="../2021/06/26/game-shape-match/" target="_blank" rel="noreferrer noopener"><strong>post</strong></a> about this exact topic) to create an abstract “gallery wall” of my data, I didn’t know what shapes I was going to use until I saw these images on Shutterstock. In Figma I started playing around with shapes and possible layer ideas.</p>
+<p>
+
+</p>
+<p>Here are the final shapes - all created in Figma using shapes and the Pencil tool to get the sort of natural squiggly lines. It was a fun viz to create and I’m honored it received Viz of the Day on Tableau Public!</p>
+<p>
+
+<figure class="wp-image"><img src="https://lh6.googleusercontent.com/VYKZm-KxTn_uz7rKc2pgKYgRAvzbLVIWbaT0evjI_YL0brknDpskP5eXRQjBoBYevbU4TsIcGWh3hiYF_kyZARc3azsJSSjgxpCL0yllddo5tGAwgpNc8N6yQS9u03ZXtYrAawcF=s0" alt="" /></figure>
+
+</p>
+<p><strong>CJ: Do you have a background in design? What made you take the leap to start using Figma, and in your opinion is Figma here to stay?</strong></p>
+<p>
+
+</p>
+<p><strong>L: </strong>I have no formal educational background in design, however, I do have some genetic predisposition to be artistic. Both my grandmother’s could paint and my mother was a professional artist throughout her career (she majored in art in college). So while I am not a very good artist in the sense of painting or drawing on paper, I do have some natural abilities to understand simple things like color, aesthetics, how objects go together or clash, etc. In fact, I did the design in my house and people always question if I hired someone. Basically, I know how to make things look good together.</p>
+<p>
+
+</p>
+<p>This is all to say, I appear to do much better in the digital medium where I can draw and play around more easily than pen to paper. Figma has opened up a lot of design possibilities for me. Originally, I had used PowerPoint for some simple designs, but really it was to make simple shapes or text. Obviously, PowerPoint is a presentation tool, not a design tool, so it has many limitations and I found it clunky to use. Thankfully Figma changed all that.</p>
+<p>
+
+</p>
+<p>Figma is a design tool as well as a prototyping and collaborating tool. Figma feels more like Illustrator or Adobe XD with the amount of flexibility it has to create and design, but way easier to learn if you aren’t familiar with the Adobe suite! It’s certainly a win-win for me. I’m in Tableau and Figma daily because I use Figma as a dashboard prototype tool for clients. I’ll create entire dashboards in Figma (no data needed!) and I find it much easier to think creatively about a dashboard design. Then I can rebuild it in Tableau with less iterations in Tableau, which can be more tedious. So yes, Figma is here to stay!!</p>
+<p>
+
+</p>
+<p><strong>CJ: I love that you went down the route of Youtube videos and tutorials. How come you chose this medium as opposed to traditional blogging and write-ups? <a href="https://www.youtube.com/channel/UCE32XYlhNTQMhByYo7PhYyQ" target="_blank" rel="noreferrer noopener">(Youtube Link)</a> <a href="https://vizzendata.com/author/vizzendata/" target="_blank" rel="noreferrer noopener">(Blog Link)</a></strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-2200" src="../uploads/2021/09/screenshot-2021-09-12-at-09.10.49.png" alt="" width="643" height="301" /></figure>
+
+</p>
+<p><strong>L:</strong> Honestly, probably because I’m a bit lazy. I started a blog back in 2018 and while I still write, the frequency of my posts ebbs and flows. I’m just not consistent (not that one has to be on a regular schedule for a blog or anything). Writing takes me a bit of time and I tend to be wordy simply because I often write how I would speak, but that doesn’t always translate well to a post. Videos help me to be done faster as I can simply show people what I’m doing or how to do something and I can be a bit more fluid in my approach and what I say. I also find I can do them on the fly a bit more and I don’t worry about editing or adjusting my videos.</p>
+<p>
+
+</p>
+<p>I find that doing a nice mix of videos and writing is helpful for people. Some learn better through video tutorials where you can really see everything someone is doing and others learn better by reading. Plus, I think the tutorials I’ve chosen to record enter more into the design side of data visualization and therefore, are better suited for the video medium. It’s a lot harder to tell someone “and then I take the rectangle tool from the top left menu, use this eyedropper in the right-hand pane to change the color, add a linear gradient, and then move these little squares around to change where the gradient is on the rectangle, and then add this drop shadow…” It’s just easier to see all this happen. I tend to read blogs about Tableau and watch videos about anything design or drawing-related, such as Figma or Procreate, or even “plain old” pen and ink.</p>
+<p>
+
+</p>
+<p><strong>CJ: I enjoyed watching your Figma + Tableau - How to Use Frames video. Around the 7 minute mark you talk about frames vs grouping of objects. I must admit, I was grouping previously, so I loved the learning opportunity. Is Figma a case of learning by doing, or watching, or both? <a href="https://www.youtube.com/watch?v=Lx_N1khOU5M" target="_blank" rel="noreferrer noopener">(Link)</a></strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-2202" src="../uploads/2021/09/screenshot-2021-08-16-at-10.58.46.png" alt="" width="611" height="271" /></figure>
+
+</p>
+<p><strong>L:</strong> For me, learning is always about doing first and foremost. I need to really dive into a tool and explore while making mistakes in order to learn. I, too, used grouping first in Figma. I’d create a large white rectangle then add in shapes and group them. I often even had to “cut” shapes so that they would fit how I wanted within the white background. I think many people will do things until they realize there is a better or more effective way to do something. This is what happened for me. I stumbled on Frames while tinkering around in Figma and had a huge moment of clarity on how to really be more effective in the tool. That first video was an effort to teach people about Frames because I didn’t use them for many months and it changed my approach to designing in Figma. So, you could watch videos first and learn some of these techniques, but honestly, I learn so much more by doing it the hard way then the simpler way because I didn’t just learn one skill, I learned probably 5 skills along the way.</p>
+<p>
+
+</p>
+<p><strong>CJ: What is your preference on fonts when it comes to choosing Tableau or Figma? Is there a trade-off between font design and readability/accessibility?</strong> <strong><a href="https://www.youtube.com/watch?v=fBZQM_GuEPE&amp;feature=youtu.be" target="_blank" rel="noreferrer noopener">(Link)</a></strong></p>
+<p>
+
+</p>
+<p><strong>L:</strong> Ugh the dreaded font debate. This is a case of “it depends.” I tend to use Figma’s fonts in business dashboards for clients only as headers or on a landing page when I know the image won’t need to change over time. This way I can use their brand font, perhaps, and it can stand out on it’s own. However, there is really no sense to then try to use other fonts as images throughout a client’s dashboard, plus it’s not dynamic, so I stick with Tableau’s own Tableau Book font typically. Now, for personal vizzes, I’ll use Figma fonts only if I’m creating one large background image and the text in my image will match well with the text I’ll inevitably use in Tableau. Bottom line, it’s really a matter of the complexity of the text you need on your dashboard. If it’s not going to be dynamic, you aren’t labeling charts, maybe axes labels are also minimal, then perhaps it’s okay to go all in with Figma fonts in an image. However, if you need to label charts, or have dynamic interactivity where labels change or titles need to represent what is displayed, then just stick with the fonts in Tableau. Keep the creative fonts to just the main title as a nice focal point. I don’t think people need to go overboard with fonts. Always remember that the data needs to stand out in the art of data visualization.</p>
+<p>
+
+</p>
+<p><strong>CJ: Has there been any Figma Plugins you’re a fan of that has helped develop new dashboards? Does the Figma Community Page act as a source of inspiration for you?</strong></p>
+<p>
+
+</p>
+<p><strong>L: </strong>Interestingly enough, I haven’t used any Figma Plugins. Can you believe it!?!? Probably because there is just so much to explore, learn, and improve upon in the tool itself that I haven’t gotten that far. Maybe someday I will, but Plugins (in general) have never been my expertise.</p>
+<p>
+
+</p>
+<p><strong>CJ side note:</strong> If anyone feels they can chip in with some - do let me know what value they have brought!</p>
+<p>
+
+</p>
+<p><strong>CJ: Your slogan ‘balance, art, insights’ is really corroborated by your content on your youtube, site, and Tableau Public. You give 10 tips on how to intensify your business dashboards. Do you have a favourite?</strong> <a href="https://public.tableau.com/app/profile/lindsay.betzendahl/viz/MyTop10BusinessDashboardTricks/Intro" target="_blank" rel="noreferrer noopener"><strong>(Link)</strong></a></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-2204" src="../uploads/2021/09/screenshot-2021-08-16-at-10.43.10.png" alt="" width="-228" height="-143" /></figure>
+
+</p>
+<p><strong>L: </strong>Thanks CJ! It’s funny because I’m a bit ADHD, which means I can be “all over the place” and struggle at times to nail down my objectives or desires, but I’m also a bit OCD so I love structure, organization, and consistency. It’s a weird balance! But I think that is why I like the idea of balancing out the various interests I have (also ever-changing) and those of the community between concepts around art and insights. Art, for me, encompasses some of the squisher aspects of data viz - those things that maybe don’t come naturally to everyone - but are vital. Things such as the psychology on how we see, preattentive attributes, Gestalt principles, utilizing white space, typography, color theory, etc. Insight-driven information is more about the “how tos” and aspects of data viz that are going to enhance the application of creating charts and dashboards - more of the technical skills. Since I didn’t have a data, or data viz, background, it was crucial that I balanced my knowledge in both art and insights. I wanted to be good at both so I could excel in my job as a data visualization consultant.</p>
+<p>
+
+</p>
+<p>As far as my favorite trick from the presentation you mentioned, I really love the last one, which is the “return to where you came from” navigation approach. This is useful when you have two dashboards that need to drill down to the same report and it’s important for the user to return to the report they came from. The trick came out of a real business need for actually two different clients. What I love about it is how I was able to use parameter actions to support the functionality. I am a big parameter action fan!</p>
+<p>
+
+</p>
+<p><strong>CJ: Have you seen anything in the Tableau community that has caught your eye? Or in the wider community for design?</strong></p>
+<p>
+
+</p>
+<p><strong>L: </strong>There are so many amazing Tableau Public authors out there right now that it’s difficult to keep up with all the great content! However, regarding design, there are a few people that stand out. <a href="https://public.tableau.com/app/profile/chimdi.nwosu" target="_blank" rel="noreferrer noopener"><strong>Chimdi Nwosu</strong></a> doesn’t have a single dashboard that isn’t crazy good. I love his use of white space, color, layout, and chart types. He definitely is someone to watch closely because his designs are simply flawless. I’ve always loved dashboard designs by <a href="https://public.tableau.com/app/profile/david.borczuk" target="_blank" rel="noreferrer noopener"><strong>David Borczuk</strong></a> and <a href="https://public.tableau.com/app/profile/ellen4268" target="_blank" rel="noreferrer noopener"><strong>Ellen Blackburn</strong></a>. David tends to have <a href="https://public.tableau.com/views/DesignCensus2019GenderPayDisparities/DesignCensus?:language=en-US&amp;:display_count=n&amp;:origin=viz_share_link" target="_blank" rel="noreferrer noopener"><strong>designs</strong></a> that are long form and focus a lot on layout, colors, and story flow, whereas I look to Ellen for beautiful <a href="https://public.tableau.com/views/Demowealthandbanking-Managerview/BankingDemo-Managerview3?:language=en-US&amp;:display_count=n&amp;:origin=viz_share_link" target="_blank" rel="noreferrer noopener"><strong>business dashboards</strong></a>. <a href="https://public.tableau.com/app/profile/josh.hughes" target="_blank" rel="noreferrer noopener"><strong>Josh Huges</strong></a>, <a href="https://public.tableau.com/app/profile/wendy.shijia" target="_blank" rel="noreferrer noopener"><strong>Wendy Shijia</strong></a>, and <a href="https://public.tableau.com/app/profile/cj.mayes" target="_blank" rel="noreferrer noopener"><strong>yourself (CJ</strong>)</a> are also huge influencers in data visualization design.</p>
+<p>
+
+</p>
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2209" src="../uploads/2021/09/screenshot-2021-09-12-at-09.18.48.png" alt="" data-id="2209" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2210" src="../uploads/2021/09/screenshot-2021-09-12-at-09.19.29.png" alt="" data-id="2210" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2211" src="../uploads/2021/09/screenshot-2021-09-12-at-09.20.18.png" alt="" data-id="2211" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2212" src="../uploads/2021/09/screenshot-2021-09-12-at-09.21.07.png" alt="" data-id="2212" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2213" src="../uploads/2021/09/screenshot-2021-09-12-at-09.21.45.png" alt="" data-id="2213" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+<p>
+
+</p>
+<p><strong>CJ: Could you give us a run-through something new you’ve come across using Figma recently?</strong></p>
+<p>
+
+</p>
+<p><strong>L:</strong> Recently I was working on an old Makeover Monday data set and found a cool image on <a href="https://dribbble.com/shots/6173390-Vestas-Home" target="_blank" rel="noreferrer noopener">Dribbble</a> that I wanted to recreate in Figma to use as a background image in Tableau. You can check out my viz <a href="https://public.tableau.com/views/TurbineEnergy-MakeoverMonday2021wk5/Wind?:language=en-US&amp;:display_count=n&amp;:origin=viz_share_link" target="_blank" rel="noreferrer noopener">here</a>. What I learned was how to use various layered linear gradients and layered shadow effects to get the shapes at the top of the image. Then I used some additional techniques to layer the words above and below these shapes.</p>
+<p>
+
+</p>
+<p>Below you can see how I used multiple shapes that extend outside of the frame to create the header shape.</p>
+<p>
+
+<figure class="wp-image"><img src="https://lh3.googleusercontent.com/ChLEnL_j6qiQwZ3KuDSRe6sFQQQDY6pPTJvYWTzP62MBw8beZ8nyDFHAHptS1PLkdXXEPlvwAxMpz8xS778y0uFKb35yC4wFvyOGhzAkzpC37P8KTAL8V_3Wvf0ZEI7gaSkOHyTE=s0" alt="" width="622" height="456" /></figure>
+
+</p>
+<p class="has-text-align-left">Each of these shapes has a different layering of colors and gradients of various opacity. You can see in the image below that one shape has 3 fills and 2 drop shadows. It was fun playing around with layered gradients and opacity to achieve the same look as the original image I was attempting to recreate.</p>
+<p>
+
+</p>
+<p class="has-text-align-center"><img src="https://lh4.googleusercontent.com/VFYQu4P91pZDhH1qFM8p5GNhQ_0Re4KJDMybhaJSP0Ys0-dk9kRulDHxEQKbjLeXp52kMKa02-du7DX99nsL73UXfskzFAeE-Va6apVCmxNt2POmAqjSLkscwRI6Adu1PSjyWWsH=s0" width="624" height="372" /></p>
+<p>
+
+</p>
+<p>Making the title appear to be behind and in front of different layers took a bit of effort since in Figma every object is layered above or below another layer - it cannot be split, at least not as one object. So in order to get the same look, I had to “break” my letters and words. The “T” in Turbine is a separate text box so that I could layer that letter behind the shape while the rest of the word was in front. It was the “W” that I actually had to “break” in order to layer part of the letter behind and part in front of the gray shape. What you can see in the image below is that I wrote “Pow” in one text box and layered that behind the gray shape, then I took a “w” text box and added a rectangle to subtract out the left side so I could match it up with the rest of the letter and layer it on top of the gray shape. Lastly, I added another text box with the rest of the word.</p>
+<p>
+
+<figure class="wp-image"><img src="https://lh6.googleusercontent.com/eZS8cWFj6px1VuEZKucaKYissoCizIucpHw7A2YcyqxRaqjgQr7RYZKq0qJIyuaAccZq9KXzJUilKFEL6T9ox5UQT08-kuazpwCcj6P5fbUt8mC9oBgG5_4T8x5VL72CQ4lSrhcM=s0" alt="" width="-149" height="-40" /></figure>
+
+</p>
+<p>Ultimately, this exercise taught me a ton about how to really leverage colors and shadows to enhance a “drawing” of sorts in Figma and how to really play around with typography and layers.</p>
+<p>
+
+</p>
+<p><strong>CJ: Thank you for that! Lastly, do you have any more exciting projects coming up?</strong></p>
+<p>
+
+</p>
+<p><strong>L:</strong> I don’t have anything “big” coming up in the Tableau Public space. Part of that reason is because I teach a data visualization course at Temple University twice a year and that is starting in October, so my days/nights get pretty swamped with work, leaving little time for other projects. However, I continue to plan more Figma videos that integrate how to use Figma designs into Tableau. It’s all a matter of finding the extra time to do it. Ha!</p>
+<p>
+
+</p>
+<p>I also am working on revamping ProjectHealthViz to change the project a bit in order to support the needs of the Tableau community. No updates at this point in time, but it’s something that I have on the horizon.</p>
+<p>
+
+</p>
+<p><strong>CJ Round-Up:</strong></p>
+<p>
+
+</p>
+<p>Lindsay completed her Tableau Professional exam in July, so I want to firstly finish off by congratulating her on this - what a fantastic achievement. You can read her blog on how it went <a href="https://vizzendata.com/2021/06/14/prepping-for-the-tableau-desktop-certified-professional-exam/" target="_blank" rel="noreferrer noopener"><strong>here</strong>. </a></p>
+<p>
+
+</p>
+<p>At the start of the blog Lindsay mentions finding her own path in the data world. I just want to reiterate her point as I found her words so valuable. It's important for us to soak in the knowledge and expertise of the community, but never let that detract from discovering where your own interests lie, what your personal strengths are and the ways you find easiest to develop. I especially loved hearing Lindsay's journey of coming from a healthcare background and how her love for design led her to this point.</p>
+<p>
+
+</p>
+<p>In relation to the Figma details, what can I say? I am over the moon Lindsay has shared her thoughts with us this month. Personally, I'm still a newbie to the Figma world, but Lindsay helps make that transition much easier. I'm sure I'm not the only one who wants to thank her for her efforts putting the videos together. It really has redefined what is possible for making our dashboards more appealing.</p>
+<p>
+
+</p>
+<p>&nbsp;</p>
+<p>
+
+</p>
+<p><strong>LOGGING OFF,</strong></p>
+<p>
+
+</p>
+<p><strong>CJ</strong></p>
+<p></p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

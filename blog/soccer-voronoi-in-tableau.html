@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soccer Voronoi in Tableau - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Soccer Voronoi in Tableau</h1><p>Hi all,</p>
+
+<p>A quick tutorial today for soccer fans that want to shift their visualisations away from being built in python/R and build the output in Tableau!</p>
+
+<figure class="wp-image"><img class="wp-image-3311" src="../uploads/2021/12/blog-1.png" alt="" /></figure>
+
+<p>We will be tackling the voronoi chart. Before we dive in here are some useful resources to help get started:</p>
+
+<p><strong><a href="https://medium.com/football-crunching/using-voronoi-diagrams-in-football-ca730ea81c05" target="_blank" rel="noreferrer noopener">Using Voronoi Diagrams in Football</a></strong> - Ricardo Tavares - This is useful context on voronoi diagrams in regards to football theory.</p>
+
+<p><strong><a href="https://medium.com/analytics-vidhya/how-to-create-football-pitches-goals-as-backgrounds-in-tableau-7b1a7800ae1c" target="_blank" rel="noreferrer noopener">How to create Football Pitches/Goals as Backgrounds in Tableau</a></strong> - <strong><a href="https://twitter.com/sportschord" target="_blank" rel="noreferrer noopener">James Smith</a></strong> - We will need some of the learnings from this to be able to 'snap on' our football pitch background!</p>
+
+<p><strong><a href="https://mplsoccer.readthedocs.io/en/latest/gallery/pitch_plots/plot_voronoi.html#sphx-glr-gallery-pitch-plots-plot-voronoi-py" target="_blank" rel="noreferrer noopener">MPLSoccer Voronoi</a></strong> - <strong><a href="https://twitter.com/numberstorm" target="_blank" rel="noreferrer noopener">Andy Rowlinson</a></strong> - The original source code I used where you can follow the steps to get your own event data using the MPLSoccer package. We will be looking to recreate the voronoi shown here but within Tableau.</p>
+
+<p><strong><a href="https://www.youtube.com/watch?v=BUKsBH9oQKg" target="_blank" rel="noreferrer noopener">Voronoi Diagram in Python</a></strong> - <strong><a href="https://twitter.com/mckayjohns">Mckay Johns</a></strong></p>
+
+<p><strong>What is a voronoi chart?</strong></p>
+
+<p><em>"In mathematics, a <strong>Voronoi diagram</strong> is a partition of a plane into regions close to each of a given set of objects. In the simplest case, these objects are just finitely many points in the plane (called seeds, sites, or generators). For each seed there is a corresponding region, called a <strong>Voronoi cell</strong>, consisting of all points of the plane closer to that seed than to any other. The Voronoi diagram of a set of points is dual to its Delaunay triangulation."</em> - Wikipedia.</p>
+
+<p>Yeah, I'm still not sure after reading that either. So, you have a bunch of points. Each point has a surrounding area that will be closer to that point than others. That is what creates the area of the Voronoi. The lines therefore are created where two points are equidistant. The corners (nodes) will be created where three or more points are equidistant.</p>
+
+<p><strong>Why are they useful for soccer / football?</strong></p>
+
+<p>The Voronoi diagram is useful as it can be used to take a freeze frame of a match for example at the time a shot is taken, to present the space around each player. The border will therefore reflect the mid-point between one player and another player around them. There have been some really cool video analysis of showing this <strong><a href="https://www.youtube.com/watch?time_continue=2&amp;v=z70Paa6YqiI&amp;feature=emb_title" target="_blank" rel="noreferrer noopener">during a game.</a></strong></p>
+
+<p><strong>SOURCE THE DATA</strong></p>
+
+<p>The data I used can be found in my Git Repo at the top of the page<strong>.</strong> The code also can be found there. Please familiarise yourself with the code in a console before proceeding!</p>
+
+<p>So firstly, if you want to follow the tutorial, lets see which parts of the python code are important.</p>
+
+<figure class="wp-image"><img class="wp-image-3269" src="../uploads/2021/12/screenshot-2021-12-27-at-11.58.25.png" alt="" /></figure>
+
+<p>So to find the different polygon (voronoi shapes) for each team we will want to print team1 and team2 out in the console. You will see that they are captured in arrays.</p>
+
+<p>These are our x and y values that we will plot in Tableau. How does this translate into our excel document? We split each array out. <strong>Path</strong> is really important here, and it something we manually create based off of the order they are shown in the array. We must make sure that the co-ordinates are joined up in the correct order!</p>
+
+<p>We follow these steps for <strong>team2.</strong></p>
+
+<figure class="wp-image"><img class="wp-image-3271" src="../uploads/2021/12/screenshot-2021-12-27-at-12.01.14.png" alt="" /></figure>
+
+<p>So now we know each block/shape is made up of <strong>co-ordinates</strong> that are joined up in an order using a <strong>path</strong>. But then we must include an ID for each block/shape, because otherwise Tableau will not know that they are their own distinct shape and will try aggregating the values. This is why you will see a shape column. The final column I have added is Team which will be used within the calculations as well as for colour!</p>
+
+<p>We're now in a position where we could build the Voronoi visualisation. However if we want to go one step further and include the player positions we need to add these co-ordinates to the dataset.</p>
+
+<p>You will see these appended at the bottom of the dataset. These values come from the sample code again, but this time are the x and y values of the player positions, not the voronoi shape! Again, they are currently stored in an array.</p>
+
+<figure class="wp-image"><img class="wp-image-3276" src="../uploads/2021/12/screenshot-2021-12-27-at-12.05.31.png" alt="" /></figure>
+
+<p>Heres how the data will need to be prepped in excel.</p>
+
+<figure class="wp-image"><img class="wp-image-3278" src="../uploads/2021/12/screenshot-2021-12-27-at-12.06.54.png" alt="" /></figure>
+
+<p>Each set of co-ordinates in this case represent a Player. In this case we have split them again by team using a 1 or 2 notation.</p>
+
+<p><strong>CALCULATIONS</strong></p>
+
+<p>You can find a link to the viz that is downloadable using the links at the top of the page.</p>
+
+<p>There are 5 calculations you will need. Here is an explanation of them.</p>
+
+<p><strong>001. Y Voronoi</strong> - We are just seperating our voronoi Y points from our player dot Y points to be able to distinguish between the two.</p>
+
+<p><strong>002. X Voronoi</strong> - Repeating the same process for our X points to only pick the ones that are going to be included in our voronoi chart.</p>
+
+<p>We can check these calculations work by plotting them against each other, adding shape to detail and path to path.</p>
+
+<figure class="wp-image"><img class="wp-image-3281" src="../uploads/2021/12/screenshot-2021-12-27-at-12.20.11.png" alt="" width="631" height="355" /></figure>
+
+<p><strong>003. X Player</strong> - Just like separating the Voronoi points out we must do the same for the player dots.</p>
+
+<p><strong>004. Y Player</strong> - Much the same as the co-ordinates for the x player but separating out the Y co-ordinate.</p>
+
+<p>Again, we can sense check this.</p>
+
+<figure class="wp-image"><img class="wp-image-3284" src="../uploads/2021/12/screenshot-2021-12-27-at-12.23.40.png" alt="" width="606" height="334" /></figure>
+
+<p>If you do use these sense checks, remember to look at the axis. I tend to fix mine to be able to the same size to see any transformations.</p>
+
+<p>Lastly we will want to layer the circles over the top of voronoi, as well as add a football pitch background. There are two methods of doing this. In truth map layers I find is easier, but for the sake of the tutorial I will show the old fashioned dual axis! If you'd like to look at my map layer alternative approach, see calculations <strong>006</strong> and <strong>007.</strong></p>
+
+<p><strong>BUILD THE VIZ</strong></p>
+
+<p>Data prepped, calculations made and sense checks done, finally time to build the final viz.</p>
+
+<figure class="wp-image"><img class="wp-image-3292" src="../uploads/2021/12/screenshot-2021-12-27-at-12.57.22.png" alt="" /></figure>
+
+<p>Drag <strong>Y Voronoi </strong>and <strong>Y Player</strong> onto Columns.</p>
+
+<p>Drag <strong>X Voronoi</strong> and <strong>X Player</strong> onto Rows.</p>
+
+<p>Make sure they are <strong>dimensions.</strong></p>
+
+<figure class="wp-image"><img class="wp-image-3294" src="../uploads/2021/12/screenshot-2021-12-27-at-12.58.24.png" alt="" /></figure>
+
+<p>Dual and synchronise the axis.</p>
+
+<p>Now let's start with the <strong>Voronoi on the marks card</strong> (on the left under all)</p>
+
+<figure class="wp-image"><img class="wp-image-3295" src="../uploads/2021/12/screenshot-2021-12-27-at-13.00.06.png" alt="" /></figure>
+
+<p>Change the mark to polygon, add shape to detail, team to colour and path to path. You will want to make sure shape and path are dimensions. Amend the colours transparency.</p>
+
+<p>Starting to look a bit more reasonable. We can at least see the pitch shape a bit more clearly!</p>
+
+<figure class="wp-image"><img class="wp-image-3297" src="../uploads/2021/12/screenshot-2021-12-27-at-13.03.14.png" alt="" /></figure>
+
+<p>Lets click into the <strong>Player on the marks card.</strong></p>
+
+<p>Add X and Y onto detail and team onto colour. Make sure the marks is a circle. These are our player points.</p>
+
+<p>Finally let's add the background football pitch. This is where <strong><a href="https://medium.com/analytics-vidhya/how-to-create-football-pitches-goals-as-backgrounds-in-tableau-7b1a7800ae1c" target="_blank" rel="noreferrer noopener">James' blog</a></strong> comes in handy.</p>
+
+<p>Whilst on the sheet click map, background map.</p>
+
+<p>Go to add image.</p>
+
+<p>Locate your file of the pitch, you can find a copy of the pitch in both black and white, within the repo.</p>
+
+<figure class="wp-image"><img class="wp-image-3302" src="../uploads/2021/12/screenshot-2021-12-27-at-13.08.05.png" alt="" width="533" height="432" /></figure>
+
+<p>Use the above co-ordinates for now, however these are open to slight amendments.</p>
+
+<p>You will see that I use the fields within my column and row bar of the sheet as the X and Y field! It is important to get these the right way round. In options lock the aspect ratio and always show the entire image.</p>
+
+<p>Click apply and ok.</p>
+
+<figure class="wp-image"><img class="wp-image-3305" src="../uploads/2021/12/screenshot-2021-12-27-at-13.10.22.png" alt="" /></figure>
+
+<p>Finally it is a case of cosmetics, hiding the axis and removing the map movement control.</p>
+
+<p>Go to map, Map options, uncheck the boxes of show layer control, toolbar and pan and zoom.</p>
+
+<p>This removes zoom ability.</p>
+
+<p>&amp; There we have it! Our voronoi soccer viz.</p>
+
+<figure class="wp-image"><img class="wp-image-3309" src="../uploads/2021/12/2.png" alt="" /></figure>
+
+<p><strong>SOME ERRORS THAT CAN OCCUR</strong></p>
+
+<p>I think one of the main difficulties will be with prepping the data, the path is really important to get right for polygons. So the path shows the order in which the co-ordinates are joined up.</p>
+
+<p>I would recommend building your voronoi and players charts separately before trying to merge them together in a dual axis, as it will help with troubleshooting.</p>
+
+<p>Snapping the pitch onto the chart can be a bit fiddly. Sometimes it doesn't always apply correctly and save my values when I do it, make sure to go back and check your numbers and X/Y field is correct!</p>
+
+<p><strong>One REALLY important thing i've noticed is when using dual axis, is when you want to add a pitch background you have to use the first metric that is seen in your column and row header!</strong> Otherwise the pitch will not appear. I.e in my case it was the voronoi x and voronoi y fields.</p>
+
+<p><strong>GOING FURTHER</strong></p>
+
+<p>Try finding your own data using the statsbomb api or MPLSoccer python package</p>
+
+<p>Try adding in the position of the ball in the freeze frame.</p>
+
+<p>Try making the polygon into a line path to allow for the football pitch to show more easily. (Hint, no further data prep is required, It is just using the marks card!)</p>
+
+<p>Try using a combination of colour and polygon/line to only highlight the spacing of the defending team.</p>
+
+<p>Try using map layers to create the visualisation.</p>
+
+<p>As always let me know how you got on with this one <strong>@_CJMayes</strong></p>
+
+<p><strong>LOGGING OFF,</strong></p>
+
+<p><strong>CJ</strong></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Booleans (Dynamic Zone Visibility For Beginners) - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Using Booleans (Dynamic Zone Visibility For Beginners)</h1>Hi all,
+
+I hope you are well? I must say, things have been really positive at the moment. I've been in a really good frame of mind recently, and found my 'burners' between work, personal commitments, sport and a new found interest of doing up my new home has brought me a lot of joy.
+
+Anyway, enough of my internal mental reflections. What are we here today for?
+
+We are going to be taking a look at the use of booleans in Tableau to show and hide aspects of a visualisation. This will be a beginners guide!
+
+Download the workbook to follow along step by step.
+
+<img class="alignnone size-full wp-image-6737" src="../uploads/2023/07/DZV.png" alt="" width="1400" height="800" />
+
+Mainly we will look at two examples.
+
+<strong>User case 1 that looks to impact the chart itself. We will look to use a boolean to hide layers on a map!</strong>
+
+<strong>User case 2 that uses dynamic zone visibility that we will use to hide the map, as well as hide containers. Hopefully a good intro for those just finding their feet with DZV.</strong>
+
+It goes without saying, if you want alternative learning tutorials that vary in complexity, the likes of Marc Reid, Tim Ngwena and Sam Parsons have all released exciting material on leveraging dynamic zone visibility.
+
+A few of my favourites can be found here:
+
+Marc Reid: <strong><a href="https://www.youtube.com/watch?v=Z1DuCEyfRfI">Dynamic Zone Visibility - Full Dashboard Tutorial with instructions</a></strong>
+
+Tim Ngwena <strong><a href="https://www.youtube.com/watch?v=ehnBM0ym6yI&amp;t=2s">Swap sheets, containers and more! Dynamic Zone Visibility : New in Tableau 2022.3</a></strong>
+
+Sam Parsons <strong><a href="https://public.tableau.com/app/profile/sparsonsdataviz/viz/TableauBestNewFeatureDynamicZoneVisibility/Pg1">Tableau Best New Feature Dynamic Zone Visibility</a></strong>
+
+Okay lets dive in, the Tableau workbook can be downloaded for free at the top of the page.
+
+Our starting basis will be the build along dashboard - this is so that we don't need to faff with containers.
+
+<img class="alignnone size-full wp-image-6739" src="../uploads/2023/07/Build-Along.png" alt="" width="1400" height="800" />
+
+First we will look at user case 1, and create a map.
+
+Double click on the Latitude and Longitude calculations to bring them onto columns and rows.
+
+Drag country/Region onto detail as well as State/Province.
+
+By changing your mark to map you should get a filled in map, in Tableaus automatic blue colour.
+
+Off-piste, but now lets create a quick set from the state/province field called State/Province Set and select the top 5 sales field, using the sum aggregation. We will use this to colour the states that are shown in our BANs.
+
+<img class="alignnone size-full wp-image-6742" src="../uploads/2023/07/Top5-Set.png" alt="" width="446" height="581" />
+
+Drag that field onto colour.
+
+Next thing we want to do is add a layer that we an turn on and off at the click of a filter.
+
+To do that we need a parameter.
+
+Create a parameter <strong>P. Show Hide Map Marks</strong>
+
+It should be a boolean.
+
+<img class="alignnone size-full wp-image-6743" src="../uploads/2023/07/ShowHideMarksBoolean.png" alt="" width="552" height="476" />
+
+Next we want to create a layer that is driven by this parameter.
+
+Create a calculation MP. City
+
+if [P. Show Hide Map Marks] then [City]
+END
+
+This means when the parameter is true, use the city field (a geographic location)
+
+Add Sales to size and recolour in your choosing. Re adjust the map to fit the center of the screen, and then this is ready to add to our dashboard.
+
+<img class="alignnone size-full wp-image-6745" src="../uploads/2023/07/map.png" alt="" width="1392" height="798" />
+
+Click on the sheet, go to parameters and click our new parameter of Show Hide Map Marks. Now as you toggle between True (showing) and False (Hidden) The map marks from our layer will change between showing and hiding.
+
+How simple was that! Our first user case of using a boolean to show and hide content.
+
+Lets look at the next user case.
+
+<img class="alignnone size-full wp-image-6747" src="../uploads/2023/07/DZV-2.png" alt="" width="1400" height="800" />
+
+Can we use a boolean to show and hide the map at a sheet level?
+
+Lets create a new parameter. Again, a boolean field. Call this parameter DZV Map.
+
+<img class="alignnone size-full wp-image-6748" src="../uploads/2023/07/Capture.png" alt="" width="552" height="470" />
+
+Add this parameter to our dashboard by clicking on our map sheet, going to parameter and clicking DZV Map.
+
+<img class="alignnone size-full wp-image-6749" src="../uploads/2023/07/Capture2.png" alt="" width="1524" height="843" />
+
+But at this point our map has nothing that links it to the parameter.
+
+This is where dynamic zone visibility comes into play.
+
+<img class="alignnone size-full wp-image-6751" src="../uploads/2023/07/Capture3-1.png" alt="" width="1614" height="813" />
+
+If we highlight the sheet and then go to layout, we can tick the control visibility using value and use our newly created DZV Map boolean.
+
+When you change the parameter to false, the map will hide from the screen.
+
+Lets look at one final user case, what if we wanted to completely hide the whole container in blue? We should follow the same logic.
+
+Create a final new parameter this time called <strong>DZV Container</strong>
+
+<img class="alignnone size-full wp-image-6753" src="../uploads/2023/07/container.png" alt="" width="554" height="477" />
+
+Follow the same steps from previous to add the parameter to our dashboard
+
+<img class="alignnone size-full wp-image-6754" src="../uploads/2023/07/Container2.png" alt="" width="1394" height="801" />
+
+This time we will want to select our container (blue) when you're on the container level. Go to Control Visibility Using Value and this time click on our new parameter DZV Container.
+
+<img class="alignnone size-full wp-image-6757" src="../uploads/2023/07/apture1.png" alt="" width="1617" height="807" />
+
+Flicking the boolean to false hides the whole container.
+
+<img class="alignnone size-full wp-image-6759" src="../uploads/2023/07/Allgone.png" alt="" width="1408" height="805" />
+
+That's it for this week. Hopefully an easy one for beginners to follow along to and try different ways of leveraging booleans to show and hide both layers, sheets, and containers.
+
+I would really recommend checking out the videos referenced at the start of the blog to take this to the next step.
+
+GOING FURTHER
+<ul>
+ 	<li>Why not try and use parameter and DZV to show and hide multiple sheets using icons.</li>
+</ul>
+Speak soon,
+
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

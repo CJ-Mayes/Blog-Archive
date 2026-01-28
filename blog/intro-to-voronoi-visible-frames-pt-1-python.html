@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro To Voronoi Visible Frames (Python) - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Intro To Voronoi Visible Frames (Python)</h1><p>Hi All,</p>
+<p>Just a small code piece to share this week.</p>
+<p>I've previously written about shot freeze frames and visibility in Tableau <a href="../2023/10/23/shot-freeze-frames-with-visibility/"><strong>here.</strong></a></p>
+<p>That version access' the freeze frames in a similar way but preps the data fit for Tableau by creating a path element and all the points of the polygon.</p>
+<p>This version of code looks at how we can plot a series of freeze frames (not necessarily shot data) and then plotting the chart using python packages instead of the need for Tableau.</p>
+<p>You can find a copy of the code in the <a href="https://github.com/CJ-Mayes/Website-Tutorials/blob/main/2024%20Blogs/2024-02-12%20Intro%20To%20Voronoi%20Visible%20Frames%20(Python)/main.py"><strong>Github</strong></a> link at the top of the page.</p>
+<p><img class="alignnone size-full wp-image-7684" src="../uploads/2024/02/carbon-9.png" alt="" width="1764" height="3484" /></p>
+<p>As a brief explanation of the code,</p>
+<ol>
+<li>
+<p>The necessary libraries are imported: <code>numpy</code>, <code>pandas</code>, <code>matplotlib.pyplot</code>, <code>statsbombpy</code>, <code>mplsoccer</code>, and <code>os</code>.</p>
+</li>
+<li>
+<p>The variable <code>comp</code> is assigned the result of calling <code>sb.competitions()</code>. This retrieves a DataFrame containing information about available competitions.</p>
+</li>
+<li>
+<p>The variable <code>match_id</code> is set to a specific match ID. This match ID is used to retrieve the events for that specific match using <code>sb.events(match_id=match_id)</code>.</p>
+</li>
+<li>
+<p>The <code>shot_frame_ids</code> variable is assigned the unique frame IDs where shots occurred during the match. This is done by filtering the events DataFrame to include only events of type 'Shot' and extracting the unique frame IDs.</p>
+</li>
+<li>
+<p>The variable <code>frames</code> is assigned the result of calling <code>Sbopen().frame(match_id)</code>. This retrieves the frames for the specified match.</p>
+</li>
+<li>
+<p>The variable <code>visible</code> is assigned the result of calling <code>Sbopen().visible(match_id)</code>. This retrieves the visibility information for the specified match.</p>
+</li>
+<li>
+<p>The <code>output_folder</code> variable is set to the absolute path of the "output_frames" folder. This is the folder where the generated images will be saved.</p>
+</li>
+<li>
+<p>If the output folder does not exist, it is created using <code>os.makedirs(output_folder)</code>.</p>
+</li>
+<li>
+<p>The current frame's data is retrieved from the <code>frames</code> DataFrame using <code>frames[frames['id'] == frame_id]</code>.</p>
+</li>
+<li>
+<p>The code checks if the 'visible_area' information is available for the current frame using <code>frame_id in visible['id'].unique()</code>.</p>
+</li>
+<li>
+<p>If the 'visible_area' information is available, a plot is created using the <code>Pitch</code> class from the <code>mplsoccer</code> library.</p>
+</li>
+<li>
+<p>The Voronoi polygons for the two teams are plotted on the pitch using the teammate and opponent locations.</p>
+</li>
+<li>
+<p>The figure is saved as an image in the output folder with a filename containing the index and frame ID.</p>
+</li>
+<li>
+<p>The loop continues until all shot frames have been processed.</p>
+</li>
+</ol>
+<p>Overall, this code generates individual frames for each shot event in a match, plots the players' positions, visible area, and Voronoi polygons, and saves the frames as images in a specified output folder.</p>
+<p><img class="alignnone size-full wp-image-7685" src="../uploads/2024/02/frame_0_794cf42d-828c-4b7a-8665-f682fe16572a.png" alt="" width="1107" height="790" /></p>
+<p><strong>Going Further:</strong></p>
+<ul>
+<li>Why not try plot this in Tableau? or data viz tool of your choosing.</li>
+<li>Build a small multiples to show a variety of different actions.</li>
+<li>Try create an <a href="https://wjsutton.github.io/data-viz/2020/05/19/Building-Animated-Voronoi-Chart-In-R.html"><strong>animated voronoi like Will Suttons.</strong></a></li>
+</ul>
+<p>As always, Let me know how you get on with this one. I can be reached on Twitter (X), <strong>@_CJMayes</strong>.</p>
+
+<p><strong>LOGGING OFF,</strong></p>
+
+<p><strong>CJ</strong></p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

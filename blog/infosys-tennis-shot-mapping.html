@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infosys Tennis Shot Mapping - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Infosys Tennis Shot Mapping</h1><p>Hi all,</p>
+<p>Welcome back to a new year, I hope the festive period has been one filled with joy for you.</p>
+<p>Those of you who know me well, knows tennis is one of my favourite sports, despite not playing it often. Unfortunately, tennis data isn't as detailed as I really wish it was in terms of being publicly accessible - but it doesn't stop me from trying to make some creative tennis visuals.</p>
+<p>For years, I have wanted better access to shot location data, and its seemingly been hard to find. I did however stumble across the infosys stand when I visited Roland Garros last year and so thought to take a bit of a deeper look at the website.</p>
+<p>This blog will look to showcase how you can recreate one of the visuals from the site in Tableau and some of the logic behind it.</p>
+<p>If you'd like to follow along, you can find the links to all the resources at the <strong>top of the page</strong>. The dataset and court image will be stored in the repo, and the visual on my tableau public page.</p>
+<p>Let's take a look at the final from 2022, <strong><a href="https://www.rolandgarros.com/en-us/matches/2022/SM001">here.</a></strong></p>
+<p><img class="alignnone  wp-image-5304" src="../uploads/2022/12/Screenshot-2022-12-05-at-21.02.41-300x93.png" alt="" width="509" height="158" /></p>
+<p>Rafa ended up winning 3 sets to love in the final of the French Open. </p>
+<p>The exciting part of that is we can navigate to the court vision page and see what some of these shots look like mapped.</p>
+<p><img class="alignnone  wp-image-5306" src="../uploads/2022/12/Screenshot-2022-12-05-at-21.18.36-300x145.png" alt="" width="511" height="247" /></p>
+<p>Now right away I'm thinking, yeah this is cool, but it's going to be pretty hard to sketch out in Tableau, so i switch to the 2D mode.</p>
+<p><img class="alignnone  wp-image-5308" src="../uploads/2022/12/Screenshot-2022-12-05-at-21.20.04-300x161.png" alt="" width="625" height="335" /></p>
+<p>
+
+</p>
+<p>Much better.</p>
+<p>Some really smart people are probably able to automate this next bit, but really I wanted just to test if the mapping co-ordinates would work.</p>
+<p><img class="alignnone  wp-image-5309" src="../uploads/2022/12/Screenshot-2022-12-05-at-21.28.07-300x141.png" alt="" width="641" height="302" /></p>
+<p>First I inspect the page and see the ratio between the height and width of the court.</p>
+<p>I use a chrome extension in order to save a copy of the court.</p>
+<p>You can find the extension <a href="https://chrome.google.com/webstore/detail/svg-export/naeaaedieihlkmdajjefioajbbdbdjgp?hl=en-GB"><strong>here.</strong></a></p>
+<p><img class="alignnone  wp-image-5311" src="../uploads/2022/12/Screenshot-2022-12-05-at-21.29.54-300x84.png" alt="" width="514" height="144" /></p>
+<p>I actually really love this extension because you can also start to use it in terms of helping build out other branding aspects, simply by pasting in the website link. The best part is, because they are SVG's you can amend the different layers to each of the items.</p>
+<p><img class="alignnone  wp-image-5313" src="../uploads/2022/12/Screenshot-2022-12-05-at-21.31.51-300x174.png" alt="" width="557" height="323" /></p>
+<p>Here are a few examples from the extension in terms of what the type of output files you can get are.</p>
+<p>Anyway I digress, the one we are after is the SVG of the court.</p>
+<p><img class="alignnone  wp-image-5314" src="../uploads/2022/12/Screenshot-2022-12-05-at-21.31.38-264x300.png" alt="" width="548" height="622" /></p>
+<p>Next let's download the SVG, constraining the proportions to make sure we keep the right scale in the court.</p>
+<p><img class="alignnone  wp-image-5316" src="../uploads/2022/12/Screenshot-2022-12-05-at-21.34.48-300x157.png" alt="" width="528" height="276" /></p>
+<p>We can then move this SVG file into Figma to edit.</p>
+<p><img class="alignnone  wp-image-5318" src="../uploads/2022/12/Screenshot-2022-12-05-at-21.37.06-300x121.png" alt="" width="607" height="245" /></p>
+<p>What you will notice is that we exported it at constrained width and height, but we actually want to make these equal to whatever is <strong>on the web page</strong>.</p>
+<p>This is because we want everything to be proportional.</p>
+<p>You'll see in the output files I scale this up to 708 * 346, but these values will need to be dependent on what you have set your web browse court to.</p>
+<p>Reason being, <strong>the x and y values on the court also adjust based on the screen. </strong>You can test what I mean by changing the size of your web page browse and court.</p>
+<p>Now in Figma we have rescaled our court. But I also want to play around a little with how the court is designed. I remove the orange background, opting for a light grey and also thin the stroke of the white out to be a thin black court outline. These are simply aesthetic choices, but don't impact the proportions of the court.</p>
+<p><img class="wp-image-5323 aligncenter" src="../uploads/2022/12/Screenshot-2022-12-05-at-21.42.44-300x164.png" alt="" width="633" height="346" /></p>
+<p>Next we need our data points. Remembering to keep our court the same size, we can then look through the rfk-court-balls within the html elements to find all the x and y co-ordinates of the shots. In my case I took winner shots. (This dataset is attached at the top of the page in the repo)</p>
+<p><img class="alignnone  wp-image-5321" src="../uploads/2022/12/Screenshot-2022-12-05-at-21.40.09-300x137.png" alt="" width="549" height="252" /></p>
+<p>Finally, we have our court, and we have our x and y co-ordinates.</p>
+<p><img class="alignnone  wp-image-5326" src="../uploads/2022/12/Screenshot-2022-12-05-at-21.50.50-300x200.png" alt="" width="512" height="341" /></p>
+<p>Plot your X on columns and Y onto Rows.</p>
+<p>Go to Map &gt; Background Images</p>
+<p><img class="alignnone  wp-image-5327" src="../uploads/2022/12/Screenshot-2022-12-05-at-21.51.49-300x252.png" alt="" width="465" height="391" /></p>
+<p>Add in your court. Remember at the start when I mentioned my court size was based on 708 * 346. </p>
+<p>I halve these values so that my co-ordinates align properly around the centre 0,0.</p>
+<p><img class="alignnone  wp-image-5330" src="../uploads/2022/12/Screenshot-2022-12-05-at-21.54.30-300x161.png" alt="" width="584" height="314" /></p>
+<p>And there we have it, our tennis court with each winner hit mapped in Tableau. Final thing to do is add some colour, spruce it up a bit.</p>
+<p><img class="alignnone  wp-image-5333" src="../uploads/2022/12/RG-Final-2022-300x200.png" alt="" width="554" height="369" /></p>
+<p>Going Further;</p>
+<ul>
+<li>Why not see if you can streamline the data collection process?</li>
+<li>Add colour to the chart to highlight each player</li>
+<li>Try mapping a different game from Rolland Garros</li>
+<li>Try mapping a different shot type metric</li>
+</ul>
+<p><strong>LOGGING OFF,<br />CJ</strong></p>
+<p></p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Tableau: The Unconventional Way with Olushola Olojo - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Learning Tableau: The Unconventional Way with Olushola Olojo</h1><p>Welcome to the June edition of <em><strong>"What's Good?"</strong></em>.</p>
+
+<figure class="wp-image"><img class="wp-block-jetpack-slideshow_image wp-image-1428" src="../uploads/2021/05/angela-davis.png" alt="" data-id="1428" /></figure>
+
+<p>What I appreciate hugely about Shola is his ability to bring his own unique style to his creations. With this in mind, the June edition is on <strong>“Learning Tableau: The Unconventional Way”</strong>. Shola will look to cover his end to end productionised thought process from data searching, to communication, to design elements. In our initial discussions I was so pleased to hear the emphasis Shola made on both personal progression, expressing himself through visualization and his thought process behind conveying a theme within his dashboard designs.</p>
+
+<p>Without further ado, Shola, over to you.</p>
+
+<p style="font-size: 18px;"><strong>Learning Tableau</strong></p>
+
+<p><strong>S:</strong> So you want to learn Tableau?</p>
+
+<p>Don’t worry, this isn’t going to be like those pamphlets you pick up at your local chemist. At least, I hope not.</p>
+
+<p id="34bf">As with most superhero’s origin story, mine began on Udemy with Kirill Eremenko and the <a href="https://www.superdatascience.com/" target="_blank" rel="noreferrer noopener"><strong>SuperDataScience</strong></a> team. Joke aside, I never imagined a $10 course would catapult me through this seemingly limitless doorway of data visualization.</p>
+
+<p id="760a">When learning Tableau, learn the basics.</p>
+
+<p id="d1df">Delving into anything new, you must understand your foundations. In my case, I spent months watching online tutorials, attending webinars, and exploring public workbooks from some of the best authors around.</p>
+
+<p id="e9a3">It was three months of complete immersion. An arduous period, littered with unfinished projects. Thankfully, my dogged nature did not allow me to let up/ Perseverance led me to a place where I can confidently harness the power of Tableau and produce some truly compelling visualizations.</p>
+
+<p id="574c">Fair warning, I do not delude myself into thinking I’m some kind of expert. There is no such thing.</p>
+
+<p class="has-text-align-center has-vivid-cyan-blue-color has-text-color has-medium-font-size">“The moment you think you know everything, you know very little”</p>
+
+<p>I take comfort in the knowledge that <strong><a href="https://twitter.com/FlerlageKev" target="_blank" rel="noreferrer noopener">Kevin Flerlage</a></strong> also keeps a Google search tab open for looking up Table Calculations. I too periodically revisit all of my beginner's courses on Tableau.</p>
+
+<p id="2edb">Never get bored of the basics as it’s the vantage point to endless possibility. Only then will you be able to map out a feasible progression path.</p>
+
+<p id="e3ca">But learning the basics isn’t very unconventional? It actually proposes the exact opposite.</p>
+
+<p id="eafa">You’re absolutely right. It’s worth remembering that there is nothing new under the sun.</p>
+
+<p id="1c8e">Sure, Tableau releases new updates monthly but at its core, it’s merely a vehicle to ascertain insights. You’re taking raw data, attempting to identify trends/patterns, and communicating this information to your audience.</p>
+
+<p id="2c0f">As highlighted before, learning Tableau is relatively straightforward. However, developing the capacity to understand key elements structured around its use requires the adoption of a unique perspective.</p>
+
+<hr class="wp-block-separator" />
+
+<p style="font-size: 24px;"><strong>Learn Data</strong></p>
+
+<p id="fd79">Browsing through Twitter a few months ago, I came across an interesting tweet from Tableau Zen Master, <a href="https://public.tableau.com/profile/stanke#!/" target="_blank" rel="noreferrer noopener"><strong>Luke Stanke</strong></a>, Partner at Tessellation.</p>
+
+<p id="7ec2">Speaking in verbatim, Luke tweeted something along the lines of;</p>
+
+<p class="has-text-align-center has-vivid-cyan-blue-color has-text-color has-medium-font-size">"I'm here for all the resumes that say I spent 35 hours a week wrangling data. I'm not there for the endless list of cool things done with clean data"</p>
+
+<p id="ce05">If the perceived beacon of aristocracies in our Tableau community drives home the significance of data wrangling, wouldn’t you agree that it’s worth lending an ear to this area?</p>
+
+<p id="7c8c">A common rule of thumbs is that data processing swallows approximately 65 — 70% of your time as an Analyst. That’s more than two-thirds of the time spent extracting, munging through, and mapping data.</p>
+
+<p id="412a">As much as I love jumping into a pit full of sand, I’d foolish to think I could break the world record from a static position. To achieve a mark of around 15+metres into the sand, I would need to bound down the runway from a mark of over 40 meters. A good jump is allied by an even better approach.</p>
+
+<p id="6748">The same principle applies when using Tableau. Good visualizations are contingent upon having well-structured, uniformed data.</p>
+
+<h2 id="acb2" style="font-size: 18px;">Start on the Right Track</h2>
+
+<p id="a296">Let’s tap into one of my memorable projects, <a href="https://public.tableau.com/profile/olushola.olojo#!/vizhome/UniversityDatabase_16136689301990/UniversityDatabase" target="_blank" rel="noreferrer noopener"><strong><em>The Complete Directory: U.S. College &amp; Universities</em>,</strong> </a>where I was challenged by one of the UK’s leading college recruitment agencies to revamp their existing Tableau dashboard.</p>
+
+<p id="a5d7">With obsolete data reaching as far back as 2012, the immediate focus was geared towards locating current, information. Feel free to bookmark the <a href="https://nces.ed.gov/ipeds/use-the-data" target="_blank" rel="noreferrer noopener"><strong><em>National Center for Education Statistics</em></strong></a><strong><em> </em></strong>for all your post-secondary data needs.</p>
+
+<p id="42db">Typical data-wrangling procedures include;</p>
+
+<p id="b0fd"><strong>1.Loading the CSV into Jupyter Notebook</strong></p>
+
+<p id="5fb9"><strong>2. Removing Inconsistent Columns Names</strong></p>
+
+<p>&nbsp;</p>
+
+<figure class="wp-image"><img src="../uploads/2021/05/34bc4-1atjb4ylxmzizgmbikh3jjq.png" alt="" width="711" height="367" /></figure>
+
+<p id="cfdd"><strong>3. Identifying NULL Values</strong></p>
+
+<p id="8ea3"><strong>4. Changing Data Type</strong></p>
+
+<figure class="wp-image"><img src="../uploads/2021/05/817e6-1o796z7hwd_g04tt4nc8ksa.png" alt="" width="714" height="336" /></figure>
+
+<p id="97a6"><strong>5. Omitting Duplicate Rows.</strong></p>
+
+<p id="b209">Daniel Chen hosts an insightful tutorial on <a href="https://www.youtube.com/watch?v=5rNu16O3YNE" target="_blank" rel="noreferrer noopener"><strong>YouTube</strong>,</a> that takes you through the fundamentals of data manipulation using Python.</p>
+
+<p id="5bc3">The completed visualization garnered a fair amount of positive feedback from the #DataFam community, with messages congratulating me for putting together such a beautifully crafted dashboard.</p>
+
+<p id="ecb7">It even went as far as to earn me my very first VOTD nomination.</p>
+
+<p id="133d">A clear job well done!</p>
+
+<p id="f59c">Unknowning to the eye, however, was the three days spent combing through slabs of data to mitigate any ambiguity and ensure the information extracted was suitable for visualizing.</p>
+
+<p id="9e6e">Recount the analogy of The Graceful Swan.</p>
+
+<p id="f73c">We’re spoilt with an abundance of great initiatives within our Tableau community. I am always keen to steer beginners looking to get started in Tableau to partake in these weekly challenges.</p>
+
+<p id="97d7">What I’m not an advocate of is solely exposing yourself to squeaky clean datasets found on <a href="https://www.kaggle.com/" target="_blank" rel="noreferrer noopener"><strong>Kaggle</strong></a> and <a href="https://www.kaggle.com/" target="_blank" rel="noreferrer noopener"><strong>data.world</strong></a><strong>. </strong>By doing this, you negate yourself from the valuable learning opportunity nested in finding, scraping, and cleaning your own data.</p>
+
+<p id="bf5b">You might counter and say that this subject is outside your pay bracket. In fact, your organization already has an established team tasked with dealing with all this data-cleaning malarkey.</p>
+
+<p id="a24d">Now imagine just how valuable you become to your team when you buttressed your exceptional visualization skills with the capacity to offer sound recommendations on how best to structure data for insights.</p>
+
+<p id="4b78">Learn Tableau by learning how to process data.</p>
+
+<hr class="wp-block-separator" />
+
+<p style="font-size: 24px;"><strong>Learn Design</strong></p>
+
+<p id="9723">Dovetailing from data processing, we enter into undoubtedly my favorite aspect of building a dashboard, the design!</p>
+
+<p id="5183">Pioneered by the likes of <a href="https://public.tableau.com/profile/judit.bekker#!/" target="_blank" rel="noreferrer noopener"><strong>Judit Bekker</strong></a> &amp; <a href="https://public.tableau.com/profile/tam.s.varga#!/" target="_blank" rel="noreferrer noopener"><strong>Tamás Varga</strong></a>, the integration of UI/UX elements into the creations of dashboards is very much what the cool kids are doing nowadays on Tableau.</p>
+
+<p id="b5f5">Let’s not forget about that chap, <a href="https://public.tableau.com/profile/cj.mayes#!/" target="_blank" rel="noreferrer noopener"><strong>CJ Mayes</strong></a>, who has an uncanny ability to marry what seems to take the appearance of a space vortex with data.</p>
+
+<p id="ae52">Learning how to utilize design tools, albeit Figma, Adobe Illustrator, or Powerpoint is a surefire way to achieve a polished, modern finish to your dashboards.</p>
+
+<h2 id="6495" style="font-size: 18px;">Sweat The Small Stuff</h2>
+
+<p id="ba86">What isn’t taught on most online Tableau tutorials, is <strong>attention-to-detail. </strong>A common trait that marks some of the best visual designers.</p>
+
+<p id="35de">You’ve got to sweat the small stuff.</p>
+
+<p id="4048">Competing as an NCAA Division I athlete taught me this in spades. I have vivid recollections of lining up against the Top 47 athletes in the nation at the Regional Championship.</p>
+
+<p id="b6d9">Survive and advance. You have three attempts with the Top 12 progressing to the big dance in Eugene, Oregon.</p>
+
+<p id="de13">In a game of inches, how do you distinguish between 48 carbon copies when factors such as speed, power, and size are held relatively constant across the board.</p>
+
+<p id="e0b7">Attention-to-detail.</p>
+
+<p id="61c6">More often than not, it was those athletes who prioritized their diet, recovery, and sleep that was conditioned enough to withstand the heat and progress through to the finals.</p>
+
+<p id="f5dd">I draw stark parallelism between my formative years as an athlete and my current works in Tableau. Paying close attention to design details rooted in typography, purposeful use of colors, white space, and micro-interaction features will give your visuals the kick it needs.</p>
+
+<h2 id="5f22" style="font-size: 18px;">My Tidbits</h2>
+
+<p id="6a19">It’s always interesting to compare how my designed aesthetics has evolved over the course of months. Currently, I’m riding the minimalist train to design dashboards teeming with information but simple enough for the viewer to digest.</p>
+
+<figure class="wp-image"><img src="../uploads/2021/05/33232-1eazpciknltyjj01n8l9qja.png" alt="" width="679" height="480" /></figure>
+
+<h2 id="fa66" style="font-size: 18px;">Here are my tidbits for achieving a minimal finish on your dashboard</h2>
+
+<ol>
+<li><strong>White Space: </strong>Be generous with the space between elements.</li>
+<li><strong>Colors: </strong>Use shades of black and white in your design</li>
+<li><strong>Typeface: </strong>Avoid quirky fonts, use a clean <strong><em>Sans Serif </em></strong>font instead. Remember, there is a reason as to why <strong><em>Tableau Book</em></strong> is the default font choice.</li>
+<li><strong>Images: </strong>Avoid busy images, use a .png with a transparent background</li>
+<li><strong>Icons:</strong> Keep your icons consistent with the colors used throughout your dashboard.</li>
+<li><strong>Fonts: </strong>Mentioning this again to drive it home. Keep your font to a minimum. Use different weights of the same font</li>
+<li><strong>Alignment:</strong> Avoid misalignment in your design. They’re easy to spot and distracts the viewer.</li>
+</ol>
+
+<p id="a28d">Design is becoming prevalent in the Tableau space. You only need to look at the submissions of the latest cohorts at <strong><a href="https://www.theinformationlab.co.uk/" target="_blank" rel="noreferrer noopener">The Information Lab</a></strong> to determine just how rapidly the landscape is changing.</p>
+
+<p id="fdd7">Evolve with it.</p>
+
+<p id="ede4">Check out these sites for free UI UX courses, courtesy of <strong>Arpit Patel</strong>.</p>
+
+<figure class="wp-image"><img src="../uploads/2021/05/d7311-13cpt5tzrbijz-a-fzzuc2g.png" alt="" /></figure>
+
+<p id="052e">Pull your dashboards out of the dark ages and dot your Tableau portfolio with some eye-candy.</p>
+
+<p id="a352">Learn Tableau by learning how to design.</p>
+
+<p><strong>C: With this in mind, has there been any recent dashboards in the community that you think particularly stood out?</strong></p>
+
+<p class="has-text-align-center has-vivid-cyan-blue-color has-text-color has-medium-font-size">"We come packaged with the tools within, all we need is to be inspired"</p>
+
+<p id="7dd6">A momentary pause for reflection on my Tableau journey came over me this bank holiday weekend. Ignited by a tweet from Tableau imploring the Data Fam community to think about who has inspired them thus far.</p>
+
+<p id="91d1">Here are some authors from who I source some design inspiration.</p>
+
+<p class="has-medium-font-size"><strong><a href="https://public.tableau.com/profile/josh.hughes#!/" target="_blank" rel="noreferrer noopener">Josh Hughes</a></strong></p>
+
+<p id="4e4a">For starters, I’m a huge fan of anything chocolate and drizzled in caramel so forgive me for wanting to pull this viz off the screen. I’d throw Josh in the minimalist bracket with his chart choices and subtle use of colours. In this particular viz, Josh demonstrated immense creativity to use a chocolate bar packaging as a canvas. Reading further about the thought process behind the selection of his colour palettes on the February edition of ‘What’s Good?’ speaks volumes to his skills as a designer.</p>
+
+<p id="32b2"><a href="https://public.tableau.com/app/profile/josh.hughes/viz/CocoaBeans_16092528241080/Dashboard1" target="_blank" rel="noreferrer noopener">Cocoa Beans</a></p>
+
+<p class="has-medium-font-size"><strong><a href="https://public.tableau.com/profile/ellen4268#!/" target="_blank" rel="noreferrer noopener">Ellen Blackburn</a></strong></p>
+
+<p id="1a45">There exist a huge gulf between dashboards designed for Tableau Public and practical dashboards used in a corporate setting. Ellen’s portfolio does an amazing job of bridging that gap by showcasing some of the best business-style dashboards around. What really stood out to me was her mastery of tiled containers and her intuitive use of colours to create uniformity throughout her vizzes.</p>
+
+<p id="c55f"><a href="https://public.tableau.com/app/profile/ellen4268/viz/DemoInsuranceDashboards-UnderwriterPerformance/InsuranceDashboard-BrokerBenchmarking4" target="_blank" rel="noreferrer noopener">Demo Insurance Dashboard</a></p>
+
+<p class="has-medium-font-size"><strong><a href="https://public.tableau.com/profile/kasia.gasiewska.holc#!/" target="_blank" rel="noreferrer noopener">Kasia Gasiewska-Holc</a></strong></p>
+
+<p id="8752">The latest cohort of Tableau Public Featured Author brought me to Kasia’s profile. Browsing through her page, I had to check a few times that I was still on the Tableau Public server. There is no way this was done using Tableau, right? The imagination behind her ‘<a href="https://public.tableau.com/app/profile/kasia.gasiewska.holc/viz/DwightSchrutesComputer/Screensaver" target="_blank" rel="noreferrer noopener">Dwight Schrute’s Computer</a>’ visualization blew me away. Great designs are often married with out-of-the-box thinking, and Kasia certainly employs this in her work.</p>
+
+<p id="da9a"><a href="https://public.tableau.com/app/profile/kasia.gasiewska.holc/viz/ObesityintheUSA_2/ObesityintheUSA" target="_blank" rel="noreferrer noopener">Obesity in the USA</a></p>
+
+<div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide">
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-1462" src="../uploads/2021/06/dashboard-1.png" alt="" data-id="1462" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-1463" src="../uploads/2021/06/insurance-dashboard-underwriter-performance.png" alt="" data-id="1463" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-1464" src="../uploads/2021/06/obesity-in-the-usa.png" alt="" data-id="1464" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+</div>
+
+<hr class="wp-block-separator" />
+
+<h1 id="566a" style="font-size: 24px;">Learn Writing</h1>
+
+<p id="83de">So you’ve gathered the data and beautified your dashboard. What’s next?</p>
+
+<p id="0146">The utility of communication in the data visualization world is so self-evident that it can pass without question — yet it’s so often neglected!</p>
+
+<p id="6bf5">Lest we forget that the whole purpose behind Tableau and any other visualization tool, for that matter, is to communicate insights to your audience in a succinct, intuitive manner.</p>
+
+<p id="b11c">Do you know write? Truly, read and write!</p>
+
+<p id="12a1">I often say to myself, If I’m ever graced with the opportunity to go back to school, I’ll be gunning for a Masters in English or Social Psychology — sod Data Analytics.</p>
+
+<p id="d924">What has that got to do with Tableau?</p>
+
+<p id="e743">It’s a shifting landscape. Gone are the days of Analysts being tucked away in a dark room, with their headphones in punching away at the keyboard. With a strengthening candidate pool, Analysts are not only expected to produce insightful visualization but have the dexterity to articulately convey this story to executives.</p>
+
+<p id="9978">Data-storytelling.</p>
+
+<p class="has-medium-font-size"><strong>Happy Medium</strong></p>
+
+<p id="3a4b">Granted I’ve fallen off the horse a tad due to an increase in workload, but creating a <a href="https://olojo.medium.com/" target="_blank" rel="noreferrer noopener"><strong>Medium </strong></a>account last year and churning out content was the greatest step towards enhancing my communication skills.</p>
+
+<p id="da62">Writing is formalized thinking.</p>
+
+<p id="a1e1">The more I wrote, the more precise I became with my speech. This clarity began seeping into other areas of my work.</p>
+
+<p id="5f1e">As opposed to chucking all sorts of objects onto my dashboard, I became extremely selective with my chart choices. My anecdotal texts that often provide some context to my visuals were concise, minimizing any ambiguity.</p>
+
+<p id="f94d">I knew <strong>EXACTLY </strong>what story I wanted to tell. Upon reflection, this might explain why I have recently ventured down the minimalist route in my visualizations.</p>
+
+<p id="e756">A large proportion of my time as an Insights Manager is spent writing proof of concepts to higher-ups, deciphering through business strategies, and transcribing performance evaluations to my team. Sounds a little more than building a few dashboards or reports, doesn't it?</p>
+
+<p id="7506">As a young wolf still climbing the hill, I pay close attention to what those at the top are doing.</p>
+
+<p id="e640">Notice that the vast majority of Tableau Zen Masters, Ambassadors, and Featured Authors all have running blogs to document their journey and relate to their wider community.</p>
+
+<p id="47b3">You don’t have to start a blog but learn how to write!</p>
+
+<p class="has-text-align-center has-vivid-cyan-blue-color has-text-color has-medium-font-size"><strong>“The pen is mightier than the sword”</strong></p>
+
+<p id="b273">I know this is a trite idiom but really flesh it out. Discover the power of your words and convey your visualization clearly.</p>
+
+<p id="6ce0">Learn Tableau by learning how to write.</p>
+
+<p id="f36b">Finally, learn Tableau by doing and FAILING.</p>
+
+<p id="5583">I cringe at my early attempts at trying to use tiled containers for a business dashboard — I almost got kicked off the project.</p>
+
+<p id="3dd8">You’re going to have to faff up a few dashboards before you get comfortable. Lean towards this knowledge.</p>
+
+<p class="has-text-align-center has-vivid-cyan-blue-color has-text-color has-medium-font-size"><strong>"Throw yourself in the deep end, and swim to the shallow.”</strong></p>
+
+<p id="58f6">Find your passion project — something that really moves you. In most instances, there will be existing literature on your subject.</p>
+
+<p id="a621">Challenge yourself by building a web scraper to curate your own dataset. Pay close attention to detail as you beautify your work. Write about your journey, and watch your path becomes clear.</p>
+
+<p id="fd9d">This is by no means an exhaustive list, but it’s a start.</p>
+
+<p id="abee">Whilst putting together this piece for CJ’s blog, I kept recalling a phrase uttered to me by the Two-Time U.S. Olympian, Kenta Bell. I was fortunate enough to have a brief stint training under his tutelage in Nashville, Tennessee.</p>
+
+<p class="has-text-align-center has-vivid-cyan-blue-color has-text-color has-medium-font-size"><strong>“Do you want to be great? Then learn to do the common things, uncommonly well.”</strong></p>
+
+<p>Learn Tableau the unconventional way. Thank you for having me!</p>
+
+<p><strong>CJ Round-up:</strong></p>
+
+<p>A couple points specifically really resonated with me that I want to re-emphasis in a much less eloquent way than Shola has originally put.</p>
+
+<p>The first is Shola mentions three months of complete immersion. To me, there is no one size fits all when learning Tableau. Only by downloading, reviewing, 'stealing' and deconstructing visualisations do you improve on different components which make up the visualisation. <strong><a href="https://twitter.com/datarevelations?lang=en" target="_blank" rel="noreferrer noopener">Steve Wexler</a></strong> highlights the idea of <em>"paying it forward"</em> in a recent <strong><a href="https://www.tableau.com/community/blog/2021/5/praise-tableau-public" target="_blank" rel="noreferrer noopener">Tableau praise post</a></strong>. Let's create, share and improve together.</p>
+
+<p>Secondly, Shola mentions how learning these things in tandem is how to improve. I want to add to this by saying diversifying your skillset outside of Tableau (and data concepts in general) is a way of improving your Tableau skills.</p>
+
+<p>I recently finished reading Steven Barlett's (Social Chain CEO) book where he mentions how he was voted number 1 leading figure in social media marketing. He admits that looking at his skill stack there were people better than him at specific skills. He iterates how to become the best in your industry you do not need to become the best at any one aspect, you just need to be very good at a variety of complementary skills.</p>
+
+<p><em>"If you are willing to step outside of your zone of comfort into territories that someone like you doesn't usually explore, you too can build a skill stack capably of changing your life, eclipsing your industry and potentially, even changing the world. You can become the best at something, without being the best at anything"</em></p>
+
+<p>Lastly, I want to say thank you to Shola for his contribution. I was delighted that he said yes to wanting to feature on the blog. He has managed to capture so many important points in one, looking at the power of data, design and writing both together and separately.</p>
+
+<p>I think I am going to print Shola's design tips and stick them up on the wall. I am loving the segment on don't sweat the small stuff and how he draws on his sporting success as a reference point.</p>
+
+<p>If you have any questions or comments for Shola he can be found on <strong><a href="https://twitter.com/thebigsho__" target="_blank" rel="noreferrer noopener">Twitter</a></strong>, <strong><a href="https://olojo.medium.com/" target="_blank" rel="noreferrer noopener">Medium</a></strong> and <strong><a href="https://t.co/KH7PQRfLJH?amp=1" target="_blank" rel="noreferrer noopener">Tableau Public</a></strong>.</p>
+
+<p><strong>LOGGING OFF.</strong></p>
+
+<p><strong>CJ</strong></p>
+
+<p>&nbsp;</p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

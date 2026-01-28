@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circular Packing In Tableau Part 2 - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Circular Packing In Tableau Part 2</h1><p>Hi All,</p>
+<p>Back in 2022 I wrote about <a href="../2021/09/21/dont-burst-my-bubble/"><strong>circular packing</strong></a>, and created a tutorial on how you could use the code to then export the details to build it within Tableau.</p>
+<p>A few people reached out in coming years telling me they had difficulties with being able to frame the initial JSON input.</p>
+<p>Having had a flurry of wonderful dashboards at the end of 2023 that cite the circular packing tutorial as means of creation such as the likes of this visual by Jess</p>
+<p><img class="alignnone size-full wp-image-7479" src="../uploads/2023/11/F_kUQCTXUAAPlfL.png" alt="" width="999" height="819" /></p>
+<p>and <a href="https://public.tableau.com/app/profile/brian.moore7221/viz/TheSimpsons-MostPopularCharacters/Top40Characters"><strong>this Simpsons visual by Brian</strong></a>,</p>
+<p><img class="alignnone size-full wp-image-7480" src="../uploads/2023/11/Simpsons.png" alt="" width="1234" height="779" /></p>
+<p>and even using it in my own Iron Viz Feeder last month, </p>
+<p><img class="alignnone size-full wp-image-7481" src="../uploads/2023/11/CP.png" alt="" width="1248" height="713" /></p>
+<p>I thought I would re-write some of the code to be able to take an input csv, and create an export file. Doing the leg work in the middle. Rather than just add the code, I've also created it in Alteryx, for those that don't have a python IDE.</p>
+<ul>
+<li>If you only want to use Alteryx, then download the Alteryx workflow from the <a href="https://github.com/CJ-Mayes/Website-Tutorials/tree/main/2024%20Blogs/2024-01-08%20Circular%20Packing%20In%20Tableau%20Part%202"><strong>Git Repo.</strong></a></li>
+</ul>
+<p><img class="alignnone size-full wp-image-7486" src="../uploads/2024/01/snip.png" alt="" width="520" height="191" /></p>
+<p>The Alteryx code is fairly similar to that stored in main.py</p>
+<p>The only big differences will be </p>
+<ul>
+<li>Where the original dataset is stored.</li>
+<li>How Data frames are managed and fed through the code. The main.py version is made to be run locally using an IDE of your choosing.</li>
+<li>Both the workflow, or the python code will create the same output of data, ready to follow the rest of the blog in terms of creating the chart in Tableau.</li>
+</ul>
+<p>Let's take a look at the code, and our starting csv file.</p>
+<p>This is what the csv file looks like. You will find a copy in the Git Repo.</p>
+<p><img class="alignnone size-full wp-image-7488" src="../uploads/2024/01/parent.png" alt="" width="453" height="546" />3 Columns are needed, an id, a value called datum and a column to identify what the parent is (in effect figuring out what the "children" nodes are)</p>
+<p>If you were to run this section of the code, it ends up reading from the csv, and creating the json ready for the circular packing tutorial.</p>
+<p><img class="alignnone size-full wp-image-7489" src="../uploads/2024/01/SnapCapture.png" alt="" width="394" height="733" /></p>
+<p>The second part of the code is similar to the 2021 blog, and is all about prepping our data ready for Tableau. <a href="https://github.com/CJ-Mayes/Website-Tutorials/blob/main/2024%20Blogs/2024-01-08%20Circular%20Packing%20In%20Tableau%20Part%202/main.py">The code is 150 lines long.</a></p>
+<p>&nbsp;</p>
+<p><img class="alignnone size-full wp-image-7495" src="../uploads/2024/01/carbon-22.png" alt="" width="1692" height="6070" /></p>
+<p>Here is a brief overview of the code as a whole:</p>
+<p>This piece of code performs several tasks related to data processing and visualization:</p>
+<ol>
+<li>It reads data from a CSV file called 'data.csv' using the pandas library.</li>
+<li>It converts the data into a nested JSON structure by grouping the data based on parent-child relationships.</li>
+<li>It converts the 'datum' field in the JSON data to integers.</li>
+<li>It uses the circlify library to compute circle positions based on the JSON data.</li>
+<li>It creates a matplotlib plot to visualize the circles and their positions.</li>
+<li>It saves the circle positions and other relevant information into a pandas DataFrame.</li>
+<li>It saves the DataFrame to a CSV file called 'output_data.csv'.</li>
+</ol>
+<p>Overall, this code takes data from a CSV file, converts it into a nested JSON structure, calculates circle positions, and visualizes the circles using matplotlib. It also saves the processed data to a CSV file for further analysis in Tableau.</p>
+<p><img class="alignnone size-full wp-image-7491" src="../uploads/2024/01/codeCapture.png" alt="" width="748" height="549" /></p>
+<p><span style="text-decoration: underline;"><strong>TABLEAU</strong></span></p>
+<p>I've appended the Tableau steps from the previous blog, in case you want to finalise your visual.</p>
+
+<p>You can download the dashboard at the top of the page.</p>
+
+<p>If you'd like to give the Tableau part a go only download the data from the Github repository.</p>
+
+<p>This is the python output we are trying to replicate:</p>
+
+<figure class="wp-image"><img class="wp-image-2253" src="../uploads/2021/09/figure_1.png" alt="" width="597" height="597" /></figure>
+
+<p>Once we have run our code we will get the csv export countries, that we will want to add in<span style="text-decoration: underline;"><strong> another sheet of T values between 1 and 100.</strong> <strong>I haven't included this in the repo but you can find an example in the 2021 repo.</strong></span></p>
+
+<p>We will want to join the sheets with a custom calculation of 1 = 1. This duplicates our dataset with 100 rows for each country as we will use these points to create circles.</p>
+
+<figure class="wp-image"><img class="wp-image-2258" src="../uploads/2021/09/screenshot-2021-09-21-at-17.27.51.png" alt="" width="575" height="271" /></figure>
+
+<p>Next we create 6 calculations.</p>
+
+<figure class="wp-image"><img class="wp-image-2260" src="../uploads/2021/09/screenshot-2021-09-21-at-20.44.17.png" alt="" width="364" height="209" /></figure>
+
+<p>Angle - We will want to plot 100 points in a circle. This calculation finds what the angle between each point will be. You will see I minus 1 in order for the lines to overlap allowing for me to use a polygon and line tool effectively.</p>
+
+<p>*The T value is 100 not 50 as shown in the comment as I wanted the circle to be a bit more rounded.</p>
+
+<figure class="wp-image"><img class="wp-image-2262" src="../uploads/2021/09/screenshot-2021-09-21-at-20.44.25.png" alt="" width="435" height="249" /></figure>
+
+<p>Rank Angle - Find the angle for each point. If you've followed my blogs you will see I tend to build most my radial vizzes using the same logic.</p>
+
+<figure class="wp-image"><img class="wp-image-2264" src="../uploads/2021/09/screenshot-2021-09-21-at-20.44.32.png" alt="" width="427" height="243" /></figure>
+
+<p>X - Now we use trigonometry to make our circle.... a circle. We multiply by the radius as otherwise without this all our radius' would be equal to 1. This allows for the circles to be the correct proportion.</p>
+
+<figure class="wp-image"><img class="wp-image-2268" src="../uploads/2021/09/screenshot-2021-09-21-at-20.44.39.png" alt="" width="441" height="256" /></figure>
+
+<p>Y - Same as above but wrapped in a sin function.</p>
+
+<figure class="wp-image"><img class="wp-image-2269" src="../uploads/2021/09/screenshot-2021-09-21-at-20.44.47.png" alt="" width="458" height="266" /></figure>
+
+<p>3a X - So what are we doing here? As you can imagine we have created our sizes circles but at the moment they all sit on top of one another. We add the X co ordinate from the original data in order to shift it to where the centre point of the specific country should be. (I.e Transpose)</p>
+
+<figure class="wp-image"><img class="wp-image-2272" src="../uploads/2021/09/screenshot-2021-09-21-at-20.44.54-1.png" alt="" width="472" height="274" /></figure>
+
+<p>Same for 3b Y, we transpose the circle adding on the centre point to the calculation to move the circle upwards by Y cord.</p>
+
+<p>Now you can plot your 3a. X against your 3b. Y</p>
+
+<p>(Side note: I apologise for the naming conventions the use of numbers and lettering is so that you can see in which order the calculations are made)</p>
+
+<p><strong>Make both X and Y dimensions.</strong></p>
+
+<figure class="wp-image"><img class="wp-image-2279" src="../uploads/2021/09/screenshot-2021-09-21-at-20.56.01.png" alt="" /></figure>
+
+<p><strong>Add ID to detail and change Marks to Line.</strong></p>
+
+<figure class="wp-image"><img class="wp-image-2280" src="../uploads/2021/09/screenshot-2021-09-21-at-20.57.41.png" alt="" /></figure>
+
+<p><strong>Drag T to Path</strong>.</p>
+
+<figure class="wp-image"><img class="wp-image-2281" src="../uploads/2021/09/screenshot-2021-09-21-at-20.57.49.png" alt="" /></figure>
+
+<p><strong>Fix the axis</strong> between -1.1 and 1.1, remember our python code made the circles max size 1.</p>
+
+<figure class="wp-image"><img class="wp-image-2282" src="../uploads/2021/09/screenshot-2021-09-21-at-20.58.24.png" alt="" /></figure>
+
+<p><strong>Add ID to colour, Sort the colour descending on Rank. </strong>(This is because we want Level 1 at the back, i.e the world. Level 2 of continents to sit in front, and then Level 3 of countries to be on top.)</p>
+
+<p>You can then change the marks card to be <strong>polygon </strong>if you want the circles to be filled!</p>
+
+<figure class="wp-image"><img class="wp-image-2285" src="../uploads/2021/09/screenshot-2021-09-21-at-20.59.29.png" alt="" /></figure>
+
+<p>As further steps, I added a few more calculations 4a,5a,5b to the workbook to show how you can make the most of layering functionality to create some pretty cool alternative versions of the chart. They cover off how to make some of the circles lines and some as polygons. Download the workbook to see.</p>
+
+<p>There we have it our finished packed circle!</p>
+
+<figure class="wp-image"><img class="wp-image-2277" src="../uploads/2021/09/circular-packing_blog-1.png" alt="" /></figure>
+
+<p>As always, Let me know how you get on with this one. I can be reached on <strong>Twitter</strong>, <strong>@_CJMayes</strong>.</p>
+
+<p><strong>LOGGING OFF,</strong></p>
+
+<p><strong>CJ</strong></p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Completions Chart in Tableau (Pt.2) - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Deep Completions Chart in Tableau (Pt.2)</h1><p>Hi all,</p>
+
+<p>A really quick one today. You may have read last's months guest tutorial from <strong><a href="https://twitter.com/Odriozolite" target="_blank" rel="noreferrer noopener">Yash</a></strong> on how to create a deep completions chart in Python using StatsBomb data like the example seen below in python.</p>
+
+<figure class="wp-image"><img class="wp-image-3451" src="../uploads/2022/01/deep_progression_tutorial.png" alt="" /></figure>
+
+<p>You can check out the full tutorial <strong><a href="../2022/01/05/deep-progression-chart-yash-t/" target="_blank" rel="noreferrer noopener">here</a></strong>, if you missed it previously. I would recommend familiarising yourself with that tutorial as this acts as complimentary to that, and uses the same base code.</p>
+
+<p>Today we will take these learnings from the notebook and recreate the chart within Tableau. I've attached the data we will be using alongside an images in the repo found at the top of the page<strong>.</strong> I will also briefly cover off how I made a few quick transformations to the data to export the material we needed.</p>
+
+<p>Quick recap!</p>
+
+<p><strong>What is meant by deep completions?</strong></p>
+
+<p>Deep completions is defined as the completed passes or carries that end inside the semi-circle with the centre at the mid point of the goal and a diameter equal to the width of the penalty box while originating outside this region.</p>
+
+<p><strong>Python </strong></p>
+
+<p>So the data we use is already in the repo, but if you want the full e2e, i've added my code snippet to be appended to Yash's previous work. You can find the script in the Github Repo.</p>
+
+<p>You will want to follow Yash's work up until <strong>ln14: #Plotting the pitch</strong>, where the pitch is created.</p>
+
+<p>In short my further transformations were:</p>
+
+<ol>
+<li>We apply the restrictions of what is considered a deep progression to our dataset.</li>
+<li>We then only pick relevant columns of data that we want to take through to Tableau.</li>
+<li>We rename a few columns to make them easier to understand.</li>
+<li>We glue the carry and pass co-ordinates into a singular column.</li>
+</ol>
+
+<figure class="wp-image"><img class="wp-image-3449" src="../uploads/2022/01/carbon-4.png" alt="" /></figure>
+
+<p>With our data exported, found in the repo (deep_progression.csv) is what it looks like.</p>
+
+<p><strong>here's a snippet of the important columns:</strong></p>
+
+<figure class="wp-image"><img class="wp-image-3474" src="../uploads/2022/01/screenshot-2022-01-07-at-18.11.55.png" alt="" width="-275" height="-232" /></figure>
+
+<p>Now into Tableau!</p>
+
+<p>Load our dataset into Tableau.</p>
+
+<p>We will need to <strong>union</strong> our data on itself.</p>
+
+<p>Why? Because we want to create start and end points for our lines.</p>
+
+<figure class="wp-image"><img class="wp-image-3454" src="../uploads/2022/01/screenshot-2022-01-07-at-17.36.12.png" alt="" /></figure>
+
+<p>Next we need three calculations.</p>
+
+<div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide">
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-3456" src="../uploads/2022/01/screenshot-2022-01-07-at-17.37.20.png" alt="" data-id="3456" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-3457" src="../uploads/2022/01/screenshot-2022-01-07-at-17.37.28.png" alt="" data-id="3457" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-3458" src="../uploads/2022/01/screenshot-2022-01-07-at-17.37.37.png" alt="" data-id="3458" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+</div>
+
+<p>We are saying for <strong>Calculation 1 &amp; 2</strong>:</p>
+
+<p>If the first table then use the start X (where the action started) else use our End X (where the pass or carry finished within the area)</p>
+
+<p><strong>Calculation 3</strong> is a bit of a cheat method to mark the end of the line for aesthetics!</p>
+
+<ul>
+<li>The really important part to note here is, in our calculation we refer to the start point coming from the first dataset, and the end point from the second dataset "deep_progression.csv" which was created in our union.</li>
+</ul>
+
+<ul>
+<li>Drag <strong>001. X</strong> onto rows and <strong>002. Y</strong> onto columns and make them dimensions.</li>
+<li>Drag <strong>ID</strong> onto detail</li>
+<li>Drag <strong>Type.Name</strong> onto colour</li>
+</ul>
+
+<figure class="wp-image"><img class="wp-image-3462" src="../uploads/2022/01/screenshot-2022-01-07-at-17.46.20.png" alt="" /></figure>
+
+<p>Next we will want to add some circles at the end of the carries.</p>
+
+<p>Drag <strong>003. X</strong> onto rows and make it a dimension.</p>
+
+<figure class="wp-image"><img class="wp-image-3464" src="../uploads/2022/01/screenshot-2022-01-07-at-17.49.25.png" alt="" /></figure>
+
+<p><strong>Dual axis</strong> and <strong>synchronise the axis.</strong></p>
+
+<p>Remove <strong>measure names</strong> from colour.</p>
+
+<p>Next we will want to add the background image which you can find in the repo.</p>
+
+<p>Go to Map -&gt; Background maps and add the picture of the pitch.</p>
+
+<p>One small tip is to fix your axis.</p>
+
+<p>You can use the co-ordinates similar to mine found in my workbook stored at the top of the blog If you get stuck please use this workbook as a reference point.</p>
+
+<figure class="wp-image"><img class="wp-image-3466" src="../uploads/2022/01/screenshot-2022-01-07-at-17.52.52.png" alt="" /></figure>
+
+<p>&amp; There we have it, a simple method of taking our dataset and creating our deep progression chart in Python. It follows similar methods if you want to create <strong>passmaps</strong> too.</p>
+
+<p><strong>GOING FURTHER</strong></p>
+
+<p>Try finding your own data using the statsbomb api or MPLSoccer python package</p>
+
+<p>Try creating small multiples of the top 10 players that have created the most deep completions</p>
+
+<p>Try using map layers to create the visualisation.</p>
+
+<p>As always let me know how you got on with this one <strong>@_CJMayes</strong></p>
+
+<p><strong>LOGGING OFF,</strong></p>
+
+<p><strong>CJ</strong></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

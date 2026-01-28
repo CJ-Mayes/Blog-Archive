@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To Locally Host ChatGPT (Gradio) - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>How To Locally Host ChatGPT (Gradio)</h1>Hi all,
+
+ahhhh ChatGPT. Some are buzzing by its endless potential, some treat it as a glorified Google search and some are sick of hearing the word and are just waiting for the mass adoption period. Well, depending where you sit on that spectrum will probably determine whether this blog is for you.
+
+Today we are going to look at how we can host a mini chatbot locally hosted instead of loading the standard chat.openai website. This is a beginner tutorial for those wanted to play around with writing python code. Below is what we will look to recreate.
+
+<img src="../uploads/2023/04/Screenshot-2023-04-30-at-20.52.38.png" class="alignnone size-full wp-image-6104" alt="" width="2516" height="1316">
+
+As always&nbsp; - you can access the code in the repo at the top of the page.
+
+So what is ChatGPT?
+
+<img src="../uploads/2023/04/Screenshot-2023-04-30-at-20.50.38.png" class="alignnone size-full wp-image-6102" alt="" width="2534" height="1324">
+
+Well, let's ask it.
+
+ChatGPT is a large language model created by OpenAI. ChatGPT is designed to generate human-like text and to respond to natural language inputs.
+
+ChatGPT can be used for a variety of applications, including language translation, question-answering, text summarization, and chatbot interactions.
+
+<img src="../uploads/2023/04/Screenshot-2023-04-30-at-20.51.12.png" class="alignnone size-full wp-image-6105" alt="" width="2020" height="582">
+
+What does creating a front end GUI unlock in terms of potential?
+
+Just think... all the power of chatGPT but your own personalisation as a company brand. You can start to power services / chatbots / online automation whilst including all the design flexibility of the current site architecture.
+
+How do we go about creating it?
+
+Well first you will need an account (obviously)
+
+Sign up to<strong><a href="https://platform.openai.com/account/api-keys"> OpenAI </a></strong>using your email and make a password.
+
+When you sign up you should get $5 of credit. I think it use to be $15 but recently reduced. This is a free trial period when it comes to using the API.
+
+We DO NOT need to add any billing to go through this tutorial. (Only if you want to go on to use additional features or run out of user credits would you need this)
+
+<img src="../uploads/2023/04/Screenshot-2023-04-30-at-20.59.11.png" class="alignnone size-full wp-image-6109" alt="" width="2524" height="1330">
+
+You can see your credits under Usage.
+
+Go down to user and click API Keys.
+
+Create a new key.
+
+<img src="../uploads/2023/04/Screenshot-2023-04-30-at-20.58.49.png" class="alignnone size-full wp-image-6110" alt="" width="2528" height="1306">
+
+You can see I've created a new "Test Key"
+
+This key will be added to our code to interact with ChatGPT.
+
+Now we have our key, let's look at getting set up.
+
+Open up an IDE of your choice, for me I use PyCharm.
+
+You will need to pip install openai and gradio packages in your terminal.
+
+<img src="../uploads/2023/04/Screenshot-2023-04-30-at-21.05.01.png" class="alignnone size-full wp-image-6112" alt="" width="2476" height="530"><img src="../uploads/2023/04/Screenshot-2023-04-30-at-21.05.11.png" class="alignnone size-full wp-image-6113" alt="" width="2476" height="530">
+
+Now we have the packages we can paste our code into a main.py file.
+
+<img src="../uploads/2023/04/carbon-4.png" class="alignnone size-full wp-image-6118" alt="" width="1776" height="1228">
+
+What does the code do. Well, of course we replace the word redacted with your own API key. From there you can run the code.
+
+<img src="../uploads/2023/04/Screenshot-2023-04-30-at-21.15.46.png" class="alignnone size-full wp-image-6122" alt="" width="1842" height="960">
+
+For reference, it creates a function using the ChatGPT 3.5 turbo.
+
+Gradio is our package that creates the front end.
+
+You will see that you can pass various things through it, including a title, and various inputs and outputs.
+
+When we click run you will see the local host load.
+
+<img src="../uploads/2023/04/Screenshot-2023-04-30-at-20.52.38-1.png" class="alignnone size-full wp-image-6120" alt="" width="2516" height="1316">
+
+Here is what that looks like.
+
+In the above example it creates an input, and then to the right will have the output.
+
+I've put in a draft question asking how to get more involved in the Tableau community?
+
+If we click flag - it will log the response in a flagged folder.
+
+<img src="../uploads/2023/04/Screenshot-2023-04-30-at-21.16.26.png" class="alignnone size-full wp-image-6123" alt="" width="2508" height="672">
+
+You will see our input, the output response from chatGPT and the time that the query was sent.
+
+Hopefully this sparks some creativity in your own journey.
+
+A quick bonus, why not amend share to True
+
+Now we can load the site url on the phone, we are no longer using a local host.
+
+<img src="../uploads/2023/04/IMG_2859.png" class="alignnone size-full wp-image-6125" alt="" width="295" height="640">
+
+Going further:
+<ul>
+ 	<li>Try adding in some more elements to the Gradio to improve userability</li>
+ 	<li>Why not create the interface using CSS?</li>
+ 	<li>Try hosting the content live instead of locally</li>
+ 	<li>Try making the questions unique to a specific subject content matter</li>
+</ul><strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

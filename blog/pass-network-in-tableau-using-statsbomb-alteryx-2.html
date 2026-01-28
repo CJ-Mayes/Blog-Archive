@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pass Network in Tableau Using StatsBomb &amp;amp; Alteryx - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Pass Network in Tableau Using StatsBomb &amp; Alteryx</h1>Hi all,
+
+Time is really flying this year, it has been a bit of a head down month or two and just finally coming up for fresh air. I'm particularly excited to go away with a few best friends and then go over to Paris to compete in my first half marathon. I hope everyone has had a somewhat settling few months and are making time for things that they enjoy.
+
+This week we return to some more soccer content. This time looking at how we can create Pass Networks in Tableau. I am a bit of a broken record when it comes to talking about different data tools, but I am on a journey of wanting to highlight to those in the sports community that dabble mainly in R and Python, that they can also create visuals in Tableau (and vice versa of course!)
+
+So today we will use python to retrieve the data (don't worry I will provide this for you in the GitRepo under the header) We will then transform the data using Alteryx, and finally we will export or data and showcase how it can be used to create a pass network in Tableau.
+
+Small disclaimer, there may be a few tweaks along the way that you want to add to your data process, but for now I've taken a few examples from the community and tried to merge them into a structured learning process.
+
+Okay? lets begin!
+
+<img class="alignnone size-full wp-image-5711" src="../uploads/2023/02/carbon-9.png" alt="" width="1692" height="3200" />
+
+All the csv files will be found in the repository, so by all means if you want to skip this stage and just look at the output that's fine. What is the code doing? Well,
+<ul>
+ 	<li>We are using a python package that looks at Statsbomb free data</li>
+ 	<li>We search first to see what competitions are available, and then within that the different matches. You'll see I went for the women's Euro Final between England and Germany.</li>
+ 	<li>We do a few transformations here just to tidy up some location X &amp; Y values, as well as choose what columns we want in the data frame. Of course you can do this in Alteryx if you wanted but I had the code from a previous <strong><a href="../2021/12/15/statsbomb-intro-sportsvizsunday/">Intro to Statsbomb tutorial.</a></strong></li>
+ 	<li>Line 50 onwards is really the only new part to the code where we are searching through a json to find the starting XI for each team. Reason being is when we build our pass network we will do it based on these 11 players.</li>
+ 	<li>The last chunk of code just looks to create a plain football pitch background to save down for when we use it in Tableau.</li>
+</ul>
+Once you've run the code you will end up with the following outputs:
+<ul>
+ 	<li>Competitions.csv - All competitions in Statsbomb repo</li>
+ 	<li>matches.csv - The associated matches from the chosen competition ID</li>
+ 	<li>match_events.csv - All match events associated to the chosen match ID (Where we will get all our pass information from)</li>
+ 	<li>starting.csv - The starting line up for each team</li>
+ 	<li>fig.png - the background football pitch</li>
+</ul>
+So with little transformation I thought best to do the rest of the prep in Alteryx.
+
+You can find the Alteryx workflow attached in the repo.
+
+let's talk through the process of how the Alteryx flow works
+
+<img class="alignnone size-full wp-image-5717" src="../uploads/2023/02/AlteryxFlow.png" alt="" width="1535" height="606" />
+
+The top part of the flow connects to the raw match event data. We end up filtering for all successful passes (where the outcome is blank) and where the type of event is a pass.
+
+I use the select tool just to pick out the columns from the data that are most appropriate and filter this data just to have the England teams information in.
+
+<img class="alignnone size-full wp-image-5735" src="../uploads/2023/02/d1.png" alt="" width="1303" height="213" />
+
+The second input takes our Starting XI and joins it to our main dataset, using an inner join. Reason being is when we go to create our pass network we only want to show 11 players on the field. For games with early substitutions perhaps this would need to be revisited.
+
+So now the top part of the flow has for our starting 11, all the pass match events.
+
+<img class="alignnone size-full wp-image-5736" src="../uploads/2023/02/d2.png" alt="" width="1127" height="240" />
+
+The bottom part of the flow takes our original data but this time looks at when the substitutions happen. We take the first row to see what minute the first substitution happened and then join this value into our original dataset.
+
+Why do we do this? Well we want to show the connections of those 11 players. Again, this is something to consider as maybe it isn't truly reflective of the full game based on when this substitution happened but we can only have 11 players on the pitch. So we filter any events that happen prior to this substitution in this case.
+
+<img class="alignnone size-full wp-image-5737" src="../uploads/2023/02/d3.png" alt="" width="1146" height="252" />
+
+The next part of the flow is all about creating average locations for each of the players. So we take their position when on the ball and take an average of those marks.
+
+<img class="alignnone size-full wp-image-5739" src="../uploads/2023/02/d4.png" alt="" width="525" height="210" />
+
+Finally we glue back in data to do with the recipient in order to know which player is passing to who! We also count how many times each player combination happened.
+
+<img class="alignnone size-full wp-image-5740" src="../uploads/2023/02/data5.png" alt="" width="918" height="456" />
+
+All goes well, you will end up with an output such as seen in the <strong>match_data_output.csv</strong>
+
+From here we are ready to build in Tableau.
+
+This is the easy bit!
+
+Connect to the match_data_output and union it on itself by opening it up and dragging it on top of one another.
+
+Reason we do that is because to create our lines between the players.
+
+<img class="alignnone size-full wp-image-5722" src="../uploads/2023/02/Twodata.png" alt="" width="496" height="146" />
+
+You will need the following calculations
+
+<strong>X Line</strong>
+
+IF
+[Table Name] = 'match_data_output.csv'
+then [Player X] else [Recipient X]
+END
+
+<strong>Y Line</strong>
+
+IF
+[Table Name] = 'match_data_output.csv'
+then [Player Y] else [Recipient Y]
+END
+
+<strong>MP. Line</strong>
+
+MAKEPOINT([Y Line],[X Line])
+
+<strong>MP. Player</strong>
+
+MAKEPOINT([Player Y],[Player X])
+
+From here we are ready to create our chart.
+
+Double click MP Lines to bring it into the view, then add the required dimensions to the marks card. Make sure ATTR(Table Name) is on path. This is because where we have unioned the data we want to connect the points to create the lines!
+
+<img class="alignnone size-full wp-image-5725" src="../uploads/2023/02/1.png" alt="" width="1550" height="881" />
+
+The next step is to turn off the map, background. We will reconfigure this with our football pitch.
+
+<img class="alignnone size-full wp-image-5729" src="../uploads/2023/02/2.png" alt="" width="1503" height="904" />
+
+Go to map, background images and configure the pitch. Make sure you get your longitude and latitude correct for your pass network.
+
+You can easily check you've got this correct because your goal keeper shouldn't be in the position of your right winger, ha.
+
+<img class="alignnone size-full wp-image-5728" src="../uploads/2023/02/3.png" alt="" width="538" height="415" />
+
+Once configured you can now either add more layers, such as where I've introduced the overlay of player circles, perhaps even a few more design elements you want to showcase - I'll leave this to your discretion
+
+<img class="alignnone size-full wp-image-5727" src="../uploads/2023/02/4.png" alt="" width="1538" height="893" />
+
+By the end of it, you can have something simple like below.
+
+<img class="alignnone size-full wp-image-5726" src="../uploads/2023/02/5.png" alt="" width="1546" height="906" />
+
+As always all the resources are found in the GitRepo as well as the dashboard is downloadable from my Tableau Public profile.
+
+Why not go further?
+<ul>
+ 	<li>Can you create a small multiple of all games leading up to the final?</li>
+ 	<li>Can you add in jersey numbers into the code and alteryx flow?</li>
+ 	<li>Can you change the design of the pitch to be different colours?</li>
+</ul>
+Hope this has been a fun one to follow along to. Dabbling in python for retrieving data, Alteryx for transforming the data, and Tableau for showcasing the data.
+
+Catch you in the next one.
+
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

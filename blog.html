@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+            <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article><h1>Blog</h1><ul class='post-list'><li><h2><a href='blog/databricks-genie-getting-started.html'>Databricks Genie - Getting Started</a></h2></li><li><h2><a href='blog/future-of-ai-in-football-scouting-ricardo-heredia-joya.html'>Future of AI in Football Scouting - Ricardo Heredia Joya</a></h2></li><li><h2><a href='blog/tanya-lomskaya.html'>Journalism to Data Storytelling - Tanya Lomskaya</a></h2></li><li><h2><a href='blog/garmin-analytics-ruth-pozuelo-martinez.html'>Garmin Analytics - Ruth Pozuelo Martinez</a></h2></li><li><h2><a href='blog/baseline-tableau-langchain.html'>Baseline AI - Tableau Langchain</a></h2></li><li><h2><a href='blog/golf-us-open-shot-by-shot-in-tableau.html'>Golf US Open Shot By Shot In Tableau</a></h2></li><li><h2><a href='blog/cfc-insights-winner-tiago-monteiro.html'>CFC Insights Winner - Tiago Monteiro</a></h2></li><li><h2><a href='blog/plotting-penalties-in-tableau.html'>Plotting Penalties In Tableau</a></h2></li><li><h2><a href='blog/inverse-curvey-radars-in-tableau-seun-adeyemo.html'>Inverse Curvy Radars In Tableau - Seun Adeyemo</a></h2></li><li><h2><a href='blog/sports-portfolio-bo-mccready.html'>The IronViz Champions Sports Portfolio - Bo McCready</a></h2></li><li><h2><a href='blog/intro-to-github-pages-html.html'>Intro To Github Pages &amp;amp; HTML</a></h2></li><li><h2><a href='blog/svg-packed-bubbles-in-tableau.html'>SVG Packed Bubbles In Tableau</a></h2></li><li><h2><a href='blog/tableau-wrapped-with-hari-jeyan.html'>Tableau Wrapped With Hari Jeyan</a></h2></li><li><h2><a href='blog/building-habits-with-my-kindle.html'>Building Habits With My Kindle</a></h2></li><li><h2><a href='blog/understat-soccer-etl-process-with-jordan-pickles.html'>Understat Soccer ETL Process With Jordan Pickles</a></h2></li><li><h2><a href='blog/getting-started-with-football-analytics-mohammad-adnan.html'>Getting Started With Football Analytics - Mohammad Adnan</a></h2></li><li><h2><a href='blog/scraping-ball-by-ball-cricket-data-with-yash-sakhuja.html'>Scraping Ball-By-Ball Cricket Data With Yash Sakhuja</a></h2></li><li><h2><a href='blog/business-dashboards-with-gbolahan-adebayo.html'>Business Dashboards With Gbolahan Adebayo</a></h2></li><li><h2><a href='blog/ironviz-season.html'>IronViz Season</a></h2></li><li><h2><a href='blog/custom-metric-wheel-in-tableau.html'>Custom Metric Wheel In Tableau</a></h2></li><li><h2><a href='blog/xg-charts-with-zoom-functionality.html'>xG Charts With Zoom Functionality</a></h2></li><li><h2><a href='blog/sports-design-with-ryan-soares.html'>Sports Design with Ryan Soares</a></h2></li><li><h2><a href='blog/tennis-play-by-play-sportsvizsunday.html'>Tennis Play By Play #SportsVizSunday</a></h2></li><li><h2><a href='blog/romania-euros-journey-romaniandatatribe.html'>Romania Euros Journey #RomanianDATATribe</a></h2></li><li><h2><a href='blog/building-flappybird-style-game-through-prompts.html'>Building Flappy Bird Through Prompts (Python)</a></h2></li><li><h2><a href='blog/open-high-low-close-charts.html'>Open-High-Low-Close Charts</a></h2></li><li><h2><a href='blog/rugby-data-with-rob-taylor-sportsvizsunday.html'>Rugby Data With Rob Taylor #SportsVizSunday</a></h2></li><li><h2><a href='blog/soccer-analytics-with-nick-van-lieshout-sportsvizsunday.html'>Soccer Analytics With Nick Van Lieshout #SportsVizSunday</a></h2></li><li><h2><a href='blog/top-10-alteryx-tips-with-medha-khurana.html'>Top 10 Alteryx Tips With Medha Khurana</a></h2></li><li><h2><a href='blog/intro-to-voronoi-visible-frames-pt-1-python.html'>Intro To Voronoi Visible Frames (Python)</a></h2></li><li><h2><a href='blog/iron-viz-feeder-reflections-jade-corley.html'>Iron Viz Feeder Reflections - Jade Corley</a></h2></li><li><h2><a href='blog/intro-to-transfermarkt-pt-2-tableau.html'>Intro To Transfermarkt Pt 2 (Tableau)</a></h2></li><li><h2><a href='blog/intro-to-transfermarkt-python.html'>Intro To Transfermarkt (Python)</a></h2></li><li><h2><a href='blog/its-transfer-season-python.html'>It&amp;#x27;s Transfer Season (Python)</a></h2></li><li><h2><a href='blog/ironviz-feeder-resources-2024.html'>IronViz Feeder Resources 2024</a></h2></li><li><h2><a href='blog/the-intersection-of-art-design-and-data-with-damola.html'>The Intersection of Art, Design and Data With Damola</a></h2></li><li><h2><a href='blog/soccer-step-charts-in-tableau.html'>Soccer Step Charts In Tableau</a></h2></li><li><h2><a href='blog/data-tools-for-the-community-with-tristan-guillevin.html'>Data Tools For The Community With Tristan Guillevin</a></h2></li><li><h2><a href='blog/using-booleans-pt-2-dynamic-zone-visibility-for-beginners.html'>Using Booleans DZV Pt 2 (For Beginners)</a></h2></li><li><h2><a href='blog/statsbomb-shot-freeze-frames-tableau-alteryx.html'>StatsBomb Shot Freeze Frames (Tableau/Alteryx)</a></h2></li><li><h2><a href='blog/statsbomb-substitutions-tactics-alteryx.html'>StatsBomb Substitutions &amp;amp; Tactics (Alteryx)</a></h2></li><li><h2><a href='blog/baseball-spray-chart-heat-map.html'>Baseball Spray Chart Heat Map</a></h2></li><li><h2><a href='blog/shape-making-in-tableau-2020.html'>Shape Making In Tableau</a></h2></li><li><h2><a href='blog/shot-freeze-frames-with-visibility.html'>Shot Freeze Frames Pt 2 (With Visibility)</a></h2></li><li><h2><a href='blog/making-sports-data-interactive-with-ben-norland.html'>Making Sports Data Interactive With Ben Norland</a></h2></li><li><h2><a href='blog/create-tennis-game-trees-in-tableau.html'>Create Tennis Game Trees In Tableau</a></h2></li><li><h2><a href='blog/using-booleans-dynamic-zone-visibility-for-beginners.html'>Using Booleans (Dynamic Zone Visibility For Beginners)</a></h2></li><li><h2><a href='blog/designing-better-maps-with-dennis-kao.html'>Designing Better Maps With Dennis Kao</a></h2></li><li><h2><a href='blog/baseball-spray-charts-in-tableau-statcast.html'>Baseball Spray Charts In Tableau (Statcast)</a></h2></li><li><h2><a href='blog/create-a-chatgpt-app-for-slack.html'>Create A ChatGPT App For Slack</a></h2></li><li><h2><a href='blog/automated-shot-maps-in-tableau-make-grid-in-alteryx.html'>Automated Shot Maps In Tableau (Make Grid in Alteryx)</a></h2></li><li><h2><a href='blog/even-more-maps-in-tableau.html'>Even More Shot Maps (Python)</a></h2></li><li><h2><a href='blog/timeframe-pass-network-in-tableau-pt2.html'>Timeframe Pass Network in Tableau Pt2</a></h2></li><li><h2><a href='blog/soccer-shot-zones-in-tableau.html'>Soccer Shot Zones In Tableau</a></h2></li><li><h2><a href='blog/nhl-player-stats-with-jared-flores-pt2-prep-desktop.html'>NHL Player Stats With Jared Flores Pt2 (Prep &amp;amp; Desktop)</a></h2></li><li><h2><a href='blog/strava-maps-pt-2-prep-your-gpx-files-python.html'>Strava Maps Pt 2 - Prep Your GPX Files (Python)</a></h2></li><li><h2><a href='blog/chatgpt-analysing-pdf-forms.html'>ChatGPT Analysing PDF Forms</a></h2></li><li><h2><a href='blog/chatgpt-google-sheets-extension.html'>ChatGPT Google Sheets Extension</a></h2></li><li><h2><a href='blog/reflections-on-the-tableau-data-analyst-exam-with-deborah-simmonds-mehras-abdoli.html'>Tableau Data Analyst Exam Reflections (Deborah S &amp;amp; Mehras A)</a></h2></li><li><h2><a href='blog/nhl-player-stats-with-jared-flores-pt1-python.html'>NHL Player Stats With Jared Flores Pt1 (Python)</a></h2></li><li><h2><a href='blog/analysing-csv-files-with-langchain-chatgpt.html'>Analysing CSV files with Langchain (ChatGPT)</a></h2></li><li><h2><a href='blog/shot-maps-in-alteryx-using-polybuild.html'>Shot Maps In Alteryx Using PolyBuild</a></h2></li><li><h2><a href='blog/expanding-your-tech-stack-with-will-sutton.html'>Expanding Your Toolkit With Will Sutton</a></h2></li><li><h2><a href='blog/soccer-match-reports-in-alteryx-html.html'>Soccer Match Reports In Alteryx HTML</a></h2></li><li><h2><a href='blog/how-to-locally-host-chatgpt.html'>How To Locally Host ChatGPT (Gradio)</a></h2></li><li><h2><a href='blog/convex-hulls-territory-maps-in-alteryx.html'>Convex Hulls / Territory Maps in Alteryx</a></h2></li><li><h2><a href='blog/strava-maps-for-beginners.html'>Strava Maps For Beginners</a></h2></li><li><h2><a href='blog/goal-sequences-tableau.html'>Goal Sequences</a></h2></li><li><h2><a href='blog/table-highlighting-in-tableau.html'>Table Highlighting In Tableau</a></h2></li><li><h2><a href='blog/plotting-xg-in-tableau.html'>Plotting xG in Tableau</a></h2></li><li><h2><a href='blog/pass-network-in-tableau-using-statsbomb-alteryx-2.html'>Pass Network in Tableau Using StatsBomb &amp;amp; Alteryx</a></h2></li><li><h2><a href='blog/charting-the-nba-playoffs.html'>Image Roles NBA PlayOffs</a></h2></li><li><h2><a href='blog/heatmaps-using-alteryx-with-fuad-ahmed.html'>HeatMaps using Alteryx with Fuad Ahmed</a></h2></li><li><h2><a href='blog/atp-tennis-standings-rapid-api.html'>ATP Tennis Standings (Rapid API)</a></h2></li><li><h2><a href='blog/using-the-strava-api.html'>Using The Strava API</a></h2></li><li><h2><a href='blog/infosys-tennis-shot-mapping.html'>Infosys Tennis Shot Mapping</a></h2></li><li><h2><a href='blog/statsbomb-pass-heat-map.html'>StatsBomb Pass Heat Map (Python)</a></h2></li><li><h2><a href='blog/filters-for-executives.html'>Filters For Executives</a></h2></li><li><h2><a href='blog/data-mavericks-with-zach-bowders.html'>Data Mavericks with Zach Bowders</a></h2></li><li><h2><a href='blog/soccer-hex-shot-map.html'>Soccer Hex Shot Map</a></h2></li><li><h2><a href='blog/whats-good-how-to-improve-your-story-telling-with-kimly-scott-october.html'>How To Improve Your Story Telling with Kimly Scott</a></h2></li><li><h2><a href='blog/pizza-plot-player-comparisons.html'>Pizza Plot Player Comparisons</a></h2></li><li><h2><a href='blog/re-viz-of-a-re-viz.html'>Incremental Improvements</a></h2></li><li><h2><a href='blog/building-an-nhl-bracket-with-jared-flores-tableau-prep.html'>Building an NHL Bracket with Jared Flores  (Tableau Prep)</a></h2></li><li><h2><a href='blog/talking-about-the-y.html'>Talking About The Y</a></h2></li><li><h2><a href='blog/alteryx-building-a-premier-league-dashboard-part-1-alberto-oraa.html'>API&amp;#x27;s in Alteryx: Building a Premier League Dashboard (Part 1 - Alberto Oraa)</a></h2></li><li><h2><a href='blog/whats-good-the-value-of-sharing-knowledge-with-lorna-brown-september.html'>The Value of Sharing Knowledge with Lorna Brown</a></h2></li><li><h2><a href='blog/whats-good-how-to-elevate-tableau-learning-at-all-skill-levels-eric-balash-august.html'>How To Elevate Tableau Learning At All Skill Levels - Eric Balash</a></h2></li><li><h2><a href='blog/shape-repository-python.html'>Soccer Shape Repository (Python)</a></h2></li><li><h2><a href='blog/building-a-premier-league-dashboard-part-2.html'>Tableau: Building a Premier League Dashboard (Part 2 - Joris Van Den Berg)</a></h2></li><li><h2><a href='blog/all-the-right-notes.html'>All The Right Notes</a></h2></li><li><h2><a href='blog/charting-tennis-games-2.html'>Charting Tennis Games</a></h2></li><li><h2><a href='blog/tableau-conference-22.html'>Tableau Conference 22</a></h2></li><li><h2><a href='blog/whats-good-custom-chart-types-with-brian-moore-june.html'>Custom Chart Types with Brian Moore</a></h2></li><li><h2><a href='blog/convex-hulls-in-tableau.html'>Convex Hulls In Tableau</a></h2></li><li><h2><a href='blog/no-rest-for-the-wicket-python.html'>No rest for the Wicket (Python)</a></h2></li><li><h2><a href='blog/whats-good-the-design-community-with-robert-janezic-may.html'>The Design Community with Robert Janezic</a></h2></li><li><h2><a href='blog/gamefish-chart-in-tableau.html'>How To Ace the GameFish Chart in Tableau</a></h2></li><li><h2><a href='blog/whats-good-learn-and-share-cycles-with-marc-reid-april.html'>Learn and Share Cycles with Marc Reid</a></h2></li><li><h2><a href='blog/whats-good-versatile-skillsets-with-sam-parsons-march.html'>Versatile Skillsets with Sam Parsons</a></h2></li><li><h2><a href='blog/ironvizfeeder2022-resources.html'>8 IronViz Feeder Resources 2022</a></h2></li><li><h2><a href='blog/deep-progression-chart-yash-t.html'>Creating a Deep Progression Chart with Yash T (Python Guest Blog)</a></h2></li><li><h2><a href='blog/deep-completions-chart-in-tableau.html'>Deep Completions Chart in Tableau (Pt.2)</a></h2></li><li><h2><a href='blog/29-colour-palettes.html'>29 Colour Palettes</a></h2></li><li><h2><a href='blog/inclusion-with-adam-mico-january-s2.html'>Inclusion with Adam Mico</a></h2></li><li><h2><a href='blog/soccer-voronoi-in-tableau.html'>Soccer Voronoi in Tableau</a></h2></li><li><h2><a href='blog/statsbomb-intro-sportsvizsunday.html'>Intro to StatsBomb #SportsVizSunday</a></h2></li><li><h2><a href='blog/understanding-polygons-003.html'>Understanding Polygons 003</a></h2></li><li><h2><a href='blog/polygon-v001.html'>Understanding Polygons 001</a></h2></li><li><h2><a href='blog/how-to-create-a-soccer-event-timeline.html'>Create a Soccer Event Timeline! A Collaboration with Anmol Durgapal</a></h2></li><li><h2><a href='blog/whats-good-shaping-your-career-in-analytics-september.html'>Shaping Your Career In Analytics With Simon Beaumont</a></h2></li><li><h2><a href='blog/circular-packing-in-tableau-part-2.html'>Circular Packing In Tableau Part 2</a></h2></li><li><h2><a href='blog/whats-good-blending-figma-tableau-with-lindsay-betzendahl-october.html'>Blending Figma &amp;amp;amp; Tableau With Lindsay Betzendahl</a></h2></li><li><h2><a href='blog/tackling-radar-charts.html'>Tackling Radar Charts</a></h2></li><li><h2><a href='blog/python-from-benchwarmer-to-mvp.html'>Python: From Benchwarmer to MVP</a></h2></li><li><h2><a href='blog/taking-a-new-angle-on-visualisations.html'>Taking a New Angle On Shapes</a></h2></li><li><h2><a href='blog/player-metrics.html'>Player Metrics</a></h2></li><li><h2><a href='blog/whats-good-feedback-loops-and-leveraging-your-skillset-with-sarah-bartlett-july.html'>Feedback Loops and Leveraging Your Skillset  with Sarah Bartlett</a></h2></li><li><h2><a href='blog/ironvizfeeder2021-resources.html'>IronVizFeeder2021 Resources</a></h2></li><li><h2><a href='blog/whats-good-june.html'>Learning Tableau: The Unconventional Way with Olushola Olojo</a></h2></li><li><h2><a href='blog/another-red-card-to-best-practice.html'>Another Red Card To Best Practice</a></h2></li><li><h2><a href='blog/whats-good-intro-into-python-and-soccer-data-with-mckay-johns-may.html'>An Intro into Python and Soccer Data with Mckay Johns</a></h2></li><li><h2><a href='blog/whats-good-autumn-battani.html'>Women in Data with Autumn Battani</a></h2></li><li><h2><a href='blog/whats-good-design-with-josh-hughes-february.html'>Design with Josh Hughes</a></h2></li><li><h2><a href='blog/whats-good-eve-thomas.html'>A conversation with Eve Thomas</a></h2></li></ul></article></main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

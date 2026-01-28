@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tennis Play By Play #SportsVizSunday - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Tennis Play By Play #SportsVizSunday</h1>Hi all,
+
+A short one this week. Recently I wanted to look at some tennis data, and my usual go to is the tennis slam point by point data repo by <a href="https://github.com/JeffSackmann"><strong>Jeff Sackmann</strong></a>. Sometimes however the information you are after isn't always in the repository so it means venturing further to the tennisabstract.com website he hosts that contains thousands of different match reports that have been compiled together.
+
+<img class="alignnone size-full wp-image-8099" src="../uploads/2024/07/Repo.png" alt="" width="1670" height="927" />
+
+I am always on the hunt for "cool tennis stories" so when I come across them I want to be able to find the associated data.
+
+Recently, I saw two stories that I thought I might want to later visualise.
+
+The first was Iga Swiatek lost ten points in R16 of the French open. Total. That matches the most dominant tour-level performance--any tournament, any round--since 2010.
+
+<img class="alignnone size-full wp-image-8101" src="../uploads/2024/07/GPFPp5fXEAAraa-.png" alt="" width="1040" height="647" />
+
+The second was that Roger Federer has the title of most Aces in a singles grand slam final. Which was done in the 2009 Wimbledon final, hitting 50 aces during the match.
+
+So both these matches were hard to come by the data in terms of being in the repository but they do exist on tennis abstract.
+
+Let's walk through the Iga example.
+
+<strong>https://www.tennisabstract.com/charting/20240602-W-Roland_Garros-R16-Iga_Swiatek-Anastasia_Potapova.html</strong>
+
+<img class="alignnone size-full wp-image-8103" src="../uploads/2024/07/Iga.png" alt="" width="1255" height="729" />
+
+For some of the more standard point by point metrics we will need to refer to the "point-by-point description"
+
+<img class="alignnone size-full wp-image-8105" src="../uploads/2024/07/PbyP.png" alt="" width="890" height="1042" />
+
+Amazing. It's not hugely detailed like the dataset in the standard repo's but at least it contains the point winners.
+
+So let's take a look at the code...
+
+<img class="alignnone size-full wp-image-8107" src="../uploads/2024/07/carbon-12.png" alt="" width="2048" height="3238" />
+
+The full code can be found in the repository.
+<ol>
+ 	<li>The code starts by setting the path to the Chrome WebDriver. This WebDriver is necessary to automate the Chrome browser. (Make sure you have the webdriver that suits the version of chrome you use)</li>
+ 	<li>Next, it imports the required libraries: <code>html</code>, <code>selenium</code>, <code>BeautifulSoup</code>, and <code>pandas</code>.</li>
+ 	<li>The code creates an instance of the Chrome WebDriver using the specified driver path and options.</li>
+ 	<li>It navigates to a specific URL using <code>driver.get()</code>.</li>
+ 	<li>The code waits for a button element with the id "pointlog" to become clickable using <code>WebDriverWait</code> and the expected conditions. I put this step in because my chrome wasn't loading quick enough.</li>
+ 	<li>Once the button is clickable, it is clicked using the <code>click()</code> method.</li>
+ 	<li>The page source is captured using <code>driver.page_source</code>.</li>
+ 	<li>The WebDriver is then closed using <code>driver.quit()</code>.</li>
+ 	<li>The captured page source is parsed using BeautifulSoup, creating a BeautifulSoup object named <code>soup</code>.</li>
+ 	<li>The code finds a table element with the id "forecast" using <code>soup.find()</code>. On the site tennis abstract website all the tables had the same structure.</li>
+ 	<li>It initializes an empty <code>data</code> list to store the extracted data.</li>
+ 	<li>It iterates over the rows of the forecast table (excluding the header row) using a for loop.</li>
+ 	<li>For each row, it extracts the data from the columns using <code>cols = row.find_all('td')</code>.</li>
+ 	<li>If the row has the expected number of columns (5 in this case), it extracts the server, sets, games, points, and commentary data.</li>
+ 	<li>The extracted data is appended to the <code>data</code> list as a dictionary.</li>
+ 	<li>After all rows have been processed, the <code>data</code> list is used to create a pandas DataFrame.</li>
+ 	<li>The DataFrame is cleaned up by replacing specific HTML entities or formats using <code>df.replace()</code>.</li>
+ 	<li>Finally, the cleaned DataFrame is exported to a text file named "points_data.txt".</li>
+</ol>
+<img class="alignnone size-full wp-image-8109" src="../uploads/2024/07/raw.png" alt="" width="1172" height="621" />
+
+There we have it, a quick way to extract the information from the tennis abstract site.
+
+<strong>GOING FURTHER</strong>
+
+Remove the row line spaces,
+
+Indicate whether it was a first or second serve,
+
+Indicate point winners,
+
+Flag for each row what the score then turned to.
+
+That's it for this week. Enjoy accessing more tennis data.
+
+<strong>LOGGING OFF,</strong>
+
+CJ
+
+&nbsp;
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

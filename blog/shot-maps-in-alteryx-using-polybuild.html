@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shot Maps In Alteryx Using PolyBuild - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Shot Maps In Alteryx Using PolyBuild</h1>Hi all,
+
+Recently there has been a few blogs I've created on different ways to showcase soccer pitch co-ordinate data. This blog will be no exception, however we will just use the one tool today - Alteryx!
+
+Our region at work sat down to complete a weekly Alteryx challenge as part of our learning and development sessions, this time hosted by <strong><a href="https://www.linkedin.com/in/farisghnaim/">Faris</a></strong>.
+
+The <strong><a href="https://community.alteryx.com/t5/Weekly-Challenge/Weekly-Challenge-Index-amp-Welcome/td-p/48275">challenge</a></strong> chosen was 346, and 347. The idea is to Map Messi and Ronaldo's Goals, using the input provided.
+
+<img class="alignnone size-full wp-image-5954" src="../uploads/2023/04/346.png" alt="" width="1056" height="549" />
+
+Todays blog will be a run through of how we got on as a group, and also where you could start applying this logic to the understat datasets from previous blogs!
+
+To complete Part 1 of this challenge, we need to:
+- Use the Players dataset to filter information about Messi and Ronaldo. Include the first name, last name, role name, short name, and ID (wyid or playerid).
+- Use the Events_Spain_Goal dataset to retrieve information for the same 2 players. You must include the eventName, matchID, playerID, position_0_x, position_0_y, subEventID, subEventName, and tags_0_id.
+- Join your 2 findings in 1 dataset. It will be used in Part 2 of the challenge.
+
+So lets have a look like what that looks like in terms of the data prep of the flow.
+
+<img class="alignnone size-full wp-image-5957" src="../uploads/2023/04/346-1.png" alt="" width="1465" height="426" />
+
+The first part to the challenge is a little more simple. You can find the solution to the flow in the GitHub repository. We parse out the values within the Json, convert them from columns to rows and then select the fields and limit to just Messi &amp; Ronaldo - finally joining the two data streams together to build our final output.
+
+The final output for this part of the challenge includes the X &amp; Y co-ordinates of the shot locations.
+
+<img class="alignnone size-full wp-image-5959" src="../uploads/2023/04/dataStructure.png" alt="" width="1407" height="489" />
+
+Above is what that data structure looks like.
+
+Challenge 347 is when things really start to get exciting.
+
+<img class="alignnone size-full wp-image-5961" src="../uploads/2023/04/347.png" alt="" width="1060" height="629" />
+
+For Part 2 of this challenge, we will need to:
+- Use the Part_2_input dataset to create the points where Messi and Ronaldo score their goals.
+- Use the FootballPitch dataset to create the Football Pitch.
+- Finally, joint the two previous findings to layout the Football Pitch and the goals from Messi and Ronaldo.
+
+<img class="alignnone size-full wp-image-5963" src="../uploads/2023/04/footballpitch.png" alt="" width="230" height="587" />
+
+So this input file is the co-ordinates of the football pitch for the given data. Of course if you are using some external data like from opta or understat you could readjust and scale these points up and down for your own data. The group number identifys the polygon, and the SN will represent the order you join the points up in.
+
+<img class="alignnone size-full wp-image-5965" src="../uploads/2023/04/347flow.png" alt="" width="1171" height="426" />
+
+Above is the flow we will use to create our final shot map. Lets take it step by step. First we rescale our points to make easier to visualise.
+
+<img class="alignnone size-full wp-image-5967" src="../uploads/2023/04/createpoints.png" alt="" width="454" height="160" />
+
+We then use the create points functionality to be able to plot the latitude and longitude. Essentially our x and y values. We make sure to use the second option on the drop down to allow for x and y points that go beyond a typical maps limitations.
+
+For the top stream these will be unique points for each shot. For the bottom part of the stream these will be identifying points to plot to draw our football pitch.
+
+<img class="alignnone size-full wp-image-5969" src="../uploads/2023/04/polybuild.png" alt="" width="450" height="249" />
+
+The polybuild function helps us then draw the pitch. We take our input of the centroid (i.e our mapped x and y co-ordinates) and draw a sequence polyline, grouping on the group field and joining those lines up in the order of the SN field. It is important to remember to make the build method a polyline instead of polygon or convex hull!
+
+By adding in the browse we can see how this creates our pitch.
+
+<img class="alignnone size-full wp-image-5973" src="../uploads/2023/04/pitch.png" alt="" width="445" height="850" />
+
+We can essentially flatten these lines into one using the combine field.
+
+<img class="alignnone size-full wp-image-5971" src="../uploads/2023/04/combine.png" alt="" width="448" height="754" />
+
+The final thing we want to do in the top half of the screen is to split the data out, one for Messi and one for Ronaldo.
+
+Finally we will look to use the report map configuration to be able to showcase our final shot map!
+
+Things to note include:
+<ul>
+ 	<li>Adding in the incoming data fields. This will include Messi, Ronaldo shots and the background pitch.</li>
+ 	<li>Adding in Layers, You'll notice that we can change the shape for each player, given we split them out as well as assign them there own colour encoding.</li>
+</ul>
+<img class="alignnone size-full wp-image-5975" src="../uploads/2023/04/detail.png" alt="" width="454" height="181" />
+
+And there we have, if we run our workflow and add the browse tool we can see these marks drawn in Alteryx.
+
+<img class="alignnone size-full wp-image-5977" src="../uploads/2023/04/final.png" alt="" width="1021" height="603" />
+
+Maybe not the most aesthetically appealing design we have ever seen, but a good challenge to complete all within Alteryx. Maybe we will look if we can emulate some of the other blogs within Alteryx too!
+
+Once again, a massive thank you to Faris for leading the session and the team for their engagement with this challenge. We had some great inputs from <a href="https://www.linkedin.com/in/filip-rutkowski-6b8753171/"><strong>Filip Rutkowski</strong> </a>too on configuring the final mapping tools.
+
+<strong>Going Further:</strong>
+<ul>
+ 	<li>Apply the logic to your own dataset</li>
+ 	<li>Create a different type of football pitch metrics chosen from MPLSoccer website</li>
+ 	<li>Play around with the colours, layers and pitch details</li>
+ 	<li>Try showcase a match with shots on both sides of the pitch.</li>
+</ul>
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strava Maps For Beginners - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Strava Maps For Beginners</h1>Hi all,
+
+At the start of this year I wrote a blog on how to access Strava data through the API. You can view that blog <strong><a href="../2023/02/08/using-the-strava-api/">here.</a></strong>
+
+This time round we will take the short route and download all our data from Strava itself manually, with the end outcome to look at how we can actually map our data in Tableau.
+
+<img src="../uploads/2023/04/Capture-1.png" class="alignnone size-full wp-image-6042" alt="" width="1398" height="797">
+
+So to download the data you will need to navigate to <strong><a href="https://www.strava.com/account">"My Account"</a></strong>
+
+<img src="../uploads/2023/04/1-1.png" class="alignnone size-full wp-image-6043" alt="" width="1129" height="639">
+
+<img src="../uploads/2023/04/3-2.png" class="alignnone size-full wp-image-6045" alt="" width="765" height="167">
+
+Click to Get started on download your stats. Once you go to download them, it will send you a link to your email associated with the account
+
+<img src="../uploads/2023/04/data.png" class="alignnone size-full wp-image-6047" alt="" width="790" height="814">
+
+For today we will only need to look at activities and the activities folder.
+
+<img src="../uploads/2023/04/data_activities.png" class="alignnone size-full wp-image-6048" alt="" width="2253" height="205">
+
+Within the activities.csv you will see an associated gpx file. These files are essentially the mappings for our different activities.
+
+<img src="../uploads/2023/04/gpx.png" class="alignnone size-full wp-image-6049" alt="" width="737" height="810">
+
+So here is some example gpx files that are associated to my account. Of course we will have some common fields to be able to join these together for example the date of the event as well as the activity ID of the gpx files.
+
+The only problem is.... Tableau doesn't allow for gpx files, so we need to convert them into records of data.
+
+<img src="../uploads/2023/04/Capture2.png" class="alignnone size-full wp-image-6055" alt="" width="500" height="124">
+
+One website that is quite popular is this <strong><a href="https://www.gpsvisualizer.com/convert_input?connect_segments=1&convert_add_distance=1&convert_add_pace=1&convert_format=gpx&units=metric">GPS Visualiser website.</a></strong>
+
+<img src="../uploads/2023/04/plain.png" class="alignnone size-full wp-image-6052" alt="" width="675" height="718">
+
+We will need to output these files to plain text. I will upload an example of the output into the GitRepo. You'll see in the printscreen above, I chose all the gpx files of where I ran at least 20km's.
+
+In the GitRepo here are the files:
+
+Strava_Workflow.yxmd - an Alteryx flow that glues to activities to the output from the GPX conversion.
+
+Strava_Maps.hyper the final dataset that I use within the visual
+
+data.txt - The converted GPX data
+
+CJ_Activities - My original csv activities dataset
+
+8663587823.gpx - the original gpx file for my Paris half mara
+
+Then all we need to do is glue our gpx file to our original dataset. Personally I used Alteryx to do this, however this could be done solely through the joins in Tableau.
+
+<img src="../uploads/2023/04/map.png" class="alignnone size-full wp-image-6057" alt="" width="684" height="335">
+
+To create the map, I like to use the lat and long co-ordinates from the exported version of the gpx data that is now a text file - I added a few extra calculations for the view to be able to see the distance travelled and total time taken.
+
+See how my watch cut me short 60m on my Paris run! Sigh.
+
+Final thing to do is purely cosmetics.
+
+I add the distance km to line path as it joins up the data for each of the distance logs, and amended it to be our Strava orange colour. I dialled the background colour back just using an out the box mapbox background but there is definitely a lot more we can do with these mappings in terms of the layers!
+
+<img src="../uploads/2023/04/mapping.png" class="alignnone size-full wp-image-6056" alt="" width="1704" height="896">Would love to see where people take it.
+
+By all means check out my tutorial dashboard using the TP link at the top of this blog.
+
+<img src="../uploads/2023/04/final-1.png" class="alignnone size-full wp-image-6059" alt="" width="1398" height="797">
+
+Going further:
+<ul>
+ 	<li>Add a different MapBox background to your visual</li>
+ 	<li>Chart all your different activities that have maps</li>
+ 	<li>Using alternative&nbsp;map projections&nbsp;in Tableau:&nbsp;<a href="https://www.flerlagetwins.com/2021/03/alternative-map-projections-in-tableau.html" target="_blank" rel="noopener">blog</a>&nbsp;by&nbsp;<a href="https://twitter.com/flerlagekr" target="_blank" rel="noopener">Ken Flerlage</a></li>
+ 	<li>Mapping your&nbsp;Strava&nbsp;app data in Tableau:&nbsp;<a href="https://www.tableau.com/about/blog/2019/3/how-make-art-out-your-strava-activity-data-tableau-104639" target="_blank" rel="noopener">blog</a>&nbsp;by&nbsp;<a href="https://twitter.com/acotgreave" target="_blank" rel="noopener">Andy Cotreave</a>&nbsp;&amp;&nbsp;<a href="https://twitter.com/VizWizBI" target="_blank" rel="noopener">Andy Kriebel</a></li>
+</ul>&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

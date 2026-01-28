@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understat Soccer ETL Process With Jordan Pickles - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Understat Soccer ETL Process With Jordan Pickles</h1>Hi all,
+
+Recently I got the chance to chat with Jordan who has been posting some pretty awesome projects on his Git Repository and Tableau Public. One that caught my eye was in the football community.
+
+Today he was kind enough to share some of the data processing that goes into retrieving, cleaning and storing understat data in a database. A great project to replicate for those in the football community or looking to expand some of their core analytics skills.
+
+I'm excited to see how Jordans work expands, he has some serious talent and such a clear method to the way he works and presents that information back in such an articulate manner, just check out the blog below.
+
+Jordan, over to you.
+
+<b>ETL Process - From API to Database</b>
+
+<span style="font-weight: 400;">Hi, I’m Jordan Pickles, a data analyst currently working in the aviation and travel industry. My academic background is in Exercise and Health Scientific Research, where I contributed to clinical trials and Health Tech R&amp;D projects. Along the way, I discovered how much I loved working with data, which led me to make the jump from research into a data role. </span>
+
+<span style="font-weight: 400;">To develop my skills, I completed the AI Core Data Science Accelerator program, which gave me a solid technical foundation. For the past two years, I’ve been putting those skills to work as a data analyst, turning data into insights and solving real-world problems.</span>
+
+<span style="font-weight: 400;">Over the past few months, I’ve spent some of my spare time working with football data, aiming to improve my data skills as well as working with some different and intriguing data. In November 2024, I submitted my first visualization to SportsVizSunday, which extracted data from the Understat API package and visualised the </span><strong><a href="https://public.tableau.com/views/TopGoalscorersinEuropeanSoccerLeagues/TopGoalscorers?:language=en-GB&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link"><i>Top Goalscorers in European Soccer Leagues in Europe</i></a></strong><span style="font-weight: 400;"> while also developing techniques for dynamic zone visibility in tableau (</span><strong><a href="https://medium.com/@jordan.l.pickles/tableau-dashboard-top-goalscorers-across-europes-top-leagues-a4bbb3d86220">see blog post</a></strong><span style="font-weight: 400;">).</span>
+
+<img class="alignnone size-full wp-image-8783" src="../uploads/2025/01/Top-Goalscorers.png" alt="" width="999" height="799" /><span style="font-weight: 400;">Building on that project I wanted to dive deeper into handling data in Python by creating a fully automated ETL (Extract, Transform, Load) pipeline resulting in a database consisting of a match data table and shot data table which can be queried for projects going forward. </span>
+
+<span style="font-weight: 400;">Detailed below is the process of extracting data from the Understat API package, cleaning and transforming the data in Python and loading the data into a PostgreSQL database. All the code for this project can be found in the </span><strong><a href="https://github.com/JordanPickles/FootballData">GitHub Repository</a>.</strong>
+
+<b>Data Collection, Wrangling, and Cleaning</b>
+
+<span style="font-weight: 400;">Understat.com provides data for football matches across the top 5 european leagues and the UnderstatAPI package provides a user-friendly endpoint to the API, making it an excellent starting point for football data analysis. The package provides options to retrieve information at various levels of aggregation (e.g. match, shot, teams etc). For further details on the possibilities of the Understat API package, check out the </span><strong><a href="https://collinb9.github.io/understatAPI/understatapi.api.html">documentation</a>. </strong>
+
+<b>Match Data Extraction</b>
+
+<span style="font-weight: 400;">The first step when working with the understat API package is  to initiate the client (see Figure 1</span> <span style="font-weight: 400;">below) which provides functions to interact with the API. Once the client has been initiated the next step is to collect the unique IDs for each match across the top five European leagues. The code below iterates through a list of league names, retrieving data for all matches in the league for the 2024 season by using the </span><i><span style="font-weight: 400;">get_match_data</span></i><span style="font-weight: 400;"> function.</span>
+
+<img class="alignnone size-full wp-image-8785" src="../uploads/2025/01/01.-Fig-1-Match-IDs.png" alt="" width="1360" height="744" />
+
+<b><i>Figure 1.</i></b><i><span style="font-weight: 400;"> This code Initialises the Understat API client and collects a list of Match ID’s for each of the leagues available in the 2024 season.</span></i>
+
+<span style="font-weight: 400;">The function returns match data for each league in a semi-structured JSON format (see Figure 2 below) which is not suitable for analysis / uploading to a database, therefore the data needs to be extracted.</span>
+
+<img class="alignnone size-full wp-image-8786" src="../uploads/2025/01/02.-Fig-2-JSON-Match-ID.png" alt="" width="1360" height="520" />
+
+<b><i>Figure 2. </i></b><i><span style="font-weight: 400;">Shows the semi-structured data output for just two of the games retrieved from the code block in Figure 1</span></i><b><i>.</i></b>
+
+<span style="font-weight: 400;">With the data in a semi-structured format, the next task required is to extract the data. The code in Figure 3 below iterates through each match present in the JSON output for the league currently being iterated through. The code initially checks that the game has already taken place (excluding future matches) and ensures that the match date is later than the latest date already in the database (when this isn’t the first time the code has been run), so only new games are returned. Once the match has been determined as required to be added to the database, the code extracts the necessary data into a dictionary of key-value pairs (e.g. Key: datetime: Value: 01/01/2025 15:00:00) with the data types declared for each variable. Each dictionary, representing one match, is then added to a list, until all matches from all leagues are present in the list. Once all the matches are present in the list it can be converted into a pandas DataFrame providing a structured table of columns and rows which is suitable for analysis / uploading to a database.</span>
+
+<img class="alignnone size-full wp-image-8787" src="../uploads/2025/01/03.-Fig-3-Match-Data-Extraction.png" alt="" width="2020" height="1452" />
+
+<b><i>Figure 3.</i></b><i><span style="font-weight: 400;"> This code iterates through each Match present in the league_matches variable declared in Figure 1, extracting the information from each match returned in that league before adding the dictionary to a list which is later converted into a data frame. Note: This code is a continuation of the function in Figure 1.</span></i>
+
+<b>Shot Data</b>
+
+<span style="font-weight: 400;">A list of unique match ID’s collected from the code in Figure 3 can now be used to call the </span><i><span style="font-weight: 400;">get_shot_data</span></i><span style="font-weight: 400;"> function, as shown in Figure 4 below. This function also returns data in a semi-structured format, with one dictionary for the home team data and one for the away team data. The code below extracts both dictionaries separately before concatenating them on top of each other to create one data frame for each match. All data frames are then appended to a list which can then be converted into one big data frame at the end of the code block. Similar to how the match data frame was created.</span>
+
+<img class="alignnone size-full wp-image-8788" src="../uploads/2025/01/04.-Fig-4-Shot-Data-Code.png" alt="" width="1346" height="818" />
+
+<b><i>Figure 4. </i></b><i><span style="font-weight: 400;">This code Iterates through the match Id list collected in the Figure 1 and Figure 3 and calls the get_shot_data function of the Understat API client to return the shot data for each match ID which is extracted and concatenated into a one data frame.</span></i>
+
+<b>Cleaning the Shot Data</b>
+
+<span style="font-weight: 400;">Thanks to accessing the API, the data is well-structured and needs little cleaning. However, during exploratory data analysis and when converting the text data (the output of the Understat API function) to the appropriate data types, a few areas required some additional cleaning. </span>
+
+<span style="font-weight: 400;">The pandas and numpy packages in Python offer a range of functions that simplify the data cleaning process. In this project, the data cleaning involved tasks such as replacing parts of strings in columns, renaming and dropping columns, adding new columns based on specific logic, converting columns to the appropriate data types, dropping rows without coordinate data present and rescaling the coordinate data for the intended use case. The X and Y coordinates from Undertstat are between 0 &amp; 1 but in-order to work on the images I visualise the data on (Statsbomb pitch of the mplsoccer package), an axis of 120, 80 is required, therefore the X and Y coordinates are rescaled.</span>
+
+<img class="alignnone size-full wp-image-8789" src="../uploads/2025/01/05.-Fig-5-Clean-Shot-Data.png" alt="" width="2036" height="1302" />
+
+<b><i>Figure 5. </i></b><i><span style="font-weight: 400;">This code Cleans the shot df_shot_data frame that has been created in the previous code blocks.</span></i>
+
+<b>Database Creation and Management</b>
+
+<span style="font-weight: 400;">The previous steps have now provided two clean and structured data frames suitable for use in the primary objective of this project, to build a database storing the collected data that can be queried not just for this project but for future projects as well. For the database server, I chose PostgreSQL (</span><strong><a href="https://www.postgresql.org/download/">download here</a></strong><span style="font-weight: 400;">), which is a free database server that can be downloaded to both macOS and Windows. To interact with PostgreSQL from Python, there are two main packages: </span><b>Psycopg2</b><span style="font-weight: 400;">, a native PostgreSQL package in python, and </span><b>SQLAlchemy</b><span style="font-weight: 400;">, a Python package that supports interaction with various databases, including PostgreSQL.</span>
+
+<b>Psycopg2</b><span style="font-weight: 400;"> allows for a direct connection to the Database API (DBAPI) and the execution of SQL commands as strings. On the other hand, </span><b>SQLAlchemy</b><span style="font-weight: 400;"> provides Python-specific functions and objects that simplify interacting with the database (e.g. functions that are converted into SQL dialect by the package). In this project, I used a combination of both packages, leveraging the strengths of each to build and manage the database efficiently. For further reading into the differences between SQLAlchemy and PostgreSQL, check out this </span><strong><a href="https://www.geeksforgeeks.org/difference-between-psycopg2-and-sqlalchemy-in-python/">article</a>.</strong>
+
+<b>Step 1 - Installing the Packages</b>
+
+<span style="font-weight: 400;">To begin, the two required packages need installing, using a package manager of choice. In this project, I used </span><b>pip</b><span style="font-weight: 400;"> as the package manager, see below the pip commands required in the terminal:</span>
+<ul>
+ 	<li style="font-weight: 400;" aria-level="1"><b>Psycopg2</b><span style="font-weight: 400;">: ‘</span><i><span style="font-weight: 400;">pip install psycopg2’</span></i></li>
+ 	<li style="font-weight: 400;" aria-level="1"><b>SQLAlchemy</b><span style="font-weight: 400;">: ‘</span><i><span style="font-weight: 400;">pip install SQLAlchemy’</span></i></li>
+</ul>
+<b>Step 2 - Connecting to the Database</b>
+
+<b><i>Connecting with Psycopg2</i></b>
+
+<span style="font-weight: 400;">Establishing a connection to the DBAPI from inside of your code editor is the key step, this allows you to interact with the database whilst still having all of the previous steps / variables in the code available to use, call and upload. </span>
+
+<b>Psycopg2</b><span style="font-weight: 400;"> connects to the PostgreSQL DBAPI using the </span><i><span style="font-weight: 400;">psycopg2.connect(&lt;&lt;Connection String&gt;&gt;)</span></i><span style="font-weight: 400;"> function (</span><a href="https://www.psycopg.org/docs/module.html"><span style="font-weight: 400;">documentation for further detail</span></a><span style="font-weight: 400;">). The connection contains multiple keyword argument details relevant to the local database which can be seen below (see figures 6 &amp; 7). In this case, I’ve stored these database credentials in a YAML file, which can be easily opened and read with Python.</span>
+
+<img class="alignnone size-full wp-image-8790" src="../uploads/2025/01/06.-Fig-6-YAML-Details.png" alt="" width="822" height="446" />
+
+<b><i>Figure 6.</i></b><i><span style="font-weight: 400;"> YAML file containing the database credentials required for the Psycopg2 connection.</span></i>
+
+<span style="font-weight: 400;">The </span><i><span style="font-weight: 400;">psycopg2_connect</span></i><span style="font-weight: 400;"> function in my code (see Figure 7 below) handles the scenario where the database has not yet been created. If the database named in the YAML file doesn't already exist, a connection to the server is created instead of the database. The </span><i><span style="font-weight: 400;">create_new_db</span></i><span style="font-weight: 400;"> function is then called to create the database within the PostgreSQL server. Once a connection has been established, a cursor is created, which allows </span><span style="font-weight: 400;">Python code to execute PostgreSQL commands in a database session, just as is required when managing or querying the database</span><span style="font-weight: 400;">. This create_new_db function creates a new database with the name stored in the YAML file using the cursor before closing the connection to the server, then the pscyopg2_conenction function can connect directly to the database.</span>
+
+<img class="alignnone size-full wp-image-8791" src="../uploads/2025/01/07.-Fig-7-Psycopg2-connection.png" alt="" width="1370" height="2142" />
+
+<b><i>Figure 7. </i></b><i><span style="font-weight: 400;">This code reads the credentials required for the database from the YAML file in figure 6 and uses the details to connect to the database with Psycopg2. If the database does not already exist then the create_new_db is called to create the database. </span></i>
+
+<b><i>Connecting with SQLAlchemy</i></b>
+
+<span style="font-weight: 400;">Connecting with SQLAlchemy requires an additional step than the Psycopg2 connection, this is creating an engine before establishing the connection to the database. The engine allows dialect with the DBAPI, in essence to translate the SQLAlchemy python objects / functions into SQL commands that are given to the DBAPI and in turn, actioned on the database.</span>
+
+<span style="font-weight: 400;">To create the engine, a string containing the necessary connection details is passed through the </span><i><span style="font-weight: 400;">create_engine(&lt;&lt;Connection String&gt;&gt;)</span></i><span style="font-weight: 400;"> function (</span><a href="https://docs.sqlalchemy.org/en/20/core/engines.html"><span style="font-weight: 400;">see documentation</span></a><span style="font-weight: 400;">). Once the engine is created, the </span><i><span style="font-weight: 400;">engine.connect()</span></i><span style="font-weight: 400;"> function can be called to establish the connection to the DBAPI.</span>
+
+<img class="alignnone size-full wp-image-8792" src="../uploads/2025/01/08.-Fig-8-SQLAlcheny-Connection.png" alt="" width="2048" height="594" />
+
+<b><i>Figure 8. </i></b><i><span style="font-weight: 400;">Code to create the SQLAlchemy engine and connect to the database. </span></i>
+
+<b>Step 3 - Creating the Tables</b>
+
+<span style="font-weight: 400;">This is where the power of SQLAlchemy really shines. With SQLAlchemy, you can create database tables, add constraints, map Python data types to those of your chosen database server and establish relationships between tables.</span>
+
+<span style="font-weight: 400;">In the GitHub repository for this project, you’ll find a Python file called </span><a href="https://github.com/JordanPickles/FootballData/blob/master/Models.py"><span style="font-weight: 400;">Models.py</span></a><span style="font-weight: 400;">. Inside this file, there are three classes (see Figure 9 below):</span>
+<ul>
+ 	<li style="font-weight: 400;" aria-level="1"><i><span style="font-weight: 400;">class Base(DeclarativeBase)</span></i></li>
+</ul>
+<ul>
+ 	<li style="font-weight: 400;" aria-level="1"><i><span style="font-weight: 400;">class Match(Base)</span></i></li>
+</ul>
+<ul>
+ 	<li style="font-weight: 400;" aria-level="1"><i><span style="font-weight: 400;">class Shot(Base)</span></i></li>
+</ul>
+<span style="font-weight: 400;">The </span><i><span style="font-weight: 400;">Base(DeclarativeBase)</span></i><span style="font-weight: 400;"> class is a base class that allows for mapping Python data types to their corresponding PostgreSQL data types and is inherited by other classes such as when defining table schemas, in this case for the</span> <i><span style="font-weight: 400;">Match and Shot</span></i><span style="font-weight: 400;"> tables. Each class specifies details like column names, data types, and relationships to other tables. A primary key of a table provides a unique ID (e.g. an ID for each shot) and a foreign key provides a typically non-unique ID that can be used to join tables on (e.g. match id that each shot occurred in for the shot table). Typically to ensure that joins are successful, the data should be joined on a primary key from one table and a foreign key of another table. As can be seen in the table schemas for this project, the primary key of the dim_match table (Match ID, a unique value) has a relationship with the foreign key of the dim_shots table (Match ID, non-unique value).</span>
+
+<img class="alignnone size-full wp-image-8793" src="../uploads/2025/01/09.-Fig-9-Models.py_.png" alt="" width="2048" height="2456" />
+
+<b><i>Figure 9. </i></b><i><span style="font-weight: 400;">This is the</span></i> <i><span style="font-weight: 400;">models.py file declaring the base class which is inherited when defining the table schemas for the dim_match and dim_shot tables defined in a separate class. The constraints and relationships of the tables are also declared.</span></i>
+
+<span style="font-weight: 400;">Once the table schemas are defined, the </span><i><span style="font-weight: 400;">Base.metadata.create_all(bind=engine)</span></i><span style="font-weight: 400;"> function is called to create the tables in the database, if they do not already exist.</span>
+
+<b>Step 4 - Loading the Data</b>
+
+<span style="font-weight: 400;">Now that the data has been extracted and transformed, the final stage is loading the data into the database. This step can be performed using either </span><b>Psycopg2</b><span style="font-weight: 400;"> or </span><b>SQLAlchemy</b><span style="font-weight: 400;">. However, the process differs slightly between the two:</span>
+
+<span style="font-weight: 400;">With </span><b>Psycopg2</b><span style="font-weight: 400;">, data is loaded by iterating / looping through each row in the DataFrame and inserting them row by row using the </span><i><span style="font-weight: 400;">INSERT</span></i><span style="font-weight: 400;"> SQL command.</span>
+
+<span style="font-weight: 400;">On the other hand, </span><b>SQLAlchemy</b><span style="font-weight: 400;"> offers a more efficient method with its native </span><i><span style="font-weight: 400;">to_sql() </span></i><span style="font-weight: 400;">function. This function allows you to insert the entire DataFrame at once, with several parameters to control the action (e.g. append, update, or replace the existing table). In this project, I opted to </span><i><span style="font-weight: 400;">append </span></i><span style="font-weight: 400;">the data, as my pipeline is designed to only return data for games not already in the database, thus optimising the time taken to run the process on a weekly basis etc.</span>
+
+<span style="font-weight: 400;">For performance reasons, I chose to insert the data in batches of 1,000 rows at a time (</span><i><span style="font-weight: 400;">s</span></i><span style="font-weight: 400;">ee Figure 10 below). This helped avoid issues when uploading large data frames (first time running the code) and improved the overall efficiency of the process.</span>
+
+<img class="alignnone size-full wp-image-8794" src="../uploads/2025/01/10.-Fig-10-Append-table-to-DB.png" alt="" width="1480" height="446" />
+
+<b><i>Figure 10</i></b><i><span style="font-weight: 400;">. This function takes in the table name and the relevant data frame ready to be loaded into the table. The data is appended to the table if it already exists to ensure only the latest data collected in the code previously is added to the data table.</span></i>
+
+<b>The Database</b>
+
+<span style="font-weight: 400;">The aim of this project was to create a fully automated ETL pipeline resulting in a database consisting of a match data table and shot data table which can be queried for projects going forward. The steps outlined in this article have resulted in a PostgreSQL database consisting of two clean, 2-dimensional tables (see figure 11 below for an example of the dim_shot table). </span>
+
+<img class="alignnone size-full wp-image-8795" src="../uploads/2025/01/11.-Fig-11-PgAdmin-dim_shot-Data.png" alt="" width="1768" height="264" />
+
+<b><i>Figure 11. </i></b><i><span style="font-weight: 400;">Example of the dim_shot table created in the database.</span></i>
+
+<span style="font-weight: 400;">The benefit of having a database is that you can query and wrangle the data into any format that you need in an easy and time efficient way using SQL. Queries can be written directly and returned in PgAdmin (Front-end application for PostgreSQL) or through Psycopg2 using python in your code editor (a simple example can be seen in figure 12 below). </span>
+
+<img class="alignnone size-full wp-image-8796" src="../uploads/2025/01/12.-Fig-12-DB-Query-Psycopg2.png" alt="" width="1808" height="368" />
+
+<b><i>Figure 12. </i></b><i><span style="font-weight: 400;">This code shows how a database can be queried with a Psycopg2 cursor connection. This code returns the first row of the SQL string to find the max date in the dim_match table.</span></i>
+
+<span style="font-weight: 400;">This article has shown how to leverage the understAPI client to extract the data, transform the data and then load the data into a database that can be used for many analyses in the future. </span>
+
+<span style="font-weight: 400;">A big thank you to CJ for asking me to feature on the site which provides some brilliant content for analysts and has certainly been a help to me. Please feel free to reach out to me on </span><strong><a href="http://www.linkedin.com/in/jordan-pickles">linkedin</a></strong><span style="font-weight: 400;"> if you have any questions or wish to connect.</span>
+
+CJ Roundup:
+
+I think a lot of community members probaby are use to retrieving data through various packages but to then start to think about the transformation and storage of the data, to then visualise is what has really impressed me with Jordans work. Make sure to take a look at his repo to take full advantage of learning the steps he went through. Jordan, thank you for making time.
+
+<strong>LOGGING OFF,</strong>
+
+CJ
+
+&nbsp;
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

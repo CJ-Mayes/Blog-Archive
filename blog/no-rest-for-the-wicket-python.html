@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No rest for the Wicket (Python) - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>No rest for the Wicket (Python)</h1><p>Hi all,</p>
+
+<p>On this months episode of pretending to know how to code, I'm delighted to do a run through of a <strong><a href="https://libraries.io/pypi/python-cricket-scraper" target="_blank" rel="noreferrer noopener">cricket package</a></strong>. The blog has the aim of extracting multiple different datasets from a package as well as explore different types of matches available.</p>
+
+<p>What I really want people to get from the blog is the small reminder of different ways of collating your own data. It doesn't always have to be copy and pasted, nor pre-canned from a website, but there are ways of accessing it through different repositories and packages too.</p>
+
+<p><strong>PYTHON CRICKET SCRAPER</strong></p>
+
+<p>To install, you will need the following command in the terminal.</p>
+
+<p><code>pip install python-cricket-scraper==0.1.2</code></p>
+
+<p>So where to start?</p>
+
+<p>so python-cricket-scraper is built to get cricket data from Cricsheet and ESPNCricInfo. Makes sense to take a look at <strong><a href="https://cricsheet.org/matches/" target="_blank" rel="noreferrer noopener">Cricsheet website</a></strong>. At the moment Cricsheet have ball-by-ball information for <strong>11,685</strong> matches. What we will look to do is navigate how to find one specific match and some of the surrounding details around that game.</p>
+
+<figure class="wp-image"><img class="wp-image-3989" src="../uploads/2022/05/screenshot-2022-05-26-at-16.26.30.png" alt="" /></figure>
+
+<p>Wow! Look at all the choices available.</p>
+
+<p>For now lets navigate down to the super smash.</p>
+
+<figure class="wp-image"><img class="wp-image-3991" src="../uploads/2022/05/screenshot-2022-05-26-at-16.27.56.png" alt="" /></figure>
+
+<p>Within this data we have 203 matches stored in JSON format.</p>
+
+<p>We can directly look at these JSON files..</p>
+
+<figure class="wp-image"><img class="wp-image-3993" src="../uploads/2022/05/screenshot-2022-05-26-at-16.29.57.png" alt="" /></figure>
+
+<p>But we need a way to understand what's in the files.</p>
+
+<p>If we open the read me file we find even more information.</p>
+
+<figure class="wp-image"><img class="wp-image-3995" src="../uploads/2022/05/screenshot-2022-05-26-at-16.56.41.png" alt="" /></figure>
+
+<p>So let's take this first row as an example and as a reference point you can cross compare our data to the results found on <strong><a href="https://cricsheet.org/matches/" target="_blank" rel="noreferrer noopener">this website</a></strong>. This means when we write our code we know if what we are extracting is similar to the actual results we find online from a secondary reliable source.</p>
+
+<figure class="wp-image"><img class="wp-image-3998" src="../uploads/2022/05/screenshot-2022-05-26-at-16.57.55.png" alt="" /></figure>
+
+<p>If we go back to our original Json folder we can search for this specific game.</p>
+
+<figure class="wp-image"><img class="wp-image-4000" src="../uploads/2022/05/screenshot-2022-05-26-at-17.00.00.png" alt="" /></figure>
+
+<p>When we open that file as a text file we may feel a little lost, but it's a good way of seeing how all the information is stored.</p>
+
+<figure class="wp-image"><img class="wp-image-4002" src="../uploads/2022/05/screenshot-2022-05-26-at-17.02.28.png" alt="" /></figure>
+
+<p>Time for us to utilise python.</p>
+
+<p><strong>PYTHON</strong></p>
+
+<figure class="wp-image"><img class="wp-image-4010" src="../uploads/2022/05/carbon-7.png" alt="" /></figure>
+
+<p>Let's break it down section by section. First we know what match we are looking for as we just found it in the readme files. The match number is 1289634.</p>
+
+<p>We can also double check the date of this game.</p>
+
+<p>We set up an excel sheet using the excel writer as we want to export multiple tables into one excel file.</p>
+
+<p>First we look at the overall team. When we run our code this comes out as the first tab.</p>
+
+<figure class="wp-image"><img class="wp-image-4008" src="../uploads/2022/05/screenshot-2022-05-26-at-17.11.30.png" alt="" /></figure>
+
+<p>This is the easy one!</p>
+
+<p>The next few are a little more complex just because of way the data is structured. There are multiple tables of our data listed within the summary sheet and scorecard so we have to say which one to look at.</p>
+
+<figure class="wp-image"><img class="wp-image-4018" src="../uploads/2022/05/screenshot-2022-05-26-at-17.24.36.png" alt="" width="547" height="203" /></figure>
+
+<p>Once you've run the code you'll see.</p>
+
+<p>Match Summary - is the top 4 batsman</p>
+
+<p>Match Summary (1) - is the top 4 bowlers</p>
+
+<p>Match Scorecard (1) - Looks at all the batsman for both teams</p>
+
+<p>Match Scorecard (2) - Looks at all the bowlers for both teams</p>
+
+<p>Match Scorecard (3) - Looks at the overall summary of the game H2H.</p>
+
+<p>You can find the dataset <strong>in the repo at the top of the page</strong>, <strong>along with code - just navigate to the Github icon.</strong></p>
+
+<p>Remember again, we can make sure our code is correct by comparing it with external <strong><a href="https://scoring.nzc.nz/#m647afff8-74d4-4c45-92d9-f178d6f6e727" target="_blank" rel="noreferrer noopener">third party sites</a></strong>.</p>
+
+<div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide">
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-4015" src="../uploads/2022/05/screenshot-2022-05-26-at-17.21.15.png" alt="" data-id="4015" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-4016" src="../uploads/2022/05/screenshot-2022-05-26-at-17.21.21.png" alt="" data-id="4016" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+</div>
+
+<p>So there we have it, a basic introduction to extracting cricket data from a python package with little to no prep.</p>
+
+<p>Here is a small table I've created just to summarise the batting performance of the match. It's downloadable by following the Tableau Public link at the top of the blog.</p>
+
+<figure class="wp-image"><img class="wp-image-4021" src="../uploads/2022/05/cricket-tutorial.png" alt="" /></figure>
+
+<p><strong>GOING FURTHER</strong></p>
+
+<ul>
+<li>Try accessing the results of an entire tournament<strong><a href="https://gms.englandhockey.co.uk/fixtures-and-results/competitions.php?comp=4100803" target="_blank" rel="noreferrer noopener">.</a></strong></li>
+<li>Try accessing some other parts of the package, i.e best performers of match, partnerships, wicket details and venue.</li>
+<li>Try prepping the data ready for Tableau after you extract it.</li>
+<li>Try building a cricket scorecard in Tableau.</li>
+</ul>
+
+<p><strong>LOGGING OFF,</strong></p>
+
+<p><strong>CJ</strong></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

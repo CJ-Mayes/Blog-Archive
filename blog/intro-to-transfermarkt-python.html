@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro To Transfermarkt (Python) - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Intro To Transfermarkt (Python)</h1><p>Hi All,</p>
+<p>Welcome back,</p>
+<p>I hope everyone has had a lovely festive period and closed out 2023 in style. Looking ahead to 2024 I am excited to share more with the community, this may be through a variety of different channels compared to previous, but we will see how things play out.</p>
+<p>Last year I really found good flow to the tutorial content normally posting live on a Monday morning - and hit a milestone of a blog a week on average! It was great to see the site grow in views a further 33% YoY - excited people haven't got fed up yet of the efforts.</p>
+<p>Anyway, wishing everyone all the best. Let's dive into some content.</p>
+<p>Many sports fans will already be aware of transfermarkt and its existence. It is a wonderful resource to use when looking at... well transfers.</p>
+<p><img class="alignnone size-full wp-image-7523" src="../uploads/2023/12/Screenshot-2023-12-21-at-12.35.42.png" alt="" width="1854" height="692" />It holds everything from rumours, fees, to contracts that are ending soon amongst a whole variety of clubs. It's not just popular amongst your twitter footy fans but also a lot of clubs and sports companies / agencies.</p>
+<p>Today we will take a first peak at how we can start to extract some of that information through python.</p>
+<p>This will be for those who are really just starting out their journey, but will look to build upon it in future weeks.</p>
+<p>The code can be found in the repository through the <strong><a href="https://github.com/CJ-Mayes/Website-Tutorials/tree/main/2024%20Blogs/2024-01-15%20Intro%20To%20Transfermarkt%20(Python)">github link</a></strong> at the top of the page.</p>
+<p><img class="alignnone size-full wp-image-7525" src="../uploads/2023/12/carbon.png" alt="" width="1628" height="2614" /></p>
+<p>What does the script do?</p>
+<p>This Python script is a web scraper that extracts information about player names and their corresponding values from the Transfermarkt website, specifically focusing on the Premier League. The script utilizes the <code>requests</code> library to send HTTP requests and the <code>BeautifulSoup</code> library to parse and navigate HTML content. The extracted data is then organised into a pandas DataFrame and exported to a CSV file.</p>
+<p><img class="alignnone size-full wp-image-7528" src="../uploads/2023/12/Screenshot-2023-12-21-at-12.43.02.png" alt="" width="2064" height="1030" /></p>
+<p>Let's take a step by step look...</p>
+<ol>
+<li>First we import the necessary libraries.</li>
+</ol>
+<p>2. Then we set the user agent headers up. These headers are used to mimic a web browser when making requests. Some websites may block requests without a proper user-agent.</p>
+<p>3. I create empty lists because I know I want to end up adding the players names and current value to the list.</p>
+<p>4. The base url is the easy bit... just copy and paste the page you are on. You will see for this tutorial we are looking at premier league players.</p>
+<p>5. The page tree and soup send a request to the initial page and parse the content. </p>
+<p>What do we mean by parse the content?</p>
+<p>Well, right click on a web page and go to <strong>inspect.</strong></p>
+<p><img class="alignnone size-full wp-image-7531" src="../uploads/2023/12/Screenshot-2023-12-21-at-12.46.17.png" alt="" width="2377" height="1167" /></p>
+<p>You will see the different tagging available in the web page. Notice the highlighted title of Erling Haaland. Essentially we have to navigate through these different trees to find the different attributes we want.</p>
+<p>This is what the following parts are doing</p>
+<p>player_name_tag = player_row.find(<span class="hljs-string">'td'</span>, {<span class="hljs-string">'class'</span>: <span class="hljs-string">'hauptlink'</span>})</p>
+<p><img class="alignnone size-full wp-image-7533" src="../uploads/2023/12/Screenshot-2023-12-21-at-12.48.36.png" alt="" width="825" height="38" /></p>
+<p>player_value_tag = player_row.find(<span class="hljs-string">'td'</span>, {<span class="hljs-string">'class'</span>: <span class="hljs-string">'rechts'</span>})</p>
+<p><strong>**One thing to note here is i am taking the highest value the player has reached instead of the current market value.**</strong></p>
+<p>Sometimes we will have to do some additional search or cleansing depending on how the page is structured.</p>
+<p>So generally thats how we retrieved specific players details.</p>
+<p>The For loop will help us iterate over all the different players on the page.</p>
+<p>But what if we want the full 100 players, and their highest value they have reached in their career?</p>
+<p><img class="alignnone size-full wp-image-7536" src="../uploads/2023/12/Screenshot-2023-12-21-at-12.50.41.png" alt="" width="1033" height="1242" /></p>
+<p>Well normally you'd think that the url changes.</p>
+<p>In this case it's actually the bottom banner that controls the view on the page. (1,2,3,4..)</p>
+<p>So we actually want a way to click through these buttons, thats why we have added in a for loop containing that page, as well as the signal to locate the number box to action the page clicks.</p>
+<p>next_page_link = soup.find('a', {'class': 'tm-pagination__link', 'title': f'Page {page_number + 1}'})<br />if not next_page_link:<br />break</p>
+<p>next_page_url = base_url + next_page_link['href']<br />pageTree = requests.get(next_page_url, headers=headers)<br />soup = BeautifulSoup(pageTree.content, 'html.parser')</p>
+<p>The script writes the player information to a CSV file named 'player_data.csv' in the current working directory.</p>
+<p><img class="alignnone size-full wp-image-7540" src="../uploads/2023/12/Screenshot-2023-12-21-at-12.55.00.png" alt="" width="347" height="914" /></p>
+<p>You can find a copy of what this output looks like in the GitHub repo.</p>
+<p>Now that I've given you the power to, It's time to add the disclaimer:</p>
+<p>Keep in mind that web scraping might be subject to the terms of service of a website, and scraping too aggressively may lead to IP bans or other restrictions. Always make sure you comply with the website's policies and use web scraping responsibly.</p>
+<p><strong>Going Further:</strong></p>
+<ul>
+<li>Why not try and find the market value of top players in a different league?</li>
+<li>Try and add additional information in, such as country, age or club.</li>
+<li>Create a chart to show the difference between player market price.</li>
+</ul>
+<p>As always, Let me know how you get on with this one. I can be reached on <strong>Twitter</strong>, <strong>@_CJMayes</strong>.</p>
+
+<p><strong>LOGGING OFF,</strong></p>
+
+<p><strong>CJ</strong></p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

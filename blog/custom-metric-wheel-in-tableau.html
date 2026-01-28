@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Metric Wheel In Tableau - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Custom Metric Wheel In Tableau</h1>Hi all,
+
+A small bonus blog to the blog last week on radials in Tableau.
+
+https://cj-mayes.com/2024/09/01/radial-charts-in-tableau/
+
+This blog is only intended for those that are wanting to build on that radial chart, I won't be re-explaining any of the calculations as a heads up.
+
+This blog:
+<ul>
+ 	<li>Adjusts our visual to be able to plot a "before" and "after" comparison. Instead of one value.</li>
+ 	<li>We customise the layering to toggle labels and colours.</li>
+ 	<li>We take a look at some cosmetic amendments to change the feel of the radial / wheel.</li>
+</ul>
+This is what we will create.
+
+<img class="alignnone size-full wp-image-8361" src="../uploads/2024/09/Metric-Wheel-1.png" alt="" width="999" height="799" />
+
+DATA PREP
+
+First we use a slightly amended dataset, that you can find in the git repo.
+
+<img class="alignnone size-full wp-image-8363" src="../uploads/2024/09/NewdataCapture.png" alt="" width="534" height="426" />
+
+<strong>ADDITIONAL LINE FOR PREVIOUS YEAR</strong>
+
+if
+[PY - Line] = "On" and
+
+[Year] = "Previous Year"
+and [T (T)] &gt; 13 and [T (T)] &lt; 24
+
+then
+MAKEPOINT([010. resized x],[011. resized y])
+end
+
+A small amendment to our previous chart, we now only look for the T points between 13 and 24. That's because these are the outer edge of our radial.
+
+<strong>COLOUR</strong>
+
+Secondly we want to amend our colour on our chart to be able to account for both years.
+
+We will want to end up comparing the current and previous year for each metric.
+
+if
+{ Fixed [Sub Grouping] : max([Value])} &gt; [Value] then "Smaller"
+else "Maximum"
+END
+
+With this calculation we will be able to see of the current and previous year which is larger.
+
+That's the colouring sorted on the new chart.
+
+<strong>SEGMENT DESIGN</strong>
+
+The third main thing I did was add in some flexibility to the wheel design. You can see the segments slightly unwind from one another using the parameter. The calculation that drives this is calculation 4:
+
+[002. Rank] * [003. Angle]
+/ ([001. Max Dimensions])/[Sunburst Parameter]
+
+Previously we space our points out perfectly and then divide it by the number of segments, here we just add in a slight increase to what that divisible amount is, making the segments pull away from one another.
+
+<strong>PARAMETERS WITH MAKEPOINT</strong>
+
+The final aspect I wanted to influence was the idea of being able to toggle on and off different parts of the chart.
+
+Lets take a simple example of turning off the value labels.
+
+<img class="alignnone size-full wp-image-8368" src="../uploads/2024/09/param.png" alt="" width="553" height="656" />
+
+I can then write a calculation that says, if the parameter is on, then use the makepoint calc.
+
+if [Value Labels] = "On" and
+
+[T (T)] = 18
+and [Year] = "Current Year"
+then
+MAKEPOINT([010. resized x],[011. resized y])
+END
+
+These small amendments take me from
+
+<img class="alignnone size-full wp-image-8370" src="../uploads/2024/09/Metric-Wheel-1-1.png" alt="" width="999" height="799" />
+
+to
+
+<img class="alignnone size-full wp-image-8369" src="../uploads/2024/09/ColorWheel.png" alt="" width="996" height="799" />
+
+in just a few clicks.
+
+Now.... if none of the above made sense, simply replace the data source from the template with your own data or reach out on socials.
+
+<strong>LOGGING OFF,</strong>
+
+CJ
+
+&nbsp;
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

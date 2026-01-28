@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to StatsBomb #SportsVizSunday - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Intro to StatsBomb #SportsVizSunday</h1><p></p>
+<p>This post covers an introduction to python to get hold of soccer data through the Statsbomb Python package that offers free public data! We will look to create a multitude of datasets from <strong>competition</strong> level, to the <strong>matches</strong> within that competition, as well as getting to the more granular <strong>event level data</strong> and even <strong>shot freeze frames</strong>! The hope is to get more people into coding through starting material.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3097" src="../uploads/2021/12/wsl-2020.png" alt="" /></figure>
+
+</p>
+<p>Hi all,</p>
+<p>
+
+</p>
+<p>You may have remembered some previous posts on scraping from understat which you can find <strong><a href="../2021/05/07/just-starting-out-with-understat/" target="_blank" rel="noreferrer noopener">here</a></strong> for visualising shot data. Since then Statsbomb have made it really easy to access similar soccer open data through a python package.</p>
+<p>
+
+</p>
+<p>The tutorial today for sake of keeping it concise will only look at code, but in future tutorials will look to create some visualisations in Tableau! I have lots of exciting examples in the pipeline for how we can recreate some soccer related charts. This blog is specifically aimed at beginners.</p>
+<p>
+
+</p>
+<p><strong>STATSBOMB</strong></p>
+<p>
+
+</p>
+<p>Where to begin?</p>
+<p>
+
+</p>
+<p>Lets cover off some resources I came across that I found useful and why.</p>
+<p>
+
+</p>
+<p>I would consider this page by Statsbomb required reading</p>
+<p>
+
+</p>
+<p>-<strong><a href="https://github.com/statsbomb/statsbombpy" target="_blank" rel="noreferrer noopener">Statsbombpy</a></strong> - essentially this is the package we will use.</p>
+<p>
+
+</p>
+<p>-<strong><a href="https://github.com/statsbomb/open-data" target="_blank" rel="noreferrer noopener">Statsbomb Open Data</a></strong> - Definitely worth reading the getting started section as our theory will come from this.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3044" src="../uploads/2021/12/screenshot-2021-12-12-at-19.59.25.png" alt="" /></figure>
+
+</p>
+<p>You might also want to dig through Statsbomb's terms and conditions, <strong><a href="https://www.statsbomb.com/resource-centre" target="_blank" rel="noreferrer noopener">here</a></strong> as a reference for future data usage. A final thing worth raising is to use <strong><a href="https://stackoverflow.com/" target="_blank" rel="noreferrer noopener">Stackoverflow</a></strong> for when you get stuck. Hopefully todays walk through gets you most of the datasets you need but this website comes in handy more times than not!</p>
+<p>
+
+</p>
+<p>Let's begin,</p>
+<p>
+
+</p>
+<p>If you'd like to download my code you can find it at the link under the title name in the github repo. We will look to explain the code as we go along.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3046" src="../uploads/2021/12/carbon.png" alt="" /></figure>
+
+</p>
+<p>You may have previously read viz legend <strong><a href="https://twitter.com/AlexanderVar7" target="_blank" rel="noreferrer noopener">Alexander Varlamov's</a></strong> tutorial on <strong><a href="https://coolbluedata.com/ordering-chaos/" target="_blank" rel="noreferrer noopener">extracting pass data</a></strong>. This too, was my starting point. In addition this <strong><a href="https://towardsdatascience.com/advanced-sports-visualization-with-pandas-matplotlib-and-seaborn-9c16df80a81b" target="_blank" rel="noreferrer noopener">towards data science blog</a></strong> has a run through of utilising the repo, to extract datasets.</p>
+<p>
+
+</p>
+<p>Luckily Statsbomb have made this alot easier to do now, but the theory from these blogs we will want to carry forward.</p>
+<p>
+
+</p>
+<p>What do I mean by that?</p>
+<p>
+
+</p>
+<p>Here is the repo for the <strong><a href="https://github.com/statsbomb/open-data" target="_blank" rel="noreferrer noopener">open data</a></strong>. We'll actually be using a package that stores this information but it will be useful as a reference point as we dive in, so will look to explore the folder structure. As we will be using a prebuilt package there is no requirement to download this repo specifically.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3026" src="../uploads/2021/12/screenshot-2021-12-11-at-15.38.02.png" alt="" /></figure>
+
+<figure class="wp-image"><img class="wp-image-3028" src="../uploads/2021/12/screenshot-2021-12-11-at-15.40.02.png" alt="" /></figure>
+
+</p>
+<p>I've chosen the FA Women's Super League data for this example. You will note that each competition has an ID associated to it (37 in this case) and each season for that competition will have an ID (90 in this case).</p>
+<p>
+
+</p>
+<p>Load up your Python IDE, I currently use Pycharm.</p>
+<p>
+
+</p>
+<p>You will want to pip install <strong>statsbombpy</strong>, pip install <strong>pandas</strong> and pip install <strong>numpy</strong> for this run-through.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3047" src="../uploads/2021/12/carbon-1.png" alt="" width="579" height="516" /></figure>
+
+</p>
+<p>Wow. So this gets all the competition details and exports it to a csv for us in a nice clean readable format. This dataset will host a whole range of different competitions with the season details and time frame of competition.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3064" src="../uploads/2021/12/screenshot-2021-12-12-at-20.25.15.png" alt="" /></figure>
+
+</p>
+<p>Small side note - You may see that Statsbomb print in the run space <strong>"credentials were not supplied. open data access only"</strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3081" src="../uploads/2021/12/screenshot-2021-12-13-at-19.23.03.png" alt="" width="557" height="24" /></figure>
+
+</p>
+<p>Fear not, this just means that we haven't provided details to access private paid for data, hence the reference to the open-data source at the start of the tutorial! If all goes as expected, your code will still finish with exit code 0.</p>
+<p>
+
+</p>
+<p>So let's next take the competition 37 and season 90 to find all the match details with this league. This refers to the 2020/21 WSL.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3049" src="../uploads/2021/12/carbon-2.png" alt="" width="577" height="269" /></figure>
+
+</p>
+<p>The WSL has 12 teams. So in our dataset we would expect to see (12*12)-12 matches. Thats 144-12=132. I.e Each team plays each other twice but can't play themselves.</p>
+<p>
+
+</p>
+<p>Interesting, our data only shows 131 records. Why is this? You will see the Tottenham - Birmingham game does not show as it was a <strong><a href="https://en.wikipedia.org/wiki/2020%E2%80%9321_FA_WSL" target="_blank" rel="noreferrer noopener">walkover.</a></strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3036" src="../uploads/2021/12/screenshot-2021-12-12-at-19.23.55.png" alt="" /></figure>
+
+</p>
+<p>Therefore, I am happy with the dataset. Again, we have exported it into a nice readable format. This dataset includes when the matches were played, the teams and score amongst other useful metrics.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3065" src="../uploads/2021/12/screenshot-2021-12-12-at-20.30.31.png" alt="" /></figure>
+
+</p>
+<p>So next we want to get the event details for a specific match. It looks like the Chelsea - Bristol game was an action packed game at 9-0. The match ID for this was 3764235. We follow the documentation to extract the event level data.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3050" src="../uploads/2021/12/carbon-3.png" alt="" width="531" height="282" /></figure>
+
+</p>
+<p>Next is a chunk of code that may get a little more confusing. Firstly, the location details in the event table need a little reformatting. In summary, we are splitting the values out into new columns holding coordinate integers.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3052" src="../uploads/2021/12/carbon-4.png" alt="" /></figure>
+
+</p>
+<p>We do the same type of transformation for the shot location column. The shot column doesn't always have three values in so we make sure to assign the x,y and z of the shot. Here is a before and after of the transformation we apply to the location field.</p>
+<p>
+
+</p>
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-3084" src="../uploads/2021/12/screenshot-2021-12-13-at-19.28.07.png" alt="" data-id="3084" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-3085" src="../uploads/2021/12/screenshot-2021-12-13-at-19.29.16.png" alt="" data-id="3085" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+<p>
+
+</p>
+<p>The final transformation I make is solely choosing the columns I want to keep within my final table. If you want the full list of columns you could remove this step and export the match events dataFrame to a csv.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3053" src="../uploads/2021/12/carbon-5.png" alt="" /></figure>
+
+</p>
+<p>The last thing we do is create a final dataset that takes all the shot events for the chosen match.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3055" src="../uploads/2021/12/carbon-6.png" alt="" /></figure>
+
+</p>
+<p>The shot event data is stored in a column that we have to unpack. Here is a before and after to show what the code is doing.</p>
+<p>
+
+</p>
+<p>What you will see is that the raw data previously held in "Shot freeze frame" column is now split out. The shot freeze frame column is only populated on where "type" is equal to "shot"</p>
+<p>
+
+</p>
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-3087" src="../uploads/2021/12/screenshot-2021-12-13-at-19.35.41.png" alt="" data-id="3087" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-3088" src="../uploads/2022/02/screenshot-2021-12-13-at-19.36.46.png" alt="" data-id="3088" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+<p>
+
+</p>
+<p>This new data is saved to a separate CSV (<strong>shot_freeze_frame</strong>).</p>
+<p>
+
+</p>
+<p>How can we double check this is correct? Well we can compare our 37 shots from the events data, and compare the id's to that seen in the freeze frame data by deduplicating it. It gives 37 unique id's.</p>
+<p>
+
+</p>
+<p>And there we have it, a short run through of how to go through multiple levels of StatsBomb data from competition level to individual event level.</p>
+<p>
+
+</p>
+<p>One last thing to note is that if we wanted to start visualising the shot data with the freeze frame added in we could left join our <strong>match_shot_freeze_frame</strong> dataset to <strong>match_events</strong> on <strong>id = id</strong>. This is the id of that specific event! (do not confuse it with match_id!!)</p>
+<p>
+
+</p>
+<p>As mentioned before we will look to build some visualisations off the back of the datasets created in future blogs.</p>
+<p>
+
+</p>
+<p><strong>Going further:</strong></p>
+<p>
+
+</p>
+<p>Why not try apply this logic to a different competition?</p>
+<p>
+
+</p>
+<p>Why not try capture all events within a competition using a loop?</p>
+<p>
+
+</p>
+<p>Try using the dataset to build a visualisation in Tableau</p>
+<p>
+
+</p>
+<p>Why not use some of the <strong><a href="https://mplsoccer.readthedocs.io/en/latest/gallery/index.html#pitches" target="_blank" rel="noreferrer noopener">MPLSoccer tutorials</a></strong>?</p>
+<p>
+
+</p>
+<p>Consider what further data preparations would be needed to transform the dataset for building out specific chart types, shot maps, freeze frames etc.</p>
+<p>
+
+</p>
+<p><strong>Here are some starting resources for when we start to visualise the data:</strong></p>
+<p>
+
+</p>
+<p><strong><a href="https://fcpython.com/visualisation/drawing-pass-map-python" target="_blank" rel="noreferrer noopener">Drawing a passmap.</a></strong></p>
+<p>
+
+</p>
+<p><strong><a href="https://towardsdatascience.com/advanced-sports-visualization-with-pandas-matplotlib-and-seaborn-9c16df80a81b" target="_blank" rel="noreferrer noopener">Advanced sports visualisations.</a></strong></p>
+<p>
+
+</p>
+<p><strong><a href="https://www.theinformationlab.co.uk/2015/08/10/tableau-for-sport-creating-pass-maps/" target="_blank" rel="noreferrer noopener">Pass maps by the information lab.</a></strong></p>
+<p>
+
+</p>
+<p><strong>LOGGING OFF,</strong></p>
+<p>
+
+</p>
+<p>CJ</p>
+<p></p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

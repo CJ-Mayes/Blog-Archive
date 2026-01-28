@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strava Maps Pt 2 - Prep Your GPX Files (Python) - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Strava Maps Pt 2 - Prep Your GPX Files (Python)</h1>Hi all,
+
+A few weeks back, I wrote a blog on how to manually extract your strava data, create the csv version of your gpx file and then be able to plot that map in Tableau.
+
+Well this week we will take one small part of that process and make it quicker easier through code.
+
+As a brief reminder. To download the data you will need to navigate to <strong><a href="https://www.strava.com/account">"My Account"</a></strong>
+
+<img src="../uploads/2023/04/1-1.png" class="alignnone size-full wp-image-6043" alt="" width="1129" height="639">
+
+<img src="../uploads/2023/04/3-2.png" class="alignnone size-full wp-image-6045" alt="" width="765" height="167">
+
+Click to Get started on download your stats. Once you go to download them it will send you a link to your email associated with the account
+
+<img src="../uploads/2023/04/data.png" class="alignnone size-full wp-image-6047" alt="" width="790" height="814">
+
+Within the activities.csv you will see an associated gpx file. These files are essentially the mappings for our different activities.
+
+<img src="../uploads/2023/04/gpx.png" class="alignnone size-full wp-image-6049" alt="" width="737" height="810">
+
+The only problem we had was... Tableau doesn't allow for gpx files, so we need to convert them into records of data.
+
+<img src="../uploads/2023/04/Capture2.png" class="alignnone size-full wp-image-6055" alt="" width="500" height="124">
+
+Now if you don't want to use python then by all means visit my previous blog, or navigate to <strong><a href="https://www.gpsvisualizer.com/convert_input?connect_segments=1&convert_add_distance=1&convert_add_pace=1&convert_format=gpx&units=metric">GPS Visualiser website.</a></strong>
+
+But this blog is all about how to more easily do this through code.
+
+Lets take my previous gpx file from when I ran the Paris Half back in March. You will find it in the Github repository at the top of the page. (8663587823.gpx)
+
+Open up a python IDE of your choice in my case I'm using pycharm.
+
+Go to your terminal and add
+
+pip install -U gpx-converter
+
+<img src="../uploads/2023/05/Screenshot-2023-05-07-at-21.06.03.png" class="alignnone size-full wp-image-6195" alt="" width="2458" height="450">
+
+Next thing, add the gpx file to your repository area.
+
+<img src="../uploads/2023/05/Screenshot-2023-05-07-at-21.07.11.png" class="alignnone size-full wp-image-6197" alt="" width="1938" height="312">
+
+All we need to do is update our code with the correct input file name and output file name and we are ready to hit run. For me, I've left them as the original strava activity numbers from my Strava page.
+
+<img src="../uploads/2023/05/Screenshot-2023-05-07-at-21.08.15.png" class="alignnone size-full wp-image-6198" alt="" width="1930" height="304">
+
+When we click run, you will see the csv version appear. Let's go to Tableau to see if it has worked.
+
+<img src="../uploads/2023/05/Screenshot-2023-05-07-at-21.09.29.png" class="alignnone size-full wp-image-6200" alt="" width="2536" height="1392">
+
+Looks pretty spot on. Do note, we need Time on path for Tableau to know in which order to draw the path for our longitude and latitude points.
+
+Fantastic, this way we have completely eliminated the need for using an online converter!
+
+Now this is okay but it only works for one gpx file at a time. So really we will need to create the equivalent for each of our files.
+
+LOOKING AT MULTIPLE FILES
+
+This next bit of code of course you can go away and amend.
+
+I've written it so that we get a csv for each of our gpx files, if you only want one final csv file perhaps you rewrite this code but I wanted individuals to have both available.
+
+For this bit of the tutorial I will be gluing together 10 gpx files, courtesy of my good friend Tom Smith. Tom actually got me into running in the first place, and I managed to dig out a few of his 10K badges from back in 2021 (before he moved home) that inspired me to take it more seriously.
+
+<img src="../uploads/2023/05/Screenshot-2023-05-07-at-23.30.46.png" class="alignnone size-full wp-image-6203" alt="" width="460" height="524">
+
+First step is put your gpx files into a folder, like above.
+
+<img src="../uploads/2023/05/Screenshot-2023-05-07-at-23.30.40.png" class="alignnone size-full wp-image-6204" alt="" width="1656" height="526">
+
+This code snippet will convert the gpx file to a dataframe and add a column with the name of the gpx file. It will then save these files down to a chosen location as csvs, In this example I save them to a folder I created called OutputFiles. This means you will have a csv for each activity.
+
+<img src="../uploads/2023/05/Screenshot-2023-05-07-at-23.33.44.png" class="alignnone size-full wp-image-6206" alt="" width="1540" height="534">
+
+The next bit of code looks to locate the output files and then glue them together. It's save this final document down as All_Data.csv
+
+You'll see it appear in the folder.
+
+<img src="../uploads/2023/05/Screenshot-2023-05-07-at-23.36.29.png" class="alignnone size-full wp-image-6209" alt="" width="472" height="566">
+
+We can finally sense check that our data is correct. We see that the number of rows adds up to those of our 12 files.
+
+We can also throw it into Tableau to check that it works the way we intend. Here are some of those runs as overlays.
+
+<img src="../uploads/2023/05/Screenshot-2023-05-07-at-23.28.09.png" class="alignnone size-full wp-image-6211" alt="" width="2204" height="1404">
+
+That should be everything needed in terms of automating the gpx part of the process.
+
+If you get stuck I recommend checking out the documentation <strong><a href="https://pypi.org/project/gpx-converter/">here</a></strong>
+
+My plan down the line is to be able to build full automated workflows for Strava dashboards for those that join my online fitness club. You can join <strong><a href="https://www.strava.com/clubs/CJ-Fitness">here. </a></strong>
+
+Going further:
+<ul>
+ 	<li>Chart all your different activities that have maps</li>
+ 	<li>Create the same automation with a coding language of your choice</li>
+ 	<li>Improve the performance of the python code</li>
+</ul>Healthy body, healthy mind.
+
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn and Share Cycles with Marc Reid - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Learn and Share Cycles with Marc Reid</h1><p></p>
+<p>Hi All,</p>
+<p>
+
+</p>
+<p>Welcome to the April episode of <strong>“What’s Good?” </strong></p>
+<p>
+
+</p>
+<p>I had a bit of a reminiscing moment writing this month’s blog, casting my mind back to 2019. I was sitting in what was then the London Bridge office of Lloyds Banking Group and caught wind we had hired an ambassador. Buzzing! I sat down with Marc 1:1 to get to know him better, we traded stories and I vividly remember him telling me about his contracting days as well as some <strong><a href="https://public.tableau.com/app/profile/marc.reid/viz/TravelMap-2008-2011/Travel2008-2011" target="_blank" rel="noreferrer noopener">awesome travelling</a></strong> he had done.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3756" src="../uploads/2022/03/travel-2008-2011.png" alt="" /></figure>
+
+</p>
+<p><strong>STARTING THE CYCLE</strong></p>
+<p>
+
+</p>
+<p><strong>CJ: Marc thank you for joining! For those that don’t know, how did you get started in the data industry? </strong></p>
+<p>
+
+</p>
+<p>MR: Thanks for the invite, CJ. A lot’s happened in the few years since we first met - it’s been great to see your presence in the Tableau Community develop so much.</p>
+<p>
+
+</p>
+<p>I was always interested in technology growing up and went on to study Software Engineering but then had a swift change of heart and within a year of working as a programmer after university, I left that role and went to teach English in Spain for a year. When I returned I moved into a Business Analyst role and then, after some time out travelling, studied for an MSc in Business Intelligence part-time, which helped me to move into a more data focussed role. After a company restructure, I had the opportunity to refocus my career and moved into visual analytics by joining <a href="https://www.thedataschool.co.uk/" target="_blank" rel="noreferrer noopener"><strong>The Data School</strong></a> programme at The Information Lab and have since worked in data analysis and visualisation roles.</p>
+<p>
+
+</p>
+<p><strong>CJ: During your time at The Data School, you had placements with UBS, JLL (Woo!) and Ocado. How did you find experiencing different companies in terms of aiding your understanding of different data problems and requirements? </strong></p>
+<p>
+
+</p>
+<p>MR: Different working environments, teams and business problems all make for a great learning experience as you have the opportunity to interact with a variety of people all of whom you can learn from, be it technically, approaches to problem solving or methods of communication etc. It’s also helped me grow and better understand the type of environment that I’m happier and more productive working in as well as the type of work I’m most enthusiastic about - data analysis and visualisation. </p>
+<p>
+
+</p>
+<p><strong>CJ: The one question I get asked a bunch is, where do I look to start learning Tableau, or even more broadly data visualisation concepts? Do you have any recommendations in mind from both a visual (books / blogs) as well as Audio perspective? (<a href="https://www.youtube.com/marcreid" target="_blank" rel="noreferrer noopener">Youtube </a>/ Videos / Seminars?) How have these influenced your journey?  (<span style="text-decoration: underline;">Marcs <a href="https://www.youtube.com/marcreid" target="_blank" rel="noreferrer noopener">Youtube</a></span>, <span style="text-decoration: underline;">Marcs <a href="https://datavis.blog" target="_blank" rel="noreferrer noopener">Blog</a></span>) </strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3795" src="../uploads/2022/03/image-2.png" alt="" /></figure>
+
+</p>
+<p>MR: Books have been my main resource for learning about data visualisation, the first of which was Edward Tufte’s <a href="https://www.amazon.co.uk/Visual-Display-Quantitative-Information/dp/0961392142"><em><strong>The Visual Display of Quantitative Information</strong></em></a>, which I read many years ago and, as someone completely new to data vis at the time, found it revelatory.</p>
+<p>
+
+</p>
+<p>Below is one of my favourite quotes from the book:</p>
+<p>
+
+</p>
+<p><strong>“Graphical excellence is that which gives to the viewer the greatest number of ideas in the shortest time with the least ink in the smallest space.” - Edward Tufte</strong></p>
+<p>
+
+</p>
+<p>There will be exceptions and caveats to the above, of course, but as a starting point, especially in a business context, I’ve found it helpful.</p>
+<p>
+
+</p>
+<p>Commentary on Tufte’s work has certainly been more mixed in recent years, but that book taught me a lot and, more importantly, piqued an interest that I’ve been happy to develop in more depth over the last five years.</p>
+<p>
+
+</p>
+<p>In regards to recommendations, I’ve found all the below books helpful in different ways:</p>
+<p>
+
+<figure class="wp-image"><img src="https://lh3.googleusercontent.com/2rAmt9nejx3eSDYmONfpOLbnKwi9_VEp0EHAQudU8t-AeOOSOiHsDk1NoOmvxDNpDlCcTqzaCiQ2N1jQSsXZncmPaw37jzNvA4hApXSij5MBw45ueIQOco7-aSFkY5fMzS4UqQDZ" alt="" /></figure>
+
+</p>
+<p>These two books would be a great place to start:</p>
+<p>
+
+</p>
+<ul>
+<li>
+<p><a href="https://www.amazon.co.uk/Functional-Art-introduction-information-visualization/dp/0321834739" target="_blank" rel="noreferrer noopener"><em><strong>The Functional Art</strong></em></a>, by Alberto Cairo</p>
+</li>
+<li>
+<p><em><a href="https://www.amazon.co.uk/Visualization-Handbook-Jonatan-Hilden-Koponen/dp/9526074491/" target="_blank" rel="noreferrer noopener"><strong>Data Visualization Handbook</strong></a></em>, by Juuso Koponen and Jonatan Hildén</p>
+</li>
+</ul>
+<p>
+
+</p>
+<p>In regards to learning Tableau specifically, I’ve tended to focus more on hands-on practice and experimenting along with online resources, of which there are no shortage for getting started:</p>
+<p>
+
+</p>
+<ul>
+<li>
+<p>Tableau’s online <strong><a href="https://www.tableau.com/en-gb/learn/training/20214" target="_blank" rel="noreferrer noopener">free videos</a> </strong></p>
+</li>
+<li>
+<p>The <a href="https://www.tableau.com/learn/starter-kits" target="_blank" rel="noreferrer noopener"><strong>Tableau Starter Kit</strong></a> provides a guided learning path with many resources</p>
+</li>
+<li>
+<p>Ask a question on the Tableau <a href="https://community.tableau.com/s/explore-forums" target="_blank" rel="noreferrer noopener"><strong>Forums</strong></a></p>
+</li>
+<li>
+<p>Take part in a Tableau <a href="https://www.tableau.com/community/community-projects" target="_blank" rel="noreferrer noopener"><strong>community projects</strong></a> (more on these later)</p>
+</li>
+<li>
+<p>Attend one of the many Tableau <a href="https://www.tableau.com/community/user-groups" target="_blank" rel="noreferrer noopener"><strong>User Groups</strong></a></p>
+</li>
+<li>
+<p>Community blog posts and YouTube videos - read the monthly and weekly editions of the “<a href="https://www.tableau.com/about/blog/2022/3/best-tableau-web-february-2022" target="_blank" rel="noreferrer noopener"><strong>Best of the Tableau Web</strong></a>” and “<a href="https://www.tableau.com/community/blog/2022/3/datafam-roundup-march-7-11-2022" target="_blank" rel="noreferrer noopener"><strong>DataFam Roundup</strong></a>” posts for links to recent content from a variety of contributors.</p>
+</li>
+<li>
+<p>A number of excellent books have also been written by experts in the Tableau community: <strong><a href="https://www.amazon.co.uk/MakeoverMonday-Improving-Visualize-Analyze-Chart/dp/1119510775/" target="_blank" rel="noreferrer noopener">Andy Kriebel &amp; Eva Murray</a>, <a href="https://www.amazon.co.uk/Tableau-Strategies-Practical-Problems-Analytics/dp/149208008X/" target="_blank" rel="noreferrer noopener">Ann Jackson &amp; Luke Stanke</a>, <a href="https://www.amazon.co.uk/Tableau-Prep-Running-Preparation-Analysis/dp/1492079626/" target="_blank" rel="noreferrer noopener">Carl Alchin</a>, <a href="https://www.amazon.co.uk/Learning-Tableau-2020-visualizations-organization/dp/1800200366/" target="_blank" rel="noreferrer noopener">Josh Milligan</a>, <a href="https://www.amazon.co.uk/Data-Visualization-Health-Healthcare-Professionals/dp/1119680883/" target="_blank" rel="noreferrer noopener">Lindsey Betzendahl et al.</a>, <a href="https://www.amazon.co.uk/Tableau-Desktop-Cookbook-Recipes-Navigate/dp/1492090115/" target="_blank" rel="noreferrer noopener">Lorna Brown</a>, <a href="https://www.amazon.co.uk/Big-Book-Dashboards-Visualizing-Real-World/dp/1119282713/" target="_blank" rel="noreferrer noopener">Steve Wexler, Jeffrey Shaffer &amp; Andy Cotgreave</a></strong></p>
+</li>
+</ul>
+<p>
+
+</p>
+<p>Practice is really the most important thing. Once you’re comfortable with the interface and building basic charts, find some data that interests you, be it film, sports, politics or maybe <a href="https://public.tableau.com/views/HumanSpaceFlight-1961-2021/HumanSpaceFlightMetrics?:language=en-GB&amp;:display_count=n&amp;:origin=viz_share_link" target="_blank" rel="noreferrer noopener"><strong>space travel</strong></a> and then practice with it. Ask questions of the data that you’re genuinely curious to find the answers to and then set out to answer them. You’ll be motivated if you’re exploring data that has a real meaning to you.</p>
+<p>
+
+</p>
+<p><strong>CJ Add on: How do you prevent feeling overwhelmed by the number and breadth of different channels to consume knowledge through? Is there such thing as a one size fits all learning plan for Tableau?</strong></p>
+<p>
+
+</p>
+<p>MR: One amazing quality of the Tableau community is the willingness of its many members to contribute content to help others. Trying to consume all of it, along with all the books, videos, TUG recordings and so on will be exhausting. See <a href="https://twitter.com/DataRevelations" target="_blank" rel="noreferrer noopener"><strong>Steve Wexler</strong></a>’s<strong> <a href="https://www.datarevelations.com/give-yourself-a-break/" target="_blank" rel="noreferrer noopener">blog post</a></strong> on this very topic, which includes these parting words: “Try to be inspired, and not overwhelmed, by all that you see around you.”</p>
+<p>
+
+</p>
+<p>On many occasions I’ve found myself clicking links to Tableau resources as I scroll through twitter with the best intention that I ‘must read this later’. By the end of the day, with 20+ browser tabs open and the certainty there’ll be another 20+ links tomorrow and the day after that, I’ve had to accept that it’s just not possible to read, watch and interact with everything that such a prolific community has to share. </p>
+<p>
+
+</p>
+<p>I’d recommend browsing the different forms of content from a variety of authors and see what resonates with you. The round-up posts mentioned earlier are very helpful in highlighting new writing, videos, visualisations and projects that you can learn from and participate in.</p>
+<p>
+
+</p>
+<p>Regarding a fixed learning path, there are some key concepts that it’s important to learn early on, such as the different pill types (also known as <strong><a href="https://www.theinformationlab.co.uk/2011/09/23/blue-things-and-green-things/" target="_blank" rel="noreferrer noopener">blue things and green things</a>,</strong> by <a href="https://twitter.com/_tombrown_" target="_blank" rel="noreferrer noopener"><strong>Tom Brown</strong></a>) and Tableau’s free videos and starter kit mentioned previously walk through those key topics. </p>
+<p>
+
+</p>
+<p>Once you have the foundations down, learning becomes, at least in my own experience, more open ended and you’ll naturally go down rabbit holes as you bump up against new concepts such as <a href="http://drawingwithnumbers.artisart.org/at-the-level-unlocking-the-mystery-part-1-ordinal-calcs/" target="_blank" rel="noreferrer noopener"><strong>addressing and partitioning</strong></a>, <a href="https://www.dataplusscience.com/DataDensification.html" target="_blank" rel="noreferrer noopener"><strong>data densification</strong></a> or <a href="https://www.flerlagetwins.com/2019/03/date-scaffold.html" target="_blank" rel="noreferrer noopener"><strong>scaffolding</strong></a> as and when you need them. Personally, I’ve found that’s the best time to learn those new concepts, at the time you need them and with a real use case in which to apply them.</p>
+<p>
+
+</p>
+<p><strong>DEVELOPING &amp; GROWING</strong></p>
+<p>
+
+</p>
+<p><strong>CJ: If we reflect on your journey so far. You get a strong sense of community projects especially in your earlier years, on Makeover Monday and WorkoutWednesday. How did these play a part in your development?</strong></p>
+<p>
+
+</p>
+<p>MR: The Tableau community projects have been instrumental to my growth in different ways.</p>
+<p>
+
+</p>
+<p><a href="https://www.workout-wednesday.com/" target="_blank" rel="noreferrer noopener"><strong>#W</strong></a><strong><a href="https://www.workout-wednesday.com/" target="_blank" rel="noreferrer noopener">orkoutWednesday</a> </strong>helped me develop technically. Each challenge has a predefined end goal and often focuses on a particular feature or approach to solving a problem. How you get to that end goal may differ - the person setting the challenge may have used an LOD, but you use a window calculation, for example - which provides a great learning opportunity; seeing different approaches to solve the same problem.</p>
+<p>
+
+</p>
+<p>I’ve completed over 90 WoW challenges, all of which are downloadable from my Tableau Public profile. For guidance and worked solutions, I highly recommend the blogs of <a href="https://donnacoles.home.blog/blog/" target="_blank" rel="noreferrer noopener"><strong>Donna Coles</strong></a> and <a href="https://rosariogaunag.wordpress.com/category/english/" target="_blank" rel="noreferrer noopener"><strong>Rosario Gauna</strong></a> as well video solutions by <a href="https://www.youtube.com/channel/UCGX75ZUtorvdYIdVIq7KQFw" target="_blank" rel="noreferrer noopener"><strong>Sean Miller</strong></a> and other members of the <a href="https://www.workout-wednesday.com/team/" target="_blank" rel="noreferrer noopener"><strong>WoW team</strong></a>.</p>
+<p>
+
+</p>
+<p><strong><a href="https://www.makeovermonday.co.uk/" target="_blank" rel="noreferrer noopener">#MakeoverMonday</a> </strong>helped improve my data vis design as, similar to WoW, there was a common starting point with everyone using the same dataset and source visualisation, but the end design participants create is completely open. The result was always a diverse set of visualisations, styles and approaches, along with more learning opportunities as you see how others have interpreted and visualised the data and story. That could be in regards to the overall design, or the details such as the title someone used, the spacing, the legend and so on, which, week after week, all add up to refine your skills over time. </p>
+<p>
+
+</p>
+<p>I’ve been less active in other projects, unfortunately, but wherever I’ve participated, they’ve all provided an opportunity to practice and improve with Tableau. I highly recommend taking part in <a href="https://www.tableau.com/community/community-projects" target="_blank" rel="noreferrer noopener"><strong>community projects</strong></a> wherever you have the available time and motivation.</p>
+<p>
+
+</p>
+<p><strong>CJ: <a href="https://public.tableau.com/app/profile/marc.reid#!/" target="_blank" rel="noreferrer noopener">227 vizzes later</a>, we reach today. I certainly associate some of your past years or so’s work strongly to beta testing new features. Was being at the forefront of new Tableau concepts something that’s always interested you or did it come about naturally with time?</strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3804" src="../uploads/2022/03/world-indicators.png" alt="" /></figure>
+
+</p>
+<p>MR: I think the technical background along with having done software testing as part of some previous roles led me towards wanting to beta test new features. Finding out what’s possible with new functionality, the new types of analysis they enable and new user experiences they afford is an area I find very interesting. It's always fun to receive that notification that the latest beta version is available for download.</p>
+<p>
+
+</p>
+<p>It’s also led to some very constructive conversations with Product Managers to discuss feedback I’ve provided and learn more about new feature use cases and ongoing development. </p>
+<p>
+
+</p>
+<p>I’d encourage people to get involved with the <a href="https://prerelease.tableau.com/welcome/" target="_blank" rel="noreferrer noopener"><strong>beta program</strong></a> and to provide feedback - it really helps ensure the final shipped product is the best it can be.</p>
+<p>
+
+</p>
+<p><strong>CJ: As someone who has produced a lot of blogs and visualisations helping others understand new features, Is there anything that is on your wishlist for future iterations of Tableau releases? More broadly what direction do you see the tool going with respect to usability, formatting and ease of navigation?</strong></p>
+<p>
+
+</p>
+<p>MR: It looks like there’s currently over <strong><a href="https://community.tableau.com/s/ideas?tabset-f7e2e=694e1" target="_blank" rel="noreferrer noopener">8,000 open ideas</a> </strong>on the ideas forum so the Product Managers certainly have plenty to choose from! Tableau has done a great job introducing significant features to the product suite - explain data, ask data, data lineage etc. and these features add huge value, as well as help to sell the product, of course. </p>
+<p>
+
+</p>
+<p>That said, I think it would also add a lot of value to develop or fine tune existing parts of the product further such as formatting, dashboard construction and layout to ensure the user experience for analysts spending the most time in the product is as fluent and efficient as it can be.</p>
+<p>
+
+</p>
+<p>It seems fairly clear that there is an ongoing move to the web, based on the continuous development of the web editor and with Tableau Prep being effectively web-native, all of which makes a lot of sense given the flexibility web-based platforms offer.</p>
+<p>
+
+</p>
+<p>As for completely new features and product direction, I’ll be watching Devs on Stage at Tableau Conference like everyone else to be the first to know!</p>
+<p>
+
+</p>
+<p><strong>CJ: I think your content with regards to maps in terms of layers, data prep, buffer, and drill down abilities all progressed the community's functionality with maps. Of all your map work, what do you think the most important takeaways have been?</strong></p>
+<p>
+
+</p>
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-3774" src="../uploads/2022/03/maptrix.png" alt="" data-id="3774" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-3776" src="../uploads/2022/03/tableau-map-layers.png" alt="" data-id="3776" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+<p>
+
+</p>
+<p>MR: If you’ve never worked with spatial data before, maps can seem a bit intimidating. Fortunately, it’s quick and easy to get started with maps in Tableau, sometimes only requiring the double-click of a geographic field, so that’s the first thing I’d emphasise.</p>
+<p>
+
+</p>
+<p>The spatial capabilities of Tableau continue to evolve. It’s now possible to add a practically unlimited number of map layers to a map all from separate data sources. A range of new <a href="https://help.tableau.com/current/pro/desktop/en-us/functions_functions_spatial.htm" target="_blank" rel="noreferrer noopener"><strong>spatial functions</strong></a> has also become available in the last few years and combining some or all of these new features enables some powerful spatial analysis all within Tableau.</p>
+<p>
+
+</p>
+<p>The primary source of information I would recommend in regards to mapping in Tableau are the many <a href="https://public.tableau.com/app/profile/sarah.battersby" target="_blank" rel="noreferrer noopener"><strong>workbooks</strong></a> and <a href="https://community.tableau.com/s/profile/0054T000001NkUyQAK?tabset-3835d=0cd81" target="_blank" rel="noreferrer noopener"><strong>blogs</strong></a> created by <a href="https://twitter.com/mapsOverlord" target="_blank" rel="noreferrer noopener"><strong>Sarah Battersby</strong></a>, and this <a href="https://community.tableau.com/s/news/a0A4T000002gyGtUAI/maps-geocoding-faq" target="_blank" rel="noreferrer noopener"><strong>FAQ blog</strong></a> is a great place to start.</p>
+<p>
+
+</p>
+<p>Tableau (and other tools) sometimes receive criticism for using the mercator map projection as this causes distortion when mapping larger areas, especially farther away from the equator. While it’s not an ‘out-of-the-box’ technique, it is possible to use alternative map projections in Tableau. See this multi-part <strong><a href="https://community.tableau.com/s/news/a0A4T000001v7TEUAY/working-with-projected-data-in-tableau-part-i-map-projection-basics" target="_blank" rel="noreferrer noopener">blog post</a> </strong>by Sarah for more details.</p>
+<p>
+
+</p>
+<p>Finally, as much as I like maps, it’s important to ask if a map is the right visualisation based on the use case and the analysis you’re performing. As Jonathan Schwabish says in his book, <em>Better Data Visualizations</em>, “Many maps are made simply because the creator has geographic data, not because the map is the best medium for that content”.</p>
+<p>
+
+</p>
+<p>CJ Add on: Random fact, watching Marc present at the London TUG two years ago on buffer calculations was the first Tableau event I went to, and I also think it's been the last in-person London TUG since.</p>
+<p>
+
+</p>
+<p><strong>CJ: Another heavy chunk of focus you did was around parameter actions as well as animations. Is there anything from this that you think revolutionised how we utilise Tableau?</strong></p>
+<p>
+
+</p>
+<p>MR: The introduction of parameter actions, show/hide containers and other features made version 2019.2 a major release. It opened up all kinds of new opportunities for direct interaction with our data. One concept I mentioned in a roundup <a href="https://datavis.blog/2019/05/28/tableau-2019-2/" target="_blank" rel="noreferrer noopener"><strong>blog post</strong></a> at the time was the idea of dashboards potentially becoming more like applications due to the new forms of interaction that these features made possible. Not to suggest that this is what <em>should </em>happen - and certainly not in all cases, but it became a real possibility. </p>
+<p>
+
+</p>
+<p>One example of this is the ability to replace the standard UI objects available in Tableau with data driven versions that also provide insights directly from your source data, additionally, specific data sources can be added to drive these custom UI controls, something I discussed in <a href="https://bit.ly/3MsPjCE" target="_blank" rel="noreferrer noopener"><strong>this talk</strong></a> at The Data School, which included this diagram as an example.</p>
+<p>
+
+<figure class="wp-image"><img src="https://lh4.googleusercontent.com/JuuxPuNPQXDkxYNzv8SFkCZm1CFCZFBESGNsJRKISsk6IWLb2p8kBtjxu6o4PWdKTSlQ8-Aar9s2YReSq293d2iqGvImxUn520RW17jEC8hezoQmUG4uiBZb8VN5xv6fCMELJp-s" alt="" /></figure>
+
+</p>
+<p>This <strong><a href="https://public.tableau.com/app/profile/sparsonsdataviz/viz/CompanyProfitSuperstoreInsights/CompanyProfitability" target="_blank" rel="noreferrer noopener">dashboard</a></strong> from <a href="https://twitter.com/SParsonsDataViz" target="_blank" rel="noreferrer noopener"><strong>Sam Parson</strong></a> and this recent <a href="https://public.tableau.com/app/profile/autumnbattani/viz/CallCenterDashboard_16473949711330/Overview" target="_blank" rel="noreferrer noopener"><strong>dashboard</strong></a> from <a href="https://twitter.com/aabattani" target="_blank" rel="noreferrer noopener"><strong>Autumn Battani</strong></a> are two of many examples that have been shared in the community highlighting the types of user experience it’s now possible to create with this new functionality.</p>
+<p>
+
+</p>
+<p>There’s many great blog posts exploring parameter actions, such as these from <strong><a href="https://canonicalized.com/parameter-actions-toggle-containers-tableau/" target="_blank" rel="noreferrer noopener">Dorian Banutoiu</a>, <a href="https://rosariogaunag.wordpress.com/2022/01/10/technique-drill-down-drill-up-in-separate-sheets/" target="_blank" rel="noreferrer noopener">Rosario Gauna</a> and <a href="https://medium.com/@flymperopoulos/parameter-actions-year-over-year-comparison-320a9a896553" target="_blank" rel="noreferrer noopener">Filippos Lymperopoulos</a>.</strong></p>
+<p>
+
+</p>
+<p>Animation was a long awaited feature and received a very positive reception in the community when it was released in 2020.1. Its impact has been more subtle I would say, but also more prevalent, especially now they are enabled by default, as you frequently see them in visualisations shared in the community as filters and sorting options are changed.</p>
+<p>
+
+</p>
+<p>The object constancy that animations enable reduces the cognitive burden when tracking moving marks in the view, improving comprehension. I discussed the advantages of animation <a href="https://datavis.blog/2020/01/21/tableau-animated-transitions/" target="_blank" rel="noreferrer noopener"><strong>here</strong></a> and went into some detail on how animated transitions are implemented in Tableau in this <a href="https://tabsoft.co/3fWqFIY" target="_blank" rel="noreferrer noopener"><strong>workbook</strong></a> and <strong><a href="https://datavis.blog/2020/08/14/tableau-animation-core-concepts/" target="_blank" rel="noreferrer noopener">blog post</a>,</strong> which also contains links to a number of animation examples from the community. (snippet below)</p>
+<p>
+
+</p>
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-3779" src="../uploads/2022/03/4.what-is-a-mark-id_.png" alt="" data-id="3779" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-3780" src="../uploads/2022/03/3.view-lod.png" alt="" data-id="3780" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-3781" src="../uploads/2022/03/2.what-is-a-mark_.png" alt="" data-id="3781" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-3782" src="../uploads/2022/03/1.-introduction-1.png" alt="" data-id="3782" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+<p>
+
+</p>
+<p><strong>CJ: Over your 5 years of Tableau usage you must have slowly created a mental image of dos and don’ts / best practice guide for developing dashboards. Are there any golden rules you can share, especially in relation to your public vizzes?</strong></p>
+<p>
+
+</p>
+<p>MR: In the context of business dashboards, the main advice I would offer is: <strong>keep it simple</strong>.  Simple charts will help your dashboard consumers answer the vast majority of their questions. Especially when those charts have been created with your consumers' questions in mind. See <a href="https://twitter.com/lisacmuth" target="_blank" rel="noreferrer noopener"><strong>Lisa Muth</strong></a>’s excellent <a href="https://blog.datawrapper.de/in-defense-of-simple-charts/" target="_blank" rel="noreferrer noopener"><strong>blog post</strong></a> for more on the value of ‘simple charts’.</p>
+<p>
+
+</p>
+<p>Try to put yourself in the situation of the consumer of the data visualisation you’re creating, seeing this information in this format for the first time. Does your visualisation - the charts choices, functionality and design - enable your intended audience to answer the questions they might have effectively and efficiently?</p>
+<p>
+
+</p>
+<p><strong>CJ: I think one thing that is often missing from people's development is ‘reverse-engineering’ visualisations. Has there been anything in the community that made you want to go do this? What actions do you tend to go through when trying to understand the creation of someone else's visualisation? </strong></p>
+<p>
+
+</p>
+<p>Yes, reverse engineering can be very helpful, especially for specific elements or techniques that you’ve not seen before. The degree of learning will often be dependent on how well documented the calculations are, which I must admit is not something I’ve always done as well as I should have on my public work, though I have improved.</p>
+<p>
+
+</p>
+<p>I don’t really have a defined process for reverse engineering, but a few steps I might take are:</p>
+<p>
+
+</p>
+<ul>
+<li>
+<p>Viewing calculations</p>
+</li>
+<li>
+<p>Removing pills to see what changes in the visualisation</p>
+</li>
+<li>
+<p>Deleting sheets on a dashboard one by one to understand any layering that’s used</p>
+</li>
+<li>
+<p>Changing parameter values to see what changes etc.</p>
+</li>
+</ul>
+<p>
+
+</p>
+<p>There’s over 220 downloadable workbooks on my profile as I write this, some of which have an associated blog post or video to explain more about the build process or any unusual techniques but if anyone has questions you are welcome to DM me on <a href="https://twitter.com/marcreid" target="_blank" rel="noreferrer noopener"><strong>Twitter</strong></a>.</p>
+<p>
+
+</p>
+<p>If you are working on something out of the ordinary and are keen to share with the community I’d encourage you to write a blog post to provide more insights and explanation as it can really help (along with documenting calculations, of course!). </p>
+<p>
+
+</p>
+<p><strong>SHARING KNOWLEDGE</strong></p>
+<p>
+
+</p>
+<p><strong>CJ: So we’ve discussed a few channels of learning by doing. What’s your opinion on certifications in the data space? I know you have quite a few yourself, do they act well as confirmation of your level of skillset?</strong></p>
+<p>
+
+</p>
+<p>MR: Personally, I’ve found the process of preparing for and taking the certifications extremely helpful to my learning. As I’ve worked my way through different exam guides, it’s directed me to areas of the products I might use less frequently as well as leading to a number of ‘aha’ moments and broadened my appreciation for the full product suite, what’s possible, and how the products interrelate. </p>
+<p>
+
+</p>
+<p><a href="https://twitter.com/mtedw" target="_blank" rel="noreferrer noopener"><strong>Mark Edwards</strong></a> (a big advocate for certification) sums it up quite well in his <a href="http://pointsofviz.com/tableau-certification-everything-you-wanted-to-know-but-were-afraid-to-ask/" target="_blank" rel="noreferrer noopener"><strong>blog post</strong></a> on the topic:</p>
+<p>
+
+</p>
+<p>“The exams are not cheap, but the rewards are real. For me, this comes in two parts – how others perceive your skills, and how you perceive your own abilities”.</p>
+<p>
+
+</p>
+<p>See also this <a href="https://twitter.com/mtedw/status/1278658092616560642" target="_blank" rel="noreferrer noopener"><strong>twitter thread</strong></a> from Mark with a number of links to resources and profiles of people who have shared their experiences of getting certified.</p>
+<p>
+
+</p>
+<p><strong>CJ: It’s interesting to see that a lot of your work is functionality based. When you explore more the design remit you end up with multiple VOTD’s!!! Is sharing concepts, new features something you now prioritise?</strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3790" src="../uploads/2022/03/singapore-national-day-2020-2.png" alt="" /></figure>
+
+</p>
+<p>MR: This has changed over time. My early Tableau public work was a mix of various community projects and experiments, with a focus on practising as much as possible to try and improve my design and general Tableau abilities. Over the last few years, exploring and sharing what’s possible with new functionality and creating educational content has been more of a focus and I see that continuing as I find it very rewarding.</p>
+<p>
+
+</p>
+<p>To be honest, creating really striking designs is not my strength, though my design skills have improved over time through general data vis education and through emulating and being inspired by the work of others who excel in this area. A list of those who have provided inspiration would be too long to include here but as a starting point I highly recommend following all the <a href="https://www.tableau.com/community/community-leaders/ambassadors#tableau-public" target="_blank" rel="noreferrer noopener"><strong>Tableau Public Ambassadors</strong></a> for countless examples of exceptional work.</p>
+<p>
+
+</p>
+<p>CJ add on: I politely disagree with Marc saying striking design is not his strength. The Singapore viz above is testament to that.</p>
+<p>
+
+</p>
+<p><strong>CJ: March 2020 is actually the ONLY month since January 2019 you didn’t put out a new blog for that month. Yes, that is 36 months worth of content! What is it you enjoy about sharing knowledge with others? Why is it important for you to continue this sharing of knowledge? Does the impact it has technically, in emotional reward or consolidation of personal skills drive this -  if any?</strong></p>
+<p>
+
+</p>
+<p>MR: Prior to my time at The Data School, I’d never blogged (or tweeted for that matter) and had minimal presence online. But after blogging throughout those two years I’d formed a habit and found it very helpful for my own learning, so after finishing there I set up a simple blog on Wordpress and have been writing every month since.</p>
+<p>
+
+</p>
+<p>I’ve learnt, and continue to learn, a lot from other people’s blogs so it feels good to give back and share what I’m learning in my own words. It’s also a reminder, as well as a way to motivate myself to keep learning and not sit back on what I already know; there’s always a new feature to explore, a new technique to try or a new way to explain a fundamental concept. </p>
+<p>
+
+</p>
+<p><strong>CJ:  I’m loving your new Youtube videos too now. What inspired that new channel of information?</strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3787" src="../uploads/2022/03/image-1.png" alt="" width="888" height="371" /></figure>
+
+</p>
+<p>MR: Thanks, CJ. It’s been a bit of a step into the unknown for me in terms of the technology, software and the overall process of recording and editing videos. It’s also taken me out of my comfort zone somewhat as recording my own voice feels more personal than words on a screen but I’m enjoying the experience so far.</p>
+<p>
+
+</p>
+<p>I’ll admit my process is slightly over engineered compared to what’s essential - I’m using a mix of software tools including a relatively advanced editing tool (DaVinci Resolve), which has its own learning curve but, again, I really enjoy the learning process and discovering what’s possible. As an aside, I also feel that having some basic video production and editing skills is useful given their transferability.</p>
+<p>
+
+</p>
+<p>In terms of inspiration, that came partly from something I’ve heard <a href="https://www.youtube.com/channel/UC7HYxRWmaNlJux-X7rNLZyw" target="_blank" rel="noreferrer noopener"><strong>Tim Ngwena</strong></a> say a few times about people’s different learning styles and how blogs are not always the most accessible forms of media for everyone. Hopefully these videos will help more people interested in Tableau who have a preference to consume content and learn through audio/visual media. I highly recommend browsing through the library of content on Tim’s <a href="https://www.youtube.com/channel/UC7HYxRWmaNlJux-X7rNLZyw" target="_blank" rel="noreferrer noopener"><strong>YouTube channel</strong></a>.</p>
+<p>
+
+</p>
+<p><strong>CJ: What advice would you give to those that are at a stage of wanting to give back more in the community? Do you have any specific tips in regards to starting a blog or youtube channel? </strong></p>
+<p>
+
+</p>
+<p>MR: The short answer is ‘give it a go’ as there’s nothing to lose and, whatever happens, you will learn from the experience. The main blogging platforms typically offer a free tier, site templates and don’t require any coding. YouTube took a bit more effort, for me at least, but some may prefer that medium. Again, the platform is free to use and you can start with a basic screen recorder or use a mobile phone or webcam if you want to appear in the video as well.</p>
+<p>
+
+</p>
+<p>For more advice, I’d recommend this <a href="https://sarahlovesdata.co.uk/2017/11/14/the-benefits-of-blogging/" target="_blank" rel="noreferrer noopener"><strong>blog post</strong></a> by <strong><a href="https://twitter.com/sarahlovesdata" target="_blank" rel="noreferrer noopener">Sarah Bartlet</a></strong><a href="https://twitter.com/sarahlovesdata" target="_blank" rel="noreferrer noopener"><strong>t</strong>,</a> which is from a few years back but all the advice is just as relevant today. Also, this insightful <a href="https://bit.ly/37spMcI" target="_blank" rel="noreferrer noopener"><strong>twitter thread</strong></a> from <a href="https://twitter.com/WindsCogley" target="_blank" rel="noreferrer noopener"><strong>Bridget Cogley</strong></a> provides excellent guidance and ideas.</p>
+<p>
+
+</p>
+<p>Also, given your recent and rapid growth in the Tableau community in terms of presence and giving back, I would encourage you to offer your own advice here, CJ, as your readers will benefit a lot from what you can share of your experience.</p>
+<p>
+
+</p>
+<p><strong>CJ Add-on: </strong>hmm...always happy to share my two pence!</p>
+<p>
+
+</p>
+<p>To keep it short, for me there are two hurdles for giving back.</p>
+<p>
+
+</p>
+<p>The first is in what form - As you've alluded to and showcased in previous questions. The way you give back to the community doesn't have to be through stunning visualisations, initiatives, blogging or videos. Find what you're comfortable with and run with it. I've seen people even use the twitch streaming site as a platform while creating vizzes. Very different to the norm, but also exciting to see.</p>
+<p>
+
+</p>
+<p>The second is finding your voice and thinking you need to be consistent with it. I feel a lot of people in the community need to be reminded that they are unique, bring their own ideas and perspective to the world. That is a super power in itself. We must step away from thinking you have to be a content machine. Some people blog way more than me, others less so. Find that middle ground of content that you want to produce and it'll help remove the guilt factor.</p>
+<p>
+
+</p>
+<p><strong>CJ: Lastly, is there anything you’d like to share from a personal or work perspective that we can share excitement for?</strong></p>
+<p>
+
+</p>
+<p>MR: I’ve enjoyed this opportunity to reflect on my Tableau journey over the last five years, so thanks again for the invite, CJ. I’d also like to say thanks to everyone who’s helped me on that journey so far: <a href="https://twitter.com/VizWizBI"><strong>Andy </strong></a><strong><a href="https://twitter.com/VizWizBI" target="_blank" rel="noreferrer noopener">Kriebel</a> </strong>and the many expert coaches at <strong>The Information Lab</strong> who I learnt from during my time there; the Tableau Product Managers and Community team who I’ve had great interactions with over the years; and, of course, the whole Tableau Community who continually share their knowledge and encouragement, all of which ensures a positive environment to share and learn.</p>
+<p>
+
+</p>
+<p>As for what I’m excited for, I’ll be going to Tableau Conference for the first time in person this year, which I’m really looking forward to. It’s a great opportunity to finally meet many people from the Tableau Community who I’ve interacted with over the last five years but haven’t met in person. On that note, for anyone reading, if you'll be at TC in Vegas this year and would like to catch-up, feel free to drop me a DM on <a href="https://twitter.com/marcreid" target="_blank" rel="noreferrer noopener"><strong>Twitter</strong></a> and we can arrange to meet. I hope to see you there!</p>
+<p>
+
+</p>
+<p>&nbsp;</p>
+<p>
+
+</p>
+<p><strong>CJ Round-up:</strong></p>
+<p>
+
+</p>
+<p>Very grateful for Marc. It's definitely been an inspiring journey.</p>
+<p>
+
+</p>
+<p>Always appreciate the time he would give, to help me, and many others. Marc has provided so many great call outs to external resources in the community that can help anyone on their journey whether you are just starting out, or looking for something to advance your skills even further. I really appreciate the strength of Marc's admiration for those that have joined him on his journey so far.</p>
+<p>
+
+</p>
+<p>I want to reiterate how incredible it has been seeing Marc's consistency in blogging over the years as well as his contributions to Tableau through talks and tutorials. I'm excited to see how Marc's mix in medium of content continues over the year. Looking forward to catching up in Vegas... even though you live only a few miles down the road. ha!</p>
+<p>
+
+</p>
+<p><strong>LOGGING OFF,</strong></p>
+<p>
+
+</p>
+<p><strong>CJ</strong></p>
+<p></p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

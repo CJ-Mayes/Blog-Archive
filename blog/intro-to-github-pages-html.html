@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro To Github Pages &amp;amp; HTML - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Intro To Github Pages &amp; HTML</h1>Hi all,
+
+Have you ever wanted a unique way to share your code, projects, repositorys and portfolio?
+
+How about wanting a "website" but not necessarily wanting to pay the maintenance and hosting fees?
+
+Well today we will look at how you can set up with a github HTML template to showcase your work.
+
+First you'll want to log in to Github.
+
+<img src="../uploads/2025/03/GithubLogin.png" class="alignnone size-full wp-image-8931" alt="" width="1329" height="1000">
+
+&amp; we can straight away make a repository. You'll need to make it public. That's okay though as for now it doesn't have anything in it!
+
+<img src="../uploads/2025/03/GHPortfolio.png" class="alignnone size-full wp-image-8933" alt="" width="1572" height="667">
+
+For this run through we will create a HTML site. Google "Free HTML Templates" .... there are a ridiculous amounts online.
+
+Here are a few sites:
+
+<strong><a href="https://html5up.net/">https://html5up.net/</a></strong>
+
+<strong>https://onepagelove.com/templates/free-templates</strong>
+
+<strong><a href="https://htmlrev.com/free-html-templates.html">https://htmlrev.com/free-html-templates.html</a></strong>
+
+It will comprise generally of:
+
+a css folder, images folder, js and most importantly an index.html file.
+
+If you want to follow along with the template I used it was <strong><a href="https://htmltemplates.co/free-website-templates/thomsoon-onepage">found here.</a></strong>
+
+<img src="../uploads/2025/03/TemplateCapture.png" class="alignnone size-full wp-image-8964" alt="" width="1749" height="989">
+
+<img src="../uploads/2025/03/Files.png" class="alignnone size-full wp-image-8937" alt="" width="394" height="152">
+
+You can add these files directly into the repo, by dragging them from the folder and onto the page.
+
+<img src="../uploads/2025/03/AddFiles.png" class="alignnone size-full wp-image-8938" alt="" width="862" height="415">
+
+Personally I think its a good idea to open an IDE of your choosing and login then clone these files into your repository instead.
+
+<img src="../uploads/2025/03/Empty.png" class="alignnone size-full wp-image-8941" alt="" width="493" height="91">
+
+Push all these files into the repository.
+
+That will be your template created.
+
+<img src="../uploads/2025/03/GHRepo.png" class="alignnone size-full wp-image-8943" alt="" width="975" height="73">
+
+Next thing we want to turn the page on.
+
+<img src="../uploads/2025/03/Template.png" class="alignnone size-full wp-image-8944" alt="" width="845" height="692">
+
+Go to <strong>settings</strong> and <strong>Github pages.</strong>
+
+Switch it to Github actions.
+
+<img src="../uploads/2025/03/Github-actions.png" class="alignnone size-full wp-image-8935" alt="" width="1564" height="642">
+
+For the time being we will look to use a static HTML template.
+
+<img src="../uploads/2025/03/YMLCapture.png" class="alignnone size-full wp-image-8945" alt="" width="1896" height="237">
+
+The YML file will trigger the github actions to load the HTML page template we created.
+
+<img src="../uploads/2025/03/YML.png" class="alignnone size-full wp-image-8947" alt="" width="1008" height="567">
+
+With that file created we can go back to pages and see the site is live.
+
+Click your custom link.
+
+For now it will be your github name / Portfolio. Of course you can amend this url as you see fit.
+
+<img src="../uploads/2025/03/Recording-2025-03-12-at-09.41.34.gif" class="alignnone size-full wp-image-8949" alt="" width="1847" height="883">
+
+<strong>So that is us set up!</strong>
+
+But now we need to know how to
+
+1. Update elements and items in the template itself now its live.
+
+2. Know how to test locally before publishing live.
+
+A static HTML site typically includes an <strong>index.html file</strong>, along with <strong>img, css, </strong>and<strong> js folders</strong>. Here's what each of these elements does:
+
+The index.html file serves as the main entry point for your website. It contains the structure and content of your homepage, using HTML tags to define headings, paragraphs, links, and other elements. When someone visits your site's root URL, this is usually the first page they see.
+
+The img folder is where you store all the images used on your website. This includes photographs, logos, icons, and any other graphics. Keeping images in a separate folder helps organize your site's assets and makes it easier to reference them in your HTML and CSS files.
+
+The css folder contains your Cascading Style Sheets. These files define the visual appearance of your HTML elements, including colors, fonts, layouts, and responsive design rules. Separating your CSS from your HTML helps maintain a clean structure and makes it easier to update your site's design.
+
+The js folder houses your JavaScript files. These add interactivity and dynamic behavior to your otherwise static HTML pages. JavaScript can be used for form validation, creating animations, updating content without reloading the page, and much more.
+
+This structure helps keep your site organized and makes it easier to maintain and update over time. It's a common and effective way to set up a static HTML site.
+
+Lets take a look at the simplist example for now.
+
+In the Index file you'll see a header. In the case of this template it reads "Creative Branding"
+
+<img src="../uploads/2025/03/HTML.png" class="alignnone size-full wp-image-8950" alt="" width="1302" height="933">
+
+<img src="../uploads/2025/03/Tite.png" class="alignnone size-full wp-image-8952" alt="" width="1811" height="789">
+
+We can of course up date that, and repush our code to the repo.
+
+<img src="../uploads/2025/03/MyNewTitle.png" class="alignnone size-full wp-image-8953" alt="" width="1382" height="801">
+
+Now thats all well and good as we can see the changes.... but this would take us forever and a million commits to get any work done.
+
+<img src="../uploads/2025/03/Template2.png" class="alignnone size-full wp-image-8958" alt="" width="1765" height="599">
+
+So lets actually test this <strong>locally</strong> before we publish it up to our repo.
+
+<img src="../uploads/2025/03/Server.png" class="alignnone size-full wp-image-8955" alt="" width="686" height="54">
+<pre class="default s-code-block"><code>python -m http.server</code></pre>Start the local server in your terminal.
+
+<img src="../uploads/2025/03/LocalHost.png" class="alignnone size-full wp-image-8957" alt="" width="1662" height="844">
+
+Now you can amend your files as you see fit, before you push them live to your repository.
+
+To push your edited files live generally follow the below commands.
+
+<strong>git status:</strong> This command shows you the current state of your working directory and staging area. It tells you which files have been modified, which are staged for commit, and which are untracked. It's a good way to get an overview of your changes before committing.
+<pre class="default s-code-block"><code>Git status</code></pre><strong>git add:</strong> This command stages changes for commit. You can add specific files (git add filename) or all changes (git add .). Staging allows you to choose which changes you want to include in your next commit. It's like preparing a package before sending it.
+<pre class="default s-code-block"><code>Git add .</code></pre><strong>git commit:</strong> This creates a new commit with the changes you've staged. A commit is like a snapshot of your project at a specific point in time. You typically include a message describing the changes: git commit -m "Your commit message here". This helps you and others understand what changes were made and why.
+<pre class="default s-code-block"><code>Git commit -m "adding my new title to the index.html"</code></pre><strong>git push:</strong> This command uploads your local commits to a remote repository, often on platforms like GitHub or GitLab. It's how you share your changes with others or update the central version of your project. The basic form is git push origin branch-name, where 'origin' is the default name for the remote repository and 'branch-name' is the branch you're pushing.
+<pre class="default s-code-block"><code>Git push</code></pre>These commands are often used together in a workflow:
+<ol>
+ 	<li>Make changes to your files</li>
+ 	<li>Check status with git status</li>
+ 	<li>Stage changes with git add</li>
+ 	<li>Commit changes with git commit</li>
+ 	<li>Push changes to the remote with git push</li>
+</ol><img src="../uploads/2025/03/Recording-2025-03-12-at-09.54.59.gif" class="alignnone size-full wp-image-8961" alt="" width="1912" height="998">
+
+Thats our whistlestop tour to creating a github 1 pager from a template.
+
+Going further.
+<ul>
+ 	<li>Use a template of your choosing.</li>
+ 	<li>Update some of the titles and headers.</li>
+ 	<li>Amend the style of the page.</li>
+ 	<li>Add in your images to the portfolio page.</li>
+ 	<li>Create a custom url for the github page.</li>
+</ul><strong>LOGGING OFF,</strong>
+
+CJ
+
+&nbsp;
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

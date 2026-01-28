@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Another Red Card To Best Practice - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Another Red Card To Best Practice</h1><p><em>This blog looks to cover at a high level how I pieced the visualisation together, as well as resources in the community that I leant on. It will contain my usual waffle, a few pro’s and con’s I found on the way, and hopefully give some insight as to the way my brain operates.</em> <em>Please feel free to download a copy of the workbook if you'd like to understand how it was made!</em></p>
+
+<p>Hello.</p>
+
+<p>Thanks for joining me for another blog.</p>
+
+<p>Some of you may have seen my UEFA Champions League visualisation posted on <strong>Tableau Public, seen through the link at the top of the page.</strong> To save you a click, here it is again!</p>
+
+<figure class="wp-image"><img class="wp-image-1314" src="../uploads/2021/05/hq.png" alt="" /></figure>
+
+<p class="has-text-align-center"><strong>PURPOSE</strong></p>
+
+<p class="has-text-align-left"><br />The first thing to highlight is that for this visualisation I wanted to focus primarily on the design. I was going for a ‘print’ type visualisation. The second focus point was on wanting to make the visualisation solely using the tools only on Tableau. I.e. only using the existing Tableau shape files as well as through having to create polygons and utilising data densification to get the rest of my desired effect. With most my visualisations on my page I want to try something new that I haven’t before, be it through design, chart type or calculations. (This is my excuse at least as to why some visualisations might not always be deemed the acme of beauty.)</p>
+
+<p>Tableau Public, to me, is such a fantastic way of documenting learning and progression, showing my way of thinking through visuals, as well as being a chance to explore different techniques. All whilst interacting with the community. Much like these blogs, I suppose.</p>
+
+<p>&nbsp;</p>
+
+<p class="has-text-align-center"><strong>INSPIRATION &amp; RESOURCES</strong></p>
+
+<p>Before we dive in, here are some of the initial inspirations and resources I used and how they impacted my way of thinking.</p>
+
+<p><strong><a href="https://twitter.com/NablaVanderlyle" target="_blank" rel="noreferrer noopener">Lisa Rapp</a></strong></p>
+
+<p>Lisa produced this stunning <strong><a href="https://public.tableau.com/profile/lisa.rapp#!/vizhome/GameOfTheYear/GameoftheYear" target="_blank" rel="noreferrer noopener">'Game of the Year'</a></strong> visualisation seen below. I couldn't wait to download it to see how she constructed it. She has blogged about her design, <strong><a href="https://www.allcapsdata.com/2021/04/14/behind-the-viz-game-of-the-year/" target="_blank" rel="noreferrer noopener">here</a>.</strong> Thanks for sharing these insights with us. I would say Lisa's was the main inspiration behind wanting to create my visualisation, so thank you.</p>
+
+<figure class="wp-image"><img class="wp-image-1325" src="../uploads/2021/05/game-of-the-year.png" alt="" width="512" height="341" /></figure>
+
+<p>In Lisa's visualisation she cleverly uses a layering technique of different shape files to create her desired effect. The best part is she overlays a circle shape over the top for a well designed tooltip.</p>
+
+<p>Lisa hugely influenced my choice to create lines at the top of each circle for number of goals, as well as decide on using a shape within the centre. I really like how she offsets the heart in her visualisation to add a personal touch of the games she has played before.</p>
+
+<p>In truth, Lisa's is great. I have no reasoning as to not following the same build methodology other than I wanted to see if it could be done through no Tableau-only tools. Lisa's dashboard hugely also benefits from not having to have copious amounts of data densification (Jump to methodology and charts to understand why!)</p>
+
+<p><strong><a href="https://twitter.com/mrroweuk" target="_blank" rel="noreferrer noopener">Simon Rowe</a> </strong></p>
+
+<p>I’ve previously mentioned how impressed I was with Simons recent Lacrosse visualisation, but for those that missed it in previous blogs check it out, <strong><a href="https://public.tableau.com/profile/simon.rowe#!/vizhome/LacrosseD1Champions/Women-MainDashboard" target="_blank" rel="noreferrer noopener">here</a></strong>.</p>
+
+<p>Simon was kind enough to have a chat with me about column and row dividers. When making new visualisations I tend to mock-up some fake data first. I do this really just so I can get to experiment with the build quicker. I ended up making the chart for just one year (season) before applying it for the full dataset.</p>
+
+<p>My main discussion with Simon surrounded how he used a row and column calculation to split them out. There were three options that sprung to mind. As a prerequisite, I was building everything around (0,0) so knew it was a matter of shifting further seasons either to the right or down.</p>
+
+<p><strong>Option 1:</strong> Simons method rightly splits out the grid using column and row calculations. He explains it in great detail in his own blog, <strong><a href="https://datavizjourney.com/2021/04/10/lacrosse-d1-championships/" target="_blank" rel="noreferrer noopener">here</a></strong>.</p>
+
+<p><strong>Option 2 (Chosen):</strong> I tend to find <strong><a href="https://twitter.com/ryanvizzes" target="_blank" rel="noreferrer noopener">Ryan Sleeper</a></strong>’s <strong><a href="https://playfairdata.com/how-to-make-trellis-tile-small-multiple-maps-in-tableau/" target="_blank" rel="noreferrer noopener">blog</a></strong> is a great starting basis for creating small multiples in Tableau. I ended up creating my grid using these calculations. I then exported the X and Y co-ordinates to then fit into my original dataset. Check out the methodology to understand why.</p>
+
+<p><strong>Option 3:</strong> In a previous petal visualisation when making the MAKEPOINT() function I ended up just wrapping the movements in X and Y in a case statement. For example if it's the next season, add 1 to the X to shift it across. (This would have been very time consuming for 60+ finals especially considering I would have to do it to the Y calculations too) These X &amp; Y co-ordinates were used as a base.</p>
+
+<p>I'll let you form your own opinion on what the best method is. My data prep was<em> nasty</em>, so I'm in no place to comment.</p>
+
+<p><strong><a href="https://twitter.com/sportschord" target="_blank" rel="noreferrer noopener">James Smith</a></strong></p>
+
+<p>James is well-renowned for making sports data look beautiful. I had a chat with him a month or so ago when he published some new Grand Slam visualisations in his <strong><a href="https://www.etsy.com/uk/shop/SportsChord" target="_blank" rel="noreferrer noopener">Etsy shop</a></strong>. Check out Rafael Nadal's dominance in the French Open, <strong><a href="https://www.etsy.com/uk/listing/959001352/french-open-roland-garros-tennis-grand?ref=shop_home_active_2" target="_blank" rel="noreferrer noopener">here</a></strong>.</p>
+
+<p>I loved the idea of the tennis balls wrapping around the winner for total wins in the tournament! I think it is now fairly obvious why I added in the stars for number of wins by the year. This is where the concept came from.</p>
+
+<p>With any external tools out the question I was left with some trusty sin and cosine functions and parameter actions to bunch the stars in a radial format.</p>
+
+<figure class="wp-image"><img class="wp-image-1328" src="../uploads/2021/05/tp.jpg" alt="" width="596" height="397" /></figure>
+
+<p><strong><a href="https://twitter.com/thoang1000" target="_blank" rel="noreferrer noopener">Toan Hoang</a></strong></p>
+
+<p>Everyone knows Toan produces some of the most easy to use <strong><a href="https://tableau.toanhoang.com/" target="_blank" rel="noreferrer noopener">templates</a></strong> and tutorials in the community. I am forever grateful for his blogs as they are one of the main reasons I started.</p>
+
+<p>This visualisation is no exception. So, which one inspired me?</p>
+
+<p>It's not easy to tell straight away without downloading the workbook. It is actually his Half-Circle Chart tutorial. Check it out, <strong><a href="https://tableau.toanhoang.com/half-circle-charts-in-tableau/" target="_blank" rel="noreferrer noopener">here</a></strong>. Should I wish to, my workbook is easily resizable on team.</p>
+
+<figure class="wp-image"><img class="wp-image-1332" src="../uploads/2021/05/example.png" alt="" width="768" height="554" /></figure>
+
+<p>It saddens me slightly that anyone that didn't download the workbook will think these are PI charts, they are in fact polygons. Little do they know they are 180 points each side joined up. Realistically as I don't utilise them, maybe creating polygons wasn't the right method to go down. Although, I am hoping maybe something in the future I can use this neat little trick.</p>
+
+<p>I ended up steering away from this methodology.. mainly because Real Madrid winning so much meant the stars got in the way ... shame.</p>
+
+<p><strong><a href="https://twitter.com/aabattani" target="_blank" rel="noreferrer noopener">Autumn Battani</a></strong></p>
+
+<figure class="wp-image"><img class="wp-image-1337" src="../uploads/2021/05/screenshot-2021-05-05-at-19.30.57.png" alt="" width="482" height="94" /></figure>
+
+<p>Last, but not least. A massive thank you goes to Autumn. Above is her reaction to when I first explained what my next visualisation looked like. Turns out it comes with a great how to read section!</p>
+
+<p>I want to mention I didn't actually ask Autumn (<em>to start with</em>) to help me out, it really is just a true testimony to her loving character and nature to give genuine advice, tips. She has shown great pride in wanting to help others in the community out.</p>
+
+<p>Autumn has a clear talent for design, if you've been following any of her recent posts, I'm sure you'd agree. I am so pleased she put the cherry on top for my visualisation. I think the key is so easily understandable thanks to her efforts.</p>
+
+<p>If you'd like to see what she took from 0 to 100 check out the before and after pics.</p>
+
+<div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide">
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-1343" src="../uploads/2021/05/key-1.jpg" alt="" data-id="1343" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-1344" src="../uploads/2021/05/screenshot-2021-05-05-at-19.38.07.png" alt="" data-id="1344" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+</div>
+
+<p>Finally to round up this section.</p>
+
+<p>I want to say a thank you to <strong><a href="https://twitter.com/consult_ant" target="_blank" rel="noreferrer noopener">Anthony Pulley</a></strong> and <strong><a href="https://twitter.com/armoursingh" target="_blank" rel="noreferrer noopener">Amar Singh</a></strong> who both offered words of advice early before posting my visualisation. I hugely respect their opinions and hearing their feedback is a great way to consolidate my own thoughts to a point where I am happy to share with the wider world. (#TeamLloyds - Woo)</p>
+
+<p class="has-text-align-center"><strong>CHART EXPLANATION</strong></p>
+
+<p>I will briefly give some ad lib as to how I created each section of my visualisation. I won't go too in depth for the sake of this not being a novel. Attached are some print-screens of building each part of the visualisation separately.</p>
+
+<p><strong>The Axis</strong></p>
+
+<figure class="wp-image"><img class="wp-image-1397" src="../uploads/2021/05/screenshot-2021-05-06-at-17.57.58.png" alt="" /></figure>
+
+<p><br /><strong>Teams</strong></p>
+
+<p>The above tutorial from Toan will get you most the way. I ended up building the entire visualisation using his tutorial. His co-ordinates fitted perfectly for what I needed so I didn't even need to rescale the visualisation points hugely. I exported the path values and then joined them in separately to my dataset. It was then a case of just rebuilding within my visualisation but offsetting each team based on the season. The beauty of taking the exported points meant I could then rescale what the size looked like!</p>
+
+<figure class="wp-image"><img class="wp-image-1396" src="../uploads/2021/05/screenshot-2021-05-06-at-17.59.41.png" alt="" width="584" height="387" /></figure>
+
+<p>A couple individuals rightly mentioned the team semi circle colours don't match the kit colours for the team. I ended up assigning a palette I liked to make the visualisation more aesthetically pleasing. Turns out most teams wear red, blue or white. I am more than happy if people want to download and re-colour the viz!</p>
+
+<p><strong>Stars</strong></p>
+
+<p>The stars have their own dataset. For each year, I joined in the equivalent number of rows. For example Real Madrid winning the title for the first year joins once. When they win the second year, I end up joining in two new rows to the main dataset.</p>
+
+<p>Not to plug my own website... BUT sometimes I forget how I make my circles, <em>like I don't make enough of them</em>? I revisited my <strong><a href="../2021/02/18/tennis-votd/" target="_blank" rel="noreferrer noopener">tennis radial graph visualisation</a></strong> run through to copy out my rank, angle, sin and cos functions to making the stars go round in a circle. An added parameter is used to rotate them round the circle as well as squish them together into one half of the visual.</p>
+
+<figure class="wp-image"><img class="wp-image-1399" src="../uploads/2021/05/screenshot-2021-05-06-at-18.04.55.png" alt="" width="612" height="368" /></figure>
+
+<p><strong>Goals</strong></p>
+
+<p>Again, a lot more data densification went on here. I ended up creating two points for each goal. Each goal has a point slightly more inwards point than another on the same X,Y trajectory from the centre point (0,0). It is then a case of joining them together with a line! I created the goals for the winner and runner up separately as to be able to move them to the top of the circle more easily using parameters. I reflected on my previous blog post of creating a radial comet graph. The only thing that is different between them is that I didn't add a sizing to the line! Check it out, <strong><a href="../2021/01/06/radial-comet-graph/" target="_blank" rel="noreferrer noopener">here.</a></strong></p>
+
+<figure class="wp-image"><img class="wp-image-1401" src="../uploads/2021/05/screenshot-2021-05-06-at-18.53.36.png" alt="" width="597" height="402" /></figure>
+
+<p><strong>Penalties</strong></p>
+
+<p>I ended up creating a circle that was 100 points going round. The difference between the datasets is how I join the dots up. The following print screen of the data should help. Again, this will follow a similar pattern to previous for circles creating a rank, an angle, the spacing between them, and then co-ordinating which dots to join lines between!</p>
+
+<div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide">
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-1352" src="../uploads/2021/05/screenshot-2021-05-05-at-19.59.24.png" alt="" data-id="1352" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-1353" src="../uploads/2021/05/screenshot-2021-05-05-at-19.59.32.png" alt="" data-id="1353" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+</div>
+
+<figure class="wp-image"><img class="wp-image-1403" src="../uploads/2021/05/screenshot-2021-05-06-at-18.56.43.png" alt="" width="632" height="411" /></figure>
+
+<p><strong>Makepoint</strong></p>
+
+<p>Finally with everything made, it is a case of gluing the datasets together as well as creating A LOT of MAKEPOINT() functions based on our final X and Y calculations.</p>
+
+<p>You can see that I actually build all my initial charts around (0,0) and then adjust the make points to add on my column and row amounts to space each final out! Typically each graph was made between -1 to 1 on both the x axis and y axis and then rescaled to the appropriate size.</p>
+
+<figure class="wp-image"><img class="wp-image-1355" src="../uploads/2021/05/screenshot-2021-05-05-at-19.56.31.png" alt="" width="574" height="309" /></figure>
+
+<p>For example: The above plots my X and Y co-ordinates for my penalty circles.... The *0.13 is simply a resizing factor for the circles. Check out the below example where I make the dashed circles larger. Finally I must adjust each of the locations of my penalties by the base. I.e Make sure the penalty circles are moved to the right column and row!</p>
+
+<figure class="wp-image"><img class="wp-image-1358" src="../uploads/2021/05/screenshot-2021-05-05-at-19.57.42.png" alt="" width="472" height="187" /></figure>
+
+<p>What I particularly do like about the visualisation is that I can create separate tooltips based on what you hover over, and the order of the layers.</p>
+
+<p>Example below.</p>
+
+<div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide">
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-1379" src="../uploads/2021/05/screenshot-2021-05-05-at-20.34.43.png" alt="" data-id="1379" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-1380" src="../uploads/2021/05/screenshot-2021-05-05-at-20.35.15.png" alt="" data-id="1380" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-1381" src="../uploads/2021/05/screenshot-2021-05-05-at-20.35.32.png" alt="" data-id="1381" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-1382" src="../uploads/2021/05/screenshot-2021-05-05-at-20.35.43.png" alt="" data-id="1382" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+</div>
+
+<p class="has-text-align-center"><strong>DATA AND METHODOLOGY</strong></p>
+
+<p>The very original dataset was taken from <strong>Wikipedia</strong>. I tend to use a Wikipedia table to CSV converter to quickly copy and paste my data before sense checking it and making a few tidy-up’s to any dodgy formatting. I find this far quicker than doing anything fancy with looking at source code, or trying to copy and paste straight off the site.</p>
+
+<p>&nbsp;</p>
+
+<figure class="wp-image"><img class="wp-image-1359" src="../uploads/2021/05/image.png" alt="" width="526" height="227" /></figure>
+
+<p class="has-text-align-center has-medium-font-size"><strong>“Bet I could do it in 64”</strong></p>
+
+<p>One of the main downsides to my visualisation is undoubtedly the amount of data densification that sits within it. I’ve gone from a 64-row winners table to a table with millions of rows.</p>
+
+<p>Each team is 180 points for the half circle, each star is an extra row per star for that season row, each Goal is two rows, and the penalties are 100 dots, as are the extra-time markers…. This really adds up.</p>
+
+<figure class="wp-image"><img class="wp-image-1363" src="../uploads/2021/05/screenshot-2021-05-05-at-20.07.27.png" alt="" /></figure>
+
+<p>Above is the 7 dataset tabs i stitched together.</p>
+
+<p>I could have made a lot of the elements using custom shapes but I enjoyed the challenge behind creating this. Tableau Public aren’t quite the fan given it fails to render a few times and the thumbnail on my profile doesn’t always show. I may go revisit this at some time simply because it is ruining my colour theme (or lack of).</p>
+
+<figure class="wp-image"><img class="wp-image-1362" src="../uploads/2021/05/screenshot-2021-05-04-at-22.02.43.png" alt="" width="339" height="512" /></figure>
+
+<p>As to not finish on a sour note, I am actually super pleased with the reception this visualisation got. I personally believe it’s one of my best visualisations yet! It was definitely one of the most fun to build. Thank you so much to everyone who reached out in admiration – it means the world to me the support and feedback.</p>
+
+<p class="has-text-align-center has-medium-font-size"><strong>I am so grateful to be surrounded by such talent in the community.</strong></p>
+
+<p>If anyone has any questions, give me a shout. You can reach out to me on <strong><a href="https://twitter.com/_CJMayes" target="_blank" rel="noreferrer noopener"><span style="text-decoration: underline;">Twitter</span></a></strong>, or <a href="https://www.linkedin.com/in/cjmayes/" target="_blank" rel="noreferrer noopener"><strong><span style="text-decoration: underline;">Linkedin</span></strong></a>.</p>
+
+<p>Logging OFF.</p>
+
+<p>CJ</p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

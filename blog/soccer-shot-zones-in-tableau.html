@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soccer Shot Zones In Tableau - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Soccer Shot Zones In Tableau</h1>Hi all,
+
+Been on a bit of a soccer streak recently blog wise. Hoping to continue that idea with this blog.
+
+Today's blog will look to create 'Shot Zones' using an Alteryx workflow and the output visualised in Tableau.
+
+You can see what we will end up with below.
+
+<img class="alignnone size-full wp-image-6521" src="../uploads/2023/06/Shot-Zones.png" alt="" width="900" height="800" />
+
+Where did this idea originate?
+
+Well I came across <a href="https://arxiv.org/ftp/arxiv/papers/2104/2104.03252.pdf"><strong>this paper</strong></a> looking at flanks and out of the box shots and started digging a bit further. This lead me to this <a href="https://cartilagefreecaptain.sbnation.com/2014/2/12/5404348/english-premier-league-shot-statistics"><strong>shot matrix created</strong></a> using Opta data.
+
+This concept isn't that new, in fact I came across this beautiful visual by sonofacorner below.
+
+<img class="alignnone size-full wp-image-6523" src="../uploads/2023/06/08292022_jupiler_shots_tr-1.png" alt="" width="1600" height="2069" />
+
+Which brings us onto how to create it,
+
+Realistically to get to our finished point we need to follow the steps below:
+<ul>
+ 	<li>Figure out the X &amp; Y locations of the pitch and the shots data</li>
+ 	<li>Draw a path that creates polygons for the different shot boxes</li>
+ 	<li>Find out what zone each shot is in</li>
+ 	<li>Visualise that data on a pitch</li>
+</ul>
+Seems simple enough?
+
+First thing we do is figure out the shape of our zones. I got the dimensions of a pitch from the<a href="https://mplsoccer.readthedocs.io/en/latest/gallery/pitch_setup/plot_pitches.html"><strong> mplsoccer documentation.</strong></a>
+
+<img class="alignnone size-full wp-image-6526" src="../uploads/2023/06/sphx_glr_plot_pitches_022.png" alt="" width="640" height="480" />
+
+Then I decide what the zones would be split into. You will see that it contains 6 zones.
+
+<img class="alignnone size-full wp-image-6528" src="../uploads/2023/06/Capture-3.png" alt="" width="582" height="590" />
+
+The beauty about the workflow is you will only need to amend the input data for the shot locations at the start to be able to change how the output looks. In this case i've broken the pitch into 6 zones. Zone 1 is in front of the goal. Zone 2 is in the 6 yard box but not in line with the goal, Zone three backfills to the top of the box. Zone 4 either side fills the remainder of the box. Zone 5 is within the flanks, and Zone 6 is anything behind the box. Perhaps if you were to take this further you may split zone 6 into a 7th zone if you want to emphasis shots taken just outside of the box. Given the above diagram, this can easily be done!
+
+Let's look at the Alteryx Workflow.
+
+<img class="alignnone size-full wp-image-6531" src="../uploads/2023/06/Capture1.png" alt="" width="1157" height="344" />
+
+We connect to our EPL shot location data and choose a specific match, in this case I've chosen the match between Manchester United and Chelsea <a href="https://understat.com/match/18520"><strong>here. </strong></a>
+
+<img class="alignnone size-full wp-image-6533" src="../uploads/2023/06/Capture2-1.png" alt="" width="1268" height="604" />
+
+The top part of the flow is used to split the home and away shots in two to mirror the above. The second formula tool just scales up our values to be able to fit on the pitch. The really important part here is the spatial tool of create points where we can start to see our points mapped out.
+
+<img class="alignnone size-full wp-image-6535" src="../uploads/2023/06/Capture3-1.png" alt="" width="383" height="263" />
+
+<strong>The bottom part of the flow</strong>
+
+<img class="alignnone size-full wp-image-6536" src="../uploads/2023/06/data.png" alt="" width="752" height="927" />
+
+So the input data here is all the pitch points (Where Include in Zone = N)  as well as our mapped out zones (Where Include in Zone = Y)
+
+We then split these apart (as we will later want to say which of the zones the shot is taken in)
+
+The formula tool scales our pitch to the same amount as our shot data.
+
+<img class="alignnone size-full wp-image-6538" src="../uploads/2023/06/Capture4-1.png" alt="" width="1094" height="518" />
+
+The flow mirrors each other, the top section building the 'zones' the bottom part drawing our pitch outlines.
+
+Create points and build spatial tools help us build our pitch and zones.
+
+Here is what our zones output looks like:
+
+<img class="alignnone size-full wp-image-6539" src="../uploads/2023/06/Capture6-1.png" alt="" width="749" height="540" />
+
+and here is our basic pitch drawing:
+
+<img class="alignnone size-full wp-image-6540" src="../uploads/2023/06/Capture7-1.png" alt="" width="840" height="615" />
+
+Both being visualised using the report map tool.
+
+The next step is to find which zone the shot intesects so we can use the spatial match tool.
+
+<img class="alignnone size-full wp-image-6543" src="../uploads/2023/06/Capture8.png" alt="" width="807" height="897" />
+
+Side note, This may be my new favourite Alteryx tool!!
+
+<img class="alignnone size-full wp-image-6544" src="../uploads/2023/06/Capture9.png" alt="" width="1042" height="442" />
+
+The final bit of the flow looks to summarise what zone our points in. This is at an aggregated level.
+
+I group this on team, so we can split our zones out for Manchester United and Chelsea
+
+<img class="alignnone size-full wp-image-6546" src="../uploads/2023/06/Capture11-1.png" alt="" width="446" height="200" />
+
+To make life easier in Tableau later i do a bit of a funky full outer join to be able to have row level shot data but also then our aggregated pitch polygon data.
+
+<img class="alignnone size-full wp-image-6548" src="../uploads/2023/06/Capture12.png" alt="" width="1327" height="168" />
+
+You can see how I've offset the stacking of the data. Do note also I've brought in all the pitch details too regardless if a shot wasn't taken in the specific zone or not
+
+<img class="alignnone size-full wp-image-6550" src="../uploads/2023/06/shots.png" alt="" width="1665" height="922" />
+
+We can create makepoints of our x and y co-ordinates of the shots to plot the different teams. You will see they resemble the chosen match from Understat.
+
+<img class="alignnone size-full wp-image-6551" src="../uploads/2023/06/pitch.png" alt="" width="1594" height="1248" />
+
+We can then use our pitch X &amp; Y co ordinates we've created to draw the outline of the pitch. Make sure the SN (Sequence Number) goes onto the path, and you have the correct pills on the details card from the screenshot.
+
+<img class="alignnone size-full wp-image-6553" src="../uploads/2023/06/Capture99.png" alt="" width="1596" height="1250" />
+
+The final layer we want to add is our Zones Layer - Here we write an IF statement to look at the original data that is our zone polygons, we then plot these points in a similar way, again, with SN on path and the required dimensions on detail.
+
+By adding our aggregated count to colour we can see which zones were most frequently shot from.
+
+And that's it!
+
+The toughest part to this was really creating the initial dataset for the zones but once that's done it is fairly smooth sailing.
+
+GOING FURTHER:
+<ul>
+ 	<li>Why not change the zones you look at?</li>
+ 	<li>Try map all of one teams games as a small multiple</li>
+ 	<li>Try adding more layers with details around the score, team and xG</li>
+ 	<li>Try other dimensions on colour - perhaps xG from each zone may be interesting?</li>
+</ul>
+Message me on Linkedin or Twitter if you have any questions - as always the resources can be found on Github!
+
+Take care &amp;
+
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

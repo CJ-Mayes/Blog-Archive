@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Soccer Event Timeline! A Collaboration with Anmol Durgapal - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Create a Soccer Event Timeline! A Collaboration with Anmol Durgapal</h1><p>Hi All,</p>
+
+<p>Welcome to another split blog looking at both <strong>web-scraping</strong> as well as<strong> Tableau</strong>.</p>
+
+<p>I constantly meet people in the community of such great and diverse skillsets. <strong><a href="https://twitter.com/slothfulwave612" target="_blank" rel="noreferrer noopener">Anmol</a></strong> is no exception. If you're from the soccer community you may recognise this <strong><a href="https://nightingale-charts-plotter.herokuapp.com/" target="_blank" rel="noreferrer noopener">pizza chart creator</a></strong> he put together, as well as some of the awesome tutorials found <strong><a href="https://mplsoccer.readthedocs.io/en/latest/gallery/bumpy_charts/plot_bumpy.html" target="_blank" rel="noreferrer noopener">here.</a></strong> These are some seriously good tutorials to get stuck into irregardless of coding knowledge. I want to thank Anmol for collaborating with me on this blog - he really pulled through on prepping the python code exactly for how I wanted it to export to csv.</p>
+
+<p>I personally really enjoy writing these end to end blogs as it allows individuals to have the choice to complete either segment or all of it!</p>
+
+<p>You can find <a href="https://twitter.com/slothfulwave612?lang=en" target="_blank" rel="noreferrer noopener"><strong>Anmol Durgapal</strong> </a>on twitter, and I would recommend following his <strong><a href="https://github.com/Slothfulwave612" target="_blank" rel="noreferrer noopener">GIT repository, here.</a></strong></p>
+
+<figure class="wp-image"><img class="wp-image-2310" src="../uploads/2021/10/screenshot-2021-10-03-at-12.10.31.png" alt="" width="703" height="537" /></figure>
+
+<p>Like most python tutorials this will be split into two parts. If you want to only complete the code or skip to the Tableau by all means - we have included the <b>example dataset at the top of the page.</b></p>
+
+<p><strong>TOPIC</strong></p>
+
+<p>We will be looking to recreate the <strong><a href="https://understat.com/match/16432" target="_blank" rel="noreferrer noopener">Understat website</a></strong> user interface for a specific match. Here is the <strong><a href="https://understat.com/match/16432" target="_blank" rel="noreferrer noopener">Understat website version.</a></strong> Below is what we will look to create within Tableau. You can find the workbook in the link at the top of the page.</p>
+
+<figure class="wp-image"><img class="wp-image-2316" src="../uploads/2021/10/test.png" alt="" /></figure>
+
+<p><strong>PART 1 - PYTHON</strong></p>
+
+<p>The code you can find on Github.</p>
+
+<figure class="wp-image"><img class="wp-image-2319" src="../uploads/2021/10/carbon-1.png" alt="" /></figure>
+
+<p><strong>EXPLAINING THE CODE</strong></p>
+
+<p>Below we have put together some of the key components of the code.</p>
+
+<p><strong>What is Beautiful Soup?</strong></p>
+
+<p>Beautiful Soup is a Python library for pulling data out of HTML and XML files. It is a way of navigating, searching and modifying the parse tree. We can use it in relation to the Understat by inspecting the website page and finding the components we want to construct our dataset.</p>
+
+<p><strong>How does the fetching of specific pages work?</strong></p>
+
+<figure class="wp-image"><img class="wp-image-2330" src="../uploads/2021/10/screenshot-2021-10-03-at-19.20.14.png" alt="" width="650" height="430" /></figure>
+
+<p>By inspecting the page we can see the underlying HTML of how the site is built. Using beautifulsoup we can find each part of the class that we will need eventually export to our csv file.</p>
+
+<figure class="wp-image"><img class="wp-image-2332" src="../uploads/2021/10/screenshot-2021-10-03-at-19.21.02.png" alt="" /></figure>
+
+<figure class="wp-image"><img class="wp-image-2333" src="../uploads/2021/10/screenshot-2021-10-03-at-19.21.21.png" alt="" /></figure>
+
+<p><strong>Where can I put in a match of my own choosing?</strong></p>
+
+<p>You can replace your match url with the one you want within the code.</p>
+
+<p>obj = MakeEventDataset("https://understat.com/match/<strong>16438</strong>")</p>
+
+<p><strong>What will my data look like?</strong></p>
+
+<p>The export once run will look like the below.</p>
+
+<figure class="wp-image"><img class="wp-image-2336" src="../uploads/2021/10/screenshot-2021-10-03-at-19.33.33.png" alt="" width="593" height="319" /></figure>
+
+<p><strong>What should I be cautious of?</strong></p>
+
+<ul>
+<li>The player name sometimes will need tidying up if it has special characters in.</li>
+</ul>
+
+<ul>
+<li>The Event detail if it has the goal scoreline in, you will want to make sure it doesn't revert to showing a date format. (I.e 1-1 accidentally showing as 1st Jan)</li>
+</ul>
+
+<p>We have tested the code on various matches, but do reach out if you have any questions or spot any areas for review.</p>
+
+<p><strong>RUNNING THE CODE</strong></p>
+
+<p>This code is built so that all you need to do is replace the url with the match you would like and click run.</p>
+
+<p>Do note, for this to run, you will need to pip install the following packages in your terminal:</p>
+
+<ul>
+<li><strong>pip install BeautifulSoup</strong></li>
+</ul>
+
+<ul>
+<li><strong>pip install pandas</strong></li>
+</ul>
+
+<p>Before we move onto the build, once again, I'd like to thank <strong><a href="https://twitter.com/slothfulwave612" target="_blank" rel="noreferrer noopener">Anmol</a></strong> for pulling together the code. He did an exceptional job.</p>
+
+<hr class="wp-block-separator" />
+
+<p><strong>PART 2 - TABLEAU</strong></p>
+
+<p>You can access the example data for the tutorial on Github</p>
+
+<p><strong>How shall I prep my data after we get the export?</strong> <strong>How does the rank and path work?</strong></p>
+
+<p>Before we start we will need to make a few final amendments to our dataset.</p>
+
+<figure class="wp-image"><img class="wp-image-2343" src="../uploads/2021/10/screenshot-2021-10-03-at-20.36.00.png" alt="" width="665" height="476" /></figure>
+
+<p>First we will want to add a column called <strong>Rank</strong>, label the rank in ascending order based on the minute.</p>
+
+<p>(Note: We could use an index function for ranking them in Tableau, but I find this easier to understand visually)</p>
+
+<p>Secondly we will want to duplicate our dataset completely and label the first with a <strong>Path</strong> as 1 and the duplicate as Path 2. (We could union this in Tableau, but again, for simplicity sake I've done it in excel)</p>
+
+<p>The reason for duplicating the dataset will become apparent when we create the base. We in effect plot a mark centrally (where the minute is positioned) that joins outwards to another path mark where the name begins. We connect these points as a thick line.</p>
+
+<figure class="wp-image"><img class="wp-image-2350" src="../uploads/2021/10/screenshot-2021-10-03-at-20.45.24.png" alt="" width="352" height="78" /></figure>
+
+<p><strong>THE BUILD</strong></p>
+
+<p>We have 8 calculations to make. You can copy them from the workbook, but I'll explain the screenshots as we go so that you understand the <em>method behind the madness</em>.</p>
+
+<figure class="wp-image"><img class="wp-image-2375" src="../uploads/2021/10/screenshot-2021-10-04-at-16.14.11.png" alt="" width="602" height="267" /></figure>
+
+<p><strong>Explanation:</strong> Find the length of name. We want each of our background tiles to account for player names of varying sizes. I've added 12 as a buffer to be able to squeeze in the minute and shape file for the events. You can try smaller or larger numbers here.</p>
+
+<figure class="wp-image"><img class="wp-image-2377" src="../uploads/2021/10/screenshot-2021-10-04-at-16.14.01.png" alt="" width="612" height="276" /></figure>
+
+<p><strong>Explanation: </strong>So by duplicating our dataset we can create <strong>two points</strong> of reference. Taking the first goal for example. We will create a point on the x axis at zero (path =2) and also a point leftwards of this mark that equals the length of our previous calculation. (path = 1)</p>
+
+<p>In simpler terms, Home events span leftwards of x-axis being zero by the length of the players name, and Away events span right of x-axis (zero) by the length of the players name.</p>
+
+<figure class="wp-image"><img class="wp-image-2381" src="../uploads/2021/10/screenshot-2021-10-04-at-16.14.19.png" alt="" /></figure>
+
+<ul>
+<li>Double click the 1c. MP Base calculation to add it to the sheet.</li>
+</ul>
+
+<ul>
+<li>Go to Map - Background Maps - None</li>
+<li>Change the Marks to a line, drag rank and path onto detail making sure they are dimension.</li>
+</ul>
+
+<p>Here are some screenshots of that:</p>
+
+<div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide">
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2383" src="../uploads/2021/10/screenshot-2021-10-04-at-16.27.03.png" alt="" data-id="2383" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2384" src="../uploads/2021/10/screenshot-2021-10-04-at-16.27.22.png" alt="" data-id="2384" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2385" src="../uploads/2021/10/screenshot-2021-10-04-at-16.27.53.png" alt="" data-id="2385" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2386" src="../uploads/2021/10/screenshot-2021-10-04-at-16.29.00.png" alt="" data-id="2386" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+</div>
+
+<p>Lets now prep the minutes icon.</p>
+
+<figure class="wp-image"><img class="wp-image-2388" src="../uploads/2021/10/screenshot-2021-10-04-at-16.14.26.png" alt="" /></figure>
+
+<p>The minutes are based centrally so we can make the x axis 0. For the Y axis we will plot the Rank value from our dataset.</p>
+
+<ul>
+<li>Lets go to Map and turn our map back on for the time being.</li>
+<li>I drag the 1d. MP Minute TWICE onto the card. Once because I'll be creating a nice circular effect to sit behind the minute number. Then again for the actual minute label.</li>
+</ul>
+
+<p><strong>Note: </strong>If you are new to Tableau, when I say drag onto the card for layering functionality you have to hover it in the top left hand corner of the sheet. This can be a little confusing to start.</p>
+
+<figure class="wp-image"><img class="wp-image-2406" src="../uploads/2021/10/screenshot-2021-10-04-at-16.58.27-copy.png" alt="" width="707" height="291" /></figure>
+
+<ul>
+<li>Let's turn off the map again and go to edit the new marks.</li>
+<li>Increase the bar size to maximum from 1c MP Base.</li>
+<li>Go to the first of the two marks for 1d. MP Minute and change it to a circle, Resize the circle as appropriate and amend the colour as you like. You will need to drag Path and Rank onto the marks card as dimensions.</li>
+</ul>
+
+<div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide">
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2391" src="../uploads/2021/10/screenshot-2021-10-04-at-16.37.08.png" alt="" data-id="2391" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2392" src="../uploads/2021/10/screenshot-2021-10-04-at-16.37.35.png" alt="" data-id="2392" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2393" src="../uploads/2021/10/screenshot-2021-10-04-at-16.37.43.png" alt="" data-id="2393" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2394" src="../uploads/2021/10/screenshot-2021-10-04-at-16.41.57.png" alt="" data-id="2394" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+</div>
+
+<p>For the second MP. Minute layer (the one on top) You will want to change the marks to text, drag Path and rank onto the marks card as dimensions.</p>
+
+<p>Drag Minute onto the label and make a dimension. You will notice that our minutes are ranked in the wrong order. Right click the latitude generated y axis and click reverse.</p>
+
+<div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide">
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2396" src="../uploads/2021/10/screenshot-2021-10-04-at-16.41.57-1.png" alt="" data-id="2396" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2397" src="../uploads/2021/10/screenshot-2021-10-04-at-16.44.06.png" alt="" data-id="2397" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2398" src="../uploads/2021/10/screenshot-2021-10-04-at-16.45.32.png" alt="" data-id="2398" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+</div>
+
+<p>At this point, this is where we should be at:</p>
+
+<figure class="wp-image"><img class="wp-image-2400" src="../uploads/2021/10/screenshot-2021-10-04-at-16.46.28.png" alt="" /></figure>
+
+<figure class="wp-image"><img class="wp-image-2402" src="../uploads/2021/10/screenshot-2021-10-04-at-16.50.01.png" alt="" width="840" height="371" /></figure>
+
+<p>Within that, is an if statement. We want to create a shape for the event (substitution, goal etc) but we will want to offset it slightly from the middle as our minutes already take up that space. So we shift all the home shapes slightly to the left, and all the away shapes slightly to the right!</p>
+
+<figure class="wp-image"><img class="wp-image-2404" src="../uploads/2021/10/screenshot-2021-10-04-at-16.14.42.png" alt="" /></figure>
+
+<p>Add the layer onto the sheet.</p>
+
+<p>Make the mark a shape, Drag Rank and Path onto the marks card and make them dimensions.</p>
+
+<p>You may at this point want create custom shapes based on the event. Drag Shape Detail onto the shape as well as colour. Here is an example using the Tableau built in colour and shapes. Feel free to use your own shapes as necessary.</p>
+
+<figure class="wp-image"><img class="wp-image-2408" src="../uploads/2021/10/screenshot-2021-10-04-at-17.05.20.png" alt="" /></figure>
+
+<p>All we have left is to add the name labels.</p>
+
+<figure class="wp-image"><img class="wp-image-2410" src="../uploads/2021/10/screenshot-2021-10-04-at-17.06.37.png" alt="" /></figure>
+
+<figure class="wp-image"><img class="wp-image-2412" src="../uploads/2021/10/screenshot-2021-10-04-at-16.15.00.png" alt="" /></figure>
+
+<p>Lets add this as a final layer.</p>
+
+<p>Drag Rank and Path onto detail like usual, make them dimensions.</p>
+
+<p>Change the marks to Text, and drag name onto the Text mark.</p>
+
+<div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide">
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2414" src="../uploads/2021/10/screenshot-2021-10-04-at-17.10.38.png" alt="" data-id="2414" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2415" src="../uploads/2021/10/screenshot-2021-10-04-at-17.10.49.png" alt="" data-id="2415" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2416" src="../uploads/2021/10/screenshot-2021-10-04-at-17.11.06.png" alt="" data-id="2416" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+</div>
+
+<p>Finally, It's a case of cosmetics and a little formatting and we're done!</p>
+
+<figure class="wp-image"><img class="wp-image-2438" src="../uploads/2021/10/understat-1.png" alt="" /></figure>
+
+<p><strong>What were some of the challenges faced when creating this visualisation?</strong></p>
+
+<p>It would have been great to have been able to make this into a template, however with so many elements having sizing requirements it became more troublesome. Fortunately, I think the build along approach can help others understand the components a lot more.</p>
+
+<p><strong>GOING FURTHER</strong></p>
+
+<ul>
+<li>- Python:</li>
+<li>Try running the code for your <strong>own match</strong>.</li>
+<li>Try creating the path, union and rank columns within your python code!</li>
+<li>Try writing a<strong> loop function</strong> to get all the match events for a whole season.</li>
+</ul>
+
+<ul>
+<li>- Tableau:</li>
+<li>Try designing a different style of events, or using your own <strong>custom shapes and colours</strong>.</li>
+<li>Try <strong>building a dashboard</strong> that has the match events, as well as shot details from a previous <strong><a href="../2021/05/07/just-starting-out-with-understat/" target="_blank" rel="noreferrer noopener">Understat tutorial</a></strong> written to highlight the whole game!</li>
+<li>Try applying the <strong>user case to something outside of soccer</strong>, e.g a message board / texting UI.</li>
+</ul>
+
+<p>As always, Let me know how you get on with this one. I can be reached on <strong>Twitter</strong>, <strong><a href="https://twitter.com/_CJMayes" target="_blank" rel="noreferrer noopener">@_CJMayes</a></strong>, as can <strong>Anmol</strong> at <a href="https://twitter.com/slothfulwave612" target="_blank" rel="noreferrer noopener"><strong>@slothfulwave612</strong>.</a></p>
+
+<p><strong>LOGGING OFF,</strong></p>
+
+<p><strong>CJ</strong></p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

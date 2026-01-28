@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incremental Improvements - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Incremental Improvements</h1><p><span style="color: #000000;">Hi all,</span></p>
+<p><span style="color: #000000;">
+
+</span></p>
+<p><span style="color: #000000;">Hope everyone is getting back into the groove of things now the summer period comes to a close. It is the start of darker and shorter days here in London. Something that takes a little bit of mental adjustment, but on the whole quite excited for this remaining quarter of the year.</span></p>
+<p><span style="color: #000000;">
+
+</span></p>
+<p><span style="color: #000000;">So where to begin with this blog?</span></p>
+<p><span style="color: #000000;">
+
+</span></p>
+<p><span style="color: #000000;">Back in November 2020. I made this viz below, on <a style="color: #000000;" href="https://public.tableau.com/app/profile/cj.mayes/viz/MensTennisGrandSlamWinners2000-2020/GrandSlamWinners" target="_blank" rel="noreferrer noopener">Grand Slam Results</a>. Truth be told I was pretty apprehensive about even posting it back then. Turns out someone in the Tableau team were kind enough to give it VOTD.</span></p>
+<p><span style="color: #000000;">
+
+</span></p>
+<p><span style="color: #000000;">I remember these times fondly, life was good making random radial charts with no significant meaning. (I still feel I live in those times now, just tread more carefully.)</span></p>
+<p><span style="color: #000000;">
+
+<figure class="wp-image"><img class="wp-image-4568" src="../uploads/2022/09/grand-slam-winners.png" alt="" /></figure>
+
+</span></p>
+<p><span style="color: #000000;">Since then I made over this chart in <a style="color: #000000;" href="https://public.tableau.com/app/profile/cj.mayes/viz/20YearsofGrandSlamChampionshipsVOTDMakeover/TennisRevamp" target="_blank" rel="noreferrer noopener">February 2021. </a></span></p>
+<p><span style="color: #000000;">
+
+<figure class="wp-image"><img class="wp-image-4570" src="../uploads/2022/09/screenshot-2022-09-12-at-20.37.36.png" alt="" /></figure>
+
+</span></p>
+<p><span style="color: #000000;">In fact, I even blogged about how to make it, with an appropriately named title <a style="color: #000000;" href="../2021/02/18/tennis-votd/" target="_blank" rel="noreferrer noopener">"Why you shouldnt make this radial graph!"</a> in which I proceed to explain exactly how to make the chart.</span></p>
+<p><span style="color: #000000;">
+
+</span></p>
+<p><span style="color: #000000;">And most recently, I remade the viz a second time, shying away from that dark background that I couldn't resist using for the good part of a year. This visual looks at 25 years of data instead of the original 20. You can view it in full <a style="color: #000000;" href="https://public.tableau.com/app/profile/cj.mayes/viz/25YearsOfMensGrandSlamTitles-IIBSubmission/Print" target="_blank" rel="noreferrer noopener">here.</a></span></p>
+<p><span style="color: #000000;">
+
+<figure class="wp-image"><img class="wp-image-4575" src="../uploads/2022/09/print-1.png" alt="" /></figure>
+
+</span></p>
+<p><span style="color: #000000;">So really, this blog will be a progress review of the changes made and why I think there are small improvements with each one.</span></p>
+<p><span style="color: #000000;">
+
+<figure class="wp-image"><img class="wp-image-4568" src="../uploads/2022/09/grand-slam-winners.png" alt="" width="816" height="508" /></figure>
+
+</span></p>
+<p><span style="color: #000000;">Okay, so where to begin with the review. The above isn't bad.</span></p>
+<p><span style="color: #000000;">We have a ranked order of grand slam winners during the period. I like the colour call out of the three main players.</span></p>
+<p><span style="color: #000000;">The subtle black fading background is quite nice.</span></p>
+<p><span style="color: #000000;">Perhaps the others could be grouped given they aren't a focal point but it does act as a good reference of how unlikely it is for those outside of the 'big three' to win.</span></p>
+<p><span style="color: #000000;">The colour highlighting easily showcases from roughly 2003 that three players dominate the grand slam.</span></p>
+<p><br /><span style="color: #000000;">What do I now instantly want to change?</span></p>
+<p><span style="color: #000000;">I can't get over my horrible handwriting though. So that had to go.</span></p>
+<p><span style="color: #000000;">The typography has to change too, not the best choice and doesn't really fit the sport theme.</span></p>
+<p><span style="color: #000000;">The calculation next to the players isn't correct in the tooltip as I have years popping through on the circles.</span></p>
+<p><span style="color: #000000;">It's difficult to really see which tournaments correspond to which player as there is no highlighting feature.</span></p>
+<p><span style="color: #000000;">The grey text i'm indifferent on, I think it blends okay into the black, I'd be interested to put it through a contrast checker though.</span></p>
+<p><span style="color: #000000;">That text at the bottom of the chart needs moving. I feel there was no consideration given to space nor alignment. See the pink below.</span></p>
+<p><span style="color: #000000;">
+
+<figure class="wp-image"><img class="wp-image-4580" src="../uploads/2022/09/grand-slam-winners1.png" alt="" width="557" height="346" /></figure>
+
+</span></p>
+<p><span style="color: #000000;">So around comes 2021, and I think to give it another shot.</span></p>
+<p><span style="color: #000000;">
+
+<figure class="wp-image"><img class="wp-image-4583" src="../uploads/2022/09/screenshot-2022-09-12-at-20.37.36-1.png" alt="" /></figure>
+
+</span></p>
+<p><span style="color: #000000;">Now I'm pretty happy with this one.</span></p>
+<p>It has a key! That is always useful.</p>
+<p><span style="color: #000000;">Some better consideration went into aligning the text, with the ranking, and the key.</span></p>
+<p><span style="color: #000000;">Aligning of the year text radially looks a lot better.</span></p>
+<p><span style="color: #000000;">Again, we are highlighting the dominance of the big three, but this time greying out other players.</span></p>
+<p><span style="color: #000000;">We are introducing context of where players are ranked at the end of the year. This means we can carry that knowledge forward to see if the player won a Grand Slam in those years.</span></p>
+<p><span style="color: #000000;">
+
+</span></p>
+<p><span style="color: #000000;">So what didn't sit well with me this time?</span></p>
+<p><span style="color: #000000;">The key, I really didnt like the right hand radial aspect. I think it looks quite ugly and thick.</span></p>
+<p><span style="color: #000000;">I called the first section seed ranking. In fact, it's just year end ranking. Seed is specific for tournaments.</span></p>
+<p><span style="color: #000000;">Because Dominic Thiem ended up in rank 3, I wasn't sure how to group the end part of the visual. I received good feedback that there was no colour legend specific to him. Perhaps this should have been a grey line.</span></p>
+<p><span style="color: #000000;">The curves of the lines are better. (They are sigmoid functions) but I didn't really like how they spread, it doesn't feel smooth enough. It's a little bit jagged mushroom like.</span></p>
+<p><span style="color: #000000;">Again no hover functionality to really highlight the individual players.</span></p>
+<p><span style="color: #000000;">
+
+</span></p>
+<p><span style="color: #000000;">So here we are. Coming up to the end of the US Open 2022, and I've created my Grand Slam visual for a third time.</span></p>
+<p><span style="color: #000000;">
+
+<figure class="wp-image"><img class="wp-image-4590" src="../uploads/2022/09/print-1-1.png" alt="" /></figure>
+
+</span></p>
+<p><span style="color: #000000;">So what's new this time?</span></p>
+<p><span style="color: #000000;"> Well I think my key is cleaner in design, I like the lightness to the design.</span></p>
+<p><span style="color: #000000;"> Alignment has much improved, although resembles roughly what was in the previous one.</span></p>
+<p><span style="color: #000000;"> We have new rows of data inserted. I think this was important to reference when Roger turned pro, and then the overlap with Rafa and Novak. It adds the element of competitiveness against one another, and the rise of each of them.</span></p>
+<p><span style="color: #000000;">The chord strings feel SO much cleaner thanks to Brian Moores blog, found </span><a style="color: #000000;" href="https://domoorewithdata.com/" target="_blank" rel="noreferrer noopener">here.</a></p>
+<p><span style="color: #000000;">Of course, I used Tableaus newer functionality to be able to layer multiple charts and marks on the same sheet allowing for greater creative freedom in builds.</span></p>
+<p><span style="color: #000000;">The colour background has changed, I'm going through a bit more of a lighter colour palette phase but think it works well. Really I started to blend the colour palette with the one used in my </span><a style="color: #000000;" href="https://public.tableau.com/app/profile/cj.mayes/viz/ChildhoodHero-IronViz2021/IronViz2021" target="_blank" rel="noreferrer noopener">Iron Viz 2021</a></p>
+<p><span style="color: #000000;"> entry. The green was overwhelming in the other two vizzes, now there is much more equal strength in colour against the lighter background, and the added hover ability helps focus the chart to each of the specific players.</span></p>
+<p><span style="color: #000000;">I'm pretty happy with some of the reference lines put in. I think they help frame the visual and the key nicely.</span></p>
+<p><span style="color: #000000;">
+
+<figure class="wp-image"><img class="wp-image-4598" src="../uploads/2022/09/screenshot-2022-09-12-at-21.19.40.png" alt="" /></figure> </span></p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

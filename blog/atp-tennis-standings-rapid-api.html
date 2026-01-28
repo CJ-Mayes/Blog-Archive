@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATP Tennis Standings (Rapid API) - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>ATP Tennis Standings (Rapid API)</h1>Hi all,
+
+The season is upon us!
+
+Yes I'm referring to the fact the Australian Open has begun. Who's excited? I certainly am. It is my plan to go to all 4 Grand Slams at some point in my lifetime. I'd assume that's quite an easy bucket list task, but funnily enough living in London the only one I've done so far is the French Open.
+
+Tell you what I was excited to see the news that they will slowly be making Tennis data more available. Unfortunately not to the general public, so Nick Kyrgios if you are reading this, I am happy to come consult on your team.
+
+<img class="alignnone size-full wp-image-5604" src="../uploads/2023/01/Screenshot-2023-01-11-at-12.36.33.png" alt="" width="545" height="552" />
+
+Today we are going to look at accessing data through an API.
+
+What do we really mean when we talk about API's? In typical fashion we overcomplicate the data world, but really it is just an intermediary that sends a message of a request, i.e give me this data/ information, and then brings back a response. Kind of like writing a letter, posting it, and then someone responding to the letter with whatever the answer to the question you asked.
+
+The reason I use the postman analogy is because someone conveniently created an application called postman where we can see that request happen. I'll be writing a follow up blog at some point about how to use Postman when accessing Strava data, but for now I'll simply use it to showcase the request in action.
+
+<img class="alignnone size-full wp-image-5587" src="../uploads/2023/01/Screenshot-2023-01-11-at-12.07.15.png" alt="" width="2456" height="1500" />
+
+There are plenty of different API connectors you can retrieve information from. Today we will be using a website called RapidAPI. Feel free in your own time to look at some of the other API's available.
+
+(You will need to make an account, I am assuming if you want to learn about API's I don't need to explain how to click sign up to a website!)
+
+The one we will demo today is the <a href="https://rapidapi.com/fluis.lacasse/api/tennisapi1"><strong>TennisAPI1</strong></a>
+
+<img class="alignnone size-full wp-image-5589" src="../uploads/2023/01/Screenshot-2023-01-11-at-12.11.49.png" alt="" width="2520" height="730" />
+
+What are some things we should probably know?
+<ul>
+ 	<li>Latency is pretty much how quick or slow the API is. (I.e the delay time of your post, luckily there are no Christmas strikes with API's)</li>
+</ul>
+<img class="aligncenter wp-image-5592 size-medium" src="../uploads/2023/01/Screenshot-2023-01-11-at-12.14.20-1-260x300.png" alt="" width="260" height="300" />
+<ul>
+ 	<li>End points refer to the url of where we want to get the information from. Just think of this as when you send a letter you have to write your recipients address on the envelope. (Yes I am going to continue this fairly shoddy analogy)</li>
+ 	<li>It's worth noting that the different end points retrieve different bits of data, we can see the URL update when we click through to the ATP Rankings end point.</li>
+ 	<li>Here is the url we want to get information from https://tennisapi1.p.rapidapi.com/api/tennis/rankings/atp</li>
+</ul>
+<img class="alignnone size-full wp-image-5608" src="../uploads/2023/01/Group-14.png" alt="" width="1264" height="652" />
+<ul>
+ 	<li>Next thing to consider is the API Key. Imagine you are sending your friend a personal letter, that you only want them to read. The key is your way of protecting the information so that only you can request it. In this case, we use it to retrieve the data required.</li>
+</ul>
+So how do I know what information we can get?
+
+Okay well we can test the endpoints in an application called Postman. <a href="https://web.postman.co/workspace/"><strong>Postman</strong></a> is an API interface development tool, which will help you build test and modify API's. I.e Am I sending my requests to the correct place? Is it telling me the correct information? What do I need to amend to ensure save retrieval of the information?
+
+Like I mentioned, the set up of postman will come in a future blog, but for now. How do we check our end point is correct,
+
+Well we add in our url from the site.
+
+We also need to add in our key. You'll see the key name is X-RapidAPI-Key, so I will need to add this to the headers section. I'll need to add the super long value for this key.
+
+<img class="alignnone size-full wp-image-5610" src="../uploads/2023/01/Group-15.png" alt="" width="1236" height="648" />
+
+Once I've done this, I can click send.
+
+<img class="alignnone size-full wp-image-5609" src="../uploads/2023/01/Screenshot-2023-01-11-at-12.25.34.png" alt="" width="2493" height="1249" />
+
+The data it retrieves tends to be in JSON format. Fine for sending and retrieving data, but if I actually want to do anything substantial in a visualisation tool I will need to see this data probably in a dataframe/table/csv format.
+
+This is where I load up python and recreate the steps there.
+
+<img class="alignnone size-full wp-image-5598" src="../uploads/2023/01/carbon.png" alt="" width="1654" height="2464" />
+
+What does the code do?
+<ul>
+ 	<li>First we want specific packages. One to help ups make requests, one to convert json format, and another to be able to build our data into a dataframe.</li>
+ 	<li>The endpoint like I mentioned is the custom url we go to retrieve our information.</li>
+ 	<li>The headers are taken from the API page.</li>
+ 	<li>We end up retrieving the data and it is in the json format, like when we tested it in Postman.</li>
+ 	<li>All we then do is take the attributes we want from this file and glue them together in a dataframe.</li>
+</ul>
+<img class="alignnone size-full wp-image-5601" src="../uploads/2023/01/Screenshot-2023-01-11-at-12.32.30.png" alt="" width="1106" height="319" />
+
+There we have it our nice shiny list of the Top 500 Mens Players in the ATP.
+
+Hopefully this was somewhat useful for an introduction into API's. As always the code can be found on the Github repo under the title.
+
+Going Further:
+<ul>
+ 	<li>Why not try use a different endpoint and retrieve the information from it?</li>
+ 	<li>Why not try use a different API in it's entirety?</li>
+ 	<li>Why not try automate a flow that makes multiple requests a day / over a number of days?</li>
+</ul>
+<div class="wWOJcd" tabindex="0" role="button" aria-controls="exacc_1KS-Y8POIoaW8gK4mY_oBg_8" aria-expanded="true" aria-labelledby="exacc_1KS-Y8POIoaW8gK4mY_oBg_7"></div>
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

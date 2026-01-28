@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau Wrapped With Hari Jeyan - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Tableau Wrapped With Hari Jeyan</h1>Hi all,
+
+A happy new year! I hope 2025 brings you many great things.
+
+The turning of the year is always a great time to reflect on the year previous and plan for the year ahead.
+
+You may have seen at the end of last year a "Tableau Wrapped" doing the circuits in the data community built by Hari Jeyan. I was so impressed, and it's had an incredible amount of praise from those looking to get some juicy numbers about their portfolio. Today, I had the chance to sit down with Hari to talk through how he went about creating Tableau Wrapped, the spin off of the popular spotify wrapped from years back.
+
+<img class="alignnone size-full wp-image-8684" src="../uploads/2025/01/tableau-wrapped-CJ-Mayes.png" alt="" width="1212" height="1112" />
+
+<strong>CHECK OUT THE VIDEO FROM HARI</strong>
+
+[videopress aIfj5osq w="0" loop="true"]
+
+<b>HOW DID I GET INTO DATA?</b>
+
+<span style="font-weight: 400;">Thank you, CJ, for encouraging me to share the story and lessons from a simple Tableau Wrapped web app I built recently. You can check it out here:</span><strong><a href="https://tableau-wrapped.vercel.app/"> Tableau Wrapped</a>.</strong>
+
+<span style="font-weight: 400;">I’m <strong>Hari Jeyan</strong>, from the beautiful country of Sri Lanka, and I’ve been using Tableau since early 2022. Although I hold a Bachelor’s degree in Information Technology, which involved extensive coding, I realized during my internship in 2020 as a front-end developer that my true interests lay elsewhere.</span>
+
+<span style="font-weight: 400;">Three weeks into my software engineering internship, I transitioned to a Business Analyst role, as I felt more drawn to the business side of the company rather than coding. This shift sparked my curiosity about finding a career that combined my technical skills with business decision-making.</span>
+
+<span style="font-weight: 400;">Eventually, I discovered my passion for working at the intersection of business and data, where I could use technology to drive data-informed decisions. Towards the end of my degree, I took courses on Coursera and started experimenting with basic Tableau Public projects. However, apart from these initial projects and my professional work, I wasn’t actively engaging with the Tableau community or consistently building data analytics projects to showcase my skills.</span>
+
+<b>THE PROJECT IDEA</b>
+
+<span style="font-weight: 400;">Although I only started using Spotify in 2024, I was amused by their </span><b>Spotify Wrapped</b><span style="font-weight: 400;"> feature since they started. It was incredible to see how this simple yet personalized concept became a powerful marketing catalyst, inspiring similar initiatives across various tools and platforms.</span>
+
+<span style="font-weight: 400;">It was the evening of December 20th, a Friday, and my social media feed was flooded with </span><b>Spotify Wrapped</b><span style="font-weight: 400;">, </span><b>LinkedIn Wrapped</b><span style="font-weight: 400;">, and other year-end summaries. This end-less posts of Wrapped features sparked a series of questions in my mind:</span>
+<ul>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Why haven’t data professionals shared anything Wrapped-related for their portfolios?</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Does Tableau have a Wrapped feature?</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Why doesn’t Tableau offer something like this for its vast community?</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">What would it take to build a Tableau Wrapped?</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Can I do it?</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Will my perfectionist mindset drag this project out forever?</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Should I build this in public?</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">What if I fail?</span></li>
+</ul>
+<span style="font-weight: 400;">With just ten days left until the New Year, I was in between the excitement of starting this project and the fear of not finishing it in time. Ultimately, I decided to move forward for one reason: I believed this could make a difference for the Tableau </span><b>datafam</b><span style="font-weight: 400;"> community.</span>
+
+<span style="font-weight: 400;">All I needed to do was create something that people would love to use.</span>
+
+<strong>RESOURCES</strong>
+
+<span style="font-weight: 400;">It had been more than four years since I last wrote code to build something, aside from data wrangling. I initially saw this as a major roadblock. However, I realized that the </span><b>Tableau Public API</b><span style="font-weight: 400;">, which is well-documented by Will Sutton </span><span style="font-weight: 400;">(</span><a href="https://github.com/wjsutton/tableau_public_api"><span style="font-weight: 400;">https://github.com/wjsutton/tableau_public_api</span></a><span style="font-weight: 400;">), was readily available. This meant I could focus on making API requests and using the responses without having to start from scratch like building a web scraper.</span>
+
+<img class="alignnone size-full wp-image-8686" src="../uploads/2025/01/WSCapture.png" alt="" width="1542" height="774" />
+
+<span style="font-weight: 400;">A few weeks before, I watched a YouTube video titled </span><b>"</b><a href="https://youtu.be/ueZCXkiStlQ?si=MXeJx2gBdgjnxnCh">How to Build Side Projects with AI?</a><b>"</b> <span style="font-weight: 400;">by <strong>Harish Uthayakumara</strong>n and his team. They explained how they built a GMAT practice web app in just a few days using AI tools. It was a lightbulb moment for me. Their experience showed that building products today is never like before. AI tools make the process faster and more accessible. Inspired by this, I wanted to dive into building something myself, but at that point, I wasn’t sure what to create.</span>
+
+<span style="font-weight: 400;">With this new perspective, I felt less concerned about the coding aspect of the project. Instead, I shifted my focus to figuring out the UI, deciding on meaningful metrics, and addressing other key elements needed to bring my idea to life.</span>
+
+<strong>TABLEAU PUBLIC API</strong>
+
+<span style="font-weight: 400;">The success of this entire project is dependent on one crucial component: the </span><b>Tableau Public API</b><span style="font-weight: 400;">. This API provides access to data about user profiles and workbooks that are publicly shared on the Tableau Public platform, making it the backbone of the project.</span>
+
+<span style="font-weight: 400;">API call format: </span><b>https://public.tableau.com/profile/api/ + Tableau Public Username</b>
+
+<img class="alignnone size-full wp-image-8688" src="../uploads/2025/01/Screenshot-2024-12-31-121640.png" alt="" width="727" height="277" />
+
+<b>Profile API Response:</b>
+
+<img class="alignnone size-full wp-image-8689" src="../uploads/2025/01/Screenshot-2024-12-31-131629.png" alt="" width="718" height="371" />
+
+<span style="font-weight: 400;">The following are the API objects returned in the response. Here we can find some of the useful data that can be used in the wrapped. </span>
+<ol>
+ 	<li style="font-weight: 400;" aria-level="1"><b>avatarUrl</b><span style="font-weight: 400;">: The URL of the user's profile picture/avatar.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><b>bio</b><span style="font-weight: 400;">: The biography or description of the user.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><b>createdAt</b><span style="font-weight: 400;">: The account creation timestamp in milliseconds since the Unix epoch.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><b>featuredVizRepoUrl</b><span style="font-weight: 400;">: The URL or identifier for the user's featured visualization repository.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><b>freelance</b><span style="font-weight: 400;">: A boolean indicating whether the user is available for freelance work.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><b>hideNewWorkbooks</b><span style="font-weight: 400;">: A boolean indicating whether new workbooks are hidden from the user's profile.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><b>name</b><span style="font-weight: 400;">: The full name of the user.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><b>organization</b><span style="font-weight: 400;">: The organization the user is associated with.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><b>profileName</b><span style="font-weight: 400;">: The user's profile name or username.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><b>profileView</b><span style="font-weight: 400;">: The view setting for the profile (e.g., "DEFAULT").</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><b>searchable</b><span style="font-weight: 400;">: A boolean indicating whether the profile is searchable.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><b>title</b><span style="font-weight: 400;">: The professional title or designation of the user.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><b>totalNumberOfFollowers</b><span style="font-weight: 400;">: The total number of followers the user has.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><b>totalNumberOfFollowing</b><span style="font-weight: 400;">: The total number of other profiles the user is following.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><b>visibleWorkbookCount</b><span style="font-weight: 400;">: The number of workbooks visible on the user's profile.</span></li>
+</ol>
+<b>Tableau Public API URL for Workbooks</b>
+
+<img class="alignnone size-full wp-image-8690" src="../uploads/2025/01/Screenshot-2024-12-31-181633.png" alt="" width="752" height="187" />
+
+<span style="font-weight: 400;">API call format for first 50 workbooks: </span><b>https://public.tableau.com/public/apis/workbooks?profileName= + Tableau Public Username + &amp;start=0&amp;count=50&amp;visibility=NON_HIDDEN</b>
+
+<span style="font-weight: 400;">The key is to utilize the </span><b>start</b><span style="font-weight: 400;"> and </span><b>count</b><span style="font-weight: 400;"> parameters effectively, incrementing them by 50 with each request, as the API retrieves workbook details in batches of 50!</span>
+
+<img class="alignnone size-full wp-image-8691" src="../uploads/2025/01/Screenshot-2024-12-31-182132.png" alt="" width="748" height="423" />
+
+<span style="font-weight: 400;">Here also we can see some of the useful data that are specific to individual dashboards.</span><span style="font-weight: 400;">
+</span>
+<ol>
+ 	<li style="font-weight: 400;" aria-level="1"><b>authorDisplayName</b><span style="font-weight: 400;">: The display name of the workbook's author.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><b>authorProfileName</b><span style="font-weight: 400;">: The profile name (or username) of the workbook's author.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><b>defaultViewName</b><span style="font-weight: 400;">: The name of the default view within the workbook.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><b>defaultViewRepoUrl</b><span style="font-weight: 400;">: The repository URL of the default view within the workbook.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><b>numberOfFavorites</b><span style="font-weight: 400;">: The number of times the workbook has been marked as a favorite by users.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><b>title</b><span style="font-weight: 400;">: The title of the workbook.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><b>viewCount</b><span style="font-weight: 400;">: The number of times the workbook has been viewed.</span></li>
+</ol>
+<b>workbookRepoUrl</b><span style="font-weight: 400;">: The repository URL of the workbook.</span>
+
+<b>INITIAL PLAN</b>
+
+<span style="font-weight: 400;">My initial plan was to use Streamlit—a tool for building and deploying data apps—to fetch responses from the Tableau Public API and display them in a simple interface. For example the below looking at Prasann's journey.</span>
+
+<img class="alignnone size-full wp-image-8698" src="../uploads/2025/01/WBCapture.png" alt="" width="605" height="232" />
+
+<span style="font-weight: 400;">The first iteration of the Streamlit app gave me a starting point to think about the UI and how I wanted to structure the final output. One of my primary goals was to enable users to download and proudly share their achievements on social media.</span>
+
+<span style="font-weight: 400;">However, after a little bit of researching and exploring, I found that building a simple web app using a React framework will be a better option for the project considering the long term implementations I had in mind.</span>
+
+<strong>UI DESIGN</strong>
+
+<span style="font-weight: 400;">While exploring the Figma Community designs, I came across a BentoCV design by <a href="https://www.figma.com/community/file/1334784852030646760"><strong>Karthik.</strong></a></span><span style="font-weight: 400;"> To save time and jump into development quickly, I decided to customize this CV design into a Wrapped design. I then spent the next 2–3 hours fine-tuning it to match my vision.</span>
+
+<img class="alignnone size-full wp-image-8701" src="../uploads/2025/01/Comm-FileCapture.png" alt="" width="1879" height="998" />
+
+<span style="font-weight: 400;">Throughout the process, my primary focus was simple: to create something I’d personally be excited to use. If I wouldn’t want to use it, I couldn’t expect others to either.</span>
+
+The final UI design looked something like this
+
+<img class="alignnone size-full wp-image-8702" src="../uploads/2025/01/UICapture.png" alt="" width="761" height="597" />
+
+<strong>CODING WITH CURSOR</strong>
+
+<span style="font-weight: 400;">This was my first time using </span><b>Cursor AI</b><span style="font-weight: 400;">, and I’m thrilled with how well it worked. From deciding the tech stack, installing the necessary programming languages, and setting up the environment to organizing the project structure and coding, </span><b>Cursor AI</b><span style="font-weight: 400;"> proved to be incredibly intuitive. It streamlined the entire process, allowing me to implement code through simple clicks. The key was crafting clear, detailed prompts that explained exactly what I intended to achieve.</span>
+
+<span style="font-weight: 400;">Here’s the first prompt I used in Cursor AI:</span>
+
+<b>Prompt:</b><b>
+</b><span style="font-weight: 400;">"I'm building a Tableau Wrapped web app, which:</span>
+<ul>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Takes a Tableau Public username as input.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Uses the Tableau Public API to fetch user statistics, including:</span>
+<ul>
+ 	<li style="font-weight: 400;" aria-level="2"><span style="font-weight: 400;">Profile info</span></li>
+ 	<li style="font-weight: 400;" aria-level="2"><span style="font-weight: 400;">Total workbooks</span></li>
+ 	<li style="font-weight: 400;" aria-level="2"><span style="font-weight: 400;">Followers/Following counts</span></li>
+ 	<li style="font-weight: 400;" aria-level="2"><span style="font-weight: 400;">Total views</span></li>
+ 	<li style="font-weight: 400;" aria-level="2"><span style="font-weight: 400;">Join date</span></li>
+</ul>
+</li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Displays results in a Bento grid card UI (design already created in Figma).</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Allows downloading results as an image for social media sharing.</span></li>
+</ul>
+<span style="font-weight: 400;">I have 0 coding experience, so I need step-by-step guidance to implement this project.</span>
+
+<span style="font-weight: 400;">API Documentation is available, and we have access to endpoints such as:</span>
+<ul>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Profile: https://public.tableau.com/profile/api/{username}</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Workbooks: https://public.tableau.com/public/apis/workbooks?profileName={username}&amp;start=0&amp;count=50</span><span style="font-weight: 400;">"</span></li>
+</ul>
+<span style="font-weight: 400;">Using this prompt, Cursor AI guided me through the coding process seamlessly, making it possible to build a functional and visually appealing web app.</span>
+
+<img class="alignnone size-full wp-image-8693" src="../uploads/2025/01/Screenshot-2025-01-01-094356.png" alt="" width="1920" height="1032" />
+
+<span style="font-weight: 400;">Once I provided Cursor AI with the context of the project and set up the necessary components, the process became much smoother. All I needed to do was download the Bento U</span><b>I</b><span style="font-weight: 400;"> as a PNG image from Figma, upload it to the Cursor AI chat, and instruct it to build the frontend UI.</span>
+
+<span style="font-weight: 400;">Of course, not everything worked perfectly on the first try. There were moments when the output didn’t meet my expectations. In those cases, I simply refined my prompts, providing more detailed context and clearer instructions. The key was persistence—continually pushing Cursor AI to understand my requirements better.</span>
+
+<strong>BUG FIXES</strong>
+
+<span style="font-weight: 400;">This was the one area where I faced some challenges. If you have a little bit of experience in coding and debugging, it will be easy for you to debug as you would know what to look for. </span>
+
+<span style="font-weight: 400;">When fixing bugs, it’s essential to provide </span><b>clear context</b><span style="font-weight: 400;"> about the issue and add the specific code file to the </span><b>Cursor AI</b><span style="font-weight: 400;"> chat. This approach not only saves time but also prevents unintended changes to the working parts of the code. </span>
+
+<strong>FINALISING THE PROJECT</strong>
+
+<span style="font-weight: 400;">I have nearly checked 100+ times with various user names, fixed small things to make it look better in each iteration, and made it mobile responsive, as I expected more people would access this from their mobile phones. </span>
+
+<img class="alignnone size-full wp-image-8694" src="../uploads/2025/01/Screenshot-2025-01-01-102829-1.png" alt="" width="640" height="523" />
+
+<span style="font-weight: 400;">It felt like reinventing myself after some time. Doing things for the first time and getting it done perfectly before the party is over was the best feeling I had in a while. </span>
+
+<strong>SHARING WITH THE COMMUNITY</strong>
+
+<span style="font-weight: 400;">Initially, my plan was just to make a simple LinkedIn post and share the link in the post. I thought there was nothing much to say about it as it is a simple web app that gives the Tableau Public Wrapped when a user enters their Tableau Public user name, which can be found in their profile URL. </span>
+
+<span style="font-weight: 400;">But when I shared my plan with my wife, who is a Machine Learning Engineer and not a Tableau user, she suggested that it would be better to make a short video on how to use this web app and what it does without writing any lengthy post and people would stop scrolling and check what this is about. But I was scratching my head and thinking, what’s the point of doing all this? The only thing I didn’t understand was the perspective. Just because I spent two full days building this and know the ins and outs of the product and how it works, for someone who’s seeing this for the first time may not see this product in the same way as I see it. To overcome this challenge a short explainer video would be the best thing. </span>
+
+<span style="font-weight: 400;">I recorded my screen, found a promo video template in Canva, and quickly edited the Tableau Promo video, which went well beyond my expectations. I shared this on a Sunday evening. The responses I received were overwhelming, and I was so glad to see people try this app and share their Tableau Public Wrapped with the pride of their Tableau journey. </span>
+
+<img class="alignnone size-full wp-image-8692" src="../uploads/2025/01/Screenshot-2025-01-01-074018.png" alt="" width="1522" height="767" />
+
+<strong>REFLECTIONS</strong>
+
+<span style="font-weight: 400;">If you’d asked me two years ago whether I could have accomplished this project, my answer would likely have been a “no.” Even if I had the idea back then, I wouldn’t have been willing to relearn coding or dedicate weeks to building something like this. It would’ve taken weeks, and the party would’ve been over. </span>
+
+<span style="font-weight: 400;">However, with the arrival of </span><b>Generative AI</b><span style="font-weight: 400;">, the landscape has changed. What once seemed impossible is now just challenging—something achievable with commitment and the right tools. Gen AI has lowered the barriers to entry, making ideas that once seemed out of reach more attainable.</span>
+
+<strong>NETWORKING</strong>
+
+<span style="font-weight: 400;">Before this project, I followed many top 1% contributors in the Tableau </span><b>datafam</b><span style="font-weight: 400;">, but I wasn’t directly connected to most of them. After sharing my project, things changed. I received DMs, gained followers, had my post shared and tagged by others, and built meaningful connections. This blog also happened because of that. </span>
+
+<span style="font-weight: 400;">This experience made me realize the truth in Naval Ravikant’s words:</span><span style="font-weight: 400;">
+</span><i><span style="font-weight: 400;">"<strong><a href="https://youtu.be/WqTa6JZVQ5U?si=8oaCo_xTjJWbI2Kn">Networking is overrated… Do something great, and your network will instantly emerge</a></strong>."</span></i>
+
+<strong>FUTURE PLANS</strong>
+
+<span style="font-weight: 400;">There are a few improvements I’m planning to add to this Tableau Wrapped app with time.</span><span style="font-weight: 400;">
+</span>
+<ul>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Currently, the downloaded Tableau Wrapped image on desktop and mobile looks different based on responsiveness. Make the downloaded image look the same across all devices.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">The individual dashboards have created dates and last updated dates. Using this, make a dashboard that visualizes annual user engagement trends in Tableau Public. </span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Enable the user to set annual, quarterly, or monthly goals for Tableau Public and measure the streak in GitHub style. </span></li>
+</ul>
+<span style="font-weight: 400;">I hope this was worth the read. Along with the project's technical details, I wanted to inspire people that they could do things with the help of AI that seemed impossible two years ago. </span>
+
+<img class="alignnone size-full wp-image-8706" src="../uploads/2025/01/tableau-wrapped-Hari-Jeyan.png" alt="" width="1212" height="1112" />
+
+<span style="font-weight: 400;"><a href="https://x.com/harijeyan_"><strong>X</strong></a> </span>
+
+<span style="font-weight: 400;"><a href="https://www.linkedin.com/in/harijeyan/"><strong>LinkedIn</strong></a> </span>
+
+<span style="font-weight: 400;"><a href="https://public.tableau.com/app/profile/hari.jeyan/vizzes"><strong>Tableau Public</strong></a> </span>
+
+<span style="font-weight: 400;"><a href="https://github.com/Harijeyan"><strong>GitHub</strong></a></span>
+
+<strong>CJ Round Up:</strong> Thank you so much for sharing Hari the inner workings of what you have created! I love that it shares everything from design, to BI tools, to code, and suggestions along that journey.
+
+<strong>LOGGING OFF,</strong>
+
+CJ
+
+&nbsp;
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

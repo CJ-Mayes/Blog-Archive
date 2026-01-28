@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create A ChatGPT App For Slack - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Create A ChatGPT App For Slack</h1>Hi all,
+
+In previous blogs we have looked at analysing CSV files, answering questions against PDF files as well as having google extensions to help with queries within excel. This week we will look at how we can integrate ChatGPT into slack as a bot.
+
+Now I must start with this isn't a how to guide on <strong><a href="https://slack.com/intl/en-gb/blog/news/introducing-slack-gpt">SlackGPT</a></strong>. SlackGPT is its own product Salesforce are building out, which is there vision for generative AI in Slack. With the Salesforce SlackGPT you’ll be able to instantly bring generative AI into your automated processes in Slack, without a single line of code. <strong><a href="https://slack.com/intl/en-gb/blog/news/introducing-slack-gpt">If you're after that, please visit here instead.</a></strong>
+
+This blog, however is looking at taking OpenAI and adding it in as an bot using the slack API. It'll be a blog with far less glamour around data protection, privacy and security <strong>so in no way is a guide for workplace implementation.</strong>
+
+<img src="../uploads/2023/07/app.png" class="alignnone size-full wp-image-6641" alt="" width="1401" height="604">
+
+For this tutorial you will need:
+<ul>
+ 	<li>A slack workspace</li>
+ 	<li>Somewhere to write your python code</li>
+ 	<li>An OpenAI account and api key</li>
+</ul><strong>Setting Up Slack</strong>
+
+Go to https://api.slack.com/
+
+Go to Your Apps and create new app, Create it from scratch and give your app a name &amp; pick the workspace you want to develop in. For this tutorial I created a brand new workspace called Personal-Workspace.
+
+<img src="../uploads/2023/07/001Workspace.png" class="alignnone size-full wp-image-6642" alt="" width="1886" height="1002">
+
+Once you've created it go down to OAuth and Permissions.
+
+Add the following scopes to bot scope:
+
+chat:write
+
+chat:write:public
+
+Scroll back up and add these to the workspace.
+
+<img src="../uploads/2023/07/002Scope.png" class="alignnone size-full wp-image-6645" alt="" width="698" height="147">
+
+Below is what the authentication looks like.
+
+<img src="../uploads/2023/07/003Auth.png" class="alignnone size-full wp-image-6646" alt="" width="631" height="592">
+
+Once you've done that, under OAuthTokens for your workspace it will show your <strong>bot token</strong>, you will need to store this as we will need it later.
+
+The next token we will need is an app token. Go to basic information and scroll down to App tokens.
+
+<img src="../uploads/2023/07/005AppToken.png" class="alignnone size-full wp-image-6648" alt="" width="693" height="647">
+
+Generate the app token ready for use, and add the connections:write scope. Store the app token somewhere ready for later use in the code.
+
+Next go to socket mode, and enable socket mode.
+
+<img src="../uploads/2023/07/006SocketMode.png" class="alignnone size-full wp-image-6650" alt="" width="977" height="522">
+
+The final thing we need to do to set up our app is make sure interactivity is switched on,
+
+<img src="../uploads/2023/07/0061.png" class="alignnone size-full wp-image-6651" alt="" width="676" height="214">
+
+as well as in event subscription adding app_mention and message.im to the bot events.
+
+<img src="../uploads/2023/07/007BotMentions.png" class="alignnone size-full wp-image-6652" alt="" width="1026" height="577">
+
+We will need to then save the changes again to our slack app.
+
+<img src="../uploads/2023/07/008ReinstallApp.png" class="alignnone size-full wp-image-6653" alt="" width="1887" height="677">
+
+Now it is ready for use!
+
+<strong>Generating API Key.</strong>
+
+Part two needs us to have an API key for OpenAI. You can log into OpenAI <strong><a href="https://openai.com/">here.</a></strong>
+
+Within your <strong><a href="https://platform.openai.com/account/api-keys">API key area</a></strong>, you can generate a key for use. You can see I made a new key called slack Key for this tutorial temporarily.
+
+<img src="../uploads/2023/07/009SlackKey.png" class="alignnone size-full wp-image-6655" alt="" width="1902" height="701">
+
+If you're using the OpenAI free trial, make sure you have enough credits left, by going to usage.
+
+<img src="../uploads/2023/07/usage.png" class="alignnone size-full wp-image-6657" alt="" width="1388" height="644">
+
+<strong>Time to Code</strong>
+
+Get up the python IDE of your choice, I'll be using pycharm. You can either set your environment variables for your slack app, bot and open ai token or hold them in a separate file.
+
+First we need to install some packages,
+
+In the terminal pip install slack_bolt, openai and langchain.
+
+<img src="../uploads/2023/07/pip.png" class="alignnone size-full wp-image-6659" alt="" width="699" height="24">
+
+LangChain is a powerful tool that can be used to work with Large Language Models (LLMs). LLMs are very general in nature. I would recommend reading up on this if you haven't prior.
+
+Now copy and paste the code from the repository into PyCharm.
+
+Firstly run the .py file called Tokens, after adding your tokens that we captured in the slack and open ai set-up. You will need to amend lines 3-5
+
+<img src="../uploads/2023/07/tokens.png" class="alignnone size-full wp-image-6662" alt="" width="570" height="215">
+
+After that, copy and paste into the main.py file your main code. You won't need to amend this file at all.
+
+<img src="../uploads/2023/07/carbon.png" class="alignnone size-full wp-image-6664" alt="" width="1530" height="1898">As a brief overview.
+<ol>
+ 	<li>It imports slack bolt for building Slack apps, and specific components from the slack bolt socket mode.</li>
+ 	<li>It imports modules and classes from Langchain used for language generation and managing conversation history.</li>
+ 	<li>It imports the values of three tokens from a separate file called tokens.py</li>
+ 	<li>It initializes the OpenAI API key with the value of our open api token.</li>
+ 	<li>It creates a Slack Bolt app instance with the provided Slack bot token.</li>
+ 	<li>It sets up a language generation template&nbsp;that defines the structure of the conversation between a human and an AI assistant.</li>
+ 	<li>It defines a message handler for the Slack app. Any message received by the bot will trigger this handler. The message handler prints the received message and generates a response.</li>
+ 	<li>The response is sent back to the Slack channel.</li>
+</ol>If all things are working well at this stage you should be able to run your code, and it will say:
+
+Bolt App is running.
+
+<img src="../uploads/2023/07/bolt.png" class="alignnone size-full wp-image-6667" alt="" width="348" height="98">
+
+For now, this will need to be running for our app to work. If we stop this code running, the app will not work.
+
+Restart your slack.
+
+Go to your workspace and add the new app we have created.
+
+<img src="../uploads/2023/07/app-1.png" class="alignnone size-full wp-image-6669" alt="" width="1401" height="604">
+
+When you now click into the app it should allow for you to write a message. If it doesnt let you write a prompt go back &amp; double check your permissions and scopes.
+
+Try a prompt of your choosing, I've gone for:
+
+"Give me a step by step guide on how to create a slack app using the slack API"
+
+<img src="../uploads/2023/07/pych.png" class="alignnone size-full wp-image-6670" alt="" width="1873" height="309">
+
+When you click send in slack you will see in your pycharm terminal the message is triggered.
+
+<img src="../uploads/2023/07/response.png" class="alignnone size-full wp-image-6671" alt="" width="1264" height="380">
+
+The response will show from ChatGPT in your slack window.
+
+You will also notice if you stop your terminal running then the app will stop working. Below you can see how it no longer responds.
+
+<img src="../uploads/2023/07/terminal.png" class="alignnone size-full wp-image-6673" alt="" width="1496" height="569">
+
+That's it for this week, of course lots more you can start to explore with this idea - we are only just scraping the surface. To take it further why not start playing around with temporarily storing message captures, not hosting it locally, and varying the types of prompts you ask.
+
+Chat soon &amp; take care.
+
+<strong>LOGGING OFF</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

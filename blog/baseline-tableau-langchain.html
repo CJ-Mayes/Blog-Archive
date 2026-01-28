@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baseline AI - Tableau Langchain - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Baseline AI - Tableau Langchain</h1>Hi all,
+
+AI is gold as I'm sure you're aware by now, and many of us probably have gut wrenching feeling that you need to grow with the times or be left behind.I'm particularly excited to see how tools are growing at pace to be able to not just bring efficiencies in other walks of life, but how it is reshaping the way we do analytics.
+
+<img class="alignnone size-full wp-image-9591" src="../uploads/2025/07/Recording-2025-07-04-at-13.46.31.gif" alt="" width="1920" height="1080" />
+
+As part of my own journey, I want to expand a lot of my technical skills into the peripherals of data, that will include front end design, hosting, back end, AI, and everything in between. To do that I tend to set myself mini projects. One recently that came up for me was to play around with Tableau Langchain.
+
+If you have no idea what that is, start here with Will Sutton. I got to see it live in action at AgentForce a few weeks back.
+
+<img class="alignnone size-full wp-image-9565" src="../uploads/2025/07/Screenshot-2025-07-04-at-13.12.18.png" alt="" width="1978" height="1214" />
+
+This is everything you need to get started with the idea of querying your Tableau server dataset through prompts using an OpenAI model.
+
+Here is a short summary of the video
+
+<img class="alignnone size-full wp-image-9567" src="../uploads/2025/07/Screenshot-2025-07-04-at-13.16.14.png" alt="" width="1447" height="1149" />
+
+The video goes into great detail as to how to connect the Tableau side for the server, the open ai model, how langchain works and best way to utilise the repository.
+
+I'm going to trust you also use this as a starting basis and then will talk through some of my next learnings.
+
+&nbsp;
+
+<img class="alignnone size-full wp-image-9569" src="../uploads/2025/07/Screenshot-2025-07-04-at-13.18.07.png" alt="" width="1861" height="1051" />
+
+So if you follow along you get a great chat bot that is an html page, that you can either bring into your dashboard or host locally given the repository.
+
+The next steps for me therefore, in terms of learning by doing was.
+<ul>
+ 	<li>Replicate what Will has done using his repository</li>
+ 	<li>Amend it to a sport of my choice, a different dataset and different agent style.</li>
+ 	<li>Start adding in custom features that make it more my own project.</li>
+</ul>
+Let me walk through some of those adjustments.
+
+<img class="alignnone size-full wp-image-9571" src="../uploads/2025/07/Screenshot-2025-07-04-at-13.20.22.png" alt="" width="1905" height="1043" />
+
+Firstly, I started by cloning the repository in cursor. I just love its ability to use the AI feature to query my whole repository instead of having to copy and paste code chunks out.
+
+Next, I wanted to change the page to fit my new theme, which was going to be tennis data. This is mainly just changes in the HTML.
+
+<img class="alignnone size-full wp-image-9573" src="../uploads/2025/07/Screenshot-2025-07-04-at-13.22.47.png" alt="" width="2527" height="1261" />
+
+I got far too excited with this stage, playing around with different generated images, layouts and styles. I only picked up HTML recently after collaborating with Chelsea Football Club.
+
+The next part of that is the "chat bot" itself.
+
+<img class="alignnone size-full wp-image-9574" src="../uploads/2025/07/Screenshot-2025-07-04-at-13.24.22.png" alt="" width="2386" height="941" />
+
+I wanted the flexibility to be able to put in custom prompts, a nice guide so that users were able to easily identify common questions. It would also allow me to start to be able to really configure what those responses may look like. The other aspect was I wanted the flexibility to download the data. Now really this should be actioned from the server, but for now I linked it to Jeff Sackmanns repo where I took the file from in the first place!
+
+You may also notice that clicking these prompts gives you a bunch of nothing response at the moment. I created a file with a toggle in the environments variable to prevent the message hitting the model (because costly) - Instead it just loops through these generic responses for now.
+
+<img class="alignnone size-full wp-image-9577" src="../uploads/2025/07/Screenshot-2025-07-04-at-13.26.43.png" alt="" width="1412" height="812" />
+
+One of the final things that needed amending was this prompt.py file. As you can imagine it currently is based on sales. But my whole page is about Wimbledon Tennis data.....
+
+<img class="alignnone size-full wp-image-9579" src="../uploads/2025/07/Screenshot-2025-07-04-at-13.28.49.png" alt="" width="1405" height="762" />
+
+Fortunately from the above lots of things can still be carried through around <strong>grounding, clarity, attribution and hallucinations.</strong> Over time we will get better at writing these instructions and understanding the agent identity.
+
+The final step was hosting it. I pay enough for my site to be hosted as it is, and given it's only a small project, I went with hosting it on Render for free. A new tool for me. It takes a little while to boot up because of that, as it does it based on traffic load.
+
+<img class="alignnone size-full wp-image-9581" src="../uploads/2025/07/Screenshot-2025-07-04-at-13.39.54.png" alt="" width="1757" height="1028" />
+
+But it loads great https://baseline-ai.onrender.com/
+
+<img class="alignnone size-full wp-image-9583" src="../uploads/2025/07/Screenshot-2025-07-04-at-13.41.19.png" alt="" width="1876" height="1022" />
+
+It was just so easy to upload my environment variables into Render.
+
+<img class="alignnone size-full wp-image-9586" src="../uploads/2025/07/Screenshot-2025-07-04-at-13.44.10.png" alt="" width="2530" height="1328" />
+
+I will keep playing around with this as a mini project, but a massive shout out to Will Sutton, really paving the way for Tableau server AI.
+
+<img class="alignnone size-full wp-image-9585" src="../uploads/2025/07/Screenshot-2025-07-04-at-13.43.07.png" alt="" width="2525" height="936" />
+
+<b>Going Further:</b>
+<ul>
+ 	<li>Further tweak the agent system.</li>
+ 	<li>Have the response include chart response generation.</li>
+ 	<li>Configure a mobile view.</li>
+ 	<li>Integrate the visual alongside the chat bot and have them working in unison.</li>
+</ul>
+<strong>LOGGING OFF,</strong>
+
+CJ
+
+&nbsp;
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

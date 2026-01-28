@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convex Hulls In Tableau - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Convex Hulls In Tableau</h1><p></p>
+<p><em>This post includes a run-through of how to create a convex hull soccer chart in Tableau from some of the free data StatsBomb provide.</em></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3870" src="../uploads/2022/05/screenshot-2022-05-05-at-16.46.34.png" alt="" width="684" height="576" /></figure>
+
+</p>
+<p>Hi All,</p>
+<p>
+
+</p>
+<p>I recognise it's been a good few weeks since my last post. Truth be told, juggling isn't always my forte. This season has excitingly been sprinkled with talks, Iron Viz, and conference but I'm glad to have carved out the time to share another tutorial.</p>
+<p>
+
+</p>
+<p>I have grandiose plans of trying to convert as many data analysts python curated charts to Tableau, where they belong! As part of that, it does entail me fighting with python code a fair bit, often thinking what on earth is going on.</p>
+<p>
+
+</p>
+<p>This blog will be no different, It has a brief data prep element using the free data from StatsBomb and then we look to create the convex hull chart in Tableau. If you'd like to skip ahead and just do the build, the dataset can be found in the repo at the top of the page.</p>
+<p>
+
+</p>
+<p><strong>What is a convex hull chart / Territory Map?</strong></p>
+<p>
+
+</p>
+<p>There are a whole range of reasons why convex hull charts can be useful in football. They can be used to explore teams coverage area, spread on the pitch while attacking and defending, as well as shot on goal situations.</p>
+<p>
+
+</p>
+<p>In the example below we look at just one individuals placement on the pitch when making passes.</p>
+<p>
+
+</p>
+<p><strong>Python Code </strong></p>
+<p>
+
+</p>
+<p>I'd like to say a huge thank you to <strong><a href="https://twitter.com/chunhang7" target="_blank" rel="noreferrer noopener">Chun hang</a></strong> who helped me with my code. We went back and forth over email has to how to prep the dataset ready for Tableau. I'm glad together we also figured out how to create the PathID for joining what will be our eventual polygon shape. Please follow him on Twitter <a href="https://twitter.com/chunhang7"><strong>here</strong></a>, and his blog <strong><a href="https://lchunhang.medium.com/" target="_blank" rel="noreferrer noopener">here.</a></strong></p>
+<p>
+
+</p>
+<p>If you'd like to access the code it can be found <b>on my git repo at the top of the page.</b></p>
+<p>
+
+</p>
+<p>What the code does:</p>
+<p>
+
+</p>
+<ul>
+<li>
+<p>We look at the statsbomb free data to identify the list of competitions available, we find the Final of the Womens World Cup for 2020/21.</p>
+</li>
+<li>
+<p>We only look to take the event data for when someone made a pass, and we split the data into X and Y locations.</p>
+</li>
+<li>
+<p>We pick to look at the US team and then find which players had made passes and take Crystal Dunn as our example to plot.</p>
+</li>
+<li>
+<p>We make sure we only include choices of players that have made at least 3 passes to be able to plot our polygon shape.</p>
+</li>
+<li>
+<p>We set up the pitch like normal with python code the output looks like this thanks to Chun Hangs help.</p>
+</li>
+</ul>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3876" src="../uploads/2022/05/screenshot-2022-05-05-at-16.46.34-1.png" alt="" /></figure>
+
+</p>
+<p>Next</p>
+<p>
+
+</p>
+<ul>
+<li>
+<p>We look to find all the passes for Crystal.</p>
+</li>
+<li>
+<p>We take the hull points and anticlockwise add into the dataframe a pathID. This is really important as it will be what we utilise on our path in Tableau, without it, we do not know what order to join the points. Fortunately, the package orders the points in anticlockwise order.</p>
+</li>
+<li>
+<p>We then merge the hull points data back into all of Crystals passes.</p>
+</li>
+<li>
+<p>We export the dataset to CSV ready to use.</p>
+</li>
+</ul>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3880" src="../uploads/2022/05/carbon.png" alt="" /></figure>
+
+</p>
+<p>Now we have our dataset prepped we can open up Tableau!</p>
+<p>
+
+</p>
+<p><strong>Tableau</strong></p>
+<p>
+
+</p>
+<ul>
+<li>
+<p>Connect to the data.</p>
+</li>
+</ul>
+<p>
+
+</p>
+<ul>
+<li>
+<p>Drag X onto Columns and Y onto Rows. Make them both dimensions.</p>
+</li>
+</ul>
+<p>
+
+</p>
+<p>Lets create the convex hull first.</p>
+<p>
+
+</p>
+<ul>
+<li>
+<p>Change the marks to a polygon</p>
+</li>
+<li>
+<p>Path ID onto path</p>
+</li>
+<li>
+<p>Hull Point onto Colour</p>
+</li>
+<li>
+<p>You will see that when the PathID is yes, it creates the Hull shape we want.</p>
+</li>
+</ul>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3885" src="../uploads/2022/05/screenshot-2022-05-05-at-18.21.48.png" alt="" /></figure>
+
+</p>
+<ul>
+<li>
+<p>We also will want to HIDE (not filter) the PathID that is no - right click the colour legend on the 'no' hull points and hide them. Reason for hiding is because we want these points still in our underlying data.</p>
+</li>
+</ul>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3883" src="../uploads/2022/05/screenshot-2022-05-05-at-18.20.23.png" alt="" /></figure>
+
+</p>
+<p>Now your view should look like this:</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3888" src="../uploads/2022/05/screenshot-2022-05-05-at-18.23.45.png" alt="" /></figure>
+
+</p>
+<p>Next up lets look to add all the pass position points.</p>
+<p>
+
+</p>
+<ul>
+<li>
+<p>Add another X to columns as a Dimension.</p>
+</li>
+<li>
+<p>Change the marks to Circle.</p>
+</li>
+<li>
+<p>Remove Hull Point from colour for this card.</p>
+</li>
+</ul>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3886" src="../uploads/2022/05/screenshot-2022-05-05-at-18.25.04.png" alt="" /></figure>
+
+</p>
+<p>Finally we can dual axis these and syncronise.</p>
+<p>
+
+</p>
+<p>The last thing to do is to fix our axis and add our football pitch in as a background.</p>
+<p>
+
+</p>
+<p>James Smith kindly shows us how this is done in his blog <strong><a href="https://medium.com/analytics-vidhya/how-to-create-football-pitches-goals-as-backgrounds-in-tableau-7b1a7800ae1c" target="_blank" rel="noreferrer noopener">here.</a></strong></p>
+<p>
+
+</p>
+<p>Once you've completed this step, the end output should look a little like this.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3891" src="../uploads/2022/05/convex-hull-tutorial.png" alt="" /></figure>
+
+</p>
+<p>My only final tip would be to turn the zoom on your pitch off to make sure it keeps its axis in proportion. You can do that by clicking on your pitch sheet, going to map options and unticking the boxes.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3893" src="../uploads/2022/05/screenshot-2022-05-05-at-18.29.52.png" alt="" /></figure>
+
+</p>
+<p>As seen below.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3895" src="../uploads/2022/05/screenshot-2022-05-05-at-18.30.50.png" alt="" /></figure>
+
+</p>
+<p>And that's it. Our first Convex Hull chart in Tableau.</p>
+<p>
+
+</p>
+<p>The example dashboard can be found through the Tableau Public link.</p>
+<p>
+
+</p>
+<p>Extra Resources:</p>
+<p>
+
+</p>
+<p><strong><a href="https://drive.google.com/drive/folders/1TsD5_l3VFlZd0C-APggu3ERHNA9dnjKk" target="_blank" rel="noreferrer noopener">Football Image background - James Smith</a></strong></p>
+<p>
+
+</p>
+<p><strong><a href="https://www.youtube.com/watch?v=ED7-r51c7r4" target="_blank" rel="noreferrer noopener">Convex Hulls - Mckay Johns</a></strong></p>
+<p>
+
+</p>
+<p><strong><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.ConvexHull.html" target="_blank" rel="noreferrer noopener">Convex Hull documentation</a></strong></p>
+<p>
+
+</p>
+<p><strong><a href="https://mplsoccer.readthedocs.io/en/latest/gallery/pitch_plots/plot_convex_hull.html#sphx-glr-gallery-pitch-plots-plot-convex-hull-py" target="_blank" rel="noreferrer noopener">MPLSoccer documentation</a></strong></p>
+<p>
+
+</p>
+<p>Looking forward to seeing what you come up with.</p>
+<p>
+
+</p>
+<p><strong>LOGGING OFF,</strong></p>
+<p>
+
+</p>
+<p>&nbsp;</p>
+<p>
+
+</p>
+<p>CJ</p>
+<p></p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

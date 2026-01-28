@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Polygons 001 - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Understanding Polygons 001</h1><p>Hi All,</p>
+
+<p>I am seeing more and more creative visualisations each day I sign into Tableau Public, and I LOVE it. I have huge admiration for anyone looking to push themselves in any area of their visualisation, but a small flame is ignited inside me when I see a design that could literally be hung in an art museum.</p>
+
+<p>This will be the first of a series of blog posts that are released to help understand using polygons.</p>
+
+<p><strong>Polygon V001: </strong>How to build, transform and rotate a shape.</p>
+
+<p>Each blog, I will link some interesting artwork from the data visualisation community and showcase a small snippet of how a similar effect can be done within Tableau. None of the visualisations I produce will be considered fully complete, just <em>half-baked ideas, </em>that I hope help others think differently about design.</p>
+
+<p>This weeks inspiration is <strong><a href="https://www.behance.net/michelaz" target="_blank" rel="noreferrer noopener">Michela Lazzaroni</a></strong> - who I came across on <strong><a href="https://www.behance.net/michelaz" target="_blank" rel="noreferrer noopener">Behance</a></strong>.</p>
+
+<figure class="wp-image"><img class="wp-image-2463" src="../uploads/2021/10/screenshot-2021-10-11-at-19.02.47.png" alt="" /></figure>
+
+<p>You can view Michela's work, <a href="https://www.behance.net/gallery/94554643/Passports-from-the-World-La-Lettura-387-dataviz" target="_blank" rel="noreferrer noopener"><strong>here.</strong></a></p>
+
+<p>Before we start I want to say a massive thank you to <a href="https://twitter.com/s0_s0el" target="_blank" rel="noreferrer noopener"><strong>Soha Eleghany</strong>,</a> <strong><a href="https://twitter.com/kizley" target="_blank" rel="noreferrer noopener">Kizley Benedict</a></strong> and <strong><a href="https://twitter.com/mo_wootten" target="_blank" rel="noreferrer noopener">Mo Wootten</a></strong> who all generously gave up time to review and go through the polygon series that will be released over the course of November. What a lovely gesture from them - and the feedback was more than valuable.</p>
+
+<p>For this tutorial you can download the workbook and dataset from the top of the page.</p>
+
+<p><strong>MAKING A CIRCLE</strong></p>
+
+<p>I make all my circles using the same methodology - I have included it in the workbook for a reference point. Once you are comfortable with the 4 calculations in the workbook lets move on, (the calculations are commented so should be easy to understand).</p>
+
+<p>In short, we create an angle between each point, order them and space them equally, and then use trigonometry to find the x and y point to plot in a radial pattern.</p>
+
+<figure class="wp-image"><img class="wp-image-2467" src="../uploads/2021/10/screenshot-2021-10-11-at-19.15.37.png" alt="" /></figure>
+
+<p><strong>SEMI CIRCLE</strong></p>
+
+<p>Join the Data to the half circle tab using a custom join of <strong>1 to 1</strong>. In its simplest terms we have just made 180 points for what was a one row dataset holding just category A in it.</p>
+
+<p>What this join is creating is for each 'category' , I.e each individual mark in our dataset - it is creating 180 points. Therefore if I had two categories in my dataset, A and B, I would have 360 points in my dataset. 180 for A, and 180 for B. For those that are unaware, what the join of 1 to 1 here is doing, is joining for each row in the first data tab to every row in the next data tab.</p>
+
+<figure class="wp-image"><img class="wp-image-2470" src="../uploads/2021/10/screenshot-2021-10-11-at-19.18.29.png" alt="" /></figure>
+
+<p>We can build our half circle with the exact same 4 starting calculations as previous. The only calculation that is now different is the Angle. Rather than have our circle as 360 degrees, 180 provides us with a semi-circle.</p>
+
+<p>(You may see in the dataset I've reduced the T value, in effect this value can be any number I've just reduced the amount as for what we are creating we don't need it to have lots of points. Each point remains 1 degree apart)</p>
+
+<figure class="wp-image"><img class="wp-image-2474" src="../uploads/2021/10/screenshot-2021-10-11-at-19.28.08.png" alt="" /></figure>
+
+<figure class="wp-image"><img class="wp-image-2476" src="../uploads/2021/10/screenshot-2021-10-11-at-19.29.27.png" alt="" /></figure>
+
+<p>Plotting X against Y gives us our points for a semi-circle.</p>
+
+<p>If we then change the Mark to a polygon it <strong>will automatically join our first and last point together.</strong> We will want to put T onto the path <strong>as it is the order we want the points joined!</strong> (Note: A line path is slightly different)</p>
+
+<figure class="wp-image"><img class="wp-image-2478" src="../uploads/2021/10/screenshot-2021-10-11-at-19.35.05.png" alt="" /></figure>
+
+<p><strong>ROTATE THE SHAPE</strong></p>
+
+<p>So how do we rotate our polygon? We must consider the polygon as a bunch of points we want to rotate. (Think about those dots we plotted) Below are the new calculations for x and y.</p>
+
+<figure class="wp-image"><img class="wp-image-2486" src="../uploads/2021/10/screenshot-2021-10-11-at-19.36.38.png" alt="" /></figure>
+
+<figure class="wp-image"><img class="wp-image-2480" src="../uploads/2021/10/screenshot-2021-10-11-at-19.36.52.png" alt="" /></figure>
+
+<p>Yep. Confusing right. <strong><a href="https://danceswithcode.net/engineeringnotes/rotations_in_2d/rotations_in_2d.html" target="_blank" rel="noreferrer noopener">This blog</a></strong> perfectly explains what these calculations do. You will see they do not differ hugely from the X and Y calculations we previously had. We take those points, and we create two new X and Y co-ordinates that take into account theta (the angle we want to rotate through)</p>
+
+<p>I have created a parameter <strong>P. Angle Rotation.</strong> This parameter is a number between 0 and 360. Therefore if the parameter is 0, we will have rotated the semi circle 0 degrees, 180 it has spun around and 360 it is back to its original rotation. The reason I have included a parameter here is so you can visualise how this works. (<strong>example below shows the semi-circle rotated through 110 degrees</strong>)</p>
+
+<p>(There is a way of re-writing this calculation to be neater, but for the sake of following the blog link I've left it like this.)</p>
+
+<p>So these calculations can help us rotate the shape, but only through the origin of (0,0)</p>
+
+<figure class="wp-image"><img class="wp-image-2487" src="../uploads/2021/10/screenshot-2021-10-11-at-19.51.26.png" alt="" /></figure>
+
+<p><strong>ROTATE THE SHAPE AROUND AN ARBITRARY POINT</strong></p>
+
+<p>So, as if that wasn't confusing enough, what if we wanted to rotate our points through a random co-ordinate? For example, I have chosen the point (1,0) that I want to rotate all my points around.</p>
+
+<figure class="wp-image"><img class="wp-image-2490" src="../uploads/2021/10/screenshot-2021-10-11-at-19.52.59.png" alt="" /></figure>
+
+<p><strong><a href="https://danceswithcode.net/engineeringnotes/rotations_in_2d/rotations_in_2d.html" target="_blank" rel="noreferrer noopener">Calculations 7 and 8</a></strong> come from the previous blog too.</p>
+
+<figure class="wp-image"><img class="wp-image-2492" src="../uploads/2021/10/screenshot-2021-10-11-at-19.54.39.png" alt="" /></figure>
+
+<figure class="wp-image"><img class="wp-image-2493" src="../uploads/2021/10/screenshot-2021-10-11-at-19.54.56.png" alt="" /></figure>
+
+<p>You will notice that if you make the values (0,0) it is in effect the same calculation as in 5 and 6!</p>
+
+<div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide">
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2495" src="../uploads/2021/10/screenshot-2021-10-11-at-19.57.25.png" alt="" data-id="2495" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2496" src="../uploads/2021/10/screenshot-2021-10-11-at-19.57.44.png" alt="" data-id="2496" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+</div>
+
+<p><strong>SCALE THE SHAPE</strong></p>
+
+<p>Let's go back to our original X and Y calculations....</p>
+
+<p>How do we make our semi-circle smaller or larger? We simply times our x and y values by a specific amount of <strong>equal value.</strong></p>
+
+<figure class="wp-image"><img class="wp-image-2503" src="../uploads/2021/10/screenshot-2021-10-11-at-20.02.37.png" alt="" /></figure>
+
+<figure class="wp-image"><img class="wp-image-2504" src="../uploads/2021/10/screenshot-2021-10-11-at-20.02.45.png" alt="" /></figure>
+
+<p>To show how this works, I've created a parameter slider of values. <strong>Remember, if you do not multiply by the same constant your shape will be stretched unevenly!</strong></p>
+
+<div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide">
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2505" src="../uploads/2021/10/screenshot-2021-10-11-at-20.03.24.png" alt="" data-id="2505" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2506" src="../uploads/2021/10/screenshot-2021-10-11-at-20.03.32.png" alt="" data-id="2506" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2507" src="../uploads/2021/10/screenshot-2021-10-11-at-20.03.41.png" alt="" data-id="2507" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+</div>
+
+<p><strong>TRANSPOSE THE SHAPE</strong></p>
+
+<p>Transposing the shape, I.e moving the points is by far the easiest to comprehend. We simply add a value to the X and Y co-ordinate to move the points along the axis.</p>
+
+<figure class="wp-image"><img class="wp-image-2514" src="../uploads/2021/10/screenshot-2021-10-11-at-20.09.24.png" alt="" /></figure>
+
+<figure class="wp-image"><img class="wp-image-2515" src="../uploads/2021/10/screenshot-2021-10-11-at-20.09.32.png" alt="" /></figure>
+
+<div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide">
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2510" src="../uploads/2021/10/screenshot-2021-10-11-at-20.06.47.png" alt="" data-id="2510" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2511" src="../uploads/2021/10/screenshot-2021-10-11-at-20.06.55.png" alt="" data-id="2511" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2512" src="../uploads/2021/10/screenshot-2021-10-11-at-20.07.02.png" alt="" data-id="2512" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+</div>
+
+<p><strong>FLIP THE SHAPE ON ITS AXIS</strong></p>
+
+<p>The final thing I wanted to cover was how we flip the shape through its axis to simulate reversing the axis. You may consider clicking into the column or row and putting a minus sign in front of the header. This would work, or alternatively you can use a parameter.</p>
+
+<p>I created a custom parameter integer list, once where the value is 1, and once where the value is -1. Multiplying the axis by minus 1 is in effect calling it -axis.</p>
+
+<div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide">
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2518" src="../uploads/2021/10/screenshot-2021-10-11-at-20.12.47.png" alt="" data-id="2518" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2519" src="../uploads/2021/10/screenshot-2021-10-11-at-20.12.55.png" alt="" data-id="2519" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+</div>
+
+<p><strong>PUTTING IT INTO PRACTICE</strong></p>
+
+<p>So now we have covered how to go crazy with one shape!</p>
+
+<p>Below is an example where I've played around with multiple shapes and spins to emulate some of <strong>Michela</strong>'s style, albeit my data is <strong><a href="https://drive.google.com/drive/folders/1zI-d3bCnM7GGEFEprCAHmYHoyVjKYSv0?usp=sharing" target="_blank" rel="noreferrer noopener">dummy data</a>.</strong> (showcase data set) I wont go too into the crux of it, but in the dummy dataset you will see some 'origin' points creating the grid, and then the same methodology as above for creating the shapes.</p>
+
+<p>You will also see a column called <strong>'proportion of full'</strong> - this is a hardcoded value I've used in order to size some of the semi-circles into random smaller values. The final viz uses the calculation of rotation around the origin (0,0), not an arbitrary point.</p>
+
+<figure class="wp-image"><img class="wp-image-2531" src="../uploads/2021/10/transformations.png" alt="" width="840" height="840" /></figure>
+
+<p><strong>Other resources and inspiration:</strong></p>
+
+<p>If you are familiar with Path bins I would consider <strong><a href="https://tableau.toanhoang.com/creating-gradient-half-circle-charts-in-tableau/" target="_blank" rel="noreferrer noopener">this tutorial</a></strong> by Toan Hoang. The reason I have made my run-through not using path bins is because next blog we will be following a similar methodology to today but applying it to new shapes!</p>
+
+<p>When finishing up this blog, I remembered the perfect example of how this style is emulated.</p>
+
+<p>None other than <strong><a href="https://public.tableau.com/app/profile/neil.richards/viz/1980snumberones/NumberOnes" target="_blank" rel="noreferrer noopener">Neil Richards</a></strong>. Neil is one of the most creative, talented members of the community. I'd recommend anyone to go dig into this workbook to see the true technical knowledge on show. To revisit my art museum intro - Neil's work is a prime example.</p>
+
+<figure class="wp-image"><img class="wp-image-2553" src="../uploads/2021/10/number-ones.png" alt="" /></figure>
+
+<p>&nbsp;</p>
+
+<p><strong>Round-up:</strong></p>
+
+<p>So you may have reached this point and thought, <em>CJ you've just made random semi-circles on a page</em>. Strictly speaking, you're correct. But the two main takeaways are firstly and predominantly the technical takeaway of how to manipulate a polygon shape.</p>
+
+<p>More widely, the takeaway is: how can we change our mindset in the way we interact with visualisations that are non-conform? Think about some cool user cases where you could apply this. Could you use the rotation as showing a shift or skew - I like to think of the idea of tipping the balance one way or another of a scoreline. Can you use the relative sizing in an effective manner? Does the shape you choose help reinforce your story?</p>
+
+<p>In the next Polygon blog we will look to build on what we have learnt here in terms of scaling, with a focus on scaling relative to a fixed maximum. We will also cover off how to include more than just one polygon shape.</p>
+
+<p>As always, Let me know how this was to follow. I can be reached on <strong>Twitter</strong>, <strong>@_CJMayes</strong>.</p>
+
+<p><strong>LOGGING OFF,</strong></p>
+
+<p><strong>CJ</strong></p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

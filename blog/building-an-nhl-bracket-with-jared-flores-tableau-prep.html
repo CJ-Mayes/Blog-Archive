@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building an NHL Bracket with Jared Flores  (Tableau Prep) - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Building an NHL Bracket with Jared Flores  (Tableau Prep)</h1><p>Hi all,</p>
+
+<p>Welcome back to another guest blog,</p>
+
+<figure class="wp-image"><img class="wp-image-4522" src="../uploads/2022/09/sfezfc-s_400x400.jpg" alt="" /></figure>
+
+<p class="has-text-align-left">Jared has been absolutely killing it with his online tutorials and prep flows, helping making building visualisations easier for the community. If you aren't already please follow Jared on <strong><a href="https://twitter.com/VizWhat" target="_blank" rel="noreferrer noopener">Twitter</a></strong> and be sure to check out his site, <strong><a href="https://www.putsomeprepinyourstep.com/" target="_blank" rel="noreferrer noopener">here.</a></strong></p>
+
+<p>Within this blog Jared will look to take us through some of the key components of how to take the data found at hockey reference (https://www.hockey-reference.com/) and transform it to be template ready.</p>
+
+<figure class="wp-image"><img class="wp-image-4537" src="../uploads/2022/09/curvy-tournament-bracket-1.png" alt="" /></figure>
+
+<p>Before we start, here is a little more around what the blend of sports and data means to Jared.</p>
+
+<p><em>"I’ve mostly been a fan of Hockey my whole life and the more I got familiar with data, the more interesting player and team statistics became. So far I’ve only really done high-level visualizations with NHL data, but I’d really love to dig deeper to see if I could step into the mind of a team analyst or recruiter. For example, in games where Jamie Benn (the captain of the Dallas Stars) has more than one point recorded, how much ice time did he have? Is there a pattern there with other multi-point games? What about who was on the ice with him? There are so many ways to slice that information and use visualization to understand player performance.</em></p>
+
+<p><em>The automation and preparation piece has become my favorite part of data in general because of the different types of puzzles you get to solve. Extracting the data and getting it into a format that’s usable for analysis is what really enables an organization to start making decisions with their data. With sports data it’s an interesting challenge because each sport has different ranking systems, different ways of capturing the data, and it’s usually formatted in less than ideal structures."</em></p>
+
+<p>Onto The Prep!</p>
+
+<p>If you'd like to give it a go, attached in the GIT Repo at the top of the page.</p>
+
+<figure class="wp-image"><img class="wp-image-4540" src="../uploads/2022/09/screenshot-2022-09-12-at-18.07.27.png" alt="" /></figure>
+
+<p><strong>How is the original data shaped?</strong></p>
+
+<p>The original data is found from hockey-reference, below is an example of one of the data tables required.</p>
+
+<figure class="wp-image"><img class="wp-image-4539" src="../uploads/2022/09/screenshot-2022-09-12-at-18.03.35.png" alt="" /></figure>
+
+<p><strong>When building the workflow what are some of the key elements to look out for?</strong></p>
+
+<p>Jared: The desired output is supposed to fit into the curvy tournament bracket, so I had to ensure the end result was something that would plug into that workbook easily. Luckily, the data sets already had the team ranking embedded in them so I didn’t have to worry about calculating the rank and various tie breakers. The biggest thing to work out was the original match ups. In the NHL, 3 playoff spots are guaranteed for each Division. There are 2 Divisions in each of the 2 Conferences for a total of 4 Divisions. There are then 2 Wild Card spots for each Conference. The Wild Cards have to face the first place team from each division so that was the piece I had to really pay attention to for the rest of the bracket to line up correctly.</p>
+
+<p>After determining the correct match ups, it was a matter of re-ranking the teams in order to get the points in Tableau to line up correctly. It took a few tries but ultimately came together really nicely. The only problem with the flow is that it only fits one very specific use case and you’d have to do a bit of work to mold it for a different sport. Perhaps later I’ll try parameterizing it to work for different sports but for now I’m happy with the result.</p>
+
+<p><strong>Understanding the workflow?</strong></p>
+
+<p>CJ: I would highly recommend downloading the workflow and giving it a go yourself to build an NHL bracket. Jared has very kindly commented the workflow throughout. Notice some of the early steps are looking to clean up some of the different field names and then assign them a ranking.</p>
+
+<figure class="wp-image"><img class="wp-image-4543" src="../uploads/2022/09/screenshot-2022-09-12-at-18.08.39.png" alt="" /></figure>
+
+<p>After this, we look to bring in a cleaned version of the post season and join it to our conference data of west and east.</p>
+
+<figure class="wp-image"><img class="wp-image-4545" src="../uploads/2022/09/screenshot-2022-09-12-at-18.08.47.png" alt="" width="699" height="625" /></figure>
+
+<p>Next are various calculations based on each of the different stages of progressing through the tournament. These values become unioned together to form the base structure.</p>
+
+<figure class="wp-image"><img class="wp-image-4547" src="../uploads/2022/09/screenshot-2022-09-12-at-18.09.04.png" alt="" width="587" height="490" /></figure>
+
+<p>We follow the methodology seen to similar chart types, like in the original collaboration with Kevin in creating a <strong><a href="https://www.flerlagetwins.com/2021/02/guest-blog-post-curvy-tournament.html" target="_blank" rel="noreferrer noopener">tournament bracket template</a></strong> and the logic from <strong><a href="https://www.flerlagetwins.com/2019/03/curvy-bump-chart-slope-chart-template_27.html" target="_blank" rel="noreferrer noopener">Kevins curvy bump chart.</a></strong></p>
+
+<figure class="wp-image"><img class="wp-image-4549" src="../uploads/2022/09/screenshot-2022-09-12-at-18.09.14.png" alt="" width="552" height="568" /></figure>
+
+<p>Finally we can use the output for this to replace the tournament bracket dashboard stored on Jared's Tableau Public page. You can find it<strong><a href="https://public.tableau.com/app/profile/jared8766/viz/TournamentBracketTemplate_16619598345490/CurvyTournamentBracket1" target="_blank" rel="noreferrer noopener"> here and attached at the top of the page.</a></strong></p>
+
+<figure class="wp-image"><img class="wp-image-4553" src="../uploads/2022/09/curvy-tournament-bracket-1-1.png" alt="" /></figure>
+
+<p>There are rumours Jared will follow up on his own youtube site with a full run through, so do look out for that.</p>
+
+<p>So excited to have had the opportunity to showcase a snippet of the amazing work Jared is doing right now, and would like to close this blog by congratulating him on becoming Tableau Ambassador this year.</p>
+
+<p><strong>LOGGING OFF,</strong></p>
+
+<p><strong>CJ</strong></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

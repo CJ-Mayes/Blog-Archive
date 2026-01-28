@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charting Tennis Games - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Charting Tennis Games</h1><p></p>
+<p>Hi all,</p>
+<p>
+
+</p>
+<p>Yes that's right - Wimbledon is round the corner. Time to get the strawberries and cream ready. (&amp; a glass of champagne or two.) Is it too early to guess who you think will be crowned champion?</p>
+<p>
+
+</p>
+<p>I didn't manage to get tickets this year, but having been at the French Open earlier last month I've decided I want to add it to my imaginary bucket list to go to every single Grand Slam venue, so best get use to some long flights if I want to get to Melbourne and New York.</p>
+<p>
+
+</p>
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-4070" src="../uploads/2022/06/285055436_10221374260332105_6277068979643352750_n.jpg" alt="" data-id="4070" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-4071" src="../uploads/2022/06/285311558_10221374244571711_1433640406084308054_n.jpg" alt="" data-id="4071" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-4072" src="../uploads/2022/06/285495548_10221374268332305_8178668958942497390_n.jpg" alt="" data-id="4072" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+<p>
+
+</p>
+<p>So I LOVE visualising tennis data, and fortunately have had the time to make about 13 tennis visualisations showcased on Tableau public, some <em>regrettably</em> a little earlier on in my career. But one thing that has stood out to me is the different levels of data you can chart, be it grand slam winners, all matches, point data, shot data, match summaries or even tournament brackets.</p>
+<p>
+
+</p>
+<p>This blog we will look at various new ways to showcase some tennis data. It will look at examples in the community as well as try and provide a workbook that you can utilise for your own games. We will strictly be looking at point-by-point data, but before that lets look at some of my all time favourite tennis visualisations.</p>
+<p>
+
+</p>
+<p><strong>Tennis</strong> <strong>Inspiration</strong> <strong>found on Tableau Public</strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4105" src="../uploads/2022/06/sportsvizsunday-tennis-grand-slams-_-the-wait-for-a-home-winner.png" alt="" /></figure>
+
+</p>
+<p>Simon Beaumont - <strong><a href="https://public.tableau.com/app/profile/simon.beaumont/viz/SportsVizSunday-TennisGrandSlamsTheWaitForaHomeWinner/SportsVizSunday-TennisGrandSlamsTheWaitForaHomeWinner" target="_blank" rel="noreferrer noopener">The Wait For a Home Winner</a></strong></p>
+<p>
+
+</p>
+<p>Bo Platinga - <strong><a href="https://public.tableau.com/app/profile/bo.plantinga/viz/NaomiOsaka-2018USOpenTennisFinal/NaomiOsaka-2018USOpenFinal" target="_blank" rel="noreferrer noopener">Naomi Osaka - 2018 US Open Tennis Final</a></strong></p>
+<p>
+
+</p>
+<p>Priyanka Dobhal - <strong><a href="https://public.tableau.com/app/profile/priyanka.dobhal0993/viz/CarolineWozniacki-Matches/WozniackisMatches" target="_blank" rel="noreferrer noopener">Caroline Wozniacki - Matches</a></strong></p>
+<p>
+
+</p>
+<p>Ashley Ratinckx - <strong><a href="https://public.tableau.com/app/profile/ashley.ratinckx/viz/GrandSlamUnderdogs/Dashboard1" target="_blank" rel="noreferrer noopener">Grand Slam Underdogs</a></strong></p>
+<p>
+
+</p>
+<p>Kevin Flerlage - <strong><a href="https://public.tableau.com/app/profile/cj.mayes/viz/WomensFrenchOpen2020BlogPostExample/FrenchOpen2020" target="_blank" rel="noreferrer noopener">Tournament Bracket</a></strong></p>
+<p>
+
+</p>
+<p>Harpreet Ghuman - <strong><a href="https://public.tableau.com/app/profile/harpreetghuman/viz/Wimbledon2018_0/Wimbledon2018" target="_blank" rel="noreferrer noopener">Wimbledon 2018</a></strong></p>
+<p>
+
+</p>
+<p>Simon Beaumont - <strong><a href="https://public.tableau.com/app/profile/simon.beaumont/viz/StorytellingWithDataChallenge-WimbledonChampionsOfTheOpenEra/StorytellingWithDataChallenge-WimbledonMensChampionsOfTheOpenEra" target="_blank" rel="noreferrer noopener">Wimbledon Open Era</a></strong></p>
+<p>
+
+</p>
+<p><strong>TUTORIAL</strong></p>
+<p>
+
+</p>
+<p>Now, you will notice I may have held a few resources back and that leads me on to plotting game data. Finally the focus of the blog, game level data.</p>
+<p>
+
+</p>
+<p><strong>Adam Green</strong> - so good I had to showcase three different visualisations of his.</p>
+<p>
+
+</p>
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-4079" src="../uploads/2022/06/wimbledon2021.png" alt="" data-id="4079" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-4080" src="../uploads/2022/06/womens-french-open.png" alt="" data-id="4080" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-4081" src="../uploads/2022/06/womens-us-open-final-2021.png" alt="" data-id="4081" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+<p>
+
+</p>
+<p>Let's start with the <strong><a href="https://public.tableau.com/app/profile/adam.green4310/viz/USOPENGSWOMENSFINAL2021/WOMENSUSOPENFINAL2021" target="_blank" rel="noreferrer noopener">Radacanu viz</a></strong>. I love the Points Score. To showcase each mini recreation I will be using the Naomi Osaka - Serena Williams data found <strong><a href="https://github.com/JeffSackmann/tennis_slam_pointbypoint" target="_blank" rel="noreferrer noopener">here.</a></strong> The workbook to follow along can be found <strong>here.</strong></p>
+<p>
+
+</p>
+<p>So only a few calculations are needed to replicate a similar idea for the first section. You'll find all the additional calculations with 001 appended.</p>
+<p>
+
+</p>
+<p>We can easily plot our point number and who is in the lead.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4088" src="../uploads/2022/06/screenshot-2022-06-02-at-16.09.42.png" alt="" width="546" height="227" /></figure>
+
+</p>
+<p>We could always visualise this in other means other than a circle, for example using the gantt with no sizing.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4091" src="../uploads/2022/06/screenshot-2022-06-02-at-16.11.26.png" alt="" width="673" height="155" /></figure>
+
+</p>
+<p>Some may think this is a little too wordy. So we can switch back and replicate some of Adam's work using a layering to allow for a shape. I've also used a transparent shape in this sheet, recently learned from <strong>Kevin</strong> &amp; <strong>Ken</strong> at Tableau Conference 2022.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4093" src="../uploads/2022/06/screenshot-2022-06-02-at-16.09.56.png" alt="" width="561" height="148" /></figure>
+
+</p>
+<p>The second thing I love within this visualisation is the slanted lines. So without a union in the dataset we probably can't create this effect but we could replicate it as bars. A couple things to note with this is, how much is 'advantage point' worth as a bar length. I do however think this method shows the build up to a winning game quite nicely. Some more considerations are deciding whether each point should be worth an equal distance. For example 15,30 and 40 are not equal in range... but theoretically a point is equal in value.</p>
+<p>
+
+</p>
+<p>You also will note how the score adv changes the field to a string so a little prep needs to be done before creating the chart below using a reversed sum axis. You can find all additional calculations with 002. appended.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4100" src="../uploads/2022/06/screenshot-2022-06-02-at-16.44.15.png" alt="" width="563" height="446" /></figure>
+
+</p>
+<p>Within Adam's it looks like the bars are lines, that gives me the hint that he may have used a union.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4098" src="../uploads/2022/06/screenshot-2022-06-02-at-16.37.44.png" alt="" width="313" height="176" /></figure>
+
+</p>
+<p>So let's take a quick look at the union version of a bar, but in fact using a line. Of course, these points can all be plotted in one sheet using multiple layers, the end point of the line can then also be adjusted to be sloped like in Adams.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4101" src="../uploads/2022/06/screenshot-2022-06-02-at-17.01.22.png" alt="" width="620" height="451" /></figure>
+
+</p>
+<p>Please download the workbook to take a further look. I would also recommend downloading Adam's work as this is just my own methodology of creating the same effect.</p>
+<p>
+
+</p>
+<p><strong>Game Fish Chart</strong></p>
+<p>
+
+</p>
+<p>The next way you could show tennis results is through a fish game chart. Fortunately I've already written the blog on this method so would encourage anyone to take a look. It's a little bit of data prep given the outline, but I think it creates a nice plotting effect.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4107" src="../uploads/2022/06/gamefish-tutorial.png" alt="" /></figure>
+
+</p>
+<p>You can read it <strong><a href="../2022/03/31/gamefish-chart-in-tableau/" target="_blank" rel="noreferrer noopener">here.</a></strong></p>
+<p>
+
+</p>
+<p><strong>FURTHER INSPIRATION</strong></p>
+<p>
+
+</p>
+<p>To close out this blog below are 3 of my favourite three ways of creating game maps can be seen below.</p>
+<p>
+
+</p>
+<p>Krisztina creates this beautiful arcade like theme way of representing each of the games within a set and the respective scores being animated beneath.</p>
+<p>
+
+</p>
+<div class="wp-block-embed__wrapper">https://twitter.com/szucsi/status/1531974152105631744</div>
+<p>
+
+</p>
+<p>This visualisation from <strong><a href="https://public.tableau.com/app/profile/varunvarma87/viz/2020AustralianOpenMensFinal/2020Australianopenmensfinal" target="_blank" rel="noreferrer noopener">Varun Varma</a></strong> is a creative way of showcasing each game through a smooth curve. I think this method is a really nice way of showing dominance during a set, the breaks of serve and overall length of the set comparing them game for game.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4109" src="../uploads/2022/06/2020-australian-open-mens-final.png" alt="" /></figure>
+
+</p>
+<p>Finally, this Wimbledon piece by Adam Green. I'm going through a violin phase at the moment so seeing this pop up recently was fantastic.</p>
+<p>
+
+</p>
+<p>I particularly like Adams efforts to keep the symmetry in the visual with the players details over lapping. With this style of visual it becomes really apparent when one player dominates early points within a game. I also like his method of normalising the values for the tie break in the second set.</p>
+<p>
+
+</p>
+<p>Yes, okay this blog feels a little like the Adam Green show, but maybe if i ask nicely he'll do a guest blog at some point. A happy early birthday for the 15th June!</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4111" src="../uploads/2022/06/wimbledon2021-1.png" alt="" /></figure>
+
+</p>
+<p>That's it for this week. More so showcasing others instead of a full written tutorial, but hopefully there are a few tips and tricks in the workbook that may be useful to access.</p>
+<p>
+
+</p>
+<p><strong>GOING FURTHER</strong></p>
+<p>
+
+</p>
+<ul>
+<li>
+<p>Try charting a game from the upcoming Wimbledon 2022 matches.</p>
+</li>
+</ul>
+<p>
+
+</p>
+<p><strong>LOGGING OFF,</strong></p>
+<p>
+
+</p>
+<p><strong>CJ</strong></p>
+<p>
+
+</p>
+<p>&nbsp;</p>
+<p>
+
+</p>
+<p>&nbsp;</p>
+<p>
+
+</p>
+<p>&nbsp;</p>
+<p>
+
+</p>
+<p>&nbsp;</p>
+<p>
+
+</p>
+<p>&nbsp;</p>
+<p></p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Polygons 003 - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Understanding Polygons 003</h1><p>Hi All,</p>
+
+<p>This will be one of the last few of my Tableau blogs until 2022!</p>
+
+<p>This will also be the final Polygon blog for the series, before I get a public lynching from the Tableau community for ruining every best practice that exists, ha.</p>
+
+<p><strong>Polygon V003:</strong> Building upon sizing measures and adding flair.</p>
+
+<p>Each blog, I will link some interesting artwork from the data visualisation community and showcase a small snippet of how a similar effect can be done within Tableau. None of the visualisations I produce will be considered fully complete, just <em>half-baked ideas, </em>that I hope help others think differently about design.</p>
+
+<p>This blogs inspiration is this<strong> <a href="https://www.behance.net/gallery/86787359/US-Hate-Data-Visualization" target="_blank" rel="noreferrer noopener">US Hate</a> </strong>project by Marianna Piazza, Silvia Castagna, Maria Alma Girasoli - which I came across on <strong><a href="https://www.behance.net/gallery/86787359/US-Hate-Data-Visualization" target="_blank" rel="noreferrer noopener">Behance</a></strong>. Followed by this <strong><a href="https://www.behance.net/gallery/20040801/Lets-stay-home-La-Lettura" target="_blank" rel="noreferrer noopener">Let's stay home visualisation</a></strong> by Francesco Pontiroli and Benedetta Signaroldi.</p>
+
+<p>&nbsp;</p>
+
+<div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide">
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2629" src="../uploads/2021/10/hatecrime-1.jpg" alt="" data-id="2629" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2630" src="../uploads/2021/10/lets-stay-home.jpg" alt="" data-id="2630" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+</div>
+
+<p>From Polygon blog part 1 and part 2, we will have covered off some of the methods to recreating this visual using polygons. Such as, rotating a shape, plotting multiple shapes on a page, joining the polygon marks up effectively, and transforming the shapes in terms of size and position.</p>
+
+<p>The final piece to the puzzle I want to make is the dashed effect seen in the <strong>Let's stay home visualisation.</strong></p>
+
+<figure class="wp-image"><img class="wp-image-2677" src="../uploads/2021/10/cover.png" alt="" /></figure>
+
+<p>I have briefly covered-off how this is done for circles in a<strong> <a href="../2021/05/06/another-red-card-to-best-practice/" target="_blank" rel="noreferrer noopener">previous UEFA blog.</a></strong></p>
+
+<figure class="wp-image"><img class="wp-image-2635" src="../uploads/2021/10/screenshot-2021-10-21-at-11.40.39.png" alt="" width="482" height="319" /></figure>
+
+<p>Today we will look to apply the same logic but to a<strong> square/rectangle</strong>. In this case, it is a fun way of showcasing offsets from an original.</p>
+
+<figure class="wp-image"><img class="wp-image-2645" src="../uploads/2021/10/screenshot-2021-10-21-at-13.27.06.png" alt="" width="436" height="424" /></figure>
+
+<p>The negative to this methodology is the amount of additional rows of data that it requires in order to make what simply is a bar chart.</p>
+
+<p>To follow along, download the dataset from the top of the page, alongside the link to the workbook.</p>
+
+<div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide">
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2643" src="../uploads/2021/10/screenshot-2021-10-21-at-13.26.34.png" alt="" data-id="2643" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2644" src="../uploads/2021/10/screenshot-2021-10-21-at-13.26.40.png" alt="" data-id="2644" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+</div>
+
+<p><strong>THE DATA</strong></p>
+
+<p><strong>Join your dataset with a custom calculation of 1=1.</strong></p>
+
+<figure class="wp-image"><img class="wp-image-2827" src="../uploads/2021/11/screenshot-2021-11-16-at-10.08.03.png" alt="" width="485" height="222" /></figure>
+
+<p>You will see the Start X and Start Y plot a simple square. If we plot these points and join them using a path, It would create a simple line/polygon square. This is concepts we have covered off in V001 and V002 of this blog series.</p>
+
+<figure class="wp-image"><img class="wp-image-2648" src="../uploads/2021/10/screenshot-2021-10-21-at-13.29.28.png" alt="" width="559" height="313" /></figure>
+
+<p>The end X and End Y are the same points but offset to say the end of the path is the start of the next path. All will become clear when we look at the calculations but for know just know we need to know where our path starts and finishes.</p>
+
+<p>I've labelled these to make it easier to understand, and colour coded it in the excel for extra clarification.</p>
+
+<div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide">
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2650" src="../uploads/2021/10/screenshot-2021-10-21-at-13.31.35.png" alt="" data-id="2650" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2651" src="../uploads/2021/10/screenshot-2021-10-21-at-13.31.40.png" alt="" data-id="2651" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+</div>
+
+<p>The last thing to note is our second Tab of data that has two columns.</p>
+
+<p>T is the number of points we want between each line. Line Detail will be used to create how these values are split out (I.e used to make a full path length into dashes)</p>
+
+<p>Download the workbook to follow the rest of the tutorial, it can be found at the top of the page under the title header.</p>
+
+<p>Firstly we find <strong>the total distance</strong> between the start and end point of our lines.</p>
+
+<div class="wp-block-jetpack-slideshow" data-effect="slide">
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2654" src="../uploads/2021/10/screenshot-2021-10-21-at-13.35.19.png" alt="" data-id="2654" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2655" src="../uploads/2021/10/screenshot-2021-10-21-at-13.35.26.png" alt="" data-id="2655" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+</div>
+
+<p>We take the total length of the distance and divide it by the <strong>number of points</strong> (T) we have.</p>
+
+<div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide">
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2658" src="../uploads/2021/10/screenshot-2021-10-21-at-13.35.34.png" alt="" data-id="2658" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2659" src="../uploads/2021/10/screenshot-2021-10-21-at-13.35.42.png" alt="" data-id="2659" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+</div>
+
+<p>We use a fixed calculation because we want to maximum value of T (In this case 11, for all our rows of data)</p>
+
+<p>Finally, we want to take the start point and add the required distance of the spacing for each extra value we want to plot.</p>
+
+<div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide">
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2662" src="../uploads/2021/10/screenshot-2021-10-21-at-13.36.20.png" alt="" data-id="2662" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2663" src="../uploads/2021/10/screenshot-2021-10-21-at-13.36.32.png" alt="" data-id="2663" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+</div>
+
+<p>All goes well you should be able to recreate this:</p>
+
+<figure class="wp-image"><img class="wp-image-2665" src="../uploads/2021/10/screenshot-2021-10-21-at-13.43.08.png" alt="" /></figure>
+
+<p>So far we have taken the start and end co-ordinate, added in extra points of equal measure in between! fun.</p>
+
+<p>Even with the added points we can still make our polygon or lined square.</p>
+
+<figure class="wp-image"><img class="wp-image-2668" src="../uploads/2021/10/screenshot-2021-10-21-at-13.44.18.png" alt="" width="747" height="624" /></figure>
+
+<p>So now with our individual polygon plots sheet, how do we create it to be a dashed line?</p>
+
+<figure class="wp-image"><img class="wp-image-2670" src="../uploads/2021/10/screenshot-2021-10-21-at-13.45.22.png" alt="" width="716" height="635" /></figure>
+
+<p>Drag Line Detail onto the detail mark. It will split the dashes out by what you have in this column. For example in the above it joins two of the marks together.</p>
+
+<p>Of course, you can amend the column of <strong>T</strong> and the <strong>Line Detail</strong> to create different length lines and points.</p>
+
+<div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide">
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2673" src="../uploads/2021/10/screenshot-2021-10-21-at-13.56.36.png" alt="" data-id="2673" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2674" src="../uploads/2021/10/screenshot-2021-10-21-at-13.57.06.png" alt="" data-id="2674" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2675" src="../uploads/2021/10/screenshot-2021-10-21-at-13.58.16.png" alt="" data-id="2675" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+</div>
+
+<p>For today, we will end it their for the half-baked mess. Obviously you can apply these calculations to almost any shape.</p>
+
+<p>Here is me playing around to create a similar viz style to that of Francesco Pontiroli and Benedetta Signaroldi. I've included the data I used to create the below from the Github Repo as a reference point.</p>
+
+<p>If you're a little lost as how I made the rectangles for this - I'd recommend revisiting <strong><a href="../2021/11/15/understanding-polygons-002/(opens in a new tab)">blog 002</a></strong> of the series that covers of creating polygon shapes!</p>
+
+<figure class="wp-image"><img class="wp-image-2678" src="../uploads/2021/10/polygonchart.png" alt="" /></figure>
+
+<p>The above chart was used making the 'extra' excel sheet within the google drive. It can be a little complex to digest, so as a brief reminder, remember I plot each of the original base points, allocate 4 points to join up for each bar (or more if its the dashed line).</p>
+
+<p>My data joins are as below. With Data joining to the base on shape, and then the join sheet left joining to base on a 1 = 1 relationship. These joins are covered off in poylgon blog v002.</p>
+
+<div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide">
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2708" src="../uploads/2021/10/screenshot-2021-10-23-at-09.40.23.png" alt="" data-id="2708" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2709" src="../uploads/2021/10/screenshot-2021-10-23-at-09.40.31.png" alt="" data-id="2709" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2710" src="../uploads/2021/10/screenshot-2021-10-23-at-09.40.37.png" alt="" data-id="2710" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+</div>
+
+<p>&nbsp;</p>
+
+<p>Some final thoughts:</p>
+
+<ul>
+<li>This method does increase the dataset size quite drastically.</li>
+<li>Personally I think its quite artistic the dashed line effect within circles, squares and diamonds. It's subtle yet effective to show change of previous measures.</li>
+<li>It allows quite a lot of flexibility in terms of how long you want the dashes. You will have seen in my <strong><a href="https://public.tableau.com/app/profile/cj.mayes/viz/UEFAChampionsLeagueFinals1956-2020/A3ChampionsLeaguePoster" target="_blank" rel="noreferrer noopener">UEFA viz,</a></strong> I use two different lengths of lines to represent two different categories of <strong><a href="https://public.tableau.com/app/profile/cj.mayes/viz/UEFAChampionsLeagueFinals1956-2020/A3ChampionsLeaguePoster" target="_blank" rel="noreferrer noopener">match results</a></strong>.</li>
+</ul>
+
+<p>Use the ideas outlined in Polygon 001,002,003 sparingly and with what you consider good effect. I've put together this short series really so people can understand different ways of approaching a problem that are a little different to the norm. If you've enjoyed the series please reach out, I'd love to hear your thoughts.</p>
+
+<p>I can be reached on <strong>Twitter</strong>, <strong>@_CJMayes</strong>.</p>
+
+<p><strong>LOGGING OFF,</strong></p>
+
+<p><strong>CJ</strong></p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

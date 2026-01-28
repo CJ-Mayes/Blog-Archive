@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Chart Types with Brian Moore - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Custom Chart Types with Brian Moore</h1><p></p>
+<p>Hi All,<strong> </strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-block-jetpack-slideshow_image wp-image-4035" src="../uploads/2022/05/2022-nfl-player-tracker.png" alt="" data-id="4035" /></figure>
+
+</p>
+<p>BM: Congratulations to you too! I can’t put into words how much it means to me. It wasn’t something I set out to do, it wasn’t something that even seemed possible, but knowing that my contributions to the community have been meaningful and impactful, it means the world to me. As far as how being selected will change my approach, it just makes me want to do more. I want to blog more, I want to mentor more, I want to help more people get the most out of their experiences with Tableau. This community has given me so much over the past few years, I just want to pay that forward as much as possible.</p>
+<p>
+
+</p>
+<p>CJ: Wow, what a lovely sentiment around helping others.</p>
+<p>
+
+</p>
+<p><strong>CJ: At the time of writing this only 2 of the last 10 vizzes contain what I would call a standard chart type. Can you share a little more around your thoughts on your approach to Tableau Public? What attracts more customized charts?</strong></p>
+<p>
+
+</p>
+<p>BM: I spend all day building ‘normal’ dashboards with standard charts for work. If I’m spending my nights or weekends in Tableau, it has to be on something different. I like spending that time exploring what’s possible in Tableau, and creating weird, custom visualizations is a great way to do that. And I love to learn new things. In every viz that I create for Tableau Public, I try to do something that I’ve never done before.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4039" src="../uploads/2022/05/design-your-own-mandala.png" alt="" /></figure>
+
+</p>
+<p><strong>CJ: What fascinates you about the blend between mathematics and art?</strong></p>
+<p>
+
+</p>
+<p>BM: I just love that you can use math, a discipline that is typically thought of as much more scientific than artistic, to build something creative and beautiful. And the fact that no matter what you are trying to create, there is an equation, or set of equations, that somebody figured out hundreds, or even thousands of years ago, that will allow you to do exactly what you’re trying to do. The hardest part is figuring out what you need  to use. And I use a lot of math in my visualizations, but I really only use a handful of equations. I’ve barely scratched the surface of what’s possible, and I’m really excited to keep learning.</p>
+<p>
+
+</p>
+<p><strong>CJ: Watching your portfolio grow has been super exciting. Has there been anyone in the community that has prompted that journey?</strong></p>
+<p>
+
+</p>
+<p>BM: Absolutely! First off, my wife, Jacqui. As I mentioned earlier, she was the one who introduced me to Tableau. A few years later, she also introduced me to Tableau Public and encouraged me to start getting involved with the Community. So, I really have her to thank for everything that came after. And then there’s the Flerlages. It was <a href="https://twitter.com/FlerlageKev" target="_blank" rel="noreferrer noopener"><strong>Kevin</strong> </a>and <strong><a href="https://twitter.com/flerlagekr" target="_blank" rel="noreferrer noopener">Ken’s</a></strong> ‘Beyond Show Me’ <strong><a href="https://www.youtube.com/watch?v=myyakEnuqa8" target="_blank" rel="noreferrer noopener">presentation at TC19</a></strong> that really opened my eyes to what’s possible in Tableau. I remember them describing how the Tableau canvas was basically just a cartesian plane, and if you could figure out the math, you could literally draw anything. It seems obvious now, but it’s something that had never really occurred to me. It opened up a world of possibilities. Since that day, I have spent a lot of time learning or re-learning geometry and trigonometry. A lot of that learning was done on their blog or by reaching out to them directly and asking for help. They’ve been incredibly supportive of me since I joined the community, and I can’t thank them enough. And I have to mention the folks at <strong><a href="https://twitter.com/search?q=sportsvizsunday&amp;src=typed_query" target="_blank" rel="noreferrer noopener">#SportsVizSunday</a>. </strong>That’s how I started getting involved with the community back in 2019 and they were very supportive from the start. And the 1,000 other folks in this amazing community whose work has inspired me along the way.</p>
+<p>
+
+</p>
+<p>CJ: No I did not pay Brian to shout out SVS!</p>
+<p>
+
+</p>
+<p><strong>CJ: As someone that likes to stretch the boundaries of what can be created in Tableau, do you have any future concepts or chart ideas in the wider data visualization community that you want to re-create?</strong></p>
+<p>
+
+</p>
+<p>BM: I hear a lot of people talk about how they have so many viz ideas and not enough time to work on them. That, unfortunately, is not the case with me. I really struggle to come up with new ideas. I don’t really have a bank of them to pull from. Typically, I will get hit with an idea, I’ll work on it for a few weeks, publish it, and then go weeks, or even months before another idea comes. That also means I don’t have a lot of unfinished vizzes, which is another thing I hear people talk about often. I’ll work and re-work a visualization for months sometimes, just because it’s the only idea I have at the time. For example, the viz called ‘The Originals’, I worked on for 4 or 5 months. The final product only took a week or two, but I went through so many iterations before I found something that worked. So that’s the long answer. The short answer is no, I have no idea what I’m going to build next.</p>
+<p>
+
+</p>
+<p><strong>CJ: Do you have any tips for individuals that consider themselves decent at the standard Tableau interactivity but want to expand into some more unique designs?</strong></p>
+<p>
+
+</p>
+<p>BM: I would definitely check out <strong><a href="https://www.youtube.com/watch?v=myyakEnuqa8" target="_blank" rel="noreferrer noopener">Kevin and Ken’s presentation</a></strong> that I mentioned earlier. That was the tipping point for me. And then just have fun with it. I always start with an idea, and then figure out how to make that idea happen. If you can imagine it, there is probably a way to do it in Tableau. And if you’re not sure how to do it, please reach out to me anytime because I love figuring these kinds of things out. Also, shameless plug here, check out my blog series “<strong><a href="https://domoorewithdata.com/2021/12/21/fun-with-curves-in-tableau-part-1-circles/" target="_blank" rel="noreferrer noopener">Fun With Curves in Tableau</a></strong>”. There are a lot of simple techniques in that series that you can put together to create some really cool, unique visualizations. </p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4046" src="../uploads/2022/05/image-1.png" alt="" /></figure>
+
+</p>
+<p><strong>CJ: In a more recent ‘Office Relationships’ viz you created curved lines that looked hand-drawn. Can you explain a little bit behind the methodology in approach to being able to create curves of different wavelengths? Are there any resources that you use to see the different effects calculations can have along a line?</strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4054" src="../uploads/2022/05/pams-desk.png" alt="" /></figure>
+
+</p>
+<p><br />BM: I used a lot of random numbers. A LOT. I did a little bit of math to get a ‘base’ position for the start and end of each of the lines and then used a bunch of random numbers to offset them randomly in different directions. Then once I had those randomized points, I used the sigmoid curve calculations that, another shameless plug, you can find in the 3<sup>rd</sup> installment of the “<strong><a href="https://domoorewithdata.com/2022/01/19/fun-with-curves-in-tableau-part-3-sigmoid-curves/" target="_blank" rel="noreferrer noopener">Fun With Curves in Tableau</a></strong>” series (using the Dynamic Model).</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4055" src="../uploads/2022/05/image-4.png" alt="" /></figure>
+
+</p>
+<p>I also used a lot of random numbers to create the hearts in that visualization. You can’t really tell unless you look closely, but I used polygons to draw the hearts so they’re all slightly different shapes and sizes. I wanted the whole thing to look hand-drawn, so I relied really heavily on random numbers throughout the entire viz.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4056" src="../uploads/2022/05/image-5.png" alt="" /></figure>
+
+</p>
+<p><strong>CJ: You have a great mix of personal vizzes, SDG vizzes and sports vizzes on your profile. But do you have a favourite? What makes it so special?</strong></p>
+<p>
+
+</p>
+<p>BM: That’s a tough call. It might be a 3-way tie between <strong>“<a href="https://public.tableau.com/app/profile/brian.moore7221/viz/DesignYourOwnMandala/DesignYourOwnMandala" target="_blank" rel="noreferrer noopener">Design Your Own Mandala</a>”</strong>, <strong><a href="https://public.tableau.com/app/profile/brian.moore7221/viz/DiversityintheMarvelCinematicUniverse/DiversityintheMCU" target="_blank" rel="noreferrer noopener">“Diversity in the Marvel Cinematic Universe”,</a></strong> and <strong><a href="https://public.tableau.com/app/profile/brian.moore7221/viz/TheDanceoftheCosmos/TheDanceoftheCosmos" target="_blank" rel="noreferrer noopener">“The Dance of the Cosmos”</a></strong>, and I like them all for different reasons. I love the Mandala one because it’s a really weird application of Tableau and it’s a lot of fun to play with. My 5 year old son spent hours playing with it, which was pretty awesome. </p>
+<p>
+
+</p>
+<p>I love the Diversity one because it’s such an interesting story. Most of my visualizations don’t have much of a story to them. They’re just fun to look at and interact with, but I spent a lot of time researching and planning this one, and I think the story really came together well. And I love the Cosmos one because the realization that those types of patterns exist in nature is just fascinating. And using the play controls to watch the patterns emerge with each rotation is pretty cool.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4053" src="../uploads/2022/05/diversity-in-the-mcu-edited.png" alt="" width="640" /></figure>
+
+</p>
+<p><strong>CJ: You did a fantastic collaboration with Tina to create the squid games in an interactive animated tableau form. Can you share a few thoughts on what you liked about collaborating as well as how you came up with a few of the technical elements displayed?</strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4049" src="../uploads/2022/05/image-2.png" alt="" width="669" height="399" /></figure>
+
+</p>
+<p>BM: Collaborating with <strong><a href="https://twitter.com/Visual_Endgame" target="_blank" rel="noreferrer noopener">Tina</a></strong> was awesome! She is incredibly talented and someone I look to all the time for help with design or to just brainstorm viz ideas. When I asked her about collaborating, I really had nothing in mind, no ideas whatsoever. All I knew was that I wanted to do something with Squid Game and that I wanted to work with her because I love her design work. We ended up going back and forth for weeks, maybe months, brainstorming, trying out different ideas, building off of each other, and the whole thing just kept evolving and getting better and better. It was a very iterative process. And I think the sign of a successful collaboration is that the “whole is greater than the sum of the parts”, and that was absolutely the case here. I don’t think either of us could have done something like this on our own, but by working together and playing to each of our strengths, we were able to build something together that was really unique.</p>
+<p>
+
+</p>
+<p>I honestly don’t remember how we landed on using animations to simulate each of the games, but if I had to guess it was probably Tina’s idea. From a technical perspective, the viz was pretty simple. The hardest part was plotting all of the players’ starting and ending positions for each game, which unfortunately, was mostly manual. But what really brought the whole thing together were the incredible “game boards” that Tina designed.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-4051" src="../uploads/2022/05/image-3.png" alt="" /></figure>
+
+</p>
+<p><strong>CJ: I mentioned in previous blogs that your website is one of my go to places to learn new things. (For example using the arc tutorial for my feeder viz!) I loved how easy it was to follow. Is there anything you want to share that's coming up soon that the community can share excitement for?</strong></p>
+<p>
+
+</p>
+<p>BM: I do have a new series, which just launched, that I’m pretty excited about. It’s called “<strong><a href="https://domoorewithdata.com/2022/05/26/totally-useless-charts-amp-how-to-build-them-lotus-flowers/" target="_blank" rel="noreferrer noopener">Totally Useless Charts &amp; How to Build Them</a></strong>”. In each part of the series I’ll walk through how I built something from one of my Tableau Public Visualizations. Things like Lotus Flowers, or Hand-Drawn Bar Charts, or 3D Marimekko Charts. Things that have almost no valid use cases but are fun to build. The hope is that seeing the process I went through with each of these will help others that are interested in building their own custom visualizations.</p>
+<p>
+
+</p>
+<p><strong>CJ Round-up:</strong></p>
+<p>
+
+</p>
+<p>So... now i've met people in person. I can first hand say how lovely Brian is. What a cool guy. We had some nice chats at the data+women events as well as throughout the rest of the conference. It was a pleasure to be able to thank him for his incredible community work in person.</p>
+<p>
+
+</p>
+<p>Anyone else's mind feel like it is on fire after reading Brians domoorewithdata blogs? Yep me too. I'm glad how he manages to break down the maths in such a digestible manner. They are so fun to follow along to, and really pushes the boundaries of what's possible in Tableau.</p>
+<p>
+
+</p>
+<p>Finally, It's lovely to see how grateful Brian is of the community, especially of Jacqui. So heartwarming.</p>
+<p>
+
+</p>
+<p>Hope everyone enjoys some sunshine as we roll into the Summer period.</p>
+<p>
+
+</p>
+<p><strong>LOGGING OFF,</strong></p>
+<p>
+
+</p>
+<p><strong>CJ</strong></p>
+<p></p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

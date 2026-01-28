@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inverse Curvy Radars In Tableau - Seun Adeyemo - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Inverse Curvy Radars In Tableau - Seun Adeyemo</h1>Hi all,
+
+A warm welcome back to another blog, and this week, Seun has kindly offered up his time to share a really neat inverse polygon trick in Tableau.
+
+Just check out this radar, it works so well with the glassmorphism background.
+
+<img class="alignnone size-full wp-image-9269" src="../uploads/2025/04/HEALTH.png" alt="" width="1195" height="894" />
+
+Seuns profile is so visually striking, it is of no surprise he picked up an award at this years Tableau conference. So i'm glad he is here to share his expertise through a <a href="https://public.tableau.com/app/profile/bigxpt/viz/INVERSERCURVYRADAR/CurvyRadar"><strong>inverse radar template</strong></a> today.
+
+<img class="alignnone size-full wp-image-9268" src="../uploads/2025/04/Seun.png" alt="" width="1429" height="780" />
+
+<strong>Before we jump in Seun, for those wanting to learn more about you can you describe how you got into data?</strong>
+
+S: Hi! My name is Seun Adeyemo. I’m based in Lagos, Nigeria. I love Art, in fact, it was my first love. As a teenager my passion was drawing (with pencils), painting with water colours (sometimes oil paint), and I did lots of beautiful crafts. After high school, I taught kids with similar passion how to make beautiful stuffs like card greetings, straw mats, cardboard designs, tie and dye, etc.
+
+But i also love Mathematics, because to me it’s about solving problems by employing both logical and analytical reasoning. I went on to studying further mathematics, In the end, I produced a <a href="https://www.amazon.com/FURTHER-MATHEMATICS-Seun-Adeyemo/dp/1731423527"><strong>further mathematics textbook!</strong></a>
+
+After studying Economics at university, I grew more of a passion for graphs, and by chance I found Tableau in 2018. It was the perfect software that allowed me to blend everything together (Art, Math &amp; Economics).
+
+After some practice, I started training university students every year. And you know, you become an expert more by teaching, so here I am now!
+
+Now let's get into the tutorial.
+
+So, how did I develop the first inverse chart of that curvy radar?
+Sincerely I think the credit needs to go to <strong>Ken Flerlage</strong> who with <strong>Lisa Trescott</strong> and <strong>Kevin </strong><strong>Flerlage</strong> created the first curvy radar on Tableau. I was trying to build a curve style radar and so I remembered that I read Ken’s article on that sometime ago. So I went back to
+the article, downloaded the chart and then got to work.
+
+<a href="https://www.flerlagetwins.com/2024/10/curvy-radar.html"><strong>You can read it here.</strong></a>
+
+<img class="alignnone size-full wp-image-9275" src="../uploads/2025/04/Ken.png" alt="" width="1590" height="933" />
+
+I would save the explanation on how to build a curvy radar as that has already been explained best by Ken in his website. So, I’d just go straight to explaining how I built the inverse of it and created a see-through effect.
+
+<img class="alignnone size-full wp-image-9276" src="../uploads/2025/04/Radar1.png" alt="" width="1279" height="719" />
+
+So, here’s what we got, the Radar 1 from Ken’ template. We all know this is a polygon, which means there are points and these points “connect” together, essentially the last data point is connected to the first data point.
+
+<img class="alignnone size-full wp-image-9277" src="../uploads/2025/04/ThePoint.png" alt="" width="1218" height="562" />
+
+You say, how do I know it’s that point? Well Ken’s calculated field 02. Next Row Metric says that here!
+
+<img class="alignnone size-full wp-image-9279" src="../uploads/2025/04/Next.png" alt="" width="1500" height="834" />
+
+It says if the data point is at its end (max point), the next row should be the value of the first data point (…if order = 1 then metric…), also note this was fixed.
+
+So, I thought, what if we extend this data point from the last point, so that it goes rectangular around the data view and back into the radar shape meeting with the first data point. This was what I had in mind.
+
+<img class="alignnone size-full wp-image-9280" src="../uploads/2025/04/Points.png" alt="" width="1462" height="637" />
+
+And this was what I eventually built
+
+<img class="alignnone size-full wp-image-9281" src="../uploads/2025/04/tracker.png" alt="" width="1281" height="721" />
+
+I was feeling excited after building this. Though it was not perfectly what I wanted but I knew I was getting close. I viewed the polygon style and got plenty questions and debugging to do.
+
+<img class="alignnone size-full wp-image-9283" src="../uploads/2025/04/Box.png" alt="" width="1281" height="722" />
+
+First was, why was by polygon cutting the top and bottom of the circle? I spent over 2 hours trying to solve this, thinking it was a problem in my data or code settings. I completely forgot that this was a plot of latitude and longitude, and that latitude does not exceed 90°, so. How could you Seun!!! a whole 2 hours!!!
+
+<img class="alignnone size-full wp-image-9284" src="../uploads/2025/04/latitude.png" alt="" width="1388" height="563" />
+
+Well, there’s still a lot to do, for the passion we don’t give up...I fixed that and moved quickly onto building this.
+
+<img class="alignnone size-full wp-image-9286" src="../uploads/2025/04/circle.png" alt="" width="1279" height="725" />
+
+Now that might feel like a massive leap in steps, but let me break it down in more detail.
+
+Yes we no longer have a rectangular shape outside, it’s now a circle. This happened because I doubled the number of data points.
+
+You see the from Ken’s template, there are 20 data points (I’ll be using Radar 1 to explain this)
+
+<img class="alignnone size-full wp-image-9287" src="../uploads/2025/04/DataRadar1.png" alt="" width="1043" height="716" />
+
+So, I doubled the data points, 20 for inner (for the red line), and 20 for outer (for the blue). He already created the ones for the inner, so the ones for the outer would be easy because there would be the same numbers which is the maximum data point in the circle (that’s 100 in this case).
+
+<img class="alignnone size-full wp-image-9289" src="../uploads/2025/04/NewData.png" alt="" width="1094" height="815" />
+
+As you can see, there is an inner (Main) and the outer (edge). And for the Order 21 to 40 the values (metrics) are 100 which is the max value in this example.
+
+This was what I used instead of the original template, and then, using the same model densification style, I adjusted some of the calculated fields.
+
+First, I created an integer parameter and named it inner max order. This was the maximum order value in the inner polygon which is 20.
+
+<img class="alignnone size-full wp-image-9290" src="../uploads/2025/04/param1.png" alt="" width="1134" height="849" />
+
+Next, I adjusted 01. Max Points I renamed it to 01. Max Inner Points and used this calculation
+
+<img class="alignnone size-full wp-image-9292" src="../uploads/2025/04/MaxInner.png" alt="" width="1155" height="687" />
+
+Next, I adjusted the calculated field 02. Next Row Metric
+
+<img class="alignnone size-full wp-image-9293" src="../uploads/2025/04/NextRow.png" alt="" width="1142" height="527" />
+
+This joins the last inner data point (order 20) to the first inner data point (order 1). Also, for the outer, max order (order 40), will be with joined to the first outer (order 21) that explains “inner max order + 1”.
+
+So that’s it! All the other calculated fields where left the same as Ken created them. So again, much credits to Ken. I just made a few changes and so we have this.
+
+<img class="alignnone size-full wp-image-9294" src="../uploads/2025/04/Final.png" alt="" width="957" height="537" />
+
+And after adjusting latitude and longitude so I don’t waste another 2 hours, we have as a polygon this.
+
+<img class="alignnone size-full wp-image-9296" src="../uploads/2025/04/InverseRadar.png" alt="" width="955" height="537" />
+
+If you'd like to give it a go.... you can find the <a href="https://public.tableau.com/app/profile/bigxpt/viz/INVERSERCURVYRADAR/CurvyRadar"><strong>template i made here.</strong></a>
+
+You will find I added a little bonus feature. To understand this better, just explore the idea and see what more you can develop from it! Enjoy.
+
+CJ Round-up:
+
+Wow I am seriously impressed with the creativity behind inversing the radar. I think this has major potential if used in a neat way like Seun's original visual to help layer different elements. Seun has built an incredible portfolio to date, and it has been amazing to watch his presence grow in the data community. <a href="https://public.tableau.com/app/profile/bigxpt/vizzes"><strong>Make sure to check out his profile in full.</strong></a>
+
+<strong>LOGGING OFF,</strong>
+
+CJ
+
+&nbsp;
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

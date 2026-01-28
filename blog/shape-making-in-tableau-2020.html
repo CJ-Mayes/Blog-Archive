@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shape Making In Tableau - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Shape Making In Tableau</h1>Hi all,
+
+I wrote the following blog back in 2020 for Amar Singh's site <a href="https://www.amarsingh.uk/2020/09/how-to-ace-shape-making-guest-post-by.html"><strong>here,</strong></a> on how to make shapes. Tina Covelli recently reminded me of it when tracking her own HITT workouts.
+
+<img class="alignnone size-full wp-image-7146" src="../uploads/2023/09/F6U-p_rWoA.jpg" alt="" width="1299" height="899" />
+
+Since 2020, I've simplified the blog - which you can now read below:
+
+By all means follow along the steps below to create your own data points from a vector image.
+<p style="font-weight: 400;">What you’ll need:</p>
+
+<ol style="font-weight: 400;">
+ 	<li><b><strong>A dataset, </strong></b>preferably between 500-4000 rows.</li>
+ 	<li><b><strong>An image</strong></b> <b><strong>vector </strong></b>you want to put your points in the shape of. (such as the RF logo)</li>
+</ol>
+<p style="font-weight: 400;">The original data I used for the visualisation can be <strong><a href="http://www.tennis-data.co.uk/alldata.php">found here</a>.</strong></p>
+<p style="font-weight: 400;">But the data can be found now in Github.</p>
+<p style="font-weight: 400;">I stitched together the 2010-2020 datasets of where Roger Federer was named the winner or loser from the ATP records.</p>
+<p style="font-weight: 400;"><b><strong>Step 0:</strong></b> Decide on the data you are using.</p>
+<p style="font-weight: 400;">For my dataset, you will note there are three final sheets;</p>
+<p style="font-weight: 400;">Original: Our original 659 games between 2010-2020.</p>
+<p style="font-weight: 400;">RF: The logo co-ordinates of X and Y that we will create and then match to our dataset. (659 points)</p>
+<p style="font-weight: 400;">RF &amp; Logo: Where I duplicate the dataset to have a view column that toggles between the logo and the RF logo. (659 points x 2 Views)</p>
+<p style="font-weight: 400;">There are <b><strong>659 games</strong></b> he played during this time. This will become important later on.</p>
+<p style="font-weight: 400;">Open the site <a href="https://apps.automeris.io/wpd/"><strong>automeris</strong></a>.</p>
+<span style="font-weight: 400;"><img class="alignnone size-full wp-image-7159" src="../uploads/2023/09/02.png" alt="" width="2048" height="1142" /></span>
+<p style="font-weight: 400;">File, Load Image(s), Locate the Logo you want to use in this case I used a plain black vector of Roger Federer’s brand. A simple Google of it will do, if not <strong><a href="https://fontmeme.com/images/Roger-Federer-Logo.png">take the one from here.</a></strong></p>
+<p style="font-weight: 400;"><img class="alignnone size-full wp-image-7158" src="../uploads/2023/09/03.png" alt="" width="640" height="244" /></p>
+<p style="font-weight: 400;">Feel free to use your own image vector, but for simplicity sake, for now I’d advise using a one-block colour vector (If you start to use an image with various colours you will have to export multiple datasets as seen in step 5)</p>
+<p style="font-weight: 400;">Plot type: Image, align axes.</p>
+<span style="font-weight: 400;"><img class="alignnone size-full wp-image-7157" src="../uploads/2023/09/04.png" alt="" width="2048" height="1044" /></span>
+<p style="font-weight: 400;"><b><strong>Step 4: </strong></b>Within the bottom left hand corner we see the Automatic Extraction Mask box. I’ve amended the (Foreground) colour to be the black as seen in the logo. This is where I want my dataset to create points for plotting.</p>
+<p style="font-weight: 400;">The distance and ΔX and ΔY Px determine the spacing between the co-ordinates plotted. Have a play around with various combinations to see its functionality.</p>
+<p style="font-weight: 400;"><img class="alignnone size-full wp-image-7156" src="../uploads/2023/09/05.png" alt="" width="522" height="540" /></p>
+<p style="font-weight: 400;">Hit run!</p>
+<p style="font-weight: 400;">You will see co-ordinates of X &amp; Y appear across the chosen colour (Black) these co-ordinates we can later plot in Tableau.</p>
+<p style="font-weight: 400;">Note: If you want to use various colours you will have to repeat this process over using the different foreground colours of your image and clicking run.</p>
+<p style="font-weight: 400;"><img class="alignnone size-full wp-image-7155" src="../uploads/2023/09/06.png" alt="" width="1200" height="1152" /></p>
+<p style="font-weight: 400;">Time to readjust our X and Y values and distance until they look appropriately spaced and are as close to the number of data points in our data set. See within my print screen it shows I have only 609 points. Therefore I need to adjust my X and Y to be smaller to re-run with more datapoints until I am equal or slightly above 659. This is because when we come to plot the points we want to give each co-ordinate a specific game reference!</p>
+<p style="font-weight: 400;">Note: It’s super hard to get a perfect match. Better to get slightly too many points and delete a few using a Rand() function in excel.</p>
+<p style="font-weight: 400;">View Data!</p>
+<p style="font-weight: 400;">Once we view the data we will see our logo is a series of X-Y co-ordinates. It is personal preference how you download this. Personally I download to a .CSV</p>
+<span style="font-weight: 400;"><img class="alignnone size-full wp-image-7153" src="../uploads/2023/09/08.png" alt="" width="1628" height="984" /></span>
+<p style="font-weight: 400;"><b><strong>Assign X-Y Co-ordinates to our dataset.</strong></b></p>
+<p style="font-weight: 400;">Copy and paste into two new columns headered X &amp; Y the new 659 points against our original data.</p>
+<p style="font-weight: 400;">As you can see in the ‘RF’ sheet, we have now added the X and Y columns we have just downloaded into our dataset. This is essentially giving each of our games an X &amp; Y co-ordinate.</p>
+<p style="font-weight: 400;">Open Tableau!</p>
+<p style="font-weight: 400;">Connect to our new RF sheet that we just created.</p>
+<p style="font-weight: 400;">Open a New Sheet</p>
+<p style="font-weight: 400;"><b><strong> </strong></b>Drag X onto Columns, and Y onto Rows.</p>
+<p style="font-weight: 400;">Make sure both are continuous dimensions. The marks type should automatically switch to being a circle, but you can also play around with other shapes.</p>
+<p style="font-weight: 400;"><b><strong><img class="alignnone size-full wp-image-7152" src="../uploads/2023/09/09.png" alt="" width="1792" height="1210" /></strong></b><b></b></p>
+<p style="font-weight: 400;">Because we have assigned each point an X and Y value, we can now add in the tool. I drag surface onto colour, add all the match details into the tooltip and resize to make the logo look slightly more uniformed. I put round onto size and sorted them by how far in the knockout stages Roger reached. Sizing can become a bit tricky dependent what you size on, so that your image doesn’t lose shape.</p>
+<img class="alignnone size-full wp-image-7151" src="../uploads/2023/09/10.png" alt="" width="1600" height="1900" />
+
+Hope you enjoyed this blog, written 3 years ago, but still can be used today!
+
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

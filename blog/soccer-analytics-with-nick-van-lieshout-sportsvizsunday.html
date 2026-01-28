@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soccer Analytics With Nick Van Lieshout #SportsVizSunday - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Soccer Analytics With Nick Van Lieshout #SportsVizSunday</h1>Hi all,
+
+We have another guest blog this week. <b><a href="https://www.linkedin.com/in/nick-van-lieshout/">Nick Van Lieshout</a> </b>joins to talk about his journey within soccer analytics and some of his public facing portfolio.
+
+<img class="alignnone size-full wp-image-8020" src="../uploads/2024/05/NVL.png" alt="" width="1582" height="1237" />
+
+<strong>CJ: Nick, thanks for joining. I am so pleased to have a #SportsVizSunday regular contributor to join the blog today. You are in a fortunate position of being able to do sports analytics for both work and ‘play’ - Have you always had an analytical mind when looking at sports?</strong>
+
+<span style="font-weight: 400;">N: Thanks for having me, CJ! I guess I have always had quite an analytical approach to it. As a kid I used to cut out pieces from magazines and newspapers of football players and teams, together with every stat and piece of information I could find about them, to create booklets supplied with some of my own notes and thoughts. For me as a kid, these booklets served as some kind of ground truth to base my football opinions on, as a kind of reference. What I do as a job today is honestly not too dissimilar to creating such booklets, minus the scissors and the glue, so I guess part of the work still feels like ‘play’. </span>
+
+<span style="font-weight: 400;">Looking back at it, kid-me was using cherry picked versions of these booklets to point out to my brother why his favorite team was bad and my favorite team was, in fact, good, thereby only using data fitting my opinion agenda. It’s a kind reminder that data does not strictly equate to objectivity, because people have a decision on what they show and how they show it.</span>
+
+<strong>CJ: Many individuals reading this blog will be inspired by your journey of entering the soccer community. Could you talk a little as to your role at Parma Calcio and how the industry is changing?</strong>
+
+<span style="font-weight: 400;">N: At Parma Calcio I am responsible for creating a fairly big chunk of the reports and dashboards on the football side: for match analysis, scouting, performance and leadership across first team and youth academy. In my work I use Tableau and Figma a lot, and occasionally R for ad hoc analysis. I am lucky to have colleagues dedicated to data architecture and engineering, so I can fully focus on optimizing the packaging, delivery and communication of data and analysis to staff members. All to make it easy and intuitive for them to understand and integrate in their workflow. Conscious and careful data visualization and communication is a very effective means to this end, and I think it is being more and more recognized also in the industry as a specialty instead of just one of many tasks of a data analyst or scientist.</span>
+
+<strong>CJ: Do you have any tips for those wanting to expand their portfolio for match analysis and scouting? What resources can people turn to that are free and publicly available which help individuals start their portfolio for match analysis or scouting analytics? How important is the data collection as part of your visuals?</strong>
+
+<span style="font-weight: 400;">N: There are quite a few open data sets available that can get you started. <strong>StatsBomb</strong> for instance has very detailed event data available for free that you could use to experiment with football data analysis. These are extensive enough to create quite a detailed analysis of the playing style of a team, or to create a deepdive on a player, and there are plenty of tutorials available on how to retrieve and play with their data in Python and R (also on this blog </span><span style="font-weight: 400;">) </span>
+
+<span style="font-weight: 400;">Of course clean, nicely prepped data just makes life easier as an analyst in general. It’s usually the most time consuming part if you are starting a viz project from scratch. Also, good prep allows you to pull off specific advanced types of charts in Tableau much easier, and helps you optimize performance.</span>
+
+<strong>CJ: It’s not often we see a business style framing design to a sports visual. Your performance dashboard has some incredible features in it technically. I particularly like the layers in the Team Form section. Can you speak a little about the decisions of the area and bar overlay and tooltip decisions?</strong>
+
+<img class="alignnone size-full wp-image-8023" src="../uploads/2024/05/Jong-PSV.png" alt="" width="1199" height="799" />
+
+<span style="font-weight: 400;">In this dashboard the envisioned end users are fans that want to get a quick pulse on the youth team of their favorite club, and want to know who the emerging talents are. The team form and ones to watch sections are prominently placed, because they directly address these questions. </span>
+
+<span style="font-weight: 400;">Specifically about team form; given the constraints of the data at hand, the running goal difference was a fairly reasonable proxy of the ‘form’ of a team. Although, when available, I think xG difference would be a better alternative for this. I got the idea of overlaying an area on a bar chart in this context from one of Sam Parsons (legend) dashboards on Rugby. It gives you a quick view of the waves of form the team has had, while being able to compare individual match performances, and detect which performances might have turned the tie in a season.</span>
+
+<strong>CJ: Again, on the player profile focus page I love the design choices behind the player profile. Can you speak a little to the design choices of color, shapes and framing?</strong>
+
+<img class="alignnone size-full wp-image-8026" src="../uploads/2024/05/Jong-PSV-1.png" alt="" width="1199" height="799" />
+
+<span style="font-weight: 400;">The idea was to create separate sections summarizing performance (i.e a rating given  by API-Football), playing time, technical/tactical kpis all on the season level, as well as one single chart breaking down the form of the player throughout the season, and his performance relative to his teammates from match to match. </span>
+
+<span style="font-weight: 400;">If you dissect it in terms of Gestalt Principles (principles of human perception), I used enclosure and proximity to create distinct sections (via borders and plenty of whitespace), and similarity in the form of color to create some coherence across different sections.</span>
+
+<strong>CJ: Another business style framed dashboard you created that got VOTD is your player monthly report. Can you talk through some of the complexities creating the calendar?</strong>
+
+<img class="alignnone size-full wp-image-8027" src="../uploads/2024/05/Player-Monthly-Performance-Report-Concept.png" alt="" width="1199" height="799" />
+
+<span style="font-weight: 400;">N: Here I used 2 sheets. One sheet that only shows the custom shapes of the sessions, hiding everything else (e.g. transparent background, hide field labels, remove lines separating the days in the calendar). And another sheet containing the calendar with the RPE (rate of perceived exertion) indicator. </span>
+
+<span style="font-weight: 400;">It was a quick and easy solution to integrate RPE nicely in the calendar, in which I wanted color and shape to encode the session type, and sizing the shape according to RPE was just not ideal in my view.</span>
+
+<span style="font-weight: 400;">There is also an <a href="https://www.youtube.com/watch?feature=shared&amp;v=s0Ny6AgTEYU"><strong>excellent step by step example by Andy Kriebel</strong> </a>that shows how to do create calendars.</span>
+
+<strong>CJ: Your Serie A visual and Coppa Italia visual both showcase your advanced Tableau experience - using both polygons and chart layering. How do you approach new projects that don’t necessarily conform to “out of the box” chart types?</strong>
+
+<img class="alignnone size-full wp-image-8029" src="../uploads/2024/05/Serie-A-Historical-Point-Benchmarks-2.png" alt="" width="1199" height="799" />
+
+<span style="font-weight: 400;">N: For me usually it all starts with pencil and paper. Sketching out how I would ideally like to show something. From there I compare my ideal to what is possible within the realms of my tools, i.e. how far we can reasonably get with the combination of Tableau and Figma while also taking into account the timeframe I have to create it. However, in my day to day work I rarely resort to very advanced chart types, as they are generally a bit more complex to read. But these types of charts do have the ability to attract an audience that would otherwise not be very interested in a certain topic, or to fuel a conversation. </span>
+
+<strong>CJ: In your goalkeeper restarts visual and your dynamic heat visual. You add subtle additional information to help enhance the original heatmap, such as in the case of marginal bars, shape icons and pie charts. How do you weigh up providing context vs excessive information, as well as ink ratio and page balance?</strong>
+
+<img class="alignnone size-full wp-image-8030" src="../uploads/2024/05/GK-Restarts-CL-QF-1.png" alt="" width="1199" height="799" />
+
+<span style="font-weight: 400;">N: Using complex charts and bombarding the viewer with excessive information (as well as unnecessary chart elements) risks increasing the cognitive load to a point that a dashboard becomes daunting and off-putting. I always try to be very selective in what I do and don’t show, when I show it, and try to avoid anything that does not directly contribute to the understanding of the data. Using shape icons and subtle indicators can help you package quite some contextual information in a limited number of pixels, while making sure you do not completely overpower the main chart. </span>
+
+<img class="alignnone size-full wp-image-8032" src="../uploads/2024/05/Dynamic-Heat-Maps-To.png" alt="" width="1199" height="799" />
+
+<span style="font-weight: 400;">CJ: Thank you for some of those design tips. Are there individuals in the community that you look to for inspiration, both sports and wider?</span>
+
+<span style="font-weight: 400;">N: Andy Kriebel, Sam Parsons, Cj Mayes</span><span style="font-weight: 400;">, Adedamola Ladipo, Ben Norland, Simon Beaumont, Mo Wootten, Gbolahan Adebayo.</span>
+
+<strong>CJ Round-Up: </strong>
+
+Nick has some serious talent. The way he is able to balance different elements on the page, whilst bringing the perfect amount of context into the visual without it being over bearing is truly fantastic. I would recommend anyone looking to get into sports analytics to use Nick as a source of inspiration. I loved Nicks analogy of booklets, cutting and gluing bits of information together.
+
+<strong>LOGGING OFF,</strong>
+
+CJ
+
+&nbsp;
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

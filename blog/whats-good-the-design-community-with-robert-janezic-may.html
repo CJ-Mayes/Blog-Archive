@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Design Community with Robert Janezic - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>The Design Community with Robert Janezic</h1><p></p>
+<p>Hi All,</p>
+<p>
+
+</p>
+<p>Welcome to the May episode of <strong>“What’s Good?” </strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3834" src="../uploads/2022/04/ebb-flow.png" alt="" width="493" height="791" /></figure>
+
+</p>
+<p><strong>CJ: Robert, Thanks for joining. Let’s start by diving into your own journey. Can you share with us a little more about the transition to become a designer? At what point do you feel you become a designer… instead of say, an analyst?</strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3840" src="../uploads/2022/04/the-banana-crew.png" alt="" width="653" height="466" /></figure>
+
+</p>
+<p>R: Happy to be here CJ, appreciate you reaching out. My transition to becoming a designer wasn’t straightforward and really came from a necessity in our team (Tableau COE at JPMorgan Chase). We started creating applications for our users and the need for a designer became more apparent. We needed to create the designs before the engineers coded everything. I already had a good eye for design from my years of creating Tableau Public work, so it just made sense that I would be the person to create these designs. I already wanted to get into UI work before that, so I really took it upon myself to learn all I could about it.</p>
+<p>
+
+</p>
+<p>It was at this point I felt like I became a designer. I say that because all my work was focused on design, and I was in Figma 90% of my day. To be honest I thought the transition would be easy, because in my head I was saying “I can create well designed Tableau dashboards so the two should overlap, right?”. Ya I was just dead wrong lol. It became very apparent that there wasn’t that much design skills overlap between a Tableau dashboard and an entire application. </p>
+<p>
+
+</p>
+<p>I now must think about:</p>
+<p>
+
+</p>
+<p>• States (Hover, Active, Focus, Disabled)</p>
+<p>
+
+</p>
+<p>• Smaller components (Dropdowns, Switches, Radio buttons, Text Fields, etc.)</p>
+<p>
+
+</p>
+<p>• More text options (Line height, Paragraph spacing, Kerning, etc.)</p>
+<p>
+
+</p>
+<p>• Design Systems (Type Scales, Color Palettes, Spacing Scales, Componentization etc.)</p>
+<p>
+
+</p>
+<p>• Engineer handover (Making sure the engineers have what they need to copy 1-1)</p>
+<p>
+
+</p>
+<p>• And a lot more</p>
+<p>
+
+</p>
+<p>In general, you can get away with not thinking about any of the above while designing a Tableau dashboard. So, it was overwhelming at first but like everything with time and practice I got the hang of it. I can confidently say this is what I want to do for my career, I absolutely love it!</p>
+<p>
+
+</p>
+<p><strong>CJ: What I’m really impressed by with your UI Kit is not only its functionality but how it reflects on your business acumen of seeing something that can be done better and building something to fill that gap. Can you share a little more around this journey, was it ignited by product or business thinking?</strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3852" src="../uploads/2022/04/cover.png" alt="" /></figure>
+
+</p>
+<p>R: I got the idea for the Tableau UI Kit about a year and a half ago. The Figma community has a TON of UI Kits, but most of them are for applications and websites. When I first started there was nothing related to Tableau and thought “wow, if someone wants to prototype their dashboard, they have to do it manually by hand and it most likely won’t look like Tableau and will take a long time”. I know that to be true because I used to do the same thing, and both of those statements applied. Not only that, but I used to do my dashboard prototyping in PowerPoint and it was an absolute nightmare.</p>
+<p>
+
+</p>
+<p>The entire Tableau UI Kit took me about six months to build and was easily the most work I’ve ever put into a side project. Here’s the steps:</p>
+<p>
+
+</p>
+<ol>
+<li>
+<p><strong>Procrastinate</strong></p>
+<ol>
+<li>
+<p>Starting is always the hardest part for me. But once I do, I’m all in!</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>UI Kit and Design System research</strong></p>
+<ol>
+<li>
+<p>This was a really important step because it saved me a lot of potential rework. I ended up still having to do some rework, but this minimized it substantially. Plus when I do something I want to make sure I’m doing it right and not doing it half-heartedly.</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Development</strong></p>
+<ol>
+<li>
+<p>This was the most technical step and really pushed my Figma skills to its limits. I was deep into advanced features/tricks every single day for months (I think in autolayout now). There were points where I got bummed out because I had so much work left to do and there were some days I couldn’t figure something out. But taking it day by day and frequently stepping away from the computer is the best way to tackle larger projects (I usually only work on side projects for 2-3 hours at a time).</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>User Feedback</strong></p>
+<ol>
+<li>
+<p>As with everything you create, getting feedback is very important. Although I found it difficult to get feedback because the Tableau UI Kit is such a new concept for most of the community. I had to trust my instincts on a lot of things. Some of those instincts turned out great, others not so much. But you just adjust and keep it moving.</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Create website and gumroad store</strong></p>
+<ol>
+<li>
+<p>As some of you may know I’m a huge fan of Webflow and love jumping at the chance to create a new website. At first I didn’t know if I was going to create one, but having an official website adds legitimacy (and you need that especially if you’re charging for it).</p>
+</li>
+<li>
+<p>The Gumroad stuff was brand new for me and I did pretty extensive research on what service I wanted to use (It was between Gumroad and Lemonsqueezy). I chose gumroad because of the simple fee structure and the great reputation it’s had. Hosting a product on Gumroad taught me a lot about marketing and the important role it plays.</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Marketing</strong></p>
+<ol>
+<li>
+<p>If you’re creating something DO NOT SKIP MARKETING (I almost fell into this trap). After I finished development I got the urge to just release it. But I had to tell myself not to do that, because it would have been a disservice to the value the product brought. People really need to understand what it is you’re creating and why they should care. </p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Release</strong></p>
+<ol>
+<li>
+<p>Release the dang thing already!!</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>More Marketing</strong></p>
+<ol>
+<li>
+<p>Just because you released doesn’t mean it’s done and over with. Most people probably missed your social media posts. Even if they did see them, they’re still probably not convinced of the value it may offer them. So you have to keep updating people on new versions, talks you’re giving and reminders that the product still exists.</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Even More Marketing</strong></p>
+<ol>
+<li>
+<p>Forreal, just do more marketing.</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>
+
+</p>
+<p>I’ve got to admit I spent a long time deciding if I should make it a paid product or not. Because let’s face it, most of the resources in the community are free and I got the feeling that people would look down on me for making it paid. So, I asked around to some people I trust. They told me “you 100% should make this a paid product, it fits an area of the market that has not been tapped into yet”. </p>
+<p>
+
+</p>
+<p>I took their advice and am happy I did so. For anyone who’s reading this – if you have an idea that adds value for others, don’t be afraid to stick your neck out and turn it into something more than an idea. I’ve really gotten the entrepreneurial itch, and I don’t see it going away anytime soon.</p>
+<p>
+
+</p>
+<p><strong>CJ: Could you share with us some of your own personal processes with design in respect to site mapping, wireframing and prototyping? What does the E2E Journey look like to you?</strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3850" src="../uploads/2022/04/image-4.png" alt="" /></figure>
+
+</p>
+<p>R: This is a great question, and one that needs to be discussed more. Let me walk through the design process I take on most of my projects (this applies to Tableau work as well):</p>
+<p>
+
+</p>
+<p>1. <strong>User research </strong>(understanding user behaviors, needs, and motivations)</p>
+<p>
+
+</p>
+<p>2. <strong>Define the problem</strong> (what user problem will you be trying to solve)</p>
+<p>
+
+</p>
+<p>3. <strong>Ideate</strong> (brainstorm on a range of creative ideas and solutions that address the problem)</p>
+<p>
+
+</p>
+<p>4. <strong>Sitemap</strong> (hierarchical diagram of the application)</p>
+<p>
+
+</p>
+<p>5. <strong>Wireframe</strong> (low-fidelity, basic layout and structural guidelines)</p>
+<p>
+
+</p>
+<p>6. <strong>Prototype</strong> (mid-to-high-fidelity, design model of the final UI)</p>
+<p>
+
+</p>
+<p>7.<strong> Feedback</strong></p>
+<p>
+
+</p>
+<p>8. <strong>Iterate</strong></p>
+<p>
+
+</p>
+<p>9. <strong>More Feedback</strong></p>
+<p>
+
+</p>
+<p>10. <strong>More iteration</strong> (if necessary)</p>
+<p>
+
+</p>
+<p>11. <strong>Handover to developers</strong></p>
+<p>
+
+</p>
+<p>Skipping steps is the fastest way to low adoption and rework.</p>
+<p>
+
+</p>
+<p>CJ: If you'd like to take a further look you can <strong><a href="https://www.tableauuikit.com/" target="_blank" rel="noreferrer noopener">view the site here</a></strong>, or find it on Gumroad for purchase <strong><a href="https://robertjanezic.gumroad.com/l/dNRfCr" target="_blank" rel="noreferrer noopener">here.</a></strong></p>
+<p>
+
+</p>
+<p><strong>CJ: Your personal website is a thing of beauty. What have been some of your learnings from doing web design?</strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3842" src="../uploads/2022/04/image.png" alt="" /></figure>
+
+</p>
+<p>R: Appreciate that! I’ve learned that well designed applications/websites add legitimacy and users can feel when they’re not designed well. They may not have the vocabulary to explain it, but they know it when they see it.</p>
+<p>
+
+</p>
+<p>Don’t just take my word for it, look up “Design web statistics” and you’ll see exactly what I’m talking about. The idea that these same statistics wouldn’t apply to Tableau dashboards doesn’t make sense to me.</p>
+<p>
+
+</p>
+<p><strong>CJ: What are some common design pitfalls?</strong></p>
+<p>
+
+</p>
+<p>R: I talked about one of the biggest pitfalls earlier, which is not following processes. The worst thing you can do is just go for it. I’ve seen time and time again people just going for it and having to do a lot of reworks. By following specific processes, you get a better result, but also significantly cut down on the potential for rework.</p>
+<p>
+
+</p>
+<p>Another pitfall I see is people focusing on features over usability. This thinking often hurts startups and significantly reduces the number of sales conversions. I would suggest focusing on doing a few things really well and having a great user experience rather than adding every feature under the sun. Having a bad user experience is one of the quickest ways for a user to never want to use your tool again.</p>
+<p>
+
+</p>
+<p><strong>CJ: How do you see Tableau in the broader community? What tips would you give individuals that are immersed in the Tableau community to learn more about design?</strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3858" src="../uploads/2022/04/rabbit-hole.png" alt="" width="680" height="854" /></figure>
+
+</p>
+<p>R: I think which community you go to is really important. Do not feel like all your information should come from one community!! If I have a tableau question or want to learn more, I’ll go to the Tableau community. If I have a Figma question or want to learn more, I’ll go to the Figma community. This applies to all communities; you go to the experts to learn more.</p>
+<p>
+
+</p>
+<p>If we’re talking about Tableau and design, I think people have the most to learn from User Interface designers. I say that because User Interface designers work in a structured environment, not unstructured (in general). Almost all Tableau design (especially in day-to-day business work) is structured. You’ll also get the added benefit of understanding how to design an application or a website. It’s really a win-win all around.</p>
+<p>
+
+</p>
+<p><strong>CJ: With this in mind - who are some of your favorite designers to follow? Do you have any resources that are a good starting place to learn better design?</strong></p>
+<p>
+
+</p>
+<p>R: Here’s some great designers you can follow on twitter: <strong><a href="https://twitter.com/jamesm" target="_blank" rel="noreferrer noopener">@jamesm</a></strong>, <strong><a href="https://twitter.com/DannPetty" target="_blank" rel="noreferrer noopener">@DannPetty</a></strong>, <strong><a href="https://twitter.com/Ridderingand" target="_blank" rel="noreferrer noopener">@Ridderingand</a></strong>, <strong><a href="https://twitter.com/charliprangley" target="_blank" rel="noreferrer noopener">@charliprangley</a></strong>, <strong><a href="https://twitter.com/alyssaxuu" target="_blank" rel="noreferrer noopener">@alyssaxuu</a></strong>, <strong><a href="https://twitter.com/jsngr" target="_blank" rel="noreferrer noopener">@jsngr</a></strong>, <strong><a href="https://twitter.com/joeyabanks" target="_blank" rel="noreferrer noopener">@joeyabanks</a></strong>, <strong><a href="https://twitter.com/steveschoger" target="_blank" rel="noreferrer noopener">@steveschoger</a></strong></p>
+<p>
+
+</p>
+<p>That’s a pretty good list to get started. Obviously there’s a lot more, but you can just get to the people I’m following on Twitter for more.</p>
+<p>
+
+</p>
+<p><strong>CJ: I fondly remember dialing into a Twitter Spaces call where you were discussing some quick tips for those just getting started. Can you give us 5 of your top tips for using Figma?</strong></p>
+<p>
+
+</p>
+<p>R: Ohhh I’ve got a lot of these haha. Here’s my top 5:</p>
+<p>
+
+</p>
+<p>1. <strong>Use more frames.</strong></p>
+<p>
+
+</p>
+<p>2. <strong>Stop using Groups.</strong> Generally the only reason to use Groups is for file organization.</p>
+<p>
+
+</p>
+<p>3. <strong>Use Autolayout way more</strong>. Once you understand the power of autolayout you’ll wonder how you ever did anything before it.</p>
+<p>
+
+</p>
+<p>4. <strong>Learn important keyboard shortcuts.</strong> You’ll be able to work a lot faster.</p>
+<p>
+
+</p>
+<p>5. <strong>Use Figma for almost everything</strong>. At this point I use it for prototyping, presentations, icon design, graphic design and essentially everything when it comes to design. My point is you can use it for a lot more tasks than you may think.</p>
+<p>
+
+</p>
+<p><strong>CJ: Thank you so much for joining today. Is there anything you’d like to share about the remainder of the year, particularly in regards to your journey with Figma and your Tableau UI kit?</strong></p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-3846" src="../uploads/2022/04/image-3.png" alt="" /></figure>
+
+</p>
+<p>R: I’m currently working on v1.5 for the Tableau UI Kit and I’m excited for the new features coming. I’ve collected a lot of feedback from customers and I’m taking all of it into consideration for future releases.</p>
+<p>
+
+</p>
+<p>Outside of the Tableau UI Kit I’ve been thinking about and workshopping new tools for Tableau users. I’m pretty in tune with the issues users currently have with Tableau, and I’m trying to fill that gap with tools that immediately add value at scale.</p>
+<p>
+
+</p>
+<p>Thank you for having me CJ, really enjoy the What’s Good series!</p>
+<p>
+
+</p>
+<p><strong>CJ Round-up:</strong></p>
+<p>
+
+</p>
+<p>I revisit Roberts Tableau Public page often for inspiration. It is a goldmine when combining good design with technical chart types. I can't speak for the rest of the community but I would love to see a return to the public vizzing again. I always enjoy profiles like Robert's where I think "wow, how was that made?"</p>
+<p>
+
+</p>
+<p>Roberts move towards becoming a designer full time is really inspiring and I hope the tips shared in this blog can help others with making that step towards better design. Do take the opportunity to reach out to Robert with any further questions you may have.</p>
+<p>
+
+</p>
+<p>Having had the pleasure of looking at the UI kit during its test phase and more recently through acquiring a license through the company I have to say I am super excited for the future release of v1.5. I wish to congratulate Robert on reaching a milestone in sales recently, paying testament to his hard work and his desire to help others become better designers.</p>
+<p>
+
+</p>
+<p>See some of you in Vegas in a few weeks.</p>
+<p>
+
+</p>
+<p><strong>LOGGING OFF,</strong></p>
+<p>
+
+</p>
+<p><strong>CJ</strong></p>
+<p></p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

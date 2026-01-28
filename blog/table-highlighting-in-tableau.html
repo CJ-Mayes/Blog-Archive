@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Highlighting In Tableau - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Table Highlighting In Tableau</h1>Hi all,
+
+Been a few weeks now since the last post. I've been really switching off on the weekends bar the odd #SportsVizSunday round-up which has been great for the soul, and the opportunity to get out for some good runs and gym sessions. I honestly probably feel the best I have in my whole life, physically at least. That being said... I can't believe we are reaching the end of Q1 already, so maybe time to get back to website content.
+
+This week we will look to create a few examples of different ways to highlight a table in Tableau! Yes you heard right, b2b tutorials on this website with content vaguely useful for work related activities and not just how to build whizzy chord charts. As always the resources can be found using the icon navigation under the title.
+
+Before we start, here are a few of my favourite table designs on Tableau to date.
+
+Autumn Battani - <a href="https://public.tableau.com/app/profile/autumnbattani/viz/ManufacturerTable/ManufacturerTable"><strong>Manufacturer Table - </strong></a>A stunning way of 'pinning' a choice from the table to the top of the visual.
+
+phData - <a href="https://public.tableau.com/app/profile/phdata/viz/KPIDashboardforExecutives/Executive"><strong>KPI Dashboard for Executives - </strong></a>Love the different chart types, the sort navigation as well as the see more detail ability. Also a nice way of having pagination at the bottom of the viz! Side note but how cool is the pop out navigations that reset the remaining views.
+
+Samuel Parsons - <a href="https://public.tableau.com/app/profile/sparsonsdataviz/viz/StateSales_16732901945550/StateSales"><strong>State Sales - </strong></a>Simple, clean and a great way of visualising different metrics. Had to include this one as its inspired at least 5 more visuals since then across the community!
+
+Luke Stanke - <a href="https://public.tableau.com/app/profile/stanke/viz/TablewithMapLayers/Dashboard1"><strong>Table with Map Layers</strong> </a>- Wanted to include this as an example of how you can really take your design to the next level introducing more layers.
+
+Anyway onto todays far less glamorous content. How to create a simple highlight table.
+
+Lets start simple
+
+<img class="alignnone size-full wp-image-5838" src="../uploads/2023/03/Capture-1.png" alt="" width="1609" height="553" />
+
+We can highlight column by creating a calculation that takes into account the specific column, and using a highlight diverging colour between 0 and 1.
+
+<img class="alignnone size-full wp-image-5840" src="../uploads/2023/03/Capture2.png" alt="" width="1610" height="916" />
+
+Of course, we can update this to also look at rows, like in the above example looking at both Binders or East.
+
+<img class="alignnone size-full wp-image-5842" src="../uploads/2023/03/Capture3.png" alt="" width="1615" height="676" />
+
+Then next logical solution is to have these colourings based on parameters - see how <strong>p. subcategory</strong> and <strong>p. region</strong> now drive the colour scale.
+
+So far nothing hugely ground breaking. But what happens when we want to look at something other than text tables?
+
+Well of course we will need to create 'fake' placeholders for each of the respective metrics.
+
+Let's keep our subcategory on rows but now look at profit and sales and quantity as bars.
+
+<img class="alignnone size-full wp-image-5845" src="../uploads/2023/03/Capture4.png" alt="" width="1613" height="894" />
+
+So adding the values to the columns and making the marks as bars now makes the bar the colour of our highlight instead of the row in the background.
+
+What can we do to bring back our functionality of highlighting the background of the row?
+
+Well lets just take sales as the example for now.
+
+Let's remove the colouring from the pill on our sales, and bring in a new field to columns of 1.0 (Fix the axis between 0 and a value less than 1.0)
+
+Dual axis these, no need to synchronise - of course.
+
+<img class="alignnone size-full wp-image-5847" src="../uploads/2023/03/Capture6.png" alt="" width="1609" height="574" />
+
+By expanding the bar in the background and adding a border we can create the effect of row dividers
+
+<img class="alignnone size-full wp-image-5848" src="../uploads/2023/03/Capture7.png" alt="" width="1613" height="665" />
+
+Changing the parameter now updates the chosen highlighted row
+
+<img class="alignnone size-full wp-image-5850" src="../uploads/2023/03/Capture8.png" alt="" width="1615" height="693" />
+
+We can still take this further though, as it doesn't allow for the subcategory name to be highlighted at the moment.
+
+<img class="alignnone size-full wp-image-5852" src="../uploads/2023/03/Capture9.png" alt="" width="1607" height="636" />
+
+By adding a fake placeholder pill to columns we can add just a label to represent the subcategory in this case.
+
+<img class="alignnone size-full wp-image-5854" src="../uploads/2023/03/Capture10.png" alt="" width="1608" height="905" />
+
+The final things we can do are:
+<ul>
+ 	<li>Replace the 0.1 highlight bar actually with a fixed maximum bar to allow us to leave in an axis at the bottom if we wanted.</li>
+ 	<li>We can edit our axis marks at the top to just show title headers</li>
+ 	<li>We can add an action to our dashboard that changes our parameter based on the click to highlight the specific row.</li>
+</ul>
+<img class="alignnone size-full wp-image-5856" src="../uploads/2023/03/Capture11.png" alt="" width="491" height="472" />
+
+Finally, we don't just have to use a parameter to colour or tables. We can control them using sets too.
+
+Check out my alternative method which allows the user to highlight multiple rows using a set action. You can find the <a href="https://public.tableau.com/app/profile/cj.mayes/viz/SuperStoreSetActionHighlightTable/HighlightDashboard"><strong>workbook here.</strong></a>
+
+<img class="alignnone size-full wp-image-5858" src="../uploads/2023/03/Highlight-Dashboard.png" alt="" width="799" height="599" />
+
+Going further:
+<ul>
+ 	<li>Create the select action to click once to highlight, click again to unhighlight as oppose to using a menu feature.</li>
+ 	<li>Create a view with multiple views that can colour depending on a column or a row highlight</li>
+ 	<li>Create a highlight row and column matrix that has the specific value that is both row and column as a darker shade than the rest of the row and column.</li>
+</ul>
+That's it for this week. Catch you all soon.
+
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

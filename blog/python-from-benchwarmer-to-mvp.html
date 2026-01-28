@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python: From Benchwarmer to MVP - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Python: From Benchwarmer to MVP</h1><p></p>
+<p>Hi All,</p>
+<p>
+
+</p>
+<p>Welcome back after a short break. I hope everyone has taken time to recharge a little over the summer period.</p>
+<p>
+
+</p>
+<p>As the title suggests, today we will be looking at <strong><a href="https://www.nba.com/games" target="_blank" rel="noreferrer noopener">NBA data</a></strong>, using the NBA API. I already hear your internal screams: "CJ stop doing python tutorials when you're terrible at python."</p>
+<p>
+
+</p>
+<p>In all seriousness, If individuals have some tips they want to share do get in touch via <strong><a href="https://twitter.com/_CJMayes" target="_blank" rel="noreferrer noopener">Twitter</a></strong>. This has just been my long standing wing-it approach in the hope to influence others to start to code. Learning supplementary skills is something I'm pretty passionate about and think it can really help you grow.</p>
+<p>
+
+</p>
+<p>I hope to revisit these datasets to create a more detailed visualisation further down the line, but here is something I mocked up from the data. You can download it on Tableau as part of this blog.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-2095" src="../uploads/2021/08/tutorial.png" alt="" width="644" height="1168" /></figure>
+
+</p>
+<p>You may have seen, last June <strong>#SportsVizSunday</strong> released a dataset of shot location data for the NBA from 1997-2020, provided by <strong><a href="https://twitter.com/ZaksViz" target="_blank" rel="noreferrer noopener">Zak Geis</a></strong>. In fact, this was the first <strong>#SportsVizSunday</strong> I ever took part in. You can access the <strong>#SportsVizSunday</strong> original data on the SVS repo if you'd like to skip straight to visualising data. Alternatively the data from my tutorial can be found by following the github link at the top of the page.</p>
+<p>
+
+</p>
+<p>This tutorial will deviate slightly from last Junes data and will focus on <strong>three main components</strong>.</p>
+<p>
+
+</p>
+<ol>
+<li>
+<p>Can we get the Games details from the <strong>play-offs of most recent year</strong>?</p>
+</li>
+<li>
+<p>Can we then find the Play-by-Play match details for the <strong>final game</strong> in the play-offs?</p>
+</li>
+<li>
+<p>Can we finally find a more granular level of detail of the shot locations for the <strong>final game</strong>? (same schema as in the #SportsVizSunday Dataset)</p>
+</li>
+</ol>
+<p>
+
+<figure class="wp-image"><img class="wp-image-2080" src="../uploads/2021/08/screenshot-2021-08-25-at-15.48.24.png" alt="" /></figure>
+
+</p>
+<p><strong>NBA_API</strong></p>
+<p>
+
+</p>
+<p>NBA_API is an API Client package to access the APIs for NBA.com.</p>
+<p>
+
+</p>
+<p>Some useful documentation to look through relevant for the tutorial are:</p>
+<p>
+
+</p>
+<p><strong><a href="//github.com/swar/nba_api/blob/master/docs/nba_api/stats/endpoints/leaguegamefinder.md" target="_blank" rel="noreferrer noopener">League Game Finder</a></strong></p>
+<p>
+
+</p>
+<p><strong><a href="//github.com/swar/nba_api/blob/master/docs/nba_api/stats/endpoints/playbyplayv2.md" target="_blank" rel="noreferrer noopener">Play by Play</a></strong></p>
+<p>
+
+</p>
+<p><strong><a href="//github.com/swar/nba_api/blob/master/docs/nba_api/stats/endpoints/shotchartdetail.md" target="_blank" rel="noreferrer noopener">Shot Chart Detail</a></strong></p>
+<p>
+
+</p>
+<p><strong>THE CODE</strong></p>
+<p>
+
+</p>
+<p>Available via Github. The code is sequential. The below walkthrough will explain each aspect of the data we look to retrieve.</p>
+<p>
+
+</p>
+<p>If you would like to see an alternative version of the code that loops through all the play-off games. Please take a look at the <strong>loop folder</strong> within the repo.</p>
+<p>
+
+</p>
+<p><strong>WALKTHROUGH</strong></p>
+<p>
+
+</p>
+<p>Open up your Pycharm console or interface of your choosing. I’m using a new virtual environment and running on Python version 3.9.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-2047" src="../uploads/2021/08/screenshot-2021-08-25-at-11.50.51.png" alt="" width="531" height="414" /></figure>
+
+</p>
+<p>You will want to head to the terminal and run the following package installs.</p>
+<p>
+
+</p>
+<ul>
+<li>
+<p>pip install nba_api</p>
+</li>
+<li>
+<p>pip install pandas</p>
+</li>
+</ul>
+<p>
+
+</p>
+<p>Copy the <strong>GitHub code</strong> into the console and we are in a position to run the code!</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-2057" src="../uploads/2021/08/carbon-1-1.png" alt="" /></figure>
+
+</p>
+<p><strong>Games.csv</strong></p>
+<p>
+
+</p>
+<p>You can amend attributes such as <strong>season</strong> and <strong>year</strong> amongst other things. You can hover over the class for more information, or visit the <strong><a href="//github.com/swar/nba_api/blob/master/docs/nba_api/stats/endpoints/leaguegamefinder.md" target="_blank" rel="noreferrer noopener">documentation</a></strong>.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-2062" src="../uploads/2021/08/screenshot-2021-08-25-at-14.58.42.png" alt="" /></figure>
+
+</p>
+<p>In short, this dataset we retrieve includes a list of game_id’s for the playoffs of the most recent year. We can then use this game_id later on in the code having look through the newly exported csv.</p>
+<p>
+
+</p>
+<p>I take the <strong>game_id</strong> of the final game in the playoffs between Phoenix Suns and Milwaukee.</p>
+<p>
+
+</p>
+<p>You will notice the Game_ID is actually part of the URL. This means if you have a specific game in mind you can theoretically find it on the website and take it from the NBA website, under games.</p>
+<p>
+
+</p>
+<p>In this case the Game_ID is 0042000406</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-2053" src="../uploads/2021/08/screenshot-2021-08-25-at-12.12.27.png" alt="" /></figure>
+
+</p>
+<p><strong>PBP.csv</strong></p>
+<p>
+
+</p>
+<p>The play by play csv contains all the game events associated to that particular match using our chosen game_id. I have hardcoded this value for the case of the tutorial, having run the Game report and looked for the game I wanted.</p>
+<p>
+
+</p>
+<p><strong>Shot data.csv</strong></p>
+<p>
+
+</p>
+<p>Finally, we find all the shot events taken during the match, we can look to left join this data to our pbp events data sheet when in Tableau!</p>
+<p>
+
+</p>
+<p>Once the code has finished and exited you will see the three files appear in your folder file path. I’m normally quite lazy and drag them onto my desktop afterwards for when I build my Tableau visualisations, and use the original file path as a staging house but it’s completely at your discretion where you want your files to sit.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-2049" src="../uploads/2021/08/screenshot-2021-08-25-at-12.05.00.png" alt="" width="549" height="206" /></figure>
+
+</p>
+<p><strong>LOOKING AT THE DATA IN MORE DETAILS</strong></p>
+<p>
+
+</p>
+<p><strong>Games</strong></p>
+<p>
+
+</p>
+<p>You’ll see that the GameID is a 10 digit code. If you open the file in excel, be cautious that it will chop off leading zero’s. A copy of the play-offs file is held in the GITHUB repo. You'll also see that the dataset is held at team level. Therefore we have duplicate columns of GameID's where one team wins, and one loses.</p>
+<p>
+
+</p>
+<p><strong>Play By Play</strong></p>
+<p>
+
+</p>
+<p>You may come across the issue of the score line appearing as a date when you open the csv because of the way your formatting is set up. It may read a score line of 2-2 as the 2nd of February.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-2064" src="../uploads/2021/08/screenshot-2021-08-25-at-15.08.59.png" alt="" width="585" height="315" /></figure>
+
+</p>
+<p>A quick way around this is to open a fresh excel document. Go to the data tab, Import as text.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-2066" src="../uploads/2021/08/screenshot-2021-08-25-at-15.10.01.png" alt="" width="603" height="182" /></figure>
+
+</p>
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2068" src="../uploads/2021/08/screenshot-2021-08-25-at-15.11.56.png" alt="" data-id="2068" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-2069" src="../uploads/2021/08/screenshot-2021-08-25-at-15.12.45.png" alt="" data-id="2069" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+<p>
+
+</p>
+<p>You can then use a <strong>comma delimiter</strong> and make the fields you want into <strong>text field</strong>, which will sort the date error, then re-save this file down.</p>
+<p>
+
+</p>
+<p><strong>Shot Data</strong></p>
+<p>
+
+</p>
+<p>In terms of the shot location data, I would recommend using the co-ordinates if you plot them in Tableau. The shot data hosts a whole wealth of information in terms of the team, scorer, shot and points type. Below is the court image. The recommended co-ordinates for mapping on Tableau are: X: 250, -250, Y: -52, 418.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-2072" src="../uploads/2021/08/nba_court.jpg" alt="" width="444" height="416" /></figure>
+
+</p>
+<p>Now we have our dataset at Game, Event, and Shot Level detail because of our common field of <strong>GameID</strong> between all three datasets. In addition to the <strong>event number </strong>between the pbp dataset and the shot dataset.</p>
+<p>
+
+</p>
+<p><strong>LEARNING POINTS</strong></p>
+<p>
+
+</p>
+<p>One of the main things I learnt was the NBA API will kick me out if I send a lot of requests to it in a loop to get the events for each of the individual matches. This is why my example just shows one match, rather than iterates through a list of the games outlined previous. This is also why you will see I have added in the try/except function into the code, as well as added a sleep timer. Probably a little over cautious but would rather be on the safe side so I can keep accessing data. If you feel comfortable with the code above, do take a look in the loop folder where an alternative python script looks to make the games csv into a list of games and then iterate through them making a larger csv for plays and shots to hold all events for the tournament!</p>
+<p>
+
+</p>
+<p>Secondly, I learnt the power of documentation. I hit a lot of errors on my journey. It took me ages to figure out how to write the play by play chunk of code because most tutorials I’ve read online look at specific players rather than at an event and team level. I initially struggled with what to pass through the function. The documentation i mentioned really helped me understand the different aspects. I’ll happily admit my code rarely runs first time. If you’re a new comer to Python don’t get disheartened! Some main pain points included realising the gameID had to be 10 digits long, as well as zero default in playerid meant that you could include all players!</p>
+<p>
+
+</p>
+<p>Thirdly, outlining what I want from the data and how to get it. There are plenty of resources out there for getting shot location data for individual players. You can check out a few good resources below:</p>
+<p>
+
+</p>
+<p>These resources were particularly useful:</p>
+<p>
+
+</p>
+<ol>
+<li>
+<p><a href="https://datavizardry.com/2020/01/28/nba-shot-charts-part-1/" target="_blank" rel="noreferrer noopener"><strong>DataVizadry - NBA Shot Charts</strong></a></p>
+</li>
+<li>
+<p><strong><a href="https://towardsdatascience.com/make-a-simple-nba-shot-chart-with-python-e5d70db45d0d" target="_blank" rel="noreferrer noopener">Naveen Venkatesan -Make a simple NBA Shot Chart</a></strong></p>
+</li>
+</ol>
+<p>
+
+</p>
+<p>I wanted to focus on how can we show a full game. Once I managed to get the play by play dataset, I was delighted to see that you can join the shots dataset with it on the event type! See below how this is done in Tableau.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-2084" src="../uploads/2021/08/screenshot-2021-08-25-at-16.05.44.png" alt="" /></figure>
+
+</p>
+<p><strong>GOING FURTHER</strong></p>
+<p>
+
+</p>
+<ul>
+<li>
+<p>Try reading some of the other documentation to see what other <strong>NBA stats</strong> you can source. (Reading)</p>
+</li>
+<li>
+<p>Try finding the games for the <strong>regular season</strong> of <strong>last year</strong>. (python)</p>
+</li>
+<li>
+<p>Try creating a shot map in <strong>Tableau.</strong> (Tableau)</p>
+</li>
+<li>
+<p>Try create a visualisation showing the breakdown of game per play/minute. (Tableau)</p>
+</li>
+<li>
+<p>Try create the tournament bracket at the top of the page, using a previous template in collaboration with the <strong><a href="https://www.flerlagetwins.com/2021/02/guest-blog-post-curvy-tournament.html" target="_blank" rel="noreferrer noopener">FlerlageTwins</a></strong>. (Tableau)</p>
+</li>
+</ul>
+<p>
+
+</p>
+<p><strong>ADDED EXTRA</strong></p>
+<p>
+
+</p>
+<p>I stumbled across this beautiful website that makes your code look nice for blog posts. You can access it <strong><a href="https://carbon.now.sh/" target="_blank" rel="noreferrer noopener">here</a></strong>.</p>
+<p>
+
+<figure class="wp-image"><img class="wp-image-2076" src="../uploads/2021/08/carbon-2.png" alt="" width="262" height="122" /></figure>
+
+</p>
+<p>It allows you to edit the colour scheme and match it to your code type. There are other various sites and ways you can also embed your code ready to copy and paste straight from the site which I’ll also be looking into, but I'm pretty pleased with the look of this one for a high level summary.</p>
+<p>
+
+</p>
+<p>As always, Let me know how you get on with this one. I can be reached on <strong>Twitter</strong>, <strong>@_CJMayes</strong>.</p>
+<p>
+
+</p>
+<p><strong>LOGGING OFF,</strong></p>
+<p>
+
+</p>
+<p><strong>CJ</strong></p>
+<p></p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

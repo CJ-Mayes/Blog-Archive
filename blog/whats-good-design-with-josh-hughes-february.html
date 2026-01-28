@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design with Josh Hughes - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Design with Josh Hughes</h1><p>Welcome to the February edition of <em><strong>"What's Good?"</strong></em>.</p>
+
+<p>Month two! Can you believe how quick the time is going? Each month will have a tailored theme, this months is <strong>Design</strong>.</p>
+
+<figure class="wp-image"><img class="wp-block-jetpack-slideshow_image wp-image-604" src="../uploads/2021/01/dashboard-1-1-1.png" alt="" data-id="604" /></figure>
+
+<p>In terms of creating a good colour scheme, I do rely an awful lot on trial and error until something looks half-decent, but I’ve found sites like <a href="https://dribbble.com/" target="_blank" rel="noreferrer noopener">Dribbble</a> and <a href="https://www.behance.net/" target="_blank" rel="noreferrer noopener">Behance</a> are great places to browse for inspiration if you ever get stuck for ideas. Most of the content on these sites is more focused on web design as opposed to data visualisation, but the palettes and colour combinations can serve as a great jumping off point to take away and play around with. This Obstetric Fistula viz is again another good example for this. Some of the colour schemes I tried out were based on things from Dribbble I thought looked cool, with the palette on the right ending up being the foundation of the colour scheme I built out and used in my final viz:</p>
+
+<figure class="wp-image"><img class="wp-image-582" src="../uploads/2021/01/image-18.png" alt="" width="687" height="213" /></figure>
+
+<p><strong>CJ: What have been some of your favourite Vizzes in the community from this year? What did you like about them?</strong></p>
+
+<p><span style="text-decoration: underline;"><a href="https://twitter.com/datavizDB">David Borczuk</a> - <a href="https://public.tableau.com/profile/david.borczuk#!/vizhome/DesignCensus2019GenderPayDisparities/DesignCensus" target="_blank" rel="noreferrer noopener">Design Census</a></span></p>
+
+<p>An absolutely brilliant viz, particularly from a design perspective. There’s so many little touches built into it - those gridlines running down the page, little highlight lines above the key metrics, drop shadow on the viz cards - it all works so well. And it doesn’t just look fantastic, it also clearly walks us through an interesting story about the gender pay gap for design professionals using a variety of engaging visualisations along the way.</p>
+
+<p><span style="text-decoration: underline;"><a href="https://twitter.com/lizbravob">Liz Bravo</a> - <a href="https://pbs.twimg.com/media/ElThdskXEAA0elj?format=jpg&amp;name=large" target="_blank" rel="noreferrer noopener">Apparel export to US</a></span></p>
+
+<p>One of my favourites from MakeoverMonday because it’s ridiculously inventive. At first you’re like “what on Earth is this, textile sketches?”, but then you zoom in and once it clicks you can’t help but enjoy the genius of it. It works SO well for the data we were given, and it’s hands down one of the most creative data vizzes I’ve seen.</p>
+
+<p><span style="text-decoration: underline;"><a href="https://twitter.com/juditbekker">Judit Bekker</a> - <a href="https://public.tableau.com/profile/judit.bekker#!/vizhome/Couchella-ThegreatBingeFestof2020/Couchella" target="_blank" rel="noreferrer noopener">Couchella</a></span></p>
+
+<p>The name alone is genius enough, but it’s beautifully designed - as you can say for all of Judit’s work. I find dark colour schemes so hard to get right but this viz nails it, it looks like it could be a poster! The sankey style works really well for the subject at hand, and the border with the section labels is a really clever idea too.</p>
+
+<p><span style="text-decoration: underline;"><a href="https://twitter.com/BG_Hyperx">Baljinnyam Enkhtur</a> - <a href="https://public.tableau.com/profile/deepdata#!/vizhome/PeleGoals_16038306375630/PeleGoals" target="_blank" rel="noreferrer noopener">Pele goals</a></span></p>
+
+<p>This ones an absolute work of art! Again, another viz that wouldn’t look out of place as a poster. It’s a really well-constructed, intricate, eye-catching design that brings Pele’s goalscoring record to life. The 8 goals in a game always makes me laugh, and rightly stands out from the other 1374 games he played in.</p>
+
+<p><span style="text-decoration: underline;"><a href="https://twitter.com/SParsonsDataViz">Sam Parsons</a> - <a href="https://public.tableau.com/profile/sparsonsdataviz#!/vizhome/VizForSocialGood-SelfReflection2017to2020/VizForSocialGood-SelfReflection2017to2020" target="_blank" rel="noreferrer noopener">#VizForSocialGood</a></span></p>
+
+<p>Probably my favourite from the year all things considered. There’s just so much depth to it, and obviously it’s incredibly visually striking but at the same time it’s actually really accessible and fun to dig into. I loved looking into the vizzes that were getting way more views than the author’s social reach would indicate - what a fun little insight to build into it! A technical masterpiece matched with brilliantly executed design.</p>
+
+<div class="wp-block-jetpack-slideshow aligncenter" data-effect="slide">
+<div class="wp-block-jetpack-slideshow_container swiper-container">
+<ul class="wp-block-jetpack-slideshow_swiper-wrapper swiper-wrapper">
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-598" src="../uploads/2021/01/design-census.png" alt="" data-id="598" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-599" src="../uploads/2021/01/elthdskxeaa0elj.jpeg" alt="" data-id="599" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-597" src="../uploads/2021/01/couchella.png" alt="" data-id="597" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-600" src="../uploads/2021/01/pele-goals.png" alt="" data-id="600" /></figure>
+</li>
+<li class="wp-block-jetpack-slideshow_slide swiper-slide">
+<figure><img class="wp-block-jetpack-slideshow_image wp-image-547" src="../uploads/2021/01/vizforsocialgood-self-reflection-2017-to-2020.png" alt="" data-id="547" /></figure>
+</li>
+</ul>
+<div class="wp-block-jetpack-slideshow_pagination swiper-pagination swiper-pagination-white"> </div>
+</div>
+</div>
+
+<p><strong>CJ: You’ve received two VOTD’s – what do you think makes them stand out to Tableau Public?</strong></p>
+
+<p><strong>JH:</strong> It’s hard to say really, but it’s always such a massive complement when you do have something selected by Tableau as VOTD. It puts your work in front of a much wider audience too - to think nearly 10,000 people have viewed my Nintendo Switch viz still seems insane to me!</p>
+
+<p>I’d like to think these vizzes were chosen because they’re quite well thought-out, eye-catching designs, that tell a simple story that people can glance at and understand. Though, that being said, I do see some more complex visualisations selected as well, so who knows! I wish I knew the secret recipe so I could get myself a third!</p>
+
+<p><strong>CJ: What design tools do you consider when creating a visualisation?</strong></p>
+
+<p><strong>JH</strong>: All of my design work is done in Figma, which I picked up after seeing quite a few people in the community recommend it. I absolutely swear by it now I’ve used it for a few months and whole-heartedly encourage everyone to check it out.</p>
+
+<p>I’m not sure whether it’s better than some of the products available in the Adobe suite, but if your alternative is basic shapes in Powerpoint (as mine was) then it’s really a no-brainer. It’s such a powerful design tool, which might seem a bit intimidating to newcomers, but it’s free to use and really easy to pick up and play with.</p>
+
+<p><strong>CJ: What top tips would you give to those who want to concentrate more on their design and storytelling?</strong></p>
+
+<p><strong>JH:</strong> In terms of design, I think it’s just a case of practice makes perfect. You’re not going to get any better at something unless you put the hours in, so make sure you’re taking part in community initiatives on a regular basis, and keep pushing yourself to try out new ideas.</p>
+
+<p>Experiment with different layouts, different styles, different colour schemes - not everything’s going to look great, but try and reflect on what did and didn’t work in each of your projects and carry those lessons forward with you into the next one. Eventually things will start to click and you’ll develop the right instincts you need in order to design effective visualisations.</p>
+
+<p>Things started falling into place for me when I really focused my efforts on using consistent alignment (grids in Figma are a huge help with this one), using an appropriate amount of whitespace/padding so each element on the page has room to breathe, and picking an effective colour scheme. Once I was able to nail these three things more consistently, designing things that didn’t look terrible became a lot easier!</p>
+
+<p>Another tip would be to sketch out ideas on a piece of paper before actually trying to build anything. Going into the design phase with a general structure or layout already in mind is such a timesaver, and makes the blank canvas in Figma look a lot less intimidating.</p>
+
+<p>Also make sure you take some time to allow yourself to be inspired by others. We’re all so fortunate to be involved in this incredibly talented community, so take the time to really assess why your favourite authors or favourite vizzes stand out so much to you, and try to incorporate some elements of that into your own work.</p>
+
+<p>In terms of storytelling, that’s still something I’m trying to get much better at myself, but I have found it beneficial to develop an understanding of the subject matter as a whole (and not just the data) before trying to create anything. This makes it easier to plan out which elements of the data to focus on and which visualisations I can use to convey this story most effectively.</p>
+
+<p>I’d also say that using text appropriately within your viz plays a huge part in storytelling. This could be an explanatory paragraph at the top of your viz that helps to provide context to the data, or just highlighting a specific point in a chart with a small annotation next to it, but explaining the story by using text in a viz can work really well.</p>
+
+<p><strong>CJ: Could you walk us through your design thinking process and any tips you have for building your Gender Inequality visualisation?</strong></p>
+
+<figure class="wp-image"><img class="wp-image-603" src="../uploads/2021/01/dashboard-1-1.png" alt="" width="534" height="483" /></figure>
+
+<p>I tend to follow the same sort of workflow for every viz I take on: explore the data, establish the story, select which visualisation(s) to use in order to tell this story effectively, create visualisation(s) in Tableau, brainstorm layout ideas, design in Figma, create dashboard in Tableau. So before even starting to think about design, I’ve already got the charts built and can use this to get the ball rolling on ideas about layout.</p>
+
+<p>Let’s use my recent <a href="https://public.tableau.com/profile/josh.hughes#!/vizhome/GenderInequalityinAdolescentswithHIV/Dashboard1" target="_blank" rel="noreferrer noopener"><span style="text-decoration: underline;"><strong>‘gender inequality in adolescents with HIV viz’</strong></span></a>, which perhaps isn’t my most popular viz or the most interesting design, but I do think it’s quite instructive in terms of my overall design process.</p>
+
+<p>As mentioned in a previous question, I’ll start things off by brainstorming ideas on a piece of paper. Getting the trial and error of layouts out of the way early makes the actual design work a lot more efficient. In this case, I had three charts in Tableau I wanted to use, a title, two paragraphs of text, and a ‘donate’ button to build around. Here’s two of the less scribbly design ideas I had, with the one on the right pretty much being the structure I ended up using:</p>
+
+<figure class="wp-image"><img class="wp-image-585" src="../uploads/2021/01/image-19.png" alt="" width="440" height="330" /></figure>
+
+<p>Then I’ll jump into Figma, build a grid for alignment purposes, put the basic shapes and text boxes in to create my layout, and implement a colour scheme (usually inspired by something I’ve seen on Dribbble or in another viz, and followed by a significant amount of time tinkering until I’m happy with it). So this part of the process will look something along the lines of this image below:</p>
+
+<figure class="wp-image"><img class="wp-image-587" src="../uploads/2021/01/image-20.png" alt="" width="692" height="213" /></figure>
+
+<p>Obviously I’ve reverse engineered this example from the final version so you’re missing several stages of resizing everything, playing around with drop shadow on the chart boxes, adding a gradient to the background blue to break it up a bit, making the background line up perfectly with the 50% mark on the final charts - but you get the idea.</p>
+
+<p>And then from there, it’s writing the text, putting in the details on the chart backgrounds (leaving enough padding around the elements to look uncluttered, whilst still maintaining consistent alignment), exporting the final background image and buttons from Figma, and then importing into Tableau:</p>
+
+<figure class="wp-image"><img class="wp-image-588" src="../uploads/2021/01/image-21.png" alt="" /></figure>
+
+<p>Easy as that! The result is quite a nice, modern, professional looking viz without doing anything complicated at all. The focus is just on, as mentioned in the earlier question about design tips, consistent alignment, use of whitespace, and using a nice colour scheme. And whilst this is quite a simple example, I’ll apply the same sort of design process to the more complicated vizzes as well, just with a lot of trial and error along the way.</p>
+
+<p><strong>CJ: What does 2021 have in store for you?</strong></p>
+
+<p><strong>JH:</strong> I do plan on continuing to work on my design skills, but I also really want to get much more proficient in using Tableau. So lots of reading blog posts and watching YouTube tutorials over the next few months I’d imagine.</p>
+
+<p>On my to-do list is learning how to build more technically challenging visualisations, figuring out what the hype is about tiled layouts as opposed to floating, experimenting more with mobile design, and getting better at doing my data prep in Tableau.</p>
+
+<p>In addition to that, I’d like to follow your lead CJ and get a blog up and running to give something back to this amazing community. I’m not sure I’d be able to advise much on the technicalities of building cool vizzes like you do, but something about design in data would really interest me and hopefully be something a little bit different.</p>
+
+<p><strong>CJ Round Up:</strong> Josh alludes to finding passion in what you are doing at the start of the blog. If you don't find love in what you are creating, it'll show in your dashboards! Tableau is, and is meant to be fun. Enjoy the process.</p>
+
+<p>It was interesting to hear Josh is a PowerBI'er (If I can call it that?) in his day-to-day. PowerBI is something fairly new to me , however I've been loving the #WorkoutWednesday's. It's great to see people in the community really experiment with other tools.</p>
+
+<p>Josh rightly mentions authors in the community who's impact on design in Tableau has been unparalleled. <strong>I wanted to follow up and recognise a few more beautiful designs from authors in the community.</strong></p>
+
+<p>Design seems like a bit of a tough one at times in Tableau. We see more and more people turn to using multiple products to produce an eye-catching visualisation. If you want to see how data and art can be blended better outside of Tableau some of my favourite people to follow for inspiration are: <a href="https://twitter.com/plan_bo" target="_blank" rel="noreferrer noopener"><strong><span style="text-decoration: underline;">Bo Platinga</span></strong></a>, <a href="https://twitter.com/RobertJanezic" target="_blank" rel="noreferrer noopener"><strong><span style="text-decoration: underline;">Robert Janezic</span></strong></a> , and <a href="https://twitter.com/transmitclarity" target="_blank" rel="noreferrer noopener"><strong><span style="text-decoration: underline;">Matt Miller</span></strong></a>. Check them out and you'll know why I am in awe of what they produce.</p>
+
+<p>Here are some Tableau Authors with some great visualisations:</p>
+
+<p><strong><span style="text-decoration: underline;"><a href="https://public.tableau.com/profile/patrick.sarsfield#!/" target="_blank" rel="noreferrer noopener">Patrick Sarsfield</a></span></strong> (USA) - Check out Patrick's <strong><a href="https://public.tableau.com/profile/patrick.sarsfield#!/vizhome/AnthonyBourdainsTravels_16003533145040/TonysTravelsDashboard" target="_blank" rel="noreferrer noopener">Anthony Bourdain's Travel</a></strong> #VOTD. To get images and data to compliment each other, is hard to do in a visualisation sometimes, as odd as that may sound? Patrick has found the perfect balance. I love his use of colour against the dark map.</p>
+
+<p><strong><a href="https://public.tableau.com/profile/aliciagamezbelmonte#!/" target="_blank" rel="noreferrer noopener"><span style="text-decoration: underline;">Alicia Gamez Belmonte</span></a></strong> (France)- Alice recent "<strong><span style="text-decoration: underline;"><a href="https://public.tableau.com/en-gb/gallery/common-dance-injuries?tab=viz-of-the-day&amp;type=viz-of-the-day" target="_blank" rel="noreferrer noopener">Dance - the most common injuries</a></span></strong>" really blew me away. It's rare you come across the polygon technique being used. It looks so simple on the surface but to create the shapes can be a pain! I'd recommend using this "<strong><span style="text-decoration: underline;"><a href="https://medium.com/@darcytvance/wrestling-with-tableaus-polygon-mapping-5b768bfd874c#:~:text=Constructing%20the%20polygons%20in%20Tableau,on%20the%20X%2C%20Y%20plane." target="_blank" rel="noreferrer noopener">Wrestling with Tableau Polygons blog</a></span></strong>", by Darcy Vance if you want to emulate the style of this viz. Keep up the fantastic work Alice.</p>
+
+<p><strong><a href="https://public.tableau.com/profile/kimly.scott#!/" target="_blank" rel="noreferrer noopener"><span style="text-decoration: underline;">Kimly Scott</span></a></strong> (Australia) - Kimly has constantly produced aesthetically great visualisations. As a huge fan of radial vizzes, i really dig her <strong><a href="https://public.tableau.com/profile/kimly.scott#!/vizhome/MakeoverMondayWeek32021-OurHomeisGettingHotter/OurHomeisGettingHotter" target="_blank" rel="noreferrer noopener"><span style="text-decoration: underline;">Climate Change Makeover Monday</span></a></strong> and her <strong><span style="text-decoration: underline;"><a href="https://public.tableau.com/profile/kimly.scott#!/vizhome/Createyourownkeepsakemap/YourMap" target="_blank" rel="noreferrer noopener">KeepSake map</a></span></strong> template. I love the way she has experimented with different design styles and colour palettes. What a great portfolio.</p>
+
+<p><strong><a href="https://public.tableau.com/profile/neil.richards#!/" target="_blank" rel="noreferrer noopener"><span style="text-decoration: underline;">Neil Richards</span></a></strong> (UK) - Okay this one is a little obvious, but if you haven't seen Neil's vizzes you've been seriously missing out. He sports a cracking portfolio of over 290 vizzes. My favourites include recents: <strong><span style="text-decoration: underline;"><a href="https://public.tableau.com/profile/neil.richards#!/vizhome/1980snumberones/NumberOnes" target="_blank" rel="noreferrer noopener">Number ones of the 1980's</a></span></strong>, <strong><span style="text-decoration: underline;"><a href="https://public.tableau.com/profile/neil.richards#!/vizhome/premierleagueprofiles/timelines" target="_blank" rel="noreferrer noopener">Premier League Profiles</a></span></strong>, as well as <strong><a href="https://public.tableau.com/profile/neil.richards#!/vizhome/viz5sep20/viz5-contraception" target="_blank" rel="noreferrer noopener"><span style="text-decoration: underline;">Contraception Choice for Women</span></a></strong>.</p>
+
+<p><strong><a href="https://public.tableau.com/profile/bold.batdorj#!/" target="_blank" rel="noreferrer noopener"><span style="text-decoration: underline;">Bold Batdorj</span></a></strong> (Australia) - This man is three for three when it comes to vizzes I like. A relatively small portfolio but can't wait to see how this grows. Fantastic. Check out his interpretation of <strong><span style="text-decoration: underline;"><a href="https://public.tableau.com/profile/bold.batdorj#!/vizhome/MakeoverMonday2020W47AmericasDebtvs_GDP/Americaniceberg" target="_blank" rel="noreferrer noopener">US public debt</a></span></strong> here.</p>
+
+<p><strong><a href="https://public.tableau.com/profile/krupp#!/" target="_blank" rel="noreferrer noopener">David Krupp</a></strong> (USA) - Check out <strong><span style="text-decoration: underline;"><a href="https://public.tableau.com/profile/krupp#!/vizhome/WomenInParliament_15971940750700/PoliticalChangeDashboard" target="_blank" rel="noreferrer noopener">Women Make Gains in Parliament Around the World</a></span></strong>, and <strong><a href="https://public.tableau.com/profile/krupp#!/vizhome/PewResearchSurveyDesignPoster/PewResearchExample" target="_blank" rel="noreferrer noopener"><span style="text-decoration: underline;">Pew Research Survey Design Poster</span></a></strong>. The poster / website design feel to these is fantastic. David's work puts real emphasis on how to excel at letting your visualisation breathe. Long form vizzes are also hard to master in terms of alignment.... Nice one David.</p>
+
+<p><strong><a href="https://public.tableau.com/profile/aparna.shastry#!/" target="_blank" rel="noreferrer noopener"><span style="text-decoration: underline;">Aparna Shastry</span></a></strong> (India) - I adore her <strong><a href="https://public.tableau.com/profile/aparna.shastry#!/vizhome/MobileIronquestAsteroidmining/Homepage" target="_blank" rel="noreferrer noopener"><span style="text-decoration: underline;">Space Exploration</span></a></strong> visualisation. Mobile visualisations are hard enough at the best of times! Credit to <strong><span style="text-decoration: underline;"><a href="https://twitter.com/sarahlovesdata?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank" rel="noreferrer noopener">Sarah</a></span></strong> for running an #IronQuest on it last year. What makes this visualisation so good is the clear attention put into it's functionality, space typeface and cool use of vectors.</p>
+
+<p><strong><a href="https://public.tableau.com/profile/sifeng.zhu#!/" target="_blank" rel="noreferrer noopener"><span style="text-decoration: underline;">Sifeng Zhu</span></a></strong> (China) - The <strong><a href="https://public.tableau.com/profile/sifeng.zhu#!/vizhome/TableauVizChallenge8/TheRestaurantsinShanghai" target="_blank" rel="noreferrer noopener"><span style="text-decoration: underline;">restaurants in Shanghai</span></a></strong> viz is a thing of beauty. I love the radial map, as well as the fading gradient bars. This viz has everything, from nice framing, colour, and readability.</p>
+
+<p><a href="https://public.tableau.com/profile/krishma.shah#!/vizhome/TheGreatBicycleBoomMoM2021_W1/GreatBicycleBoom" target="_blank" rel="noreferrer noopener"><strong><span style="text-decoration: underline;">Krishma Shah</span></strong></a> (USA) recently made a great visualisation using the Canva design tool, an alternative to Figma. You can read all about it on <strong><span style="text-decoration: underline;"><a href="https://crackerzin.com/index.php/2021/01/17/tableau-bicylce-boom-dashboard-experience/" target="_blank" rel="noreferrer noopener">Rajavel's blog</a></span></strong>. Thanks for sharing this insight with us Krishma, awesome design!</p>
+
+<p><strong>If you have any others that you have thought are particularly great why not tag them in the replies?</strong> <strong>That way I'll know you managed to get to the end of the blog post too.</strong></p>
+
+<figure class="wp-image"><img class="wp-image-595" src="../uploads/2021/01/img_7266.jpeg" alt="" width="489" height="289" /></figure>
+
+<p>Finally, this has been my blog views as of the end of January, by country. (WordPress has some cool stats features) Nature of the beast means I end up interacting day to day with predominantly UK, ( &amp; US folk). A goal of mine is to get a viewer from every corner of the earth, even if it's just one. But with this comes promoting talent from all corners of the earth too. So, Let's discover talent together!</p>
+
+<p>Thanks as always to Josh for his time, I can't wait to see that Blog come to fruition. Finally, March's <strong><em>"Whats Good?" </em></strong>will be on <strong>Women In Data</strong>, coinciding with International Women's Day on the 8th! Got something creative planned.</p>
+
+<p>LOGGING OFF</p>
+
+<p>CJ</p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

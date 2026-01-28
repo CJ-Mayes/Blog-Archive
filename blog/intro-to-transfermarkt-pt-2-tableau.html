@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro To Transfermarkt Pt 2 (Tableau) - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Intro To Transfermarkt Pt 2 (Tableau)</h1><p>Hi All,</p>
+<p>Previously I've written about beautiful soup, as well as Transfermarkt. I want to build a little bit on that code, and within this tutorial share how we can replicate the logic within Tableau.</p>
+<p>If you missed the intro, you can find the code, <a href="https://github.com/CJ-Mayes/Website-Tutorials/blob/main/2024%20Blogs/2024-01-15%20Intro%20To%20Transfermarkt%20(Python)/main.py"><strong>here.</strong></a></p>
+<p>In todays blog we will look to expand on this code and add in some new details on finding what the most a player has been worth in their career, and who sits at the top of that list.</p>
+<p>The new code looks at the Name, Club, Position, Age and Value of the player currently, as well as the maximum value of the player. We also bring back the date of the update for awareness.</p>
+<p>You can find a copy of the new code and data output in the repository, <a href="https://github.com/CJ-Mayes/Website-Tutorials/tree/main/2024%20Blogs/2024-01-21%20Intro%20To%20Transfermarkt%20Pt%202%20(Tableau)"><strong>here.</strong></a></p>
+<p>As a brief recap.</p>
+<p><img class="alignnone size-full wp-image-7571" src="../uploads/2024/01/carbon-2.png" alt="" width="1628" height="4398" /></p>
+<p>The provided Python code is a web scraping script designed to extract information about football players in the English Premier League from the Transfermarkt website. The script utilizes the requests library to send HTTP requests and retrieve the HTML content of the web pages, and the BeautifulSoup library for parsing and navigating the HTML structure. Additionally, it uses the pandas library to organize and export the scraped data into a CSV file.</p>
+<p>The script iterates through multiple pages of player data, where each page represents a subset of players. For each player, it extracts relevant information such as the player's name, club, position, age, current market value, last update date, and maximum market value. The current market value is obtained by navigating to the player's individual profile page and extracting the value from a specific HTML element. The extracted data is then stored in a list of dictionaries (<code>all_player_data</code>). After scraping all the pages, the script creates a DataFrame using pandas and exports the data to a CSV file named 'player_data.csv'. The provided User-Agent header in the HTTP requests is used to mimic a web browser and avoid being blocked by anti-scraping mechanisms on the website.</p>
+<p>So what has changed?</p>
+<p>Well we have added in some new elements that wasn't seen in part 1, namely the age, club and position and CURRENT value.</p>
+<p>The current value was a little more tricky than in the previous tutorial, namely because i end up going to the players page to take the value alongside the update date. If anyone was able to withdraw it from the main table then do let me know.</p>
+<p>Tableau.</p>
+<p>I thought it would be nice to be able to showcase how we can re create the simple table and add in some pagination style to the visual.</p>
+<p><img class="alignnone size-full wp-image-7668" src="../uploads/2024/01/Capture-6.png" alt="" width="962" height="767" /></p>
+<p>You can access the visual using the link at the top of the page.</p>
+<p><img class="alignnone size-full wp-image-7669" src="../uploads/2024/01/Capture1-1.png" alt="" width="1524" height="906" /></p>
+<p>The build is fairly generic in terms of being a bar chart. A bunch of things on rows (with them sorted on current value), followed by adding in an index value to know where they are ranked.</p>
+<p>The buttons are where the slightly more difficult element comes into practice.</p>
+<p>First we need the Pager calculation</p>
+<p>if index() &lt;= 20 then 1<br />elseif index() &lt;= 40 then 2<br />elseif index() &lt;= 60 then 3<br />elseif index() &lt;= 80 then 4<br />elseif index() &lt;= 100 then 5<br />END</p>
+<p>This will help us separate our players.</p>
+<p>Then we need a parameter that will help us with a click action to navigate through the pages.</p>
+<p><img class="alignnone size-full wp-image-7671" src="../uploads/2024/01/Page.png" alt="" width="550" height="649" /></p>
+<p>A true false calculation is needed for the filters, to only show the relevant index values.</p>
+<p>[Pager] = [P. Page]</p>
+<p>Finally,</p>
+<p>I bring in a new dataset of values 1 through 5 to act as the separate page buttons.</p>
+<p><img class="alignnone size-full wp-image-7672" src="../uploads/2024/01/Page1.png" alt="" width="1756" height="910" /></p>
+<p>Then, all we need is an action on the dashboard and we are good to go.</p>
+<p><img class="alignnone size-full wp-image-7674" src="../uploads/2024/01/Action.png" alt="" width="492" height="467" /></p>
+<p><strong>Going Further:</strong></p>
+<ul>
+<li>Why not try and find the market value of top players in a different league?</li>
+<li>Build the chart into a full dashboard on player metrics.</li>
+<li>Create a chart to show the difference between player market price, and max price the player has been valued at. Group pricing by club.</li>
+</ul>
+<p>As always, Let me know how you get on with this one. I can be reached on <strong>Twitter</strong>, <strong>@_CJMayes</strong>.</p>
+
+<p><strong>LOGGING OFF,</strong></p>
+
+<p><strong>CJ</strong></p>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

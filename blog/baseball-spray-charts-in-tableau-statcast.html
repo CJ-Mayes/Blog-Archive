@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baseball Spray Charts In Tableau (Statcast) - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Baseball Spray Charts In Tableau (Statcast)</h1>Hi all,
+
+How are you? These past few months have been really good for the site content wise. To overshare a little we passed our 2020 views count for the year back in June. In my head the best part of this accomplishment is the idea my life feels more in equilibrium. It's been a good few months, moving house, celebrating best friends birthdays, milestones etc.
+
+Anyway, todays blog a little different in the sense that I've never done any content on baseball before. Mainly because it isn't as big here as in the US, but nonetheless I have always admired the idea of mapping where shots / runs are created. In fact I first came across this idea years ago, by Jacob Olsufka who produced this awesome hex map of hits.
+
+<img class="alignnone size-full wp-image-6811" src="../uploads/2023/07/MLB.png" alt="" width="1199" height="799" />
+
+We will look to strip it back a little and rather than aggregate shots into hex's just plot the original shots for a player for a season.
+
+<img class="alignnone size-full wp-image-6813" src="../uploads/2023/07/Spray-Chart-Blog.png" alt="" width="999" height="799" />
+
+You will see the chart we will look to recreate is very similar to that seen on <a href="https://baseballsavant.mlb.com/statcast_search?hfPTM=&amp;hfPT=&amp;hfAB=&amp;hfGT=R%7CPO%7CF%7CD%7CL%7CW%7CS%7CA%7C&amp;hfPR=&amp;hfZ=&amp;hfStadium=&amp;hfBBL=&amp;hfNewZones=&amp;hfPull=&amp;hfC=&amp;hfSea=2023%7C&amp;hfSit=&amp;player_type=batter&amp;hfOuts=&amp;hfOpponent=&amp;pitcher_throws=&amp;batter_stands=&amp;hfSA=&amp;game_date_gt=&amp;game_date_lt=&amp;hfMo=&amp;hfTeam=&amp;home_road=&amp;hfRO=&amp;position=&amp;hfInfield=&amp;hfOutfield=&amp;hfInn=&amp;hfBBT=&amp;batters_lookup%5B%5D=660670&amp;hfFlag=&amp;metric_1=&amp;group_by=name&amp;min_pitches=0&amp;min_results=0&amp;min_pas=0&amp;sort_col=xba&amp;player_event_sort=api_p_release_speed&amp;sort_order=desc&amp;chk_stats_xba=on#results"><strong>Statcast</strong></a>
+
+<img class="alignnone size-full wp-image-6814" src="../uploads/2023/07/PSCapture.png" alt="" width="1338" height="360" />
+
+The baseball savant website allows you not only to visually see the spray chart for the selected filters you've applied but also download the csv file.
+
+This is what we will do to retrieve our data for this tutorial. I've posted the example data on the Github repo. Here is how the chart renders on the site.
+
+<img class="alignnone size-full wp-image-6816" src="../uploads/2023/07/SCCapture.png" alt="" width="1300" height="1008" />
+
+Its worth noting that this chart is interactive in the sense that it offers tooltips as well as the option to change the venue background chart, see how we can switch it to the Atlanta Braves venue. We will revisit this when we build our chart.
+
+<img class="alignnone size-full wp-image-6818" src="../uploads/2023/07/interCapture.png" alt="" width="857" height="760" />
+
+Okay so we have downloaded our CSV. Lets jump into Tableau to start mapping our data.
+
+The two fields we will need are Hc X and Hc Y these are the positional points of where the shot has been hit.
+
+<img class="alignnone size-full wp-image-6820" src="../uploads/2023/07/HcCapture.png" alt="" width="212" height="326" />
+
+Lets make two transformations.
+
+Plot X
+
+([Hc X] - 125.42)/10
+
+and, Plot Y
+
+(198.27 - [Hc Y])/10
+
+These are calculations to make sure our data is in the right shape, dividing by 10 isn't necessary per se, but because I wanted to use the makepoint function incase I required more layers at some point its better to have these scaled down between geographic points.
+
+Off the back of those calculations we can create
+
+MP. Hits
+
+MAKEPOINT([Plot Y],[Plot X])
+
+Double click the makepoint calculation.
+
+<img class="alignnone size-full wp-image-6823" src="../uploads/2023/07/MapCapture.png" alt="" width="2132" height="1262" />
+
+Turn the map off, Map &gt; Background Maps &gt; off
+
+Drag Plot X and Plot Y onto detail (make them dimensions) and change the marks to a circle.
+
+<img class="alignnone size-full wp-image-6825" src="../uploads/2023/07/shapeCapture.png" alt="" width="1396" height="1261" />
+
+This is the vague structure of the baseball map that we need.
+
+We could drag events onto colour to bring the visual to life more and cross reference some data points with whats seen on the site. What I will do is filter out anything that isnt a single, double, triple or home run.
+
+<img class="alignnone size-full wp-image-6826" src="../uploads/2023/07/HrCapture.png" alt="" width="1352" height="1253" />
+
+The final thing we will want to do is map onto the background an image of the pitch.
+
+Now this is the tricky bit, mainly because.... all stadium layouts are slightly different. So it is a case of what to choose. Now by all means you could go find a standardised one similar to Jacobs at the start of the blog, but for today lets find a method to take it from the site directly.
+
+<img class="alignnone size-full wp-image-6828" src="../uploads/2023/07/svgCapture.png" alt="" width="1138" height="864" />
+
+To do this I am going to use the SVG Export extension (It is one of my favourite extensions to help mirror branding!)
+
+All you have to do is add your extension to the page you are looking at,
+
+<img class="alignnone size-full wp-image-6830" src="../uploads/2023/07/TRCapture.png" alt="" width="2446" height="1332" />
+
+When you run this, it will give you all the SVG icons from the desired webpage.
+
+It's worth noting at this stage, you will want to change your selection of what pitch background you want to map.
+
+<img class="alignnone size-full wp-image-6831" src="../uploads/2023/07/logosCapture.png" alt="" width="2519" height="1298" />
+
+One of these images will be the pitch that we will use to map.
+
+Click the ellipse and download the file with a height and width of 500. Make sure to change the format to PNG before downloading, so that we can use it within Tableau.
+
+<img class="alignnone size-full wp-image-6833" src="../uploads/2023/07/bgCapture.png" alt="" width="1429" height="1267" />
+
+I've used co-ordinates that as best accurately map the points onto the pitch as possible. Of course these may change dependent on the scale of your own pitch and co-ordinates, but I hope they provide good guidance.
+
+The main final thing is to fix your axis as well as add in any final desired tooltips.
+
+<img class="alignnone size-full wp-image-6835" src="../uploads/2023/07/chartCapture.png" alt="" width="941" height="916" />
+
+and there we have it, our first baseball chart in Tableau.
+
+Perhaps in future weeks we look at retrieving the data in a more automated way or having the option to map multiple different pitches.
+
+Let me know how you get on with this one - I can be found on the usual channels.
+
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

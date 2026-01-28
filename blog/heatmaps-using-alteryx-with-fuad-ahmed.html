@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeatMaps using Alteryx with Fuad Ahmed - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>HeatMaps using Alteryx with Fuad Ahmed</h1>Hi all,
+
+<span style="font-weight: 400;">I am so excited today to have Fuad join the site today to showcase an alternative method of creating heatmaps, this time using Alteryx and Tableau. Fuad can be found on twitter, <a href="https://twitter.com/Fuad9510"><strong>here.</strong></a></span>
+
+<img class="alignnone size-full wp-image-5626" src="../uploads/2023/01/Screenshot-2023-01-17-at-08.50.34.png" alt="" width="1474" height="1264" />
+
+<span style="font-weight: 400;">Many of us by now have the logic to create them probably using either python or r, and whilst that may do the job justice, I am a huge fan of being able to emulate similar outputs in other software.</span>
+
+<span style="font-weight: 400;">I think with different software come different methodologies (whilst perhaps a similar approach), but also allow flexibility in output and certainly have allowed Fuad to flex his design skills.</span>
+
+<span style="font-weight: 400;">Speaking of output, for me, Fuad Ahmed created one of the most beautiful soccer vizzes I have seen all year. I would urge you to check out his <a href="https://public.tableau.com/app/profile/fuadahmed/viz/TheRacefortheGoldenBoot/Intro"><strong>full visualisation.</strong></a></span>
+
+<img class="alignnone size-full wp-image-5627" src="../uploads/2023/01/contenders.png" alt="" width="2798" height="2344" />
+
+<span style="font-weight: 400;">CJ: Fuad, great to have you join. Can you tell us a little more about your passion for football and the types of metrics you focused on for your IronViz entry?</span>
+
+<span style="font-weight: 400;">Hey CJ! Thanks for having me, it's a pleasure to feature in one of your blogs. As you already know I'm a huge fan of your work and I look forward to seeing what you have in store for us in 2023.</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">My earliest memories of football actually started with La Liga. I remember watching Ronaldhino at Barcelona before the GOAT (Messi) came along. The football Barcelona played and the flair Ronaldhino had really made me fall in love with the sport. </span>
+
+<span style="font-weight: 400;">For my IronViz I wanted to highlight the significance of Haaland's goal-scoring contribution and compare it to others in the Premier League. My focus was on 3 key areas: </span>
+<ol>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Where was he scoring/taking chances from? </span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">How did he perform against the big 6? </span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">What impact was his goal-scoring having on Man City’s league position?</span><span style="font-weight: 400;">
+</span></li>
+</ol>
+<span style="font-weight: 400;">These were all key aspects to telling my IronViz story but I think the 3rd one is often overlooked in football analytics at least from what I have seen. There's always a lot of attention given to the most goals or most assists but as you know looking at just a select few data points will not tell the full story. People tend to use this as a stand-alone argument over who is a better player. But I think it's equally important to highlight whether the impact a player has led to better team performance and ultimately a team win. This was the most significant factor for me and I spent a lot of time thinking about what other data points I can use to present this. In the end, it made sense to me to bring league points into the equation and analyse the direct contribution of goal scoring by the top goal scorers was having on the number of league points gained.</span>
+
+<img class="alignnone size-full wp-image-5629" src="../uploads/2023/01/outro.png" alt="" width="2798" height="2558" />
+
+<span style="font-weight: 400;">CJ: What was the data collection process like? Can you explain a little about the Alteryx flow for those that are new to Alteryx?</span>
+
+(The Alteryx workflow can be found on the GitHub repository at the top of the page, alongside some of the original datasets)
+
+Firstly, I want to thank <a href="http://@psilv_"><strong>Peter Silvester. </strong></a>Peter really helped me create the workflow and data prep, without him being able to replicate the polygon binning would have been incomplete. The latter parts of the flow especially were particularly tough to piece together!
+
+<img class="alignnone size-full wp-image-5642" src="../uploads/2023/01/Capture-4.png" alt="" width="1666" height="812" />
+<ol>
+ 	<li><span style="font-weight: 400;">The top half of the flow takes the original data from the python script output from a blog post you've previously written, actually. I then convert all the values to be eventually 1 decimal place. We have to remember that these X and Y coordinates are important when building the background football pitch.</span></li>
+ 	<li><span style="font-weight: 400;">The bottom half of the flow creates the different X and Y boxes and assigns them each an ID. </span></li>
+ 	<li><span style="font-weight: 400;">The generate rows help to add in all the different decimal places between each 1x1 square.</span></li>
+ 	<li><span style="font-weight: 400;">Next, the find and replace tool gives all the different possibilities of shot boxes. This explodes the data up to a really big size.</span></li>
+ 	<li><span style="font-weight: 400;">By concatenating values we create essentially a box id, assigning a shot to a specific box.</span></li>
+ 	<li><span style="font-weight: 400;">After rescaling the values of our grid to be in line with our original dataset, we can glue them together to only take the box values of the data that is actually needed. Remembering that there is no point to create the boxes for the full pitch.</span></li>
+ 	<li><span style="font-weight: 400;">For polygons to work, the final thing we need to do is create a pathID, so our dataset then takes the edges of the box and creates 5IDs for it to pass through. Essentially building our polygon square.</span></li>
+ 	<li><span style="font-weight: 400;">The final data export is saved back down as Bins Data. It’s worth noting that our final dataset will be 5x the size of our original data.</span></li>
+</ol>
+<span style="font-weight: 400;">CJ: Now you have the output, can you showcase in Tableau how to create a shot heatmap using polygons like on your visualisation second page?</span>
+
+<span style="font-weight: 400;">Once you have the output there are a few more steps required to get to the end result.</span>
+<ol>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">I imported a background image by going into the Map tab in Tableau and added an image of a football pitch outline. You can play around with the options depending on what type of image you used but here is how I set mine up. Again, the image can be found in the repository at the top of the page to download.</span></li>
+</ol>
+<img class="alignnone size-full wp-image-5632" src="../uploads/2023/01/unnamed.png" alt="" width="512" height="399" /><img class="alignnone size-full wp-image-5633" src="../uploads/2023/01/unnamed-2.png" alt="" width="512" height="395" />
+<ol>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">After I set up the background image correctly I used the bins that I created in Alteryx called </span><b>X bin</b><span style="font-weight: 400;"> and </span><b>Y bin</b><span style="font-weight: 400;"> and dragged them into the columns and rows and changed them to be aggregated as an average because the data is duplicated.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">I then changed the mark type to a polygon and added the fields </span><b>Pass Bin </b><span style="font-weight: 400;">to detail and </span><b>Path </b><span style="font-weight: 400;">to Path.</span></li>
+</ol>
+<span style="font-weight: 400;">Finally, I added the count of </span><b>ID </b><span style="font-weight: 400;">to colour</span> <span style="font-weight: 400;">which is equivalent to a shot taken in my data. This will give you the heatmap-style look.</span>
+
+<img class="alignnone size-full wp-image-5635" src="../uploads/2023/01/unnamed-1.png" alt="" width="512" height="242" />
+
+<span style="font-weight: 400;">CJ: Besides the technical expertise and the beauty in creating such a delicate shot map, what did you want people to take away from reading these types of charts when looking at Kane, Haaland and Mitrovic?</span>
+
+<img class="alignnone size-full wp-image-5638" src="../uploads/2023/01/impact.png" alt="" width="2798" height="2318" />
+
+<span style="font-weight: 400;">I wanted to show where exactly each striker was taking their chances from in front of the goal. Did they favour a certain area or what percentage of their chances were taken inside the box? We know that if you're taking chances in front of the goal in key areas there's a much higher likelihood you will score than if you're taking chances outside the box for example.</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">I think the shot map shows this clearly and the key takeaway for me is that Haaland’s spread of chances was tight and right in front of the goal as opposed to the others who were far more sporadic and took more chances outside the box. Haaland’s positioning in front of the goal this season has been incredible and in my opinion a big reason for his success so far.</span>
+
+<span style="font-weight: 400;">CJ: You mentioned your work was inspired by a few other pieces/people in the community. Are there any specifics you’d like to call out, especially from a design perspective?</span>
+
+<span style="font-weight: 400;">Yes, definitely I'm always on the lookout for inspiration. First and foremost, I like to look outside the data viz bubble for design inspiration. I have a particular interest in cinematography and web/app design and I think there are a lot of lessons that can be learned from these industries when it comes to good storytelling and design principles.</span>
+
+<span style="font-weight: 400;">For this particular project, I did spend a lot of time on Twitter, specifically the accounts <strong>@jonollington @sonofacorner @petermckeever.</strong> They all have great content so if you're interested in football they are a must-follow. </span>
+
+<span style="font-weight: 400;"><a href="https://www.sonofacorner.com/league-two-xg/"><strong>@sonofacorner</strong> </a>for me especially stood out. I love the aesthetic look of his work. The minimalist style of his designs and the way he is able to convey his analysis directly and clearly is something I tried to incorporate in my IronViz.</span>
+
+<img class="alignnone size-full wp-image-5639" src="../uploads/2023/01/Screenshot-2023-01-17-at-09.10.00.png" alt="" width="1394" height="860" />
+
+<span style="font-weight: 400;">CJ Round-Up:</span>
+
+Awesome thanks Fuad. Hopefully a few takeaways from today. With football analytics being such a hugely competitive market it's interesting to see what catches the eye of the community online. I think there is a great balance to reporting meaningful metrics, against beautiful design. If you have both you are on for a winner.
+
+As I mentioned, Fuad's visual this year was one of my favourites to read through both of the subject matter being soccer and also because of the elegance in design. Really looking forward to what is next from him.
+
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT Analysing PDF Forms - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>ChatGPT Analysing PDF Forms</h1>Hi all,
+
+In previous blogs we looked at analysing CSV files using Langchain and ChatGPT, we've also looked at extensions that enable you to be able to use it with different tools.
+
+Today we are going to be looking at whether we can load documents (PDF's) and analyse the content within them! Now this question of analysing PDF's was asked by my best friend Arj, <em>(and previous flat mate for those of you that watch Iron Viz 2022, yes we have riveting conversations as he wanted to analyse Tax documents)</em> So to spruce it up a bit, I've decided we look at something equally as boring.... The rule handbook of tennis!
+
+You can view the ITF rulebook <strong><a href="https://www.itftennis.com/media/7221/2023-rules-of-tennis-english.pdf">here</a>,&nbsp;</strong>as well as in the GitHub repo at the top of the page. The rulebook is 46 pages in length. We will look to refer to certain sections of it.
+
+You will need
+<ul>
+ 	<li>An API Key from OpenAI</li>
+ 	<li>An IDE to write python code in (I've gone for PyCharm)</li>
+</ul>As a brief refresher,&nbsp;I've written previously how you can get this key through signing up to their program. (You get free $5 worth of tokens!) You can sign up on OpenAI.com
+
+Once you've got your key, let's head on over to write our python code. The code is stored in the <strong>main.py</strong> file. I also put a copy of the rulebook locally to access.
+
+<img src="../uploads/2023/05/carbon.png" class="alignnone size-full wp-image-6334" alt="" width="1628" height="1906">
+<ol>
+ 	<li>Importing necessary modules: The code begins by importing several modules, including os and langchain. You will realise that when your code errors, it will tell you which packages will need to be installed beyond this. These modules provide functionalities for working with files, embeddings, vector stores, document loaders, text splitting, and data manipulation.</li>
+ 	<li>Downloading NLTK data (commented out): There is a commented-out section, this doesn't need to be done more than once. NLTK stands for Natural Language Toolkit.</li>
+ 	<li>We then Initializing the UnstructuredFileLoader: The code creates an instance of the UnstructuredFileLoader class from the Langchain library, passing our pdf file "2023-rules-of-tennis-english.pdf" This is our file we want to load, of course you can use one of your own. The loader is used to... load the content.
+<img src="../uploads/2023/05/Screenshot-2023-05-20-at-16.41.51.png" class="alignnone size-full wp-image-6335" alt="" width="323" height="185"></li>
+ 	<li>That loaded document is then stored in the documents variable.</li>
+ 	<li>After that we split the text into chunks - The code creates an instance of the CharacterTextSplitter class from Langchain, specifying a chunk size of 3000 characters (You can pick your own) and no overlap between chunks (again, you can amend this value).</li>
+ 	<li>The split documents method is then called on the text_splitter, passing through the documents. This breaks it up into smaller storable chunks.</li>
+ 	<li>The code sets the value of the KEY variable as the OpenAI API key, this can be re-written if you want to host your key elsewhere.</li>
+ 	<li>You will see we run three queries in my example.&nbsp; Each query is a question stored in the query variable each time. We print the result into the console. Perhaps you may want to make this so that they are saved somewhere as an output, if you do amend the code.</li>
+</ol>So that's the code, but what's the output and was it entirely accurate?
+
+We asked it based on the document:
+
+<strong>During a tie-break how many points does a player need to win the game and set?</strong>
+
+It responded:
+
+<strong>The first player/team to win seven points wins the “Game” and “Set”, with a deciding point if the score reaches six all.</strong>
+
+Which is correct!
+
+The answer to this was found on page 5.
+
+<img src="../uploads/2023/05/Screenshot-2023-05-20-at-16.52.53.png" class="alignnone size-full wp-image-6327" alt="" width="852" height="482">
+
+We then asked it:
+
+<strong>If a player is serving and it is their first serve, the ball hits the net but bounces in the correct service court, what happens?</strong>
+
+It responded:
+
+<strong>The service is a let and the server shall serve again. The whole point must be replayed.</strong>
+
+Again, correct!
+
+The context for this question can be found on page 9 of the rulebook.
+
+<img src="../uploads/2023/05/Screenshot-2023-05-20-at-16.55.32.png" class="alignnone size-full wp-image-6329" alt="" width="831" height="611">
+
+I then decided to ask it a question that can be worked out, but isn't necessarily in the rulebook.
+
+That question was:
+
+<strong>What is the difference in centimetres between the baseline and the net?&nbsp;</strong>
+
+Now you will see that it isn't directly within this diagram. Only the full length of a court is listed. (page 32)
+
+<img src="../uploads/2023/05/Screenshot-2023-05-20-at-16.57.09.png" class="alignnone size-full wp-image-6331" alt="" width="942" height="1248">
+
+It responded:
+
+The baseline is 21 feet (6.40 m) from the net.
+
+So not quite the answer, but it has managed to look at the diagram and state the difference between the <strong>service line and the net</strong>. I guess maybe I shouldn't ask questions that aren't directly within the PDF. This does make sense in terms of how the code operates but something to be aware of in terms of the type of questions asked and how you phrase them.
+
+So that's it for this week. A nice easy one where you can go add your own PDF's in.
+
+A few hiccups and pointers along the way to get your code working:
+<ul>
+ 	<li>Make sure you have all your necessary packages</li>
+ 	<li>Amend your chunk sizes and overlap as appropriate</li>
+ 	<li>Make sure you have a working API key</li>
+</ul>Going further, why not:
+<ul>
+ 	<li>build a front end where you can upload a document and ask the question in a chat bot?</li>
+ 	<li>Use your own PDF that you want to analyse</li>
+ 	<li>Play with different ways of articulating a question to see the differences in responses</li>
+</ul>Chat soon!
+
+<strong>LOGGING OFF,</strong>
+
+CJ
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

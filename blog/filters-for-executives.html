@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filters For Executives - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Filters For Executives</h1>Hi all,
+
+Welcome to another blog. At the end of last year I published a dashboard for Tableau Fringe Festival.
+
+You can view it on Tableau Public using the link under the title above.
+
+<img src="../uploads/2022/12/Fringe-Festival.png" class="alignnone size-full wp-image-5345" alt="" width="1666" height="868">
+
+What I wanted to achieve with this dashboard is by simply applying a few visual design elements to existing metrics (i.e re arrange the page a little bit, amend typography and colours and balance, but not make huge chart changes or changes to metrics looked at), the user can better understand the visual.
+
+If you'd like to view the original, a print-screen can be found in the version on Tableau Public, else you can find it on the Tableau <strong><a href="https://exchange.tableau.com/products/596">Accelerators page.</a></strong>
+
+<img src="../uploads/2022/12/Executive-Summary.png" class="alignnone size-full wp-image-5349" alt="" width="1665" height="867">
+
+Now, this blog won't look at whether you believe I have achieved that or not, but I do want to explain how and why I chose to use a colour indicator for filters.
+
+The first thing to realise is that this is an executive summary. Now we all know how much people sadly want to just take a print-screen of a dashboard and send it on. So it seems reasonable enough that they want the filters on the page.
+
+For me this takes up quite a lot of screen real estate where the title is. So is there anything we can do about this? Well yes - we could put all the filters in a show hide me container but then the executive that wants a print-screen of the page won't know what filters are applied!
+
+So I chose to add in the filter bar as a show hide panel. (Admittedly still taking up real estate on the page) The difference in this case the user now has the ability to hide them.
+
+<img src="../uploads/2022/12/Fringe-Festival1.png" class="alignnone size-full wp-image-5352" alt="" width="1666" height="868">
+
+So a good half way house. We now can claw back some of that screen real estate by having our filters pop out in a show hide me on the page. Allowing the user the flexibility. One other aspect I love about a pop out filter bar is that it doesn't cover your charts up, meaning from an interactivity perspective it's less clicks.
+
+That's all well and good but then we come back to our Exec print screening problem. What is a visual method I can prompt the user if filters are applied?
+
+I ended up with a colour ascii solution. You'll see that in the footer bar, I prompt the user that an orange circle means that filters are applied.
+
+How can we create this logic?
+
+<img src="../uploads/2022/12/Capture.png" class="alignnone size-full wp-image-5355" alt="" width="955" height="333">
+
+If a filter has been applied our total number of records will be less than our current value. So I create two calculations. One saying if they are equal, then no filters have been set, so assign it an empty ascii.
+
+I create the reverse logic, if they are not equal then we want a filled ascii circle.
+
+<img src="../uploads/2022/12/Capture1.png" class="alignnone size-full wp-image-5357" alt="" width="955" height="325">
+
+Of course, you can create this as one calculation if you like - but you'll notice I wanted to also colour the labels separately. Therefore I actually put these two calculations side by side, and colour the false one orange.
+
+By bringing both these calculations onto the details pane of our chart we can now add them into the title as calculations.
+
+<img src="../uploads/2022/12/Capture3.png" class="alignnone size-full wp-image-5359" alt="" width="1108" height="843">
+
+This way, when our filter is applied we get an orange circle ascii, and when it isn't applied we get the empty circle.
+
+One thing to be cautious of with this method is that if you have some sheets that contain filters that you haven't accounted for, of course your total volumes won't be equal! This means you would get an orange circle when theoretically.... you have the filters you're looking at set to all.
+
+<img src="../uploads/2022/12/Capture4.png" class="alignnone size-full wp-image-5362" alt="" width="856" height="737">
+
+For example, take the above where we set our chart to show only the Top 10. We have to add this to context so that it does our fixed calcs after the filter has been applied.
+
+<img src="../uploads/2022/12/Capture5.png" class="alignnone size-full wp-image-5363" alt="" width="778" height="678">
+
+That's better.
+
+<img src="../uploads/2022/12/Capture6-227x300.png" class="alignnone size-medium wp-image-5365" width="227" height="300" alt="">
+
+The final thing I wanted to do, was be able to quickly show the user per filter whether the filter was applied or not.
+
+We look to create a new sheet. We create a sheet for EACH of the filters to place next to the filter.
+
+<img src="../uploads/2022/12/Capture7.png" class="alignnone size-full wp-image-5367" alt="" width="392" height="555">
+
+The important thing here is that we make sure to only apply to this sheet the filter <em>of the filter</em>. I.E if we are creating our dot for our booking class filter, we will only want to add the booking class filter onto this sheet. Reason being, we only want the dot to change if this filter count changes, irrespective if we are clicking the other filter counts.
+
+(We have to remember our original true, false has all three calculations in)
+
+I don't necessarily think people will apply this to business dashboards moving forwards as its quite the faff, but I think the use of colour to draw your eye to the filter really helps quickly identify which filters are being used.
+
+The final touch I added, was a small filter count at the top of the page!
+
+I completely ripped this off Ken Flerlage from about 5 years ago. You can see how the caption sheet summary works in this Tableau Public thread <strong><a href="https://community.tableau.com/s/question/0D54T00000C6PQ4SAN/a-box-where-we-can-show-selected-filters-and-values">here.</a></strong>
+
+Unfortunately, my filters are in the 10's or even 100's so if you go down this method and have more than 3 you end up getting something like 'Countries: United Kingdom, United States, India +96 more' which makes sense because they'd not want to print over 100 countries. So I explored a different option of just finding what the distinct count of each filter possibility is, and then a count based on the filters that are applied. I think this gives the user additional context to how much of there dataset has been filtered out.
+
+<img src="../uploads/2022/12/Capture8.png" class="alignnone size-full wp-image-5371" alt="" width="665" height="66">
+
+That's it for todays thoughts, Let me know if you think it's overkill or not. I do enjoy playing around with different design ideas.
+
+I can be reached on Linkedin or Twitter.
+
+<strong>LOGGING OFF,
+CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

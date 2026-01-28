@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Tools For The Community With Tristan Guillevin - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Data Tools For The Community With Tristan Guillevin</h1>Hi all,
+
+The start to September brings with it another opportunity to share a guest blog. Someone that really needs no introduction in the data visualisation and technology space! I hope individuals enjoy reading a great conversation I had with <strong><a href="https://twitter.com/ladataviz">Tristan Guillevin </a></strong>(<span style="font-weight: 400">@Ladataviz)</span>
+
+Tristan is a Tableau ambassador, visionary and Iron Viz winner. He's since expanded his career to wider data design, and it was my absolute pleasure to get to chat all things data tools and see what exciting projects he's been working on.
+
+<img src="../uploads/2023/10/TCapture.png" class="alignnone size-full wp-image-7010" alt="" width="1506" height="598">
+
+<strong>CJ: Hey Tristan, great to have you be a part of the blog. The content you have been putting out is phenomenal and has really captivated the data visualization community as of late. I’d like to start a little bit with your background. You did various consultancy roles before diving into becoming a freelancer. What prompted the move?</strong>
+
+<span style="font-weight: 400">T: Hey CJ, thanks for giving me some space on your blog and for the kind words about my content!&nbsp;</span>
+
+<span style="font-weight: 400">Before starting as an independent, I worked with two companies in two very different roles. For the first two years and a half, I was an analytics consultant for a Tableau partner. I worked with around thirty clients around the world. That taught me a lot about the job and the different tools, but ultimately the job was a bit repetitive, and I wanted to make a bigger difference.</span>
+
+<span style="font-weight: 400">That’s why I joined a start-up as a data visualization specialist. I worked on an embedded project as part of a team. I could take the time to focus on one big project, and I learned a lot of skills that were complementary to Tableau, like design in Figma or programming with Javascript.&nbsp;</span>
+
+<span style="font-weight: 400">The switch to freelancer happened slowly. Everyone was stuck at home because of COVID, and my company accepted to change my position to part-time so I could work two days a week as a freelancer. I did that for six months, and then I became a full-time freelancer. It was a perfect transition for everyone. Nowadays, I consider myself less and less a freelancer since I created a company and will no longer work alone from September!</span>
+
+<strong>CJ: I think many individuals in the community will have first come across your Tableau Public profile, especially after winning IronViz back in 2017. Since then it looks like your toolkit has expanded massively. Was that driven by ‘right tool for the job’, personal interests or client requirements?</strong>
+
+<img src="../uploads/2023/10/TGCapture.png" class="alignnone size-full wp-image-7011" alt="" width="1516" height="858">
+
+<span style="font-weight: 400">T: There were (</span><span style="font-weight: 400"><i>and still are</i></span><span style="font-weight: 400">) multiple drivers. I think one of the most important ones is that I like to learn and challenge myself. With every new project, even when it’s just a Tableau Public visualization, I like to learn a new technique or way to create something. It makes it more fun and more interesting.</span>
+
+<span style="font-weight: 400">Working for my clients, I like to have a horizontal approach to my toolkit. Instead of learning multiple BI tools (</span><span style="font-weight: 400"><i>Tableau, PowerBI, Qlick, etc..</i></span><span style="font-weight: 400">) I prefer to have a versatile toolkit. Depending on the task (</span><span style="font-weight: 400"><i>design, web development, dashboarding</i></span><span style="font-weight: 400">), I can select the right tool for the job </span><span style="font-weight: 400"><i>(Figma, Svelte, Tableau).&nbsp;</i></span>
+
+<span style="font-weight: 400">So it’s both driven by the fact that I like to discover new tools and a strategic approach to be a better consultant.&nbsp;</span>
+
+<strong>CJ: A considerable amount of your public facing work is advanced chart types. What is it about advanced technical charts that you enjoy?</strong>
+
+<span style="font-weight: 400">T: 95% of the work for my clients is simple bar charts, line charts, and BANs. When I have the time to work on public personnel projects, I like to try something different and learn how to use and build a new chart type.</span>
+
+<span style="font-weight: 400">I don’t enjoy advanced charts more than simple ones! They are different, sometimes better, sometimes worst, but always different from my client-facing work.</span>
+
+<strong>CJ: I had the pleasure of watching you present at a Tableau London event a few months ago, showcasing your network diagram. You’ve made a complex chart available essentially at the click of the button. Why is making tools for the community important to you? Have there been any visuals from the community that have used your tools that you particularly like?</strong>
+
+<img src="../uploads/2023/10/TNetCapture.png" class="alignnone size-full wp-image-7012" alt="" width="1186" height="1039">
+
+<span style="font-weight: 400">T: It is an intersection of multiple things. First, creating is the best way to learn. Second, the Tableau community has set an example when it comes to sharing content. It is why I’m still using the tool after eight years! People are helping each other all the time. I wanted to contribute too. Lastly, as an independent, I need to stay visible and relevant to find new clients and be able to help them the best I can. Building tools for the community is a perfect way to combine everything.</span><span style="font-weight: 400">
+</span><span style="font-weight: 400">
+</span><span style="font-weight: 400">I honestly cannot pick a single visualization that I liked more than the rest. A few of them have been awarded Viz of the Day. This truly makes me happy. It means people are seeking out new ways to represent data and being successful in doing so. Sometimes it does not follow the “best practices”, but that’s ok! What is important is to experiment and have fun!</span>
+
+<strong>CJ: What resources would you steer community members towards that would like to learn more web based tools such as website designs, portfolio renderings and chart interactivity seen in your marvel visual?</strong>
+
+<span style="font-weight: 400">T: Svelte and Webflow are the tools that redefined what I could do on the web.&nbsp;</span>
+
+<span style="font-weight: 400">Svelte is popular in the data visualization community, and it makes development fun again. I never enjoyed web development before using Svelte. For dataviz, it’s much simpler than pure D3 and more intuitive than React.&nbsp;</span>
+
+<span style="font-weight: 400">Webflow, on the other hand, is a web-based tool that I use mainly to design my websites. Writing CSS was always a bit of a nightmare for me, and with Webflow, I can modify CSS properties visually and then export the code. It makes the process much more enjoyable as I can see the impact of all changes, and I don’t have to remember all the CSS properties.&nbsp;</span>
+
+<strong>CJ: The number of tools you have made available for free is incredible. When I first joined the community, I remember playing with the Voronoi treemap to start. Since then it’s grown to 6 tools. What are some of the technical elements that go into creating these templates?</strong>
+
+<img src="../uploads/2023/10/TooldCapture.png" class="alignnone size-full wp-image-7013" alt="" width="965" height="602">
+
+<span style="font-weight: 400">My very first “tool’ was the Voronoï Treemap, and it was hosted on Observable. There were a lot of drawbacks and manual work. The tool was generating the data, but you still had to build the viz in Tableau. Right now, everything is automatized, and you get the visualization directly in a Tableau Workbook. The user experience greatly improved, but the core idea remains the same.&nbsp;</span>
+
+<span style="font-weight: 400">All generators rely on the same principle. I’m using D3, a javascript library, to calculate positions </span><span style="font-weight: 400"><i>(or paths)</i></span><span style="font-weight: 400"> to build the charts on the web using SVGs. Once you have a result in SVG, it’s relatively easy to convert it into polygons with X and Y coordinates, something that Tableau can understand and plot. That is roughly was the tool does in the background.&nbsp;</span>
+
+<span style="font-weight: 400">Everything else is just about the UI/UX to make the experience smooth and secure for users. For example, when you download the result, the generated data is now automatically packaged in a template workbook. You directly get a visualization instead of just raw data. It’s all about reducing friction and making the tools easy to use.&nbsp;&nbsp;</span>
+
+<strong>CJ: You recently released a new tool to generate KPIs in Tableau. Why did you decide to create a new tool instead of more advanced charts? Are you planning to build other tools?</strong>
+
+<img src="../uploads/2023/10/BanGCapture.png" class="alignnone size-full wp-image-7014" alt="" width="920" height="434">
+
+<span style="font-weight: 400">T: It all started because I was tired of building KPIs in Tableau manually. My day-to-day work with my clients consists mainly of building business dashboards. Tracking KPIs with Big Aggregated Numbers is often essential. Anyone who has ever built a KPI dashboard knows how annoying it is to do it in Tableau. You need a lot of calculated fields and, if you want it to look nice, a lot of tedious formatting.&nbsp;</span>
+
+<span style="font-weight: 400">All those actions could be automated as they always follow the same pattern. This new tool, </span><span style="font-weight: 400"><strong><a href="https://www.ladataviz.com/tools/bang">BANg</a></strong></span><span style="font-weight: 400"> (Big Aggregated Number generator), does just that. The tool generates all the calculations, the worksheets, and a nice dashboard directly in a Tableau workbook. It helps me save hours of work every time I need to build a KPI dashboard.</span>
+
+<span style="font-weight: 400">I thought the tool could be useful to many people, so I worked hard on making it more robust and secure, and I released it as a product! It’s a great feeling when people trust you, purchase your tool, and find it useful. I really want to continue on that path. Before the end of the year, I’ll release a new tool to simplify building any dashboard in Tableau! I can’t wait to share more in the next months!</span>
+
+<strong>CJ: You’ve recently moved towards doing more Youtube video tutorials to help users better use your available tools. What can we expect next for your channel?</strong>
+
+<img src="../uploads/2023/10/YT.png" class="alignnone size-full wp-image-7015" alt="" width="1404" height="310">
+
+<span style="font-weight: 400">T: I’ve always enjoyed video recording and editing. I was doing anime AMV in high school and later worked on different video productions at my university. I don’t know why I waited so long to start publishing videos as I always liked this medium!&nbsp;</span>
+
+<span style="font-weight: 400">Currently, I’m making tutorials on how to use my tools. Those are useful videos both to better explain how the tools work and also for me to be more confident and learn to make better videos. Eventually, I want to explore different formats but I don’t yet have a clear plan for what’s next.</span>
+
+<strong>CJ: Have you seen a change in the type of work that you are requested by a client? You are obviously someone who has been very committed to learning all types of new skills. What do you think will be the most important in years to come?</strong>
+
+<span style="font-weight: 400">T: As I divide my time between working for my existing clients, building tools, and creating content, it’s difficult to accept new work. I still provide mostly pure Tableau expertise to my recurring clients, but I do receive more and more inquiries related to developing solutions.</span>
+
+<span style="font-weight: 400">For the years to come, I think the main game changer is AI. Building products is getting easier and easier, and pure technical skills will not be enough to be successful. I will personally focus on two things: learning how to use AI to build products more efficiently and providing high-quality content to build an audience.&nbsp;</span>
+
+<span style="font-weight: 400">Building well-made products for a reachable audience that needs them sounds like a good plan!</span>
+
+<strong>CJ: Thank you Tristan, I appreciate you taking the time to chat. Where can individuals reach out to you to continue the conversation?</strong>
+
+<span style="font-weight: 400">In a lot of places!</span><span style="font-weight: 400"><strong><a href="https://linktr.ee/ladataviz."> Here’s my link tree</a></strong></span><span style="font-weight: 400"> where people can easily find me and decide how they want to reach out or keep up with my work.&nbsp;</span>
+
+<span style="font-weight: 400">Thank you, CJ for giving me some space on your website! See you soon at a Tableau event!</span>
+
+<strong>CJ Round-Up:</strong> The stand out things for me is that self belief to go from employee too freelancer to starting your own business. What an incredible feat. I want to wish Tristan the best of luck with his new company. Rest assured it is already on a path for success and I know how much the BANg &amp; other generators Tristan has created have impacted our community.
+
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

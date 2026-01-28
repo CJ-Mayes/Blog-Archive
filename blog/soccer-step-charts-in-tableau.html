@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soccer Step Charts In Tableau - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Soccer Step Charts In Tableau</h1>Hi all,
+
+Back to some basics this week. I've previously written extensively on soccer shot maps, looking at hex bins, heat maps, zones. This week we go back to our roots with the most simple shot map there is possible.
+
+Simple X and Y co-ordinates plotted on the pitch. If you're new round here, by all means check out my <strong><a href="../2021/05/07/just-starting-out-with-understat/">very first tutorial</a> </strong>on this topic.
+
+Today we will be making a small addition to our standard shot maps, by adding in step charts.
+
+If you would prefer to do this in python instead of Tableau, I've taken the inspiration from the mplsoccer site,<strong><a href="https://mplsoccer.readthedocs.io/en/latest/gallery/pitch_plots/plot_jointgrid.html"> read more here.</a></strong>
+
+<img src="../uploads/2023/10/python.png" class="alignnone size-full wp-image-7264" alt="" width="675" height="481">
+
+Todays shot map data looks back to this match between Brentford and Arsenal from 2021. (No reason other than it just happens to be the data I had to hand at the time - of course use any match of your choosing - You will find a copy in the repo at the top of the page)
+
+<img src="../uploads/2023/10/SMCapture.png" class="alignnone size-full wp-image-7260" alt="" width="1245" height="575">
+
+Step charts are useful to see the overall frequency of shots from designated zones. Of course we would both want and expect better chances to occur if created more front on to the goal and not wider as well as being able to determine shot frequency from distance from the goal, though this would hugely depend on the type of shot (header, foot etc)
+
+<img src="../uploads/2023/10/Step-Chart.png" class="alignnone size-full wp-image-7261" alt="" width="1200" height="830">
+
+Hopefully, by reading my original Understat blog post, I can assume you are comfortable with mapping on a background image, as well as plotting X and Y co-ordinates, though do message me if you get stuck and download the workbook.
+
+As a reminder, we split the x and y co-ordinates based on team (mirroring them each side) using the following calculations:
+
+X New
+
+if [H A]= "a" then
+-([X]*120)+120
+
+ELSEIF [H A]="h" then
+[X]*120
+END
+
+Y New
+
+if [H A]= "a" then
+-([Y]*80)+80
+
+ELSEIF [H A]="h" then
+[Y]*80
+END
+
+Now, Lets look at the Step Charts.
+
+First we want to create a sheet to place above the top of the pitch.
+<ul>
+ 	<li>Create a Bin from X New - Set the suggested bin size to 5.</li>
+</ul><img src="../uploads/2023/10/binsCapture.png" class="alignnone size-full wp-image-7267" alt="" width="1643" height="904">
+
+When you first build the chart, the bin will be discrete. This is okay, but what you will find is that we need the axis to stretch the length of our pitch co-ordinates.
+<ul>
+ 	<li>Convert the bin to continuous.</li>
+ 	<li>Make the appropriate cosmetic changes, I like to make my bars fixed width with no border.</li>
+ 	<li>Adjust the axis, fixing it to the pitch length. (-2 , 122)</li>
+</ul>Next we want to create the right and left hand bars.
+<ul>
+ 	<li>Create a Bin from Y New - Set the suggested bin size to 5.</li>
+</ul><img src="../uploads/2023/10/HomeHCapture.png" class="alignnone size-full wp-image-7269" alt="" width="1637" height="905">
+
+We can copy the sheet, replacing the filter to the other team.
+
+Adjust the columns pill from sum(1), to sum(-1) to invert the axis.
+
+Again, edit the axis to accommodate the full length of the pitch, making it fixed.
+
+From there it is a matter of mastering your containers to place the 4 sheets on the dashboard!
+
+<img src="../uploads/2023/10/Step-Chart.png" class="alignnone size-full wp-image-7261" alt="" width="1200" height="830">
+
+Should be a nice easy one to re-create. Message me if you have any questions. Speak soon,
+
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

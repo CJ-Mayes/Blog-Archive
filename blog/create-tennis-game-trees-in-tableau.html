@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Tennis Game Trees In Tableau - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Create Tennis Game Trees In Tableau</h1>Hi all,
+
+Something new this week that I don't think individuals will have come across too frequently. It is the chart type called Tennis Game Tree's.
+
+Game Tree's aren't specific to Tennis, in fact you can read more about them <a href="https://en.wikipedia.org/wiki/Game_tree"><strong>here.</strong></a>
+
+<img class="alignnone size-full wp-image-6916" src="../uploads/2023/08/GameTree-1.png" alt="" width="1399" height="999" />
+
+What Is A Tennis Game Tree?
+
+"Game Tree" is a depiction of Point Progression for a selection of games within a tennis match or across a series of tennis matches; it is a <a href="https://en.wikipedia.org/wiki/Sankey_diagram" target="_blank" rel="noopener">Sankey Diagram</a> and possesses the <a href="https://en.wikipedia.org/wiki/Markov_property" target="_blank" rel="noopener">"Markov property"</a>, meaning that the set of future "states" that are possible are constrained by the current "state", the point score at any moment in a game.
+
+What that means in laymen terms is each point in tennis progresses you towards winning the game, i.e its 0-0 so the next point can only be 15-0 or 0-15... depending on that point winner determines what the next potential outcome of points can be, until eventually someone wins the game.
+
+<img class="alignnone size-full wp-image-6917" src="../uploads/2023/08/GameTree.png" alt="" width="1399" height="999" />
+
+Taking the above example of the Womens Wimbledon Final, we can highlight the progression of points for each player for when they are the server. It becomes increasingly interesting when you dive into the stories behind why the player may have been able to break serve / or had a good service match when looking at the spread of thicker lines. For example Carlos losing many of his first service points but yet didn't lose many service game points overall (when you reach the bottom of the chart)
+
+So how do we go about creating this chart?
+
+Well there is a workflow attached in the repository, but the good thing is you should be able to amend the flow for any game that has been charted within Jeff Sackman's repository!
+
+Let's talk through the data.
+
+The original tennis data can be found <a href="https://github.com/JeffSackmann/tennis_slam_pointbypoint/tree/master"><strong>here.</strong></a>
+
+You can find a copy of the files within the Github Repository at the top of the page, also found <a href="https://github.com/CJ-Mayes/Website-Tutorials/tree/main/2023%20Blogs/2023-09-04%20Tennis%20Game%20Tree%20Charts%20In%20Tableau"><strong>here.</strong></a>
+
+The folder contains copys of the most recent Wimbledon 2023 matches, and points data that we look to transform.
+
+<strong>Alteryx Transformations</strong>
+
+I've added the Alteryx transformations but whether you want to replicate this in another tool lets take a look at the transformations required.
+
+<img class="alignnone size-full wp-image-6924" src="../uploads/2023/08/TTCapture.png" alt="" width="1737" height="668" />
+
+The match data - We connect to this and just select the non null fields, and amend the match number to be an integer.
+
+<img class="alignnone size-full wp-image-6925" src="../uploads/2023/08/Which-Player.png" alt="" width="435" height="262" />
+
+Next I create a match field, this is a simple concatenation, and then find matches for Carlos - This can be amended based on whichever player you are looking for. Finally I use the summarise tool to find the max match ID for Carlos (naturally, the ID's increase throughout the tournament so the maximum one would relate to the final!)
+
+None of this bit of the flow is that important as you could manually look up which match ID you need.
+
+The next part of the flow comes from the points data.
+
+<img class="alignnone size-full wp-image-6927" src="../uploads/2023/08/CleanPointsCapture.png" alt="" width="884" height="161" />
+
+The matchID is the last four digits attached to the matchID column, we will need these to join together to reduce the file to just the final. The select tool just picks columns that are of use to me such as point, server, score etc. The filter looks to remove the first two records of data from the file where the match hasn't started.
+
+By joining these files together I have all the points of the final between Novak &amp; Carlos.
+
+<img class="alignnone size-full wp-image-6930" src="../uploads/2023/08/CleanCapture.png" alt="" width="1147" height="384" />
+
+Here is what that clean looks like so far.
+
+The part of the flow is by far one of the most important parts. We utilise the multi row formula.
+
+<img class="alignnone size-full wp-image-6933" src="../uploads/2023/08/MRFCapture.png" alt="" width="522" height="174" />
+
+What the multi row formula allows us to do is find the players point for the next point. Notice in the data screen shot below we now have a field called P1 Next Score P2 Next Score.
+
+<img class="alignnone size-full wp-image-6931" src="../uploads/2023/08/NextScore.png" alt="" width="1379" height="388" />
+
+The expression for this is:
+
+[Row+1:P2Score]
+
+<img class="alignnone size-full wp-image-6935" src="../uploads/2023/08/NSCapture.png" alt="" width="814" height="44" />
+
+Why do we need that?
+
+Well to create our decision tree / Game tree, we need to know from each point where it goes to out of the different possibilities. It is best to start treating our points as start and end nodes.
+
+Now I have that sorted, the final thing to do is to create the 'Tree Mapping' data.
+
+<img class="alignnone size-full wp-image-6936" src="../uploads/2023/08/MatrixCapture.png" alt="" width="510" height="765" />
+
+I have created every output possible from the scores and allocated them the required X &amp; Y co-ordinates for our tree. Normally i'd be against this manual preparation but the tree never changes shape so our X &amp; Y co-ordinates can be stationary. It is important to note that origin x and y values of 0 start at the top, but end values of 0 (i.e when the player has won the game) are seen at the bottom of the tree.
+
+We look to join this data in, and then we can do our final summary to be able to prep our data ready for Tableau.
+
+<img class="alignnone size-full wp-image-6939" src="../uploads/2023/08/ACapture.png" alt="" width="417" height="139" />
+
+The most important part of this is the summarise tool because we want the thickness of our lines to represent the number of times that movement from one point to another happened.
+
+<img class="alignnone size-full wp-image-6940" src="../uploads/2023/08/APSCapture.png" alt="" width="543" height="393" />
+
+Here is what that final example data looks like, ready for exporting to CSV. You can find a copy of this final prepped dataset in the Github Repo.
+
+<img class="alignnone size-full wp-image-6942" src="../uploads/2023/08/ExampleCapture.png" alt="" width="1058" height="316" />
+
+<strong>Tableau Build</strong>
+
+Once you've run your flow for your desired match, the only thing you will have to do is connect to your data and re-union it with itself, replacing the old data.
+
+However, below outlines how to build it from scratch just in case!
+
+<img class="alignnone size-full wp-image-6944" src="../uploads/2023/08/unionCapture.png" alt="" width="1888" height="1331" />
+
+The first thing is to union your data file, this allows for us to have a start and end point.
+
+The first two calculations separate our X and Y co ordinates.
+
+GT. X
+
+if [Table Name] = 'Game_Tree.csv'
+then [Origin X]
+ELSE [End X]
+END
+
+&amp;
+
+GT. Y
+
+if [Table Name] = 'Game_Tree.csv'
+then [Origin Y]
+ELSE [End Y]
+END
+
+We want two layers to our chart, one is our lines, the other is our circles. Lets create them as makepoints.
+
+MP. Line
+
+MAKEPOINT([GT. Y], [GT. X])
+
+&amp;
+
+MP. Circle
+
+MAKEPOINT([GT. Y], [GT. X])
+
+Double click MP Line, and then print server onto columns, as a discrete dimension.
+
+Change the mark to a line.
+
+Add Record ID, Point Server onto detail as continuous dimensions.
+
+Add Table Name to path and your visual should come alive.
+
+<img class="alignnone size-full wp-image-6947" src="../uploads/2023/08/TreeCapture.png" alt="" width="2304" height="1220" />
+
+Add Count Distinct Point Number onto Size to showcase the frequency of that tree path.
+
+Next we want to add our MP Circle onto the pane.
+
+At this point we can then turn off our map background. Map -&gt; Background -&gt; None.
+
+<img class="alignnone size-full wp-image-6950" src="../uploads/2023/08/CircaCapture.png" alt="" width="2182" height="1276" />
+
+For this layer we want to make the mark a circle.
+
+Add Origin X, Origin Y, End X and End Y onto detail. Make them dimensions.
+
+Add Table Name onto Detail.
+
+<img class="alignnone size-full wp-image-6952" src="../uploads/2023/08/FinalChartCapture.png" alt="" width="2166" height="1260" />
+
+This is the final chart in terms of how it is shaped. The final few touches help cosmetically to elevate the viz.
+
+Create the following Label calculations and bring them onto label.
+
+Label X
+
+if [Table Name] = 'Game_Tree.csv'
+then [P1 Score]
+END
+
+Label Y
+
+if [Table Name] = 'Game_Tree.csv'
+then [P2 Score]
+END
+
+Create a colour calculation to split the circles colours based on player.
+
+if [Table Name] = 'Game_Tree.csv'
+then
+sign([Origin X])
+end
+
+<img class="alignnone size-full wp-image-6954" src="../uploads/2023/08/BasicCapture.png" alt="" width="2181" height="1276" />
+
+Amend as appropriate.
+
+<img class="alignnone size-full wp-image-6916" src="../uploads/2023/08/GameTree-1.png" alt="" width="1399" height="999" />
+
+There we have it, our Tennis Game Tree.
+
+GOING FURTHER
+<ul>
+ 	<li>Why not run the workflow against a match of your choosing?</li>
+ 	<li>Why not add some supplementary metrics to this chart and make it into a dashboard?</li>
+ 	<li>Why not recreate the alteryx flow in a transformation tool of your choosing.</li>
+</ul>
+Any questions, just shoot me a message.
+
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

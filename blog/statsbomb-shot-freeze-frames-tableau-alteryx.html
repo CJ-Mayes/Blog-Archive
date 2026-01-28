@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StatsBomb Shot Freeze Frames (Tableau/Alteryx) - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>StatsBomb Shot Freeze Frames (Tableau/Alteryx)</h1>Hi all,
+
+Back this week with some football content. Our SportsVizSunday team like to occasionally suggest different sports to visualise as part of the initiative, so this month I thought I would join in on the action with you all.
+
+Our SportsVizSunday repo can be found <a href="https://github.com/CJ-Mayes/SportsVizSunday"><strong>here. </strong></a>Read more about the initiative and the <a href="https://www.sportsvizsunday.com/"><strong>weekly round ups here.</strong></a>
+
+Today we are going to look at some data processing to get our data ready for use within Tableau. I won't cover too much of the tableau side of things, because I've previously written large amounts on Tableau shot maps so the premise behind plotting the points with layers and creating layers would seemingly be repetitive.
+
+I am hoping this blog acts as a bridge between retrieving data and prepping it for visuals.
+
+<img class="alignnone size-full wp-image-7097" src="../uploads/2023/09/Freeze-Frame.png" alt="" width="1399" height="799" />
+
+Here is what we will look to recreate. This is all the on-target shots as part of the Women's World Cup Final where Spain beat England 1-0.
+
+<strong>Data Access</strong>
+
+StatsBomb are kind enough to release data for free. The WWC was one example of this. To retrieve the data we will write a simple python script and export it to csv, but make no transformations to the data within the script.
+
+<img class="alignnone size-full wp-image-7100" src="../uploads/2023/09/carbon-19.png" alt="" width="1692" height="1194" />
+
+The code can be downloaded from the repo, using the github icon under the title. Simply put, we look for the specific competition and season, and export all the matches. Then using this list, I narrow the search down just to the final and export all the match events. The raw data for this is also within the repo.
+
+<strong>Data Transformation</strong>
+
+Next we look at transforming the data. Now you could do this in any way, but for today we will look to do it in Alteryx. Again, you can download the WWC.yxmd from the repo to follow along.
+
+<img class="alignnone size-full wp-image-7103" src="../uploads/2023/09/workflow.png" alt="" width="1577" height="484" />
+
+Above is a print screen of the workflow. Let's work through it bit by bit.
+
+The general cleansing part of the workflow looks to remove null columns, It then sorts the data based on the index file and timestamp, making all our match events in ascending order. After that I start to decide what columns I actually want, dropping a whole bunch of fields around clearances and fouls mainly because I know I'm just going to look at shots.
+
+The shots data section limits type to equal shot, meaning we are reducing our dataset, excluding things such as passes and carries. I also filter the shot outcome just to look at on target shots excluding things such as blocked, wayward and off target.
+
+If we look at the subset of data we need to clean up a location field as well as shot end field. Reason being is they come in pairs in the field. To do this I use the split to columns field as well as a replace formula to get rid of the brackets.
+
+<img class="alignnone size-full wp-image-7106" src="../uploads/2023/09/Subset.png" alt="" width="972" height="224" />
+
+Transforms to
+
+<img class="alignnone size-full wp-image-7108" src="../uploads/2023/09/Subset2.png" alt="" width="698" height="213" />
+
+The Small Multiples part of the workflow is personal preference. I like to assign the columns and rows of which each shot is before hand so it doesn't mean I need to calculate along anything in Tableau.
+
+<img class="alignnone size-full wp-image-7110" src="../uploads/2023/09/SM.png" alt="" width="439" height="190" />
+
+I filter to the unique ID's (Match shot events) assign them a record ID and then use a formula tool to allocate a column and row, before rejoining this into the data.
+
+<img class="alignnone size-full wp-image-7111" src="../uploads/2023/09/ModFloor.png" alt="" width="1419" height="749" />
+
+You can see this uses the MOD and Floor calculation.
+
+<strong>Freeze Frame Data</strong>
+
+So interestingly enough the freeze frame data also appears in the match events dataset, but because I didn't want to do a whole bunch of json manipulation I thought it would be easier to extract the raw data and then show that is joined in on ID=ID. This means rather than have our data at one row per shot, we will have a row for each player captured within data. So a shot ID may have anywhere between 1 and ... well 22 (unlikely but possible) records.
+
+In a similar way to the shot location data, the only transformation here needed is a split to columns and formula tool to tidy up X and Y co-ordinates.
+
+<img class="alignnone size-full wp-image-7114" src="../uploads/2023/09/MFCapture.png" alt="" width="1104" height="413" />
+
+<strong>Exported Data</strong>
+
+The final dataset is what we will take into Tableau - It can be found in the repo as WWC_Spain_England_Shots.csv
+
+Thanks again to StatsBomb for making this data available.<strong> </strong>
+
+<strong>Tableau</strong>
+
+So a few notes on the Tableau side, but of course download the workbook for free from my profile.
+
+The first is if you'd like to create a shot direction the data will need to be with a union. Otherwise you can just connect once to the data.
+
+<img class="alignnone size-full wp-image-7116" src="../uploads/2023/09/Union.png" alt="" width="1035" height="456" />
+
+To achieve multiple layers within the visual, I end up using the Makepoint() function.
+
+<img class="alignnone size-full wp-image-7117" src="../uploads/2023/09/4LayersCapture.png" alt="" width="1239" height="901" />
+
+You'll see 4 layers, one is the shot line path, I put it at the back so you can see if there were players in the shot line.
+
+The freeze frame layer has all the locations of the surrounding players.
+
+The shot.... Well this is theoretically just the shot start mark, but I wanted to add in a circle to the visual.
+
+The Text field, which is an arbitary point positioned strategically above the football pitch to add some labels and context to the shots. By all means, reach out if you have any questions on these elements, or refer back to some of the older work I've posted on soccer the past few years.
+
+Going further,
+<ul>
+ 	<li>Try write all the transformations in the data in Python</li>
+ 	<li>Add in labels from the freeze frame data for each players name</li>
+ 	<li>Add in some extra data marks</li>
+ 	<li>Map pitch visibility from the dataset</li>
+</ul>
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

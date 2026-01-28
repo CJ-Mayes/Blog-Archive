@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soccer Match Reports In Alteryx HTML - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Soccer Match Reports In Alteryx HTML</h1>Hi all,
+
+Last week we looked at an Alteryx challenge that looked at mapping Messi &amp; Ronaldo's goals, (<strong><a class="js-navigation-open Link--primary" title="2023-04-10 Shot Maps In Alteryx Using PolyBuild" href="https://github.com/CJ-Mayes/Website-Tutorials/tree/main/2023%20Blogs/2023-04-10%20Shot%20Maps%20In%20Alteryx%20Using%20PolyBuild" data-turbo-frame="repo-content-turbo-frame">Shot Maps In Alteryx Using PolyBuild</a></strong>)
+
+Previously I've also blogged about how to obtain shot data through an <a href="../2021/05/07/just-starting-out-with-understat/"><strong>understat package. </strong></a>Today we will look to blend the two ideas together. I recommend you read both blogs before continuing into this one.
+
+This week;
+<ul>
+ 	<li>We will add in last years EPL data</li>
+ 	<li>See if we can plot a shot map for a map, split by team</li>
+ 	<li>Create a report to be exported into HTML format</li>
+</ul>
+Lets revisit our Alteryx Flow and look at the new additions to the flow.
+
+<img class="alignnone size-full wp-image-5985" src="../uploads/2023/04/1.png" alt="" width="1553" height="519" />
+
+On the left hand side in the top stream. We have our understat data - this is all shots from the Premier League from last year.
+
+<img class="alignnone size-full wp-image-5987" src="../uploads/2023/04/2.png" alt="" width="458" height="513" />
+
+The first thing to do with our X &amp; Y co-ordinates is to mirror the co-ordinates based on if they are in the home or away team. Reason for this is we are trying to mirror what is seen on the <a href="https://understat.com/match/16754"><strong>Understat website.</strong></a>
+
+Currently our data only plots all the data in one side of the pitch.
+
+<img class="alignnone size-full wp-image-5988" src="../uploads/2023/04/3.png" alt="" width="1306" height="558" />
+
+Next we do some re-scaling that was seen in the previous blog, just to allow the plot points and pitch to be easily rendered.
+
+<img class="alignnone size-full wp-image-5990" src="../uploads/2023/04/4.png" alt="" width="454" height="474" />
+
+The middle part of the flow is the exact same as last weeks, we look to create the points and using the polybuild tool for the football pitch.
+
+The only difference here is rather than filter based on Messi &amp; Ronaldo, we are splitting our data out on a specific match_id. For this I have chosen the Manchester City 3-2 Aston Villa game - it was one of the final games last season. You'll see my choice to split the data out as home and away to then be able to create separate points for each team.
+
+<img class="alignnone size-full wp-image-5994" src="../uploads/2023/04/6.png" alt="" width="613" height="621" />
+
+So far so good, we have successfully been able to re-align our data to a pitch.
+
+But lets try take this a little further. We have no context as to the game. Lets take it just a few steps further by adding in a title, header, text context and maybe a table summary of the shots - we can then render this how we like.
+
+<img class="alignnone size-full wp-image-5992" src="../uploads/2023/04/5.png" alt="" width="708" height="284" />
+
+The basic table runs along the top of the flow, It needs minimal impact, the table is mainly aesthetics and formatting that you can change, and I took the opportunity to make sure my data was sorted on by minute asc.
+
+<img class="alignnone size-full wp-image-5996" src="../uploads/2023/04/7.png" alt="" width="1328" height="820" />
+
+Next I look to add a little text for the report,
+
+<img class="alignnone size-full wp-image-5998" src="../uploads/2023/04/8.png" alt="" width="927" height="803" />
+
+Perhaps this section would be better if I could automate the values passing through it but for now I am happy as I just want to test the features. This will need manually updating for now, based on which match you choose to design.
+
+<img class="alignnone size-full wp-image-5999" src="../uploads/2023/04/9.png" alt="" width="928" height="634" />
+
+This next step is super unnecessary but it's me and I like to put my logo on things. Here I've added a header just with some website details and custom images.
+
+<img class="alignnone size-full wp-image-6001" src="../uploads/2023/04/10.png" alt="" width="921" height="632" />
+
+Finally, we can assign an order to how we want to lay these elements out. It takes a bit of back and forth testing different sizes, scales and layouts to find something that may feel best.
+
+<img class="alignnone size-full wp-image-6003" src="../uploads/2023/04/11.png" alt="" width="930" height="656" />
+
+Finally I look to export the file, in this case to HTML, but of course you can export to PPT, Image amongst other things.
+
+<img class="alignnone size-full wp-image-6005" src="../uploads/2023/04/12.png" alt="" width="680" height="287" />If you run the flow you will see your render save (as well as export if you haven't chosen temporary storage) By clicking the render you can see how it appears!
+
+<img class="alignnone size-full wp-image-6007" src="../uploads/2023/04/13.png" alt="" width="1878" height="784" />
+
+<img class="alignnone size-full wp-image-6008" src="../uploads/2023/04/14.png" alt="" width="1735" height="855" />
+
+The above two screenshots are how it renders in google chrome. Overall I'm pretty happy with it for a basic report. Of course there is lots more we can go back and add - maybe we can revisit this down the line.
+
+Last thing to note is if you export your files to html, it will also save down all the images needed to render. If these aren't stored on your computer they wont render in the final version. I.e in this case the logo would disappear and so would actually the shot map as the circles end up displaying as images.
+
+<strong>Taking It Further</strong>
+<ul>
+ 	<li>Take a look at a game of your choice</li>
+ 	<li>Try and automate more of the flow</li>
+ 	<li>Add in the choice of picking a game rather than manually updating a match ID</li>
+ 	<li>Amending the layout of the visual</li>
+ 	<li>Choose a different export type</li>
+</ul>
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Making Sports Data Interactive With Ben Norland - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Making Sports Data Interactive With Ben Norland</h1>Hi all,
+
+This week I had the pleasure of sitting down with <a href="https://twitter.com/SportingVizBen"><strong>Ben Norland</strong></a>, Ben is a stand out SportsVizSunday contributer as well as being recognised more recently as a Tableau featured author. Bens ability to show great stories, whilst incorporating technical charts and impressive design has really caught my eye. We sat down to chat a little more about where this passion comes from and some of the tips and tricks behind some of his visuals.
+
+Check his profile out <a href="https://public.tableau.com/app/profile/ben.norland"><strong>here.</strong></a>
+
+<img class="alignnone size-full wp-image-7078" src="../uploads/2023/08/Transfer-Flows.png" alt="" width="1199" height="799" />
+
+<strong>CJ: Ben, thanks for joining. For those that are unaware, May you tell us a little about how you ended up in the world of data? When did the passion for Tableau ignite, was it at Indeed or prior?</strong>
+
+<img class="alignnone size-full wp-image-7047" src="../uploads/2023/08/BeNCapture.png" alt="" width="1496" height="923" />
+
+<span style="font-weight: 400;">B: Thanks for having me, CJ! This blog is one of my regular go-to sites for inspiration, so to be asked to contribute is a real privilege!</span>
+
+<span style="font-weight: 400;">I’ve been working with Tableau for about 3 years, initially at Deutsche Bank and then at Indeed. But I’ve been in data-focused roles for about 8 years now. While my academic background wasn’t data-related at all, I discovered pretty early on in my career that I really enjoyed building tools in Excel that surfaced data insights more easily. Around the same time, I read Moneyball and became fascinated with the idea of using data to get a performance edge. That drove me to learn R, SQL, and eventually Tableau, and I now use all 3 on a daily basis to build data tools that help drive better-informed decision making.</span>
+
+<span style="font-weight: 400;">Away from the day job, I’ve developed a real love for Tableau Public and the DataFam community - I’ve drawn so much inspiration from it over the past few years, and I’ve taken a lot of joy from becoming a more active member of the community this year.</span>
+
+<strong>CJ: Are your favourite sports to visualise the same as the ones you follow? I see your profile considers 4 or 5 different sports. Do you have many go-to resources when it comes to sports analytics data? It’s nice to see, you always add in an external link to the data!</strong>
+
+<img class="alignnone size-full wp-image-7056" src="../uploads/2023/08/ashes.png" alt="" width="977" height="757" />
+
+<span style="font-weight: 400;">B: Yes, it would definitely seem that way, although it’s not entirely intentional! I’m a huge football (soccer) fan, so I tend to cover that more than any other sport, but I also follow F1 and cricket closely, and have always had an interest in American sports too. I think sports in general are such rich sources of data, and there’s always an interesting angle to explore, be it simply learning more about a sport for yourself, or using data to challenge popular narratives. A recurring theme in the DataFam is </span><i><span style="font-weight: 400;">‘viz what you love’</span></i><span style="font-weight: 400;"> - that is absolutely the case for me and why I repeatedly gravitate towards sports vizzes!</span>
+
+<span style="font-weight: 400;">In terms of data sources, </span><strong><a href="https://www.kaggle.com/datasets">Kaggle</a></strong><span style="font-weight: 400;"> is my go-to for finding interesting datasets (my </span><strong><a href="https://public.tableau.com/app/profile/ben.norland/viz/ThePremierLeaguesEver-Presents/PLEver-Presents">Premier League Ever-Presents</a>, <a href="https://public.tableau.com/app/profile/ben.norland/viz/QuarterbackThrowZones/QBThrowZonesBoard">NFL</a>, <a href="https://public.tableau.com/app/profile/ben.norland/viz/Super-ClutchShootersintheNBA/SuperClutchShooters">NBA</a></strong><span style="font-weight: 400;"> and </span><strong><a href="https://public.tableau.com/app/profile/ben.norland/viz/PitBullsFormulaOnePitStops/F1PitStops">F1</a></strong><span style="font-weight: 400;"> vizzes, amongst others, are all based on datasets found on Kaggle) - whatever topic you have in mind, you’re pretty much guaranteed to find a relevant dataset on there. But I’ve also used data from the likes of </span><strong><a href="https://github.com/fivethirtyeight/data">fivethirtyeight</a></strong><span style="font-weight: 400;">, the </span><strong><a href="https://github.com/JaseZiv/worldfootballR">worldfootballR</a></strong><span style="font-weight: 400;"> R package, and </span><strong><a href="https://github.com/statsbomb/open-data">StatsBomb</a></strong><span style="font-weight: 400;"> in the past.</span>
+
+<span style="font-weight: 400;">I like to build self-serve tools that address questions I have, but that also might address different questions for others. With that in mind, I always like to add a link directly to the data - if I haven’t answered their question, perhaps a viewer might want to go and dig in for themselves, or publish their own related viz. URL actions in Tableau are great for this purpose - my approach is as follows:</span>
+<ul>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Open a new worksheet and name it ‘Data Link’</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Double click on the ‘Marks’ panel and type ‘’ in the pill that appears</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Change the mark type to ‘Shape’ in the dropdown, and select a relevant shape (I have a ‘link’ shape that I tend to use)</span></li>
+</ul>
+<img class="alignnone size-full wp-image-7040" src="../uploads/2023/08/BNCapture.png" alt="" width="914" height="481" />
+<ul>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Add this worksheet to your dashboard and position/resize accordingly</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">In the ‘Dashboard’ menu, select Actions -&gt; Add Action -&gt; Go to URL</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Ensure your ‘Data Link’ worksheet is selected, and that ‘Run Action On’ is set to ‘Select’. Then add the URL for your data source. Now your users will be sent to the datasource if they click on that area of the board!</span></li>
+</ul>
+<img class="alignnone size-full wp-image-7041" src="../uploads/2023/08/BNPcapture.png" alt="" width="511" height="563" />
+
+<span style="font-weight: 400;">There are almost certainly other ways to do this, but I like that this allows you to use a shape/image that can also be formatted to match your dashboard style, and offers a familiar, intuitive user experience.</span>
+
+<strong>CJ: When we caught up previously you mentioned how you set yourself a goal of building out your portfolio while on paternity. What new chart types or styles are you hoping to tick off in the remainder of the year? Can you explain a bit more about how you’ve gone about this?</strong>
+
+<span style="font-weight: 400;">B: Yes - my wife and I welcomed our second child earlier this year, and I’ve been very lucky to have quite a long period of paternity leave this time round. While chasing around after two young kids has occupied most of this time, I wanted to make sure I also used some of it to build out my Tableau Public portfolio, partly so I didn’t forget everything while away from work(!), and partly to push myself to learn new chart types and improve my design skills.</span>
+
+<span style="font-weight: 400;">Areas of focus have included Map Layers (I know, I was a little slow on the uptake…!), Chord Charts, Curved Bump Charts, and improving my understanding &amp; usage of Polygons. I’ve also spent a good bit of time working on design elements in Figma - I tend to build backgrounds for my dashboards there, add them as images in Tableau, and then layer my charts over the top. Combining Figma with Tableau has a number of advantages, but one thing I particularly like is that it allows you to get around some of the challenges with publishing fonts to Tableau Public/Tableau Server - many fonts don’t render well when published directly in Tableau, but you don’t encounter the same issues when they’re embedded in a background image, so you know viewers will see the final version in the way you intended.</span>
+
+<strong>CJ: You are an avid R coder, how has learning how to code helped you with transforming data for some of your sports visualizations? Do you tend to use R for retrieving, cleaning, or transforming data?</strong>
+
+<img class="alignnone size-full wp-image-7049" src="../uploads/2023/08/Player-Comparison.png" alt="" width="1399" height="1524" />
+
+<span style="font-weight: 400;">B: I love how much control R gives you over transforming and analysing data. I use it for pretty much everything - from connecting to data (either via individual files, larger databases, or in some cases via specific R packages that contain data themselves), doing exploratory analysis, cleaning and transforming, joining or merging datasets, and prepping the output for Tableau.</span>
+
+<span style="font-weight: 400;">A good example is my </span><a href="https://public.tableau.com/app/profile/ben.norland/viz/PlayerComparsionDashboard/PlayerComparison"><span style="font-weight: 400;"><strong>Player Comparison Dashboard</strong></span></a><span style="font-weight: 400;">. While the underlying data is available via worldfootballR, I needed to build an R script to ingest that data, join multiple files together, make adjustments so that all metrics are shown on a per-90-minute basis and can be re-scaled based on team possession, calculate each player’s percentile rank for each metric, and pivot the data from wide to long to make it easier to work with in Tableau.</span>
+
+<span style="font-weight: 400;">In theory you could do a lot of that work in Tableau itself, but I find R gives me more control over these elements (it’s easier to review the data after each step and isolate any bugs, for example), and then I can output a file that is much closer to the final version that Tableau needs, which is often helpful from a performance perspective. I know that coding in R (or Python) can seem intimidating if you haven’t done it before, but I would really recommend trying it. About 80% of what I do in R uses a few core functions and techniques that can be learned quite easily, and will give you outsized benefits in terms of productivity. I would recommend starting with the </span><a href="https://www.tidyverse.org/"><span style="font-weight: 400;"><strong>Tidyverse</strong></span></a><span style="font-weight: 400;"> - this group of packages will give you a fantastic set of tools for connecting to, cleaning, transforming and analysing datasets. And if you have SQL experience, the syntax should seem pretty familiar.</span>
+
+<strong>CJ: Your Quarterback throw zone and your super clutch NBA visuals are a thing of beauty. Can you talk about the thought process behind your small multiple format to be able to add in extra details like jersey number or team name? What considerations go into the overall framing when you need a detailed key to go alongside the visual?</strong>
+
+<img class="alignnone size-full wp-image-7048" src="../uploads/2023/08/Tz.png" alt="" width="1329" height="577" />
+
+<span style="font-weight: 400;">B: I’m a big fan of small multiples because they allow you to show data through many different lenses within the same viz - be that change over time, entity by entity, or in the case of these two examples, performance differences between players. I must confess, though, that every time I build a small multiple, I find myself going back to the same guide to remind myself of the calcs - they just don’t stick in my head! I tend to use </span><a href="https://www.flerlagetwins.com/2019/01/small-multiples-just-matter-of-long_60.html"><span style="font-weight: 400;"><strong>Kevin Flerlage’s calcs</strong></span></a><span style="font-weight: 400;"> for this, but </span><a href="https://www.vizwiz.com/2016/03/tableau-tip-tuesday-how-to-create-small.html"><span style="font-weight: 400;"><strong>Andy Kriebel</strong></span></a><span style="font-weight: 400;"> also has a very similar approach. </span>
+
+<span style="font-weight: 400;">With the NFL and NBA vizzes, I’ve combined small multiples with map layers to add in those extra details. Before I worked with Tableau, I used to do a lot of viz work in R’s ggplot2 package, which is fantastic for layering element upon element. It actually frustrated me initially that this was quite difficult to do in Tableau, but map layers are an absolute game-changer in terms of enabling that. </span>
+
+<span style="font-weight: 400;">It can seem like a bit of a strange concept at first - literally transforming your data into lat-lon coordinates to enable this - but it’s so effective. Luke Stanke has </span><a href="https://www.phdata.io/blog/beyond-dual-axis/"><span style="font-weight: 400;"><strong>a brilliant guide</strong></span></a><span style="font-weight: 400;">, and explains this far more elegantly that I could, but for anyone unfamiliar with the concept, in a nutshell it involves scaling all of your data on both your x and y axes (let’s say we’re scaling from 0 to 1 in both cases), and then turning each point into coordinates using Tableau’s MAKEPOINT() function. Then, because you know your data won’t go above 1 or below 0, you’re free to use the space outside of this to place additional information. Take my </span><a href="https://public.tableau.com/app/profile/ben.norland/viz/QuarterbackThrowZones/QBThrowZonesBoard"><span style="font-weight: 400;"><strong>NFL Throw Zones</strong></span></a><span style="font-weight: 400;"> as an example: if I know that my X and Y axes both start at 0, I could use an additional map layer to place a team name label at MAKEPOINT(-0.25, 0.00). And you can use as many layers as you like for this purpose (though be wary of cluttering your viz!).</span>
+
+<span style="font-weight: 400;">For the keys, I like to use them to provide additional information or context in a way that minimizes clutter elsewhere in the viz. In the NFL viz, the key is used to highlight two important pieces of information: the boundaries of, and average throw rates for, each throw zone. Highlighting them here removes the need to include that information within the small multiples.</span>
+
+<img class="alignnone size-full wp-image-7050" src="../uploads/2023/08/Super-Clutch-Shooters-1.png" alt="" width="1399" height="799" />
+
+<span style="font-weight: 400;">Similarly, in the NBA viz, the charts contain quite a lot of information, and adding labels within the small multiples would create a lot of clutter, but moving all of this information to the key means the user can still understand what’s being displayed, while maintaining a clean look and feel overall. In a similar vein, I really like incorporating the colour key into other elements of the viz where possible. In the NFL viz, for example, I have incorporated it into the explanatory text at the top of the viz, which I think is both intuitive for the user and a great space-saver.</span>
+
+<strong>CJ: Your NFL viz and and your ashes viz share some similarities in terms of custom button and toggle design to change views on the page. Can you share some of the technical elements behind designing something like this using parameter actions?</strong>
+
+&nbsp;
+
+<span style="font-weight: 400;">B: Parameter actions are probably my favourite feature in Tableau - they’re the thing that turns a static viz into an interactive app. I use them in most of the vizzes I create, be it to highlight particular data points, switch between metrics, or show/hide elements within the viz. However, from a UI perspective, parameters aren’t the most aesthetically pleasing thing to add to a dashboard, so I tend to use a few tricks to make the design look a bit nicer.</span>
+
+<span style="font-weight: 400;">In my Ashes viz, I use parameter actions to switch between metrics in the ‘Top Player Performances’ section. As a default, Tableau will offer you a dropdown menu, but your options for formatting that menu would be pretty limited. So instead, I designed buttons for each metric in Figma, which allowed me to mirror the design style of the rest of the board. Then I open a new worksheet and assign these buttons as shapes to each metric. I add that worksheet to my dashboard, and set a parameter action to change my metric parameter each time a user clicks on one of the buttons.</span>
+
+<span style="font-weight: 400;">I’ve also created ‘on-off’ switch buttons in some of my more recent vizzes, using a very similar approach. In my NFL viz, I’ve created one of these to allow users to overlay each quarterback’s individual throws over the zone map, should they wish to see them. They may look complicated at first glance, but they’re actually quite simple: two circles that drive a parameter action, which both shows/hides the data, and changes the colour of the circles themselves to give the effect of them appearing/disappearing. I’ve created an example workbook for this </span><a href="https://public.tableau.com/app/profile/ben.norland/viz/ParameterSwitchButtonExample/ExampleDashboard?publish=yes"><span style="font-weight: 400;">here</span></a><span style="font-weight: 400;">, which uses the following steps:</span>
+<ol>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">I’ve created a dataset with some dummy [X] and [Y] axis data, along with a [Show Data] column with ‘Yes’ and ‘No’ options. This column will be used to create my parameter and my control buttons</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">After bringing this data into Tableau, open a new worksheet (let’s call it ‘Data’) and create a parameter (I’ve imaginatively named mine ‘Show Data Parameter’) from the [Show Data] dimension</span></li>
+</ol>
+<img class="alignnone size-full wp-image-7042" src="../uploads/2023/08/paramCapture.png" alt="" width="428" height="510" />
+
+<span style="font-weight: 400;">3. Create two new calculations: [Show Data X], and [Show Data Y]. The idea here is that data should only appear if the [Show Data Parameter] is set to ‘Yes’, and the calculations to achieve this are as follows:</span>
+
+<span style="font-weight: 400;">Show Data X: if [Show Data Parameter]='yes' then [X] END</span>
+
+<span style="font-weight: 400;">Show Data Y: if [Show Data Parameter]='yes' then [Y] END</span>
+<ol>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Drag the [Show Data X] measure to the Columns shelf, and [Show Data Y] to the Rows shelf. You should now be able to toggle the [Show Data Parameter] to show and hide the data - we’re halfway there!</span></li>
+</ol>
+<img class="alignnone size-full wp-image-7043" src="../uploads/2023/08/dataCapture.png" alt="" width="788" height="425" />
+
+<span style="font-weight: 400;">2.Now to create our switch buttons: open a new worksheet (let’s call it ‘Parameter Switch’), drag the [Show Data] dimension to the Detail pill on the Marks shelf, and change the mark type to circle. You should see two circles appear (one for ‘No’, one for ‘Yes’), which are going be our buttons</span>
+
+<span style="font-weight: 400;">3.Create a new calculation called [Switch Button Colour], as follows:</span>
+
+<span style="font-weight: 400;">if [Show Data Parameter]=[Show Data] then [Show Data]</span>
+
+<span style="font-weight: 400;">else 'Other'</span>
+
+<span style="font-weight: 400;">END</span>
+
+<span style="font-weight: 400;">Drag [Switch Button Colour] to the Color pill and set your colours accordingly. Be sure to toggle the parameter to ensure you set colours for ‘Yes’, ‘No’ and ‘Other’</span>
+
+<img class="alignnone size-full wp-image-7044" src="../uploads/2023/08/SwitchCapture.png" alt="" width="815" height="440" />
+
+<span style="font-weight: 400;">Open a new dashboard tab. For my board, I’ve created a simple background in Figma, which I bring into my board as a floating image, and position it to cover the full area of the board (I’ve used an 800x800 dashboard size in this case). I then drag and position my ‘Data’ worksheet to cover the bulk of the board. Finally, I drag my ‘Parameter Switch’ worksheet onto the board as a floating item. I remove the title, set the shading to ‘None’, and ensure the fit is set to ‘Entire View’. You’ll notice I have an oval shape next to the ‘Show Data?’ label on my background image - this is the background for the buttons, so I drag the ‘Parameter Switch’ sheet up, overlay it on that area, and resize accordingly. I ensure that within that worksheet, the colour for ‘Other’ matches that background oval so that the circle for the unselected parameter item ‘disappears’.</span>
+
+<img class="alignnone size-full wp-image-7045" src="../uploads/2023/08/exampleSCapture.png" alt="" width="497" height="150" />
+
+<span style="font-weight: 400;">Go to the Dashboard drop-down menu and select ‘Actions’-&gt;’Add Action’-&gt;’Change Parameter’. Ensure the Source Sheet is set to your dashboard, that only ‘Parameter Switch’ is checked, and Run Action On is set to ‘Select’. In the Target Parameter dropdown, select ‘Show Data Parameter’, and in the Source Field dropdown, select ‘Show Data’. Click ok and go back to your dashboard. If you click on your ‘Parameter Switch’ buttons, you should now see the data appear/disappear accordingly</span>
+
+<img class="alignnone size-full wp-image-7046" src="../uploads/2023/08/param2Capture.png" alt="" width="467" height="439" />
+
+<span style="font-weight: 400;">Finally, you’ll notice I have [True] and [False] calculations dragged onto Detail on the ‘Parameter Switch’ sheet. This is to power another couple of worksheet/dashboard actions that ensure the buttons don’t get highlighted when clicked on (which hampers the user experience). I learned this trick from a </span><a href="https://www.phdata.io/blog/automatically-deselect-marks/"><span style="font-weight: 400;">Luke Stanke article</span></a><span style="font-weight: 400;"> a few years ago, and have used it religiously ever since. With recent Tableau updates there may now be a quicker way to do this, but I’ve stuck with this extremely reliable method!</span>
+
+<strong>CJ: Your premier league visual ‘ever presents’ really caught my eye from its ability to showcase managerial and financial impact through labels without having to add huge amounts of written detail. How did you end up landing on using a table position rank chart to best show this story?</strong>
+
+<img class="alignnone size-full wp-image-7051" src="../uploads/2023/08/PL-Ever-Presents.png" alt="" width="1499" height="899" />
+
+<span style="font-weight: 400;">B: In all honesty, this viz was probably more complex than it needed to be! I had seen Nir Smilga produce a great </span><a href="https://public.tableau.com/app/profile/nir.smilga/viz/ConsumerConfidenceIndex/OECDCCI"><span style="font-weight: 400;"><strong>background context viz</strong></span></a><span style="font-weight: 400;">, and wanted to do something similar. But I also decided to take the opportunity to try a curved bump chart. I had initially intended to show the season-by-season finishing positions of all teams to ever feature in the Premier League. </span>
+
+<span style="font-weight: 400;">But with the data densification required for both the context and the curved lines, it ended up being a huge dataset that wouldn’t render when I published to Tableau Public! So I condensed it down to only the ever-presents. It was only after the fact that I decided to add the manager/ownership labels to provide some additional context, but I think they worked out quite nicely. I like the way this chart shows progress (or, in some cases, decline) over time. From a personal perspective as a Spurs fan, it’s interesting to highlight the progression the club has made during Daniel Levy’s tenure, and the consistency we’ve achieved despite the criticism he gets. I was also pretty amazed to see that Manchester United never finished outside the top 3 under Fergie…!</span>
+
+<strong>CJ: Sometimes I think people may skip over the technical expertise that goes into a visual creation when it is done so elegantly. I recognise some of the complexity within your player comparison dashboard with sheets such as the passing section having up to 9 layers! What thought goes into the preparation of a gauge bar with value overlays?</strong>
+
+<img class="alignnone size-full wp-image-7052" src="../uploads/2023/08/barscapture.png" alt="" width="1356" height="487" />
+
+<span style="font-weight: 400;">B: This viz was actually a re-make of one I did shortly after starting my Tableau journey, updated to make use of the worldfootballR data source and also applying some of my more recent learnings. Once again, map layers are at the heart of this, and the gauge bar is actually a series of polygons. Just prior to this I had used Kevin Flerlage’s excellent </span><a href="https://www.flerlagetwins.com/2019/10/yes-polygons_6.html"><span style="font-weight: 400;"><strong>“Yes Polygons!” tutorial</strong></span></a><span style="font-weight: 400;"> to build a viz looking at the most popular songs on Spotify from the past few decades, and so I had the idea to use that same approach to build the gauge. There are many ways to do most things in Tableau, but I found this approach solved some challenges around controlling the height/width of the gauge area (which would be harder to do with reference lines, for example), which in turn allowed me to more cleanly layer on other elements such as the metric name and absolute value, and the percentile dots.</span>
+
+<span style="font-weight: 400;">I think many experienced Tableau folks will know what I mean when I say it takes a little while to work out how Tableau “thinks”. I feel like I’m getting better at that now, and can anticipate challenges that will be thrown up when trying to build particular chart types or work with particular types of data. That was definitely true with this viz - I was able to pull this together much more quickly than the original version, even though it contains more complex elements, because I could anticipate from the outset a lot of the challenges I would face, and how I would need to present the data to Tableau to make it all fit together properly. This is actually something I would really emphasise to anyone at an early stage in their Tableau journey: it can seem intimidating and frustrating when you see people producing really complex vizzes and you’re struggling to even get it to display basic charts correctly (believe me, I’ve been there!), but those complex vizzes have been made possible by those authors going through the exact same journey you’re on now. So stick with it, make use of the brilliant resources that are out there, and you’ll be amazed at what you can achieve. And be sure to engage with the DataFam along the way - it is such a supportive and generous community.</span>
+
+<strong>CJ: Thank you so much for finding the time to dive into some of your SportsVizSunday vizzes with me Ben. Is there anything we should be keeping our eyes peeled for the future?</strong>
+
+<img class="alignnone size-full wp-image-7053" src="../uploads/2023/08/PL-Actual-vs.-Expected.png" alt="" width="1199" height="1299" />
+
+<span style="font-weight: 400;">B: Not at all - thank you for inviting me! In terms of upcoming pieces, I’m back to work at the end of August, so I expect I’ll be publishing on Tableau Public a bit less frequently (I think I’ve averaged a viz every 2 weeks over the past few months), but I will definitely still be publishing regularly. I don’t tend to plan vizzes too far in advance - normally it’s a case of being inspired by the work of others, or being struck by a particular event (usually sports-related) that prompts a new idea. But I am planning to build another version of my </span><a href="https://public.tableau.com/app/profile/ben.norland/viz/PremierLeagueActualvs_Expected/PLActualvs_Expected"><span style="font-weight: 400;"><strong>PL Actual vs. Expected</strong></span></a><span style="font-weight: 400;"> table once we’re a bit further into the new season. And I’ve just finished working on a piece at the moment looking at transfer flows between the big 5 leagues. <a href="https://public.tableau.com/app/profile/ben.norland/viz/FootballTransferFlows/TransferFlows"><strong>Check it out!</strong></a></span>
+
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

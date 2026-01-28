@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 10 Alteryx Tips With Medha Khurana - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Top 10 Alteryx Tips With Medha Khurana</h1>Hi all,
+
+The site has grown in recent years to explore different tools in the data world. One of which I have started to enjoy more and more during my time at JLL and that is Alteryx.
+
+This week, Medha Khurana joins the site to talk about some of top Alteryx tips. Medha recently completed her Advanced exam and also has kickstarted her own site <strong>https://www.medhakhurana.com/</strong>
+
+I love when people make that next jump into sharing more through different means, so to see the site come alive is very exciting.
+
+<strong>CJ: Medha, Thanks for joining the blog. For those that are unaware, can you tell us a little about your journey to date and what excites you about the world of data analytics?</strong>
+
+<img class="alignnone size-full wp-image-7865" src="../uploads/2024/04/Medha-K.png" alt="" width="1829" height="904" />
+
+Hello CJ, thank you for the invitation to your guest blog. It's truly an honour to be featured on your website.
+
+I'm a data professional based in the city of London, originally from Delhi, India. My introduction into the world of data began during my undergraduate studies, where I was introduced to the basic concepts within data analytics and management. Eager to delve deeper, I embarked on a journey of self-learning through online courses, books, and personal projects. However, my career initially led me to a role as a Software Engineer, which I soon discovered wasn't my true passion. To align my career with my interests, I pursued a Master's degree in Business Analytics from Warwick Business School. It exposed me to advanced analytics techniques, business statistics, text analytics and I did several collaborative projects and made me fall in love with data analytics.
+
+Following studies, I joined a financial consulting firm in their Data Analytics division. I worked on a variety of projects—from data visualization to building data pipelines, before taking on a role as a Senior Business Intelligence Analyst at JLL.
+
+What excites me the most about being part of this industry is that it never stands still, innovation and learning are constant companions here. Both of these elements are a perfect blend of what I seek in life.
+
+<strong>CJ: You recently started your own site </strong><a href="https://www.medhakhurana.com/"><strong>https://www.medhakhurana.com/</strong></a><strong>. I love the grayscale theme to it. What prompted you to start and what can we expect of the site in 2024?</strong>
+
+Thank you so much. I actually started it on my birthday, as a gift to myself! It took me approximately three weeks to set it up, from selecting the hosting platform to crafting its design and filling its pages with some insightful content.
+
+Teaching is practically in my DNA. Coming from a family of teachers, sharing knowledge brings me immense satisfaction. It's a reciprocal process: it strengthens my understanding while empowering others to start their own learning journeys. When I learn something new, I like to make it simple and share it so others can learn too. It's a philosophy I live by: to truly master something, one must teach it.
+
+Secondly, I've long drawn inspiration from remarkable members of the data community, such as yourself who have built a brand of their own by sharing what they are passionate about with others. I wanted to do that too - to cultivate my own brand, be a source of inspiration and help others along the way.
+
+You'll find a variety of content there. I'll keep up with my Alteryx Optimization series, sharing helpful tips. There will be more tutorials on how to use advanced Alteryx tools for interesting projects. Plus, I'll dive into topics like statistics, data visualization, or anything else I find fascinating. The goal is to keep sharing knowledge and helping each other learn!
+
+I'm also aiming to cover off personal reflections on book reviews, and insights into student career paths.
+
+<strong>CJ: You recently passed the Alteryx advanced exams. What did you find most challenging as part of it? Are there certain tools that you found important to revisit beforehand? </strong>
+
+Despite using Alteryx daily in my work and solving weekly challenges regularly, I found the practical questions in the exam quite demanding to complete within the allotted time. Perhaps it was the pressure of the exam itself. Nonetheless, I recommend revisiting advanced data preparation and transformation tools like Multi-Field Formula, Multi-Row Formula, and Regular Expressions. Additionally, it's beneficial to brush up on less commonly used tools such as 'Block Until Done' and 'Run Command' to refresh your understanding of their functionalities.
+
+<img class="alignnone size-full wp-image-7867" src="../uploads/2024/04/Exams.png" alt="" width="1454" height="416" />
+
+I've dedicated a <strong><a href="https://www.medhakhurana.com/alteryx-advanced-exam-prepartion-and/">blog</a></strong> to Alteryx advanced exam preparation and tips, which you can find on my website for those interested.
+
+<strong>CJ: What are your 10 top tips for Alteryx users, from a technical standpoint? Is this something you can share a copy with us?</strong>
+
+Absolutely, I love using the cool hacks in Alteryx to work in a more efficient way. Here are top 10 tricks that I use most often:
+
+<strong>TIP 1: Create Workflow Groups</strong>
+
+Creating workflow groups enables you to open multiple workflows at once. For example, if you're working on three separate workflows and want to pick up where you left off the next day, you can create a workflow group. Simply go to File and select 'Create Workflow Group'. This means that instead of opening each workflow individually, you can simply open the workflow group, and all three workflows will open automatically.
+
+<img class="alignnone size-full wp-image-7869" src="../uploads/2024/04/WG.png" alt="" width="370" height="328" />
+
+<strong>TIP 2: Sort/Filter/Cleanse from Results Window</strong>
+
+If you want to preserve the sorting of a column in the results window, simply click the green tick icon at the top right. It's a real time-saver!
+
+<img class="alignnone size-full wp-image-7870" src="../uploads/2024/04/sort.png" alt="" width="602" height="163" />
+
+<strong>TIP 3: Arrange the tools in workflow</strong>
+
+When working on a chunky workflow, organizing tools is key. Instead of manually aligning each one, save time with two handy shortcuts:
+<ul>
+ 	<li>Align tools horizontally by clicking Cntrl Shift -</li>
+</ul>
+<ul>
+ 	<li>Align tools vertically by clicking Cntrl Shift +</li>
+</ul>
+<strong>TIP 4: Distribute Tools Equally</strong>
+
+If you love clean and well-organized workflows, another useful tip for arranging tools in your workflow is to select all the tools in a row, then right-click and choose 'Distribute Tools Horizontally/Vertically’.
+
+<img class="alignnone size-full wp-image-7872" src="../uploads/2024/04/Distribute.png" alt="" width="285" height="484" />
+
+<strong>TIP 5: Output Data Using Browse Tool</strong>
+
+Ever since I have discovered about this tip, I've completely replaced my use of output tool. Now I simply use a browse tool instead - navigate to the results pane, click ‘Actions’, select 'Export,' then 'All Records,' and quickly download data in any desired format.
+
+<img class="alignnone size-full wp-image-7873" src="../uploads/2024/04/Export.png" alt="" width="384" height="288" />
+
+<strong>TIP 6: Open Containing Folder</strong>
+
+One of my favourite tips in Alteryx. Right click on the tool or workflow to select ‘Open containing folder’ and voila! You'll be instantly directed to the folder where your file/workflow is stored. It's a game-changer for saving time—no more endless digging through nested folders!
+
+<img class="alignnone size-full wp-image-7874" src="../uploads/2024/04/ContainingFolder.png" alt="" width="319" height="462" />
+
+<strong>TIP 7: Use Insert After to include a new tool</strong>
+
+Imagine you have an input tool connected to five other tools, and you need to add a select tool after it. Instead of reconfiguring each connection individually, you can simply right-click on the input tool and choose 'Insert After' to add the select tool. This will seamlessly insert the select tool between the input tool and its five connected tools.
+
+<img class="alignnone size-full wp-image-7876" src="../uploads/2024/04/Tools.png" alt="" width="453" height="528" />
+
+<strong>TIP 8: Disable all tools that write output</strong>
+
+Imagine a workflow that writes data into database or sends an email to a list of recipients with every run. However, during development, you don’t want this to happen and end up putting a container for each output tool and then disable it. Instead, you can simply click on the blank space in your workflow, go to Runtime tab in Configuration Window on right and select ‘Disable All Tools that Write Output’.
+
+<img class="alignnone size-full wp-image-7878" src="../uploads/2024/04/disable.png" alt="" width="450" height="518" />
+
+<strong>Tip 9: Cache and run workflow</strong>
+
+Another tip when your workflow is in the development phase. Imagine you're fetching data from a SQL server, and the lengthy query takes a couple of minutes to execute. Instead of waiting for the query to run each time you run the workflow, there's a handy shortcut. Right-click on the input tool and choose 'Cache and Run Workflow'. This action loads the data from the SQL server once, storing it in memory and drastically cutting down the workflow's run time.
+
+<img class="alignnone size-full wp-image-7879" src="../uploads/2024/04/Cache.png" alt="" width="275" height="388" />
+
+<strong>TIP 10: Compare Workflows</strong>
+
+Alteryx gives you the ability to compare one workflow from the other. All you need to do is go on Options, select Advanced Options and then select ‘Compare Workflows’. A new window pops up where you can select the two workflows you want to compare.
+
+<img class="alignnone size-full wp-image-7880" src="../uploads/2024/04/Compare.png" alt="" width="602" height="464" />
+
+<img class="alignnone size-full wp-image-7882" src="../uploads/2024/04/WorkflowC.png" alt="" width="889" height="478" />
+
+That’s it! Those are my top 10 Alteryx tips. Hope you enjoy them!
+
+<strong>CJ: You’ve written previously about workflow optimisation and the need for templates. Building robust solutions is often a struggle in many workplaces. How can a developer keep this in mind when building an Alteryx workflow?</strong>
+
+Here's how I like to think about every workflow/solution I build: Will my future self understand this workflow a year from now? And if someone else must use this workflow later on, will they know what's going on?
+
+To ensure you are building sustainable and robust workflows, it is beneficial to stick to a few best practices. One of them is incorporating workflow templates. Templates provide a standardized structure that maintains uniformity across all your workflows. A typical workflow template consists of the following elements:
+<ul>
+ 	<li>Workflow title and purpose</li>
+ 	<li>Workflow schedule</li>
+ 	<li>Change Log</li>
+ 	<li>Legend</li>
+</ul>
+By adhering to a set template, you're making sure that your workflow is not just easy to understand, but also simple to update and fix if needed.
+
+Here's a simple template you can use as a starting point. Feel free to customize it to fit your needs and your organization's style.
+
+<img class="alignnone size-full wp-image-7883" src="../uploads/2024/04/Picture12.png" alt="" width="903" height="453" />
+
+Another good practice is to annotate the business logic on specific tools wherever necessary. This would ensure you are not leaving your co-worker in a pickle wondering why you adopted a particular approach.
+
+Annotating is simple, click on the tool you want to annotate, go to the configuration panel on the right, select “Annotation” and simply input the supporting logic/documentation.
+
+<img class="alignnone size-full wp-image-7885" src="../uploads/2024/04/Annotate.png" alt="" width="1754" height="931" />
+
+<strong>CJ: When it comes to automation, what are the most important things to consider when creating a workflow?</strong>
+
+That’s a great question. We often create workflows and schedule them to perform their expected job such as refresh data in tableau server or sending emails etc. However, there are a few things to consider when creating workflows for automation.
+<ol>
+ 	<li><strong>Prepare for Unforeseen Errors</strong></li>
+</ol>
+Leverage tools like the 'Error' and 'Message' tools in Alteryx to customize error messages for unexpected occurrences in your workflow. For instance, when joining two datasets and expecting no output in the left anchor, configure these tools to send tailored error messages. Harry Osborne from Data School has done a great job explaining this - <a href="https://www.thedataschool.co.uk/harry-osborne/message-test-tools/">https://www.thedataschool.co.uk/harry-osborne/message-test-tools/</a>
+<ol start="2">
+ 	<li><strong>Identify and Remove Bottlenecks from your Workflow</strong></li>
+</ol>
+Remove all the browse tools before publishing your workflow on the server besides any other tools that are not required. Enable performance profiling to identify and resolve bottlenecks that might be slowing down your workflow.
+
+<img class="alignnone size-full wp-image-7886" src="../uploads/2024/04/error.png" alt="" width="903" height="385" />
+
+<strong>3. Configure Alerts on Workflow Failure</strong>
+
+Errors in the workflow hosted on the server can disrupt operations without immediate detection. To mitigate such risks, leverage events in Alteryx to trigger alerts that proactively notify you every time a workflow fails on server. You can find out the detailed process up setting up alerts on my <strong><a href="https://www.medhakhurana.com/optimize-your-alteryx-experience-harnessing-the-power-of-workflow-templates-2/">website</a>.</strong>
+
+<img class="alignnone size-full wp-image-7888" src="../uploads/2024/04/Error6.png" alt="" width="513" height="748" />
+
+Simple measures like these enable swift action to prevent/resolve issues on workflows that are built for automation before they escalate. By investing a bit of time upfront, you can prevent costly oversights and maintain the reliability of your workflows.
+
+CJ Round-Up:
+
+A blog packed full of tips to help you elevate your Alteryx game. I particularly love the tips around making sure the solutions are robust and conform to a minimum level of standard in way of creating a workflow. Any time we can save letting the workflows run and not have to mitigate bugs and errors is time well saved.
+
+Please join me in following <a href="https://www.medhakhurana.com/"><strong>Medha's journey</strong></a>, she put it so poetically the impact community can make. "I've long drawn inspiration from remarkable members of the data community ... who have built a brand of their own by sharing what they are passionate about with others. I wanted to do that too - to cultivate my own brand, be a source of inspiration and help others along the way."
+
+Lovely sentiment to close out this week. Take care.
+
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even More Shot Maps (Python) - CJ Mayes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,::after,::before{
+            box-sizing: border-box;
+        }
+        body,html{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #212529;
+            word-wrap: break-word;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #212529;
+        }
+        header h1 a {
+            color: #212529;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            opacity: 0.8;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        nav a {
+            color: #212529;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: opacity 0.2s;
+        }
+        nav a:hover {
+            opacity: 0.7;
+        }
+        main {
+            margin-bottom: 60px;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #212529;
+            line-height: 1.2;
+        }
+        article h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #212529;
+            line-height: 1.3;
+        }
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+        article p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        article img, article figure {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        article figure {
+            margin: 32px 0;
+        }
+        article figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        article a {
+            color: #212529;
+            text-decoration: underline;
+            text-decoration-color: #6c757d;
+            text-underline-offset: 3px;
+        }
+        article a:hover {
+            text-decoration-color: #212529;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+        .post-list a {
+            color: #212529;
+            text-decoration: none;
+        }
+        .post-list a:hover {
+            text-decoration: underline;
+            text-decoration-color: #212529;
+        }
+        .post-list p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            article h1 {
+                font-size: 28px;
+            }
+            article h2 {
+                font-size: 24px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="blog.html">CJ Mayes</a></h1>
+                <p>London, United Kingdom</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="blog.html">Blog</a>
+        </nav>
+        
+        <main>
+            <article>
+                <h1>Even More Shot Maps (Python)</h1>Hi all,
+
+I thought it had been a while since I've done a thought piece.
+
+I have been a huge fan of some of the content that has been released this year within the wider football community in terms of visuals, so wanted to do a piece on design tips and tricks I've seen that works well.
+
+It also offers me the opportunity to say that I've updated some previous code that stopped working last year. I want to say thank you to Adam Silverman for lettting me know! My code is sloppy at the best of times.
+
+Within the new code, Main.py will create 2 datasets The first is the summary stats for the season 2022/23 of the Premier League.
+<p dir="auto">The second is shot data for every player that played in the premier league in 2022/23. (This shot data if running the code will export every shot for that player regardless of season and league if on understat) The file i've uploaded with _ EPL is a clean version of that dataset that only looks at Premier League 2022/23</p>
+<p dir="auto">Of course, you could add a line of code in to filter back to the required season and matches, but nicer for those that don't want to amend code to have everything.</p>
+<p dir="auto"><img src="../uploads/2023/06/carbon-15.png" class="alignnone size-full wp-image-6403" alt="" width="1692" height="1640"></p>
+<p dir="auto">Okay so that's the code, ping me if you have any troubles.</p>
+<p dir="auto">For those that do use the dataset, make sure to cross reference it to the understat website, for example if youre doing match data you may need to flip / reflect some of the points if you want them split by team etc. But if youre just using a half pitch should be fine.</p>
+<p dir="auto">Let's dive into some inspiration that you may want to look at when using the dataset.</p>
+<p dir="auto">Where better to start than work from the Analyst?</p>
+<p dir="auto">The below image of Diogo Jota comes from the site <strong><a href="https://theanalyst.com/eu/2022/02/expected-goals-is-your-strikers-scoring-streak-legit/">here</a></strong>.</p>
+<p dir="auto"><img src="../uploads/2023/06/jota-2019-20-xg-map-1024x768-1.jpeg" class="alignnone size-full wp-image-6406" alt="" width="1024" height="768"></p>
+<p dir="auto">Some reasons I like this shot map.</p>
+
+<ul>
+ 	<li dir="auto">The pitch is lighter in colour, just a gentle grey colour, helps push the pitch framework to the background not being over powering whilst allowing the shots to take main focus.</li>
+ 	<li dir="auto">Context: The visual is all about how Jota took shots worth 11.5 expected goals. With seven actual goals, he underperformed his xG total by 4.5 goals. What better way than to highlight that using a red for goals. (understandably also the analyst brand logo colours)</li>
+ 	<li dir="auto">Rather than have a separate legend and stats values they've integrated the two. Instantly I know shots are circles, and the shots that went in are the red. We don't have to now state this twice on the page.#</li>
+</ul><img src="../uploads/2023/06/1_iA05G3tCKeuKT4C6Kb5urA.png" class="alignnone size-full wp-image-6419" alt="" width="990" height="1024">
+
+Depending on positioning, you may want to frame your visual a little different. See how the Analyst here have used some of the white space to add in those key metrics where Jesus isn't shooting from range. An alternative consideration I see a lot would be to have the metrics horizontal instead.
+
+Next visual is by The Athletic.
+
+<img src="../uploads/2023/06/erling_haaland_2022-23_all_shots.png" class="alignnone size-full wp-image-6409" alt="" width="2357" height="2500">
+
+For this one you can see the full article <strong><a href="https://theathletic.com/4510071/2023/05/12/premier-league-xg-scoring/">here.</a></strong>
+
+For this they reverse the colours, with the dark background and white bordered pitch frame again suitable for the athletics branding colours.
+
+For me this piece really drives two main takeaways.
+
+Haaland is a machine, scoring way more than his expected average at the time of 0.19 with 35 goals, well above the 26 expected.
+
+But secondly, I love the average distance metric. I haven't really seen that on charts before and it does re-iterate danger zones or where Haalands presence is felt most.
+
+<img src="../uploads/2023/06/harry_kane_2021-22_all_shots.png" class="alignnone size-full wp-image-6412" alt="" width="1800" height="2250">
+
+Another one from The Athletic but this time they use the colour red to emphasis the reverse of previous. You can read the article<strong><a href="https://theathletic.com/2854370/2021/09/29/fewer-shots-lower-xg-fewer-touches-in-central-areas-whats-up-with-harry-kane/"> here.</a></strong>
+
+Sometimes the story isn't what the data is but it's the story about what it isn't. It really reminds me of this story about The Dog That Didn't Bark.
+<blockquote>Gregory (Scotland Yard&nbsp;detective): “Is there any other point to which you would wish to draw my attention?”
+
+Holmes: “To the curious incident of the dog in the night-time.”
+
+Gregory: “The dog did nothing in the night-time.”
+
+Holmes: “That was the curious incident.”
+
+</blockquote>The fact that the dog did not bark when you would expect it to do so while a horse was stolen led Homes to the conclusion that the evildoer was a not a stranger to the dog, but someone the dog recognized and thus would not cause him to bark.
+
+<img src="../uploads/2023/06/FxJTTibWwAA-sb1.jpg" class="alignnone size-full wp-image-6416" alt="" width="4096" height="2458">
+
+This next piece is from Opta Analyst on <strong><a href="https://twitter.com/OptaAnalyst/status/1662482935889444864/photo/1">Twitter.&nbsp;</a></strong>
+
+A 2-2 tie between Dortmund and Mainz despite having 19 more shots and an expected goals of 4.
+
+Many of the compliments from the previous three shot maps also are seen in this one.
+
+The main reason I wanted to include this is for an example of framing. Opta do well to add in details of the game where there would be otherwise 'lost space'. See where the kick off circle is, they utilise this empty space where no one is shooting from the allow for some key stats. They also divide the pitch in two using the club logos, so you know which side refers to which team, without having to explicitly write it with more ink on the page.
+
+<img src="../uploads/2023/06/Capture-1.png" class="alignnone size-full wp-image-6421" alt="" width="1239" height="586">
+
+For this one from Statsbomb, lets ignore the shot map for the time being but look at the overall design. I particularly like the framing to this visual. The banner headers are really effective in showing team. The score and xG are larger than the remaining details of fixture, date and competition in order to allow the user to see the main impact of the game before getting some of the additional context.
+
+<img src="../uploads/2023/06/Capturea.png" class="alignnone size-full wp-image-6423" alt="" width="658" height="659">
+
+And to end the shot maps this final piece by Stratabet, Zorba. I think a challenge many of us face is how much information to put on the page or not. I include this one because I think it is the most easily replicable within Tableau of all the ones above (yay!). Stratabet do well to have various layered headings.
+
+Interestingly enough this visual will take a little longer to understand (which isn't always a bad thing) and thats because of the use of pre-attentitive attributes. We have multiple things going on, with the use of size, shape and colour at the same time. It's a good reminder of thinking how these can work in unison for our story! You can read the full article <strong><a href="https://taketheshot.co/tag/shot-map/">here.</a></strong>
+
+Going Further
+
+Now there is alot of talent in the wider community but here are a few visuals that take it to the next step beyond just shot points so why not try:
+
+Shot Clarity charts (Analyst)
+
+<img src="../uploads/2023/06/shot-clarity-viz-the-analyst-990x1024-1.jpeg" class="alignnone size-full wp-image-6426" alt="" width="990" height="1024">
+
+Small Multiples (Modern Fitba)
+
+<img src="../uploads/2023/06/FbRHOuZXoAA872b.png" class="alignnone size-full wp-image-6432" alt="" width="1200" height="960">
+
+Shooting Area charts (Son of a Corner)
+
+<img src="../uploads/2023/06/08292022_jupiler_shots_tr.png" class="alignnone size-full wp-image-6427" alt="" width="1000" height="1293">
+
+Hex shot maps Son of a Corner
+
+<img src="../uploads/2023/06/10172022_ligamx_shots_tr-1-1.png" class="alignnone size-full wp-image-6428" alt="" width="1000" height="659">
+
+Goal Locations - The Atheltic
+
+<img src="../uploads/2023/06/xg_shots_post_annotate.jpg" class="alignnone size-full wp-image-6430" alt="" width="2181" height="2250">
+
+That's it for this week. Hopefully a few nice design ideas showcased within this weeks blog. Back to tutorials in weeks to come.
+
+<strong>LOGGING OFF,</strong>
+
+<strong>CJ</strong>
+            </article>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CJ Mayes. All rights reserved.</p>
+    </footer>
+</body>
+</html>
