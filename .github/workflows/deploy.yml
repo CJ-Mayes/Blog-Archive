@@ -26,32 +26,36 @@ jobs:
         uses: actions/checkout@v4
       
       - name: Setup Pages
+        id: setup
         uses: actions/configure-pages@v4
+        continue-on-error: true
+      
+      - name: Check Pages Status
+        if: steps.setup.outcome == 'failure'
+        run: |
+          echo "::error::=========================================="
+          echo "::error::GitHub Pages is NOT enabled!"
+          echo "::error::=========================================="
+          echo ""
+          echo "The workflow cannot deploy because GitHub Pages is not enabled."
+          echo ""
+          echo "To enable GitHub Pages:"
+          echo "1. Go to: https://github.com/CJ-Mayes/Blog-Archive/settings/pages"
+          echo "2. Under 'Build and deployment' → 'Source'"
+          echo "3. Select 'GitHub Actions' (NOT 'Deploy from a branch')"
+          echo "4. Click 'Save'"
+          echo ""
+          echo "After enabling, push any change or re-run this workflow."
+          echo "::error::=========================================="
+          exit 1
       
       - name: Upload artifact
+        if: steps.setup.outcome == 'success'
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
       
       - name: Deploy to GitHub Pages
+        if: steps.setup.outcome == 'success'
         id: deployment
         uses: actions/deploy-pages@v4
-        continue-on-error: true
-      
-      - name: Deployment Status
-        if: steps.deployment.outcome == 'failure'
-        run: |
-          echo "::error::=========================================="
-          echo "::error::GitHub Pages is not enabled!"
-          echo "::error::=========================================="
-          echo "::error::"
-          echo "::error::To fix this, please enable GitHub Pages manually:"
-          echo "::error::"
-          echo "::error::1. Go to: https://github.com/CJ-Mayes/Blog-Archive/settings/pages"
-          echo "::error::2. Under 'Build and deployment' → 'Source'"
-          echo "::error::3. Select 'GitHub Actions' (NOT 'Deploy from a branch')"
-          echo "::error::4. Click 'Save'"
-          echo "::error::"
-          echo "::error::Once enabled, push any change to trigger deployment again."
-          echo "::error::=========================================="
-          exit 1
